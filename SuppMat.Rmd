@@ -221,7 +221,7 @@ for(loc in 1:numloc){
     for(i in 1:nsp){
       for(j in 1:nsp){
         
-        ms<-vivj_matrix(d_allsp = data_ff_with_temp,loc=loc,
+        ms<-vivj_matrix(d_allsp = data_ff_with_temp,loc=ff_selected_loc[loc],
                         i=i,j=j,level=0.05,ploton=T,tagon=F)
       }
     }
@@ -243,6 +243,7 @@ if(!dir.exists(resloc)){
   dir.create(resloc)
 }
 
+numloc<-length(ff_selected_loc)
 stat_ff_ln_all<-vector("list",numloc)
 names(stat_ff_ln_all)<-paste("loc",ff_selected_loc,sep="")
 
@@ -258,7 +259,7 @@ for(loc in c(1:numloc)){
   resloc2<-paste(resloc,names(stat_ff_ln_all)[loc],"/",sep="")
   
   stat_ff<-multcall(d_allsp=data_ff_with_temp,
-                          loc=loc,
+                          loc=ff_selected_loc[loc],
                           pfname=paste(resloc2,"ff",sep=''),
                           good_sp=good_sp,
                           nbin=2,npa_stats = "cor")
@@ -281,6 +282,124 @@ npa_diff_ff_ln_all<-NonParamStat_matrixplot(data_ln_all = stat_ff_ln_all,
                         resloc=resloc,
                         nvar=1,nvar_names=c("Temp."),tagon=T,npa_stats="cor")
 saveRDS(npa_diff_ff_ln_all,paste(resloc,file="npa_diff_ff_ln_all.RDS",sep=''))
+```
+
+```{r some_plots_aphid_ff,echo=F,results="hide"}
+
+#-------------- First generate a map for aphids ff with Corl-Coru stats summary for 20X20 sp-sp interaction matrix ------------
+
+summary_LU_ff_sp_only<-npa_diff_ff_ln_all$summary_LU_CorlmCoru
+
+# on map
+pdf("./Results/aphid_results/Corstat_LmU_values_on_map_sp_only.pdf",height=9,width=9)
+op<-par(mar=c(1,8,1,3), mgp=c(1.5,1,0))
+
+library(maps)
+longs<-c(-4.567,0.57,-3.069,-3.312,-2.637,-1.682,-2.763,-0.356,-3.454,0.427,0.939)
+lats<-c(55.477,52.26,56.457,55.949,52.125,55.213,53.854,51.807,50.628,51.733,51.185)
+
+locno<-length(longs)
+df_loc_info<-data.frame(loc_no=c(1:length(lats)),longs=longs,lats=lats)
+xlim=c(-10,2)
+ylim=c(49, 60)
+
+map("world", fill=T, col="grey84", bg="white",border=0, xlim=xlim, ylim=ylim)
+map.axes(cex.axis=2.5)
+
+frcval_L<-summary_LU_ff_sp_only[1,]/(summary_LU_ff_sp_only[1,]+abs(summary_LU_ff_sp_only[2,]))
+frcval_U<-abs(summary_LU_ff_sp_only[2,])/(summary_LU_ff_sp_only[1,]+abs(summary_LU_ff_sp_only[2,]))
+frcval_L[is.na(frcval_L)]<-0
+frcval_U[is.na(frcval_U)]<-0
+
+points(x = df_loc_info$longs+0.4, y = df_loc_info$lats-0.1, col=rgb(1,0,0,frcval_L),pch=25,bg=rgb(1,0,0,frcval_L),cex=1.5)
+points(x = df_loc_info$longs+0.4, y = df_loc_info$lats+0.1, col=rgb(0,0,1,frcval_U),pch=24,bg=rgb(0,0,1,frcval_U),cex=1.5)
+
+moreL<-which(frcval_L>frcval_U)
+moreU<-which(frcval_L<frcval_U)
+
+text(df_loc_info$loc_no[moreU], x = df_loc_info$longs[moreU], y = df_loc_info$lats[moreU], 
+     col="blue",cex=1.5)
+
+text(df_loc_info$loc_no[moreL], x = df_loc_info$longs[moreL], y = df_loc_info$lats[moreL], 
+     col="red",cex=1.5)
+
+
+legend("topright", legend=c(expression(f[L]),0.2,0.4,0.6,0.8,1),cex=2,
+       col=c(rgb(0,0,0,0),rgb(1,0,0,0.2),rgb(1,0,0,0.4),rgb(1,0,0,0.6),rgb(1,0,0,0.8),rgb(1,0,0,1)),
+       pch=25,pt.bg=c(rgb(0,0,0,0),rgb(1,0,0,0.2),rgb(1,0,0,0.4),rgb(1,0,0,0.6),rgb(1,0,0,0.8),rgb(1,0,0,1)),
+       pt.cex=2,horiz=F,bty="o")
+legend("topleft", legend=c(expression(f[U]),0.2,0.4,0.6,0.8,1), cex=2,
+       col=c(rgb(0,0,0,0),rgb(0,0,1,0.2),rgb(0,0,1,0.4),rgb(0,0,1,0.6),rgb(0,0,1,0.8),rgb(0,0,1,1)),
+       pch=24,pt.bg=c(rgb(0,0,0,0),rgb(0,0,1,0.2),rgb(0,0,1,0.4),rgb(0,0,1,0.6),rgb(0,0,1,0.8),rgb(0,0,1,1)),
+       pt.cex=2,horiz=F,bty="o")
+mtext("Tail-dep for sp-sp 20x20 matrix",cex=1.5)
+
+par(op)
+dev.off()
+
+#-------------- Now generate a scatter plot for aphids ff with Corl-Coru stats summary from 
+#                total values of 20X20 sp-sp CorlmCoru matrix and total values from 20 sp-temp values------------
+
+xx<-c() # to store values of total taildep. 20 sp-nvar corl-coru contribution from each location
+yy<-c() # to store values of total taildep. 20X20 sp-sp corl-coru contribution from each location
+
+x<-npa_diff_ff_ln_all$CorlmCoru_all_ln_list
+for(loc in c(1:length(x))){
+  temp<-x[[loc]]
+  xx<-c(xx,sum(temp[1:20,21],na.rm=T))
+  yy<-c(yy,sum(temp[1:20,1:20],na.rm=T))
+}
+
+pdf("./Results/aphid_results/Corstat_scatter_LmU_values.pdf",height=8,width=8)
+op<-par(mar=c(5.1, 5.1, 4.1, 2.1), mgp=c(3, 1, 0))
+plot(xx,yy,xlab="(L+U) for sp-temp.",ylab="(L+U) for sp-sp matrix",col=rgb(0,1,0,0.4),pch=19,cex=2,cex.lab=2,cex.axis=2)
+text(xx,yy,ff_selected_loc,pos=1,col="black",cex=1.2)
+lines(c(-100,100),c(0,0),type='l',lty='dashed',col="grey")
+lines(c(0,0),c(-100,100),type='l',lty='dashed',col="grey")
+dat<-data.frame(x=xx,y=yy)
+mylm<-lm(y~x,data=dat)
+abline(mylm,col="green4")
+c<-cor.test(dat$x,dat$y,method = "pearson",alternative = "t")
+mtext(paste0("Pearson correlation = ",round(unname(c$estimate),3),", p = ",round(c$p.value,4),sep=""),cex=2,line=1)
+dev.off()
+
+#----- Now generate another version of above approach to get multipanel plots for each location --------------------
+LTmUTdep_matlist_ff<-npa_diff_ff_ln_all$CorlmCoru_all_ln_list
+pdf("./Results/aphid_results/Corstat_LmU_avg_sp_temp_multipanel_plot.pdf",height = 35,width = 45)
+op<-par(mfrow=c(4,3),mar=c(15,10,10,5.5), mgp=c(3,4,0))
+
+for(loc in 1:length(LTmUTdep_matlist_ff)){
+  st<-LTmUTdep_matlist_ff[[loc]]
+  s<-st[1:20,1:20]
+  avg_s<-apply(X=s,MARGIN = 1,FUN = mean,na.rm=T)
+  s_temp<-st[1:20,21]
+  ylim<-range(avg_s,s_temp,na.rm = T)
+  ylim[2]<-ylim[2]+0.1
+  t<-cbind(avg_s,s_temp)
+  t<-na.omit(t)
+  ct<-cor.test(t[,1],t[,2],alternative = "greater",method = "kendall",conf.level = 0.95)
+  pval<-ct$p.value
+  tau<-unname(ct$estimate)
+  nt<-nrow(t)
+  t<-t[,1]/t[,2]
+  t<-sum(t>0,na.rm=T)
+  plot(c(1:20),avg_s,type="b",col="red",xlab="",cex=4,pch=16,ylim = ylim,ylab="",cex.axis=7,xaxt="n")
+  axis(side = 1, at = seq(from=1,to=20,by=1), cex.axis=8)
+  mtext("species", side=1, line=11, col="black", cex=7)
+  #mtext(paste("loc=",loc,", s.sign=",t," out of",nt,", tau=",round(tau,2),", p=",round(pval,3)),cex=3.5)
+  mtext(paste("K =",round(tau,2),", p=",round(pval,3)),cex=6,side=3, line=1.5)
+  mtext(paste("Loc =",loc,sep=""),cex=7,side=3,line=-7,adj=0.05)
+  points(c(1:20),s_temp,type="b",col="blue",cex=4,pch=16)
+  lines(c(1,20),c(0,0),type='l',lty='dashed')
+  #legend("topleft", legend=c("avg_sp", "sp-temp"),
+  #       col=c("red", "blue"), pch=c(16,16),cex=3.5,horiz=T,bty="n")
+}
+op<-par(fig = c(0, 1, 0, 1), oma = c(0, 0, 0, 0), mar = c(0, 1, 0, 0), new = TRUE)
+plot(0, 0, type = "n", bty = "n", xaxt = "n", yaxt = "n")
+legend("bottomright", c("row-wise average of \nsp-sp interaction matrix \n(lower - upper tail dep.)\n", "sp-temperature \ninteraction cell \n(lower - upper tail dep.)"), col = c("red","blue"),bty="n",
+       cex = 8, pch = c(16, 16), lty=c(1,1), xpd = TRUE, horiz = F, inset = c(0.06,0.05)) 
+par(op)
+dev.off()
 ```
 
 ```{r read_plankton_data,echo=F,results="hide"}
