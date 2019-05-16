@@ -18,7 +18,7 @@
 # and an optional plot of the copula
 
 library(VineCopula)
-vivj_matrix<-function(d_allsp,loc,i,j,level=0.05,ploton,timeavg,tagon){
+vivj_matrix<-function(d_allsp,loc,i,j,level=0.05,ploton,tagon){
   
     ds1<-d_allsp[[loc]][[i]]
     ds2<-d_allsp[[loc]][[j]]

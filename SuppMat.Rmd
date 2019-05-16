@@ -460,7 +460,7 @@ op<-par(mfrow=c(nsp,nsp),mar=c(4,4,4,4), mgp=c(2.5,0.5,0))
     for(i in 1:nsp){
       for(j in 1:nsp){
         
-        ms<-vivj_matrix(d_allsp = data_plankton,loc=loc,i=i,j=j,ploton=T,tagon=F)
+        ms<-vivj_matrix(d_allsp = data_plankton,loc=loc,i=i,j=j,level=0.05,ploton=T,tagon=F)
         
       }
     }
@@ -475,7 +475,7 @@ set.seed(seed)
 # This function to screen locations
 call_summary_each_loc_plankton<-function(rawdata,ploton){
   
-  summary_each_loc<-data.frame(sp=c(1:10),n=NA,nT=NA,nrep0=NA,avg.Abun.=NA)
+  summary_each_loc<-data.frame(sp=c(1:5),n=NA,nT=NA,nrep0=NA,avg.Abun.=NA)
 
   for(sp in c(1:5)){
     temp0<-rawdata[[sp]]
@@ -577,9 +577,8 @@ text(df_loc_info_org$loc_no, x = df_loc_info_org$longs+1, y = df_loc_info_org$la
 dev.off()
 ```
 
-```{r plankton_npa, echo=F, cache=T, cache.extra=list(seed,data_plankton,mtime("good_splist.R"),mtime("NonParamStat.R"),mtime("vivj_matrix.R"),mtime("CopulaFunctions.R"), mtime("CopulaFunctions_flexible.R"))}
+```{r plankton_npa, echo=F, cache=T, cache.extra=list(seed,data_plankton,mtime("NonParamStat.R"),mtime("vivj_matrix.R"),mtime("CopulaFunctions.R"), mtime("CopulaFunctions_flexible.R"))}
 
-source("good_splist.R")
 source("NonParamStat.R")
 
 set.seed(seed) 
@@ -605,15 +604,16 @@ for(loc in c(1:numloc)){
   
   good_sp <- splist_updated[[loc]]
   good_sp<-c(good_sp,6:length(data_plankton[[good_loc[loc]]])) # to include temp. 
-                                                               # or other factors as extra species
+                                                            # or other factors as extra species
   #cat(paste("start-time: ",Sys.time(),"\n"))
+  #cat("good_loc = ",good_loc[loc],"-------good_sp = ",good_sp) 
   resloc2<-paste(resloc,names(stat_plankton_ln_all)[loc],"/",sep="")
   
   stat_plankton<-multcall(d_allsp=data_plankton,
                           loc=good_loc[loc],
                           pfname=paste(resloc2,"plankton",sep=''),
                           good_sp=good_sp,
-                          nbin=2,npa_stats = "cor")
+                          nbin=3,npa_stats = "cor")
   
   stat_plankton_ln_all[[loc]]<-stat_plankton
   
@@ -632,6 +632,110 @@ npa_diff_plankton_ln_all<-NonParamStat_matrixplot(data_ln_all = stat_plankton_ln
                         nvar=2,nvar_names=c("CALFIN","Temp."),tagon=T,npa_stats = "cor")
 saveRDS(npa_diff_plankton_ln_all,paste(resloc,file="npa_diff_plankton_ln_all.RDS",sep=''))
 ```
+
+```{r some_plots_plankton,echo=F,results="hide"}
+
+#-------------- First generate a map for planktons with Corl-Coru stats summary for sp-sp interaction matrix ------------
+
+summary_LU_plankton_sp_only<-npa_diff_plankton_ln_all$summary_LU_CorlmCoru
+
+# on map
+pdf("./Results/plankton_results/npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf",height=7,width=8)
+op<-par(mar=c(1,8,1,3), mgp=c(1.5,1,0))
+#op<-par(mfrow=c(1,2),mar=c(1,3,1,3), mgp=c(1.5,1,0))
+
+library(maps)
+longs<-read.csv("./Data/Plankton_UK_Sea_data/boxcornerlongs201117.csv",header=F)
+lats<-read.csv("./Data/Plankton_UK_Sea_data/boxcornerlats201117.csv",header=F)
+longs<-longs[[1]]
+lats<-lats[[1]]
+
+locno<-length(longs)
+df_loc_info_org<-data.frame(loc_no=c(1:length(lats)),longs=longs,lats=lats)
+df_loc_info<-df_loc_info_org[good_loc_plankton,]
+xlim=c(-12,10)
+ylim=c(48, 60)
+
+map("world", fill=T, col="grey84", bg="white",border=0, xlim=xlim, ylim=ylim)
+abline(h=seq(from=ylim[1],to=ylim[2],by=2), v=seq(from=xlim[1],to=xlim[2],by=2), col="black", lty=2)
+
+#axis(side = 1, at = seq(from=xlim[1],to=xlim[2],by=2), cex.axis=2)
+map.axes(cex.axis=2.5)
+
+frcval_L<-summary_LU_plankton_sp_only[1,]/(summary_LU_plankton_sp_only[1,]+abs(summary_LU_plankton_sp_only[2,]))
+frcval_U<-abs(summary_LU_plankton_sp_only[2,])/(summary_LU_plankton_sp_only[1,]+abs(summary_LU_plankton_sp_only[2,]))
+
+moreL<-which(frcval_L>frcval_U)
+moreU<-which(frcval_L<frcval_U)
+id_indep<-which(!is.finite(frcval_L))
+
+frcval_L[is.na(frcval_L)]<-0
+frcval_U[is.na(frcval_U)]<-0
+
+points(x = df_loc_info$longs+1, y = df_loc_info$lats+1-0.4, col=rgb(1,0,0,frcval_L),pch=25,bg=rgb(1,0,0,frcval_L),cex=1.5)
+points(x = df_loc_info$longs+1, y = df_loc_info$lats+1+0.4, col=rgb(0,0,1,frcval_U),pch=24,bg=rgb(0,0,1,frcval_U),cex=1.5)
+
+text(df_loc_info$loc_no[moreU], x = df_loc_info$longs[moreU]+1, y = df_loc_info$lats[moreU]+1, 
+     col="blue",cex=1.5)
+
+text(df_loc_info$loc_no[moreL], x = df_loc_info$longs[moreL]+1, y = df_loc_info$lats[moreL]+1, 
+     col="red",cex=1.5)
+
+text(df_loc_info$loc_no[id_indep], x = df_loc_info$longs[id_indep]+1, y = df_loc_info$lats[id_indep]+1, 
+     col="black",cex=1.5)
+
+legend("bottomright", legend=c(expression(f[L]),0.2,0.4,0.6,0.8,1),
+       col=c(rgb(0,0,0,0),rgb(1,0,0,0.2),rgb(1,0,0,0.4),rgb(1,0,0,0.6),rgb(1,0,0,0.8),rgb(1,0,0,1)),
+       pch=25,
+       pt.bg=c(rgb(0,0,0,0),rgb(1,0,0,0.2),rgb(1,0,0,0.4),rgb(1,0,0,0.6),rgb(1,0,0,0.8),rgb(1,0,0,1)),
+       pt.cex=1.5,horiz=F,bty="o",bg="white",cex=2,y.intersp = 0.75,x.intersp = 0.6)
+
+legend("topleft", legend=c(expression(f[U]),0.2,0.4,0.6,0.8,1),
+       col=c(rgb(0,0,0,0),rgb(0,0,1,0.2),rgb(0,0,1,0.4),rgb(0,0,1,0.6),rgb(0,0,1,0.8),rgb(0,0,1,1)),
+       pch=24,
+       pt.bg=c(rgb(0,0,0,0),rgb(0,0,1,0.2),rgb(0,0,1,0.4),rgb(0,0,1,0.6),rgb(0,0,1,0.8),rgb(0,0,1,1)),
+       pt.cex=1.5,horiz=F,bty="o",bg="white",cex=2,y.intersp = 0.75,x.intersp = 0.6)
+
+mtext("Tail-dep for Ceratium sp-sp matrix",cex=2,line=1.05)
+
+par(op)
+dev.off()
+
+#-------------- Now generate a scatter plot for planktons with Corl-Coru stats summary from 
+#                total values of sp-sp CorlmCoru matrix and total values from sp-nvar, (nvar=CALFIN,Temp.) values------------
+nvar<-2 # CALFIN, Temp.
+xx<-c() # to store values of total taildep. 20 sp-nvar corl-coru contribution from each location
+yy<-c() # to store values of total taildep. 20X20 sp-sp corl-coru contribution from each location
+
+x<-npa_diff_plankton_ln_all$CorlmCoru_all_ln_list
+for(loc in c(1:length(x))){
+  tempo<-x[[loc]]
+  dl2<-ncol(tempo)-nvar
+  tempo_spmat<-tempo[1:dl2,1:dl2]
+  dl<-ncol(tempo)-nvar+1
+  tempo_spnvar<-tempo[c(1:dl2),c(dl:ncol(tempo))]
+  xx<-c(xx,sum(tempo_spnvar,na.rm=T))
+  yy<-c(yy,sum(tempo_spmat,na.rm=T))
+}
+xxyy<-as.data.frame(cbind(xx,yy))
+id_indep<-which(rowSums(xxyy)==0) # locations which were independent
+xxyy<-xxyy[-id_indep,]
+pdf("./Results/plankton_results/npa_stat_results/Corstat_scatter_LmU_values.pdf",height=8,width=8)
+op<-par(mar=c(5.1, 5.1, 4.1, 2.1), mgp=c(3, 1, 0))
+plot(xxyy$xx,xxyy$yy,xlab="(L+U) for sp-nvar matrix",ylab="(L+U) for sp-sp matrix",col=rgb(0,1,0,0.4),pch=19,cex=2,cex.lab=2,cex.axis=2)
+text(xxyy$xx,xxyy$yy,good_loc_plankton[-id_indep],pos=1,col="black",cex=1.2)
+lines(c(-100,100),c(0,0),type='l',lty='dashed',col="grey")
+lines(c(0,0),c(-100,100),type='l',lty='dashed',col="grey")
+dat<-data.frame(x=xxyy$xx,y=xxyy$yy)
+mylm<-lm(y~x,data=dat)
+abline(mylm,col="green4")
+c<-cor.test(dat$x,dat$y,method = "pearson",alternative = "t")
+mtext(paste0("Pearson correlation = ",round(unname(c$estimate),3),", p = ",round(c$p.value,4),sep=""),cex=2,line=1)
+dev.off()
+```
+
+
+
 
 <!--aphid results-->
 
