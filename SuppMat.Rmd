@@ -291,7 +291,7 @@ saveRDS(npa_diff_ff_ln_all,paste(resloc,file="npa_diff_ff_ln_all.RDS",sep=''))
 summary_LU_ff_sp_only<-npa_diff_ff_ln_all$summary_LU_CorlmCoru
 
 # on map
-pdf("./Results/aphid_results/Corstat_LmU_values_on_map_sp_only.pdf",height=9,width=9)
+pdf("./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf",height=9,width=9)
 op<-par(mar=c(1,8,1,3), mgp=c(1.5,1,0))
 
 library(maps)
@@ -350,7 +350,7 @@ for(loc in c(1:length(x))){
   yy<-c(yy,sum(temp[1:20,1:20],na.rm=T))
 }
 
-pdf("./Results/aphid_results/Corstat_scatter_LmU_values.pdf",height=8,width=8)
+pdf("./Results/aphid_results/ff_npa_stat_results/Corstat_scatter_LmU_values.pdf",height=8,width=8)
 op<-par(mar=c(5.1, 5.1, 4.1, 2.1), mgp=c(3, 1, 0))
 plot(xx,yy,xlab="(L+U) for sp-temp.",ylab="(L+U) for sp-sp matrix",col=rgb(0,1,0,0.4),pch=19,cex=2,cex.lab=2,cex.axis=2)
 text(xx,yy,ff_selected_loc,pos=1,col="black",cex=1.2)
@@ -365,7 +365,7 @@ dev.off()
 
 #----- Now generate another version of above approach to get multipanel plots for each location --------------------
 LTmUTdep_matlist_ff<-npa_diff_ff_ln_all$CorlmCoru_all_ln_list
-pdf("./Results/aphid_results/Corstat_LmU_avg_sp_temp_multipanel_plot.pdf",height = 35,width = 45)
+pdf("./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_avg_sp_temp_multipanel_plot.pdf",height = 35,width = 45)
 op<-par(mfrow=c(4,3),mar=c(15,10,10,5.5), mgp=c(3,4,0))
 
 for(loc in 1:length(LTmUTdep_matlist_ff)){
