@@ -58,6 +58,8 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
                posnI_ind=data_ln_all[[loc]]$posnI,
                posnN_ind=data_ln_all[[loc]]$posnN,
                colrange=c(-cr,cr))
+    segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+    segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
     dev.off()
   }
   
@@ -88,6 +90,8 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
                posnI_ind=data_ln_all[[loc]]$posnI,
                posnN_ind=data_ln_all[[loc]]$posnN,
                colrange=c(-cr,cr))
+    segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+    segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
     dev.off()
   }
   
@@ -121,6 +125,8 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
                  posnI_ind=data_ln_all[[loc]]$posnI,
                  posnN_ind=data_ln_all[[loc]]$posnN,
                  colrange=c(-cr,cr))
+      segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+      segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
       dev.off()
     }
     
@@ -151,6 +157,8 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
                  posnI_ind=data_ln_all[[loc]]$posnI,
                  posnN_ind=data_ln_all[[loc]]$posnN,
                  colrange=c(-cr,cr))
+      segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+      segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
       dev.off()
     }
     
@@ -193,6 +201,8 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
                  posnI_ind=data_ln_all[[loc]]$posnI,
                  posnN_ind=data_ln_all[[loc]]$posnN,
                  colrange=c(-cr,cr))
+      segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+      segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
       z[data_ln_all[[loc]]$posnN]<-NA
       dl2<-nrow(z)-nvar
       z1<-z[1:dl2,1:dl2] # only select sp-sp interaction matrix to calculate nL,nU,L,U
@@ -242,6 +252,8 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
                  posnI_ind=data_ln_all[[loc]]$posnI,
                  posnN_ind=data_ln_all[[loc]]$posnN,
                  colrange=c(-cr,cr))
+      segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+      segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
       dev.off()
     }
     
@@ -273,6 +285,8 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
                  posnI_ind=data_ln_all[[loc]]$posnI,
                  posnN_ind=data_ln_all[[loc]]$posnN,
                  colrange=c(-cr,cr))
+      segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+      segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
       dev.off()
     }
     
@@ -316,6 +330,8 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
                  posnI_ind=data_ln_all[[loc]]$posnI,
                  posnN_ind=data_ln_all[[loc]]$posnN,
                  colrange=c(-cr,cr))
+      segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+      segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
       z[data_ln_all[[loc]]$posnN]<-NA
       dl2<-nrow(z)-nvar
       z1<-z[1:dl2,1:dl2] # only select sp-sp interaction matrix to calculate nL,nU,L,U
@@ -366,6 +382,8 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
                  posnI_ind=data_ln_all[[loc]]$posnI,
                  posnN_ind=data_ln_all[[loc]]$posnN,
                  colrange=c(-cr,cr))
+      segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+      segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
       dev.off()
     }
     
@@ -396,6 +414,8 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
                  posnI_ind=data_ln_all[[loc]]$posnI,
                  posnN_ind=data_ln_all[[loc]]$posnN,
                  colrange=c(-cr,cr))
+      segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+      segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
       dev.off()
     }
     
@@ -437,6 +457,8 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
                  posnI_ind=data_ln_all[[loc]]$posnI,
                  posnN_ind=data_ln_all[[loc]]$posnN,
                  colrange=c(-cr,cr))
+      segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+      segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
       z[data_ln_all[[loc]]$posnN]<-NA
       dl2<-nrow(z)-nvar
       z1<-z[1:dl2,1:dl2] # only select sp-sp interaction matrix to calculate nL,nU,L,U
