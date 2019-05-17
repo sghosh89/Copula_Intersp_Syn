@@ -12,7 +12,7 @@ source("good_splist.R")
 #---Input---------
 # m : output from vivj_matrix.R
 # nbin : number of bins used to get npa stats
-# npa_stats : a character tag to choose any one of 3 npa stats
+# npa_stats : a character tag to choose any one of 3 npa stats (cor, P, D2)
 
 #------Output - A list with these elements-------------------------------
 # ranks :       A dataframe with 2 columns, one for 
@@ -206,7 +206,7 @@ multcall<-function(d_allsp,loc,pfname,good_sp,nbin,npa_stats){
         i<-good_sp[ii]
         j<-good_sp[jj]
         
-        ms<-vivj_matrix(d_allsp=d_allsp,loc=loc,i=i,j=j,level=0.05,ploton=F,timeavg=timeavg,tagon=F)
+        ms<-vivj_matrix(d_allsp=d_allsp,loc=loc,i=i,j=j,level=0.05,ploton=F,tagon=F)
         m<-ms$mat
         thisres<-copsync(m,nbin=nbin,npa_stats=npa_stats)
         
@@ -234,10 +234,24 @@ multcall<-function(d_allsp,loc,pfname,good_sp,nbin,npa_stats){
   posnI<-which(pval_BiCopIndep>=level, arr.ind = T) #indices of indep. pair
   posnN<-which(pval_BiCopIndep<level & tau_kend <0, arr.ind = T) #indices of significantly neg. correlated pair
   
-  return(list(spear=spear,kend=kend,
+  if(npa_stats=="cor"){
+    res<-list(spear=spear,kend=kend,
               Corl=Corl,Coru=Coru,
+              posnI=posnI,
+              posnN=posnN)
+  }else if(npa_stats=="P"){
+    res<-list(spear=spear,kend=kend,
               Pl=Pl,Pu=Pu,
+              posnI=posnI,
+              posnN=posnN)
+  }else if(npa_stats=="D2"){
+    res<-list(spear=spear,kend=kend,
               D2l=D2l,D2u=D2u,
               posnI=posnI,
-              posnN=posnN))
+              posnN=posnN)
+  }else{
+    stop("Error in multcall function from NonParamStat.R : specify npa_stats correctly")
+  }
+  
+  return(res)
 }

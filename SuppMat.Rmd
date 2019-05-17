@@ -244,11 +244,14 @@ if(!dir.exists(resloc)){
 }
 
 numloc<-length(ff_selected_loc)
-stat_ff_ln_all<-vector("list",numloc)
-names(stat_ff_ln_all)<-paste("loc",ff_selected_loc,sep="")
+cor_stat_ff_ln_all<-vector("list",numloc)
+names(cor_stat_ff_ln_all)<-paste("loc",ff_selected_loc,sep="")
+
+P_stat_ff_ln_all<-cor_stat_ff_ln_all
+D2_stat_ff_ln_all<-cor_stat_ff_ln_all
 
 for(loc in c(1:numloc)){
-  nm<-names(stat_ff_ln_all)[loc]
+  nm<-names(cor_stat_ff_ln_all)[loc]
   if (!dir.exists(paste(resloc,nm,sep=""))){
   dir.create(paste(resloc,nm,sep=""))
   }
@@ -256,39 +259,70 @@ for(loc in c(1:numloc)){
   good_sp <- good_splist(d_allsp=data_ff_with_temp,loc=ff_selected_loc[loc],data_pt_thrs=29)
   
   #cat(paste("start-time: ",Sys.time(),"\n"))
-  resloc2<-paste(resloc,names(stat_ff_ln_all)[loc],"/",sep="")
+  resloc2<-paste(resloc,names(cor_stat_ff_ln_all)[loc],"/",sep="")
   
-  stat_ff<-multcall(d_allsp=data_ff_with_temp,
+  #------------------------- cor npa stat ------------------------------
+  cor_stat_ff<-multcall(d_allsp=data_ff_with_temp,
                           loc=ff_selected_loc[loc],
                           pfname=paste(resloc2,"ff",sep=''),
                           good_sp=good_sp,
                           nbin=2,npa_stats = "cor")
+  cor_stat_ff_ln_all[[loc]]<-cor_stat_ff
   
-  stat_ff_ln_all[[loc]]<-stat_ff
+  #------------------------- P npa stat ------------------------------
+  P_stat_ff<-multcall(d_allsp=data_ff_with_temp,
+                          loc=ff_selected_loc[loc],
+                          pfname=paste(resloc2,"ff",sep=''),
+                          good_sp=good_sp,
+                          nbin=2,npa_stats = "P")
+  P_stat_ff_ln_all[[loc]]<-P_stat_ff
+  
+  #------------------------- D2 npa stat ------------------------------
+  D2_stat_ff<-multcall(d_allsp=data_ff_with_temp,
+                          loc=ff_selected_loc[loc],
+                          pfname=paste(resloc2,"ff",sep=''),
+                          good_sp=good_sp,
+                          nbin=2,npa_stats = "D2")
+  D2_stat_ff_ln_all[[loc]]<-D2_stat_ff
   
   #cat(paste("stop-time: ",Sys.time(),"\n"))
 }
 
-saveRDS(stat_ff_ln_all,paste(resloc,file="stat_ff_ln_all.RDS",sep=''))
+saveRDS(cor_stat_ff_ln_all,paste(resloc,file="cor_stat_ff_ln_all.RDS",sep=''))
+saveRDS(P_stat_ff_ln_all,paste(resloc,file="P_stat_ff_ln_all.RDS",sep=''))
+saveRDS(D2_stat_ff_ln_all,paste(resloc,file="D2_stat_ff_ln_all.RDS",sep=''))
 ```
 
-```{r plot_res_css_ff_npa, echo=F, results="hide",message=F,cache=T, cache.extra=list(seed,stat_ff_ln_all,mtime("NonParamStat_matrixplot.R"),mtime("mycorrplot.R"))}
+```{r plot_res_css_ff_npa, echo=F, results="hide",message=F,cache=T, cache.extra=list(seed,cor_stat_ff_ln_all,P_stat_ff_ln_all,D2_stat_ff_ln_all,mtime("NonParamStat_matrixplot.R"),mtime("mycorrplot.R"))}
 
 set.seed(seed)
 source("NonParamStat_matrixplot.R")
-
 resloc<-"./Results/aphid_results/ff_npa_stat_results/"
-npa_diff_ff_ln_all<-NonParamStat_matrixplot(data_ln_all = stat_ff_ln_all,
+
+#------------------------- cor npa stat ------------------------------
+cor_npa_diff_ff_ln_all<-NonParamStat_matrixplot(data_ln_all = cor_stat_ff_ln_all,
                         resloc=resloc,
                         nvar=1,nvar_names=c("Temp."),tagon=T,npa_stats="cor")
-saveRDS(npa_diff_ff_ln_all,paste(resloc,file="npa_diff_ff_ln_all.RDS",sep=''))
+saveRDS(cor_npa_diff_ff_ln_all,paste(resloc,file="cor_npa_diff_ff_ln_all.RDS",sep=''))
+
+#------------------------- P npa stat ------------------------------
+P_npa_diff_ff_ln_all<-NonParamStat_matrixplot(data_ln_all = P_stat_ff_ln_all,
+                        resloc=resloc,
+                        nvar=1,nvar_names=c("Temp."),tagon=T,npa_stats="P")
+saveRDS(P_npa_diff_ff_ln_all,paste(resloc,file="P_npa_diff_ff_ln_all.RDS",sep=''))
+
+#------------------------- D2 npa stat ------------------------------
+D2_npa_diff_ff_ln_all<-NonParamStat_matrixplot(data_ln_all = D2_stat_ff_ln_all,
+                        resloc=resloc,
+                        nvar=1,nvar_names=c("Temp."),tagon=T,npa_stats="D2")
+saveRDS(D2_npa_diff_ff_ln_all,paste(resloc,file="D2_npa_diff_ff_ln_all.RDS",sep=''))
 ```
 
 ```{r some_plots_aphid_ff,echo=F,results="hide"}
 
 #-------------- First generate a map for aphids ff with Corl-Coru stats summary for 20X20 sp-sp interaction matrix ------------
 
-summary_LU_ff_sp_only<-npa_diff_ff_ln_all$summary_LU_CorlmCoru
+summary_LU_ff_sp_only<-cor_npa_diff_ff_ln_all$summary_LU_CorlmCoru
 
 # on map
 pdf("./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf",height=9,width=9)
@@ -343,7 +377,7 @@ dev.off()
 xx<-c() # to store values of total taildep. 20 sp-nvar corl-coru contribution from each location
 yy<-c() # to store values of total taildep. 20X20 sp-sp corl-coru contribution from each location
 
-x<-npa_diff_ff_ln_all$CorlmCoru_all_ln_list
+x<-cor_npa_diff_ff_ln_all$CorlmCoru_all_ln_list
 for(loc in c(1:length(x))){
   temp<-x[[loc]]
   xx<-c(xx,sum(temp[1:20,21],na.rm=T))
@@ -364,7 +398,7 @@ mtext(paste0("Pearson correlation = ",round(unname(c$estimate),3),", p = ",round
 dev.off()
 
 #----- Now generate another version of above approach to get multipanel plots for each location --------------------
-LTmUTdep_matlist_ff<-npa_diff_ff_ln_all$CorlmCoru_all_ln_list
+LTmUTdep_matlist_ff<-cor_npa_diff_ff_ln_all$CorlmCoru_all_ln_list
 pdf("./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_avg_sp_temp_multipanel_plot.pdf",height = 35,width = 45)
 op<-par(mfrow=c(4,3),mar=c(15,10,10,5.5), mgp=c(3,4,0))
 
@@ -592,12 +626,15 @@ splist_updated<-readRDS("./Results/plankton_results/splist_updated.RDS")
 good_loc<-readRDS("./Results/plankton_results/good_loc_plankton.RDS")
 
 numloc<-length(good_loc)
+cor_stat_plankton_ln_all<-vector("list",numloc)
+names(cor_stat_plankton_ln_all)<-paste("loc",good_loc,sep="")
 
-stat_plankton_ln_all<-vector("list",numloc)
-names(stat_plankton_ln_all)<-paste("loc",good_loc,sep="")
+P_stat_plankton_ln_all<-cor_stat_plankton_ln_all
+D2_stat_plankton_ln_all<-cor_stat_plankton_ln_all
+
 
 for(loc in c(1:numloc)){
-  nm<-names(stat_plankton_ln_all)[loc]
+  nm<-names(cor_stat_plankton_ln_all)[loc]
   if (!dir.exists(paste(resloc,nm,sep=""))){
   dir.create(paste(resloc,nm,sep=""))
   }
@@ -607,37 +644,70 @@ for(loc in c(1:numloc)){
                                                             # or other factors as extra species
   #cat(paste("start-time: ",Sys.time(),"\n"))
   #cat("good_loc = ",good_loc[loc],"-------good_sp = ",good_sp) 
-  resloc2<-paste(resloc,names(stat_plankton_ln_all)[loc],"/",sep="")
+  resloc2<-paste(resloc,names(cor_stat_plankton_ln_all)[loc],"/",sep="")
   
-  stat_plankton<-multcall(d_allsp=data_plankton,
+  #----------------------- cor npa stat -----------------------------------
+  cor_stat_plankton<-multcall(d_allsp=data_plankton,
                           loc=good_loc[loc],
                           pfname=paste(resloc2,"plankton",sep=''),
                           good_sp=good_sp,
                           nbin=3,npa_stats = "cor")
+  cor_stat_plankton_ln_all[[loc]]<-cor_stat_plankton
   
-  stat_plankton_ln_all[[loc]]<-stat_plankton
+  #----------------------- P npa stat -----------------------------------
+  P_stat_plankton<-multcall(d_allsp=data_plankton,
+                          loc=good_loc[loc],
+                          pfname=paste(resloc2,"plankton",sep=''),
+                          good_sp=good_sp,
+                          nbin=3,npa_stats = "P")
+  P_stat_plankton_ln_all[[loc]]<-P_stat_plankton
+  
+  #----------------------- D2 npa stat -----------------------------------
+  D2_stat_plankton<-multcall(d_allsp=data_plankton,
+                          loc=good_loc[loc],
+                          pfname=paste(resloc2,"plankton",sep=''),
+                          good_sp=good_sp,
+                          nbin=3,npa_stats = "D2")
+  
+  D2_stat_plankton_ln_all[[loc]]<-D2_stat_plankton
   
   #cat(paste("stop-time: ",Sys.time(),"\n"))
 }
 
-saveRDS(stat_plankton_ln_all,paste(resloc,file="stat_plankton_ln_all.RDS",sep=''))
+saveRDS(cor_stat_plankton_ln_all,paste(resloc,file="cor_stat_plankton_ln_all.RDS",sep=''))
+saveRDS(P_stat_plankton_ln_all,paste(resloc,file="P_stat_plankton_ln_all.RDS",sep=''))
+saveRDS(D2_stat_plankton_ln_all,paste(resloc,file="D2_stat_plankton_ln_all.RDS",sep=''))
 ```
 
-```{r plot_res_plankton_npa, echo=F, results="hide",message=F,cache=T,warning=F, cache.extra=list(seed,stat_plankton_ln_all,mtime("NonParamStat_matrixplot.R"),mtime("mycorrplot.R"))}
+```{r plot_res_plankton_npa, echo=F, results="hide",message=F,cache=T,warning=F, cache.extra=list(seed,cor_stat_plankton_ln_all,P_stat_plankton_ln_all,D2_stat_plankton_ln_all,mtime("NonParamStat_matrixplot.R"),mtime("mycorrplot.R"))}
 set.seed(seed)
 source("NonParamStat_matrixplot.R")
 resloc<-"./Results/plankton_results/npa_stat_results/"
-npa_diff_plankton_ln_all<-NonParamStat_matrixplot(data_ln_all = stat_plankton_ln_all,
+
+#----------------------- cor npa stat ---------------------------------------------------------
+cor_npa_diff_plankton_ln_all<-NonParamStat_matrixplot(data_ln_all = cor_stat_plankton_ln_all,
                         resloc=resloc,
                         nvar=2,nvar_names=c("CALFIN","Temp."),tagon=T,npa_stats = "cor")
-saveRDS(npa_diff_plankton_ln_all,paste(resloc,file="npa_diff_plankton_ln_all.RDS",sep=''))
+saveRDS(cor_npa_diff_plankton_ln_all,paste(resloc,file="cor_npa_diff_plankton_ln_all.RDS",sep=''))
+
+#----------------------- P npa stat ---------------------------------------------------------
+P_npa_diff_plankton_ln_all<-NonParamStat_matrixplot(data_ln_all = P_stat_plankton_ln_all,
+                        resloc=resloc,
+                        nvar=2,nvar_names=c("CALFIN","Temp."),tagon=T,npa_stats = "P")
+saveRDS(P_npa_diff_plankton_ln_all,paste(resloc,file="P_npa_diff_plankton_ln_all.RDS",sep=''))
+
+#----------------------- D2 npa stat ---------------------------------------------------------
+D2_npa_diff_plankton_ln_all<-NonParamStat_matrixplot(data_ln_all = D2_stat_plankton_ln_all,
+                        resloc=resloc,
+                        nvar=2,nvar_names=c("CALFIN","Temp."),tagon=T,npa_stats = "D2")
+saveRDS(D2_npa_diff_plankton_ln_all,paste(resloc,file="D2_npa_diff_plankton_ln_all.RDS",sep=''))
 ```
 
 ```{r some_plots_plankton,echo=F,results="hide"}
 
 #-------------- First generate a map for planktons with Corl-Coru stats summary for sp-sp interaction matrix ------------
 
-summary_LU_plankton_sp_only<-npa_diff_plankton_ln_all$summary_LU_CorlmCoru
+summary_LU_plankton_sp_only<-cor_npa_diff_plankton_ln_all$summary_LU_CorlmCoru
 
 # on map
 pdf("./Results/plankton_results/npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf",height=7,width=8)
@@ -707,7 +777,7 @@ nvar<-2 # CALFIN, Temp.
 xx<-c() # to store values of total taildep. 20 sp-nvar corl-coru contribution from each location
 yy<-c() # to store values of total taildep. 20X20 sp-sp corl-coru contribution from each location
 
-x<-npa_diff_plankton_ln_all$CorlmCoru_all_ln_list
+x<-cor_npa_diff_plankton_ln_all$CorlmCoru_all_ln_list
 for(loc in c(1:length(x))){
   tempo<-x[[loc]]
   dl2<-ncol(tempo)-nvar

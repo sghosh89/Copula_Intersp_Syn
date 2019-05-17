@@ -220,6 +220,10 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       mtext(paste0("nL =",nL,", nU =",nU),cex=5,side=1,adj=0.7)
       dev.off()
     }
+    
+    res<-list(CorlmCoru_all_ln_list=CorlmCoru,
+         summary_nLU_CorlmCoru=summary_nLU_CorlmCoru,
+         summary_LU_CorlmCoru=summary_LU_CorlmCoru)
   }
  
   #=========================================== For P npa stats ==========================================
@@ -349,6 +353,10 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       mtext(paste0("nL =",nL,", nU =",nU),cex=5,side=1,adj=0.7)
       dev.off()
     }
+    
+    res<-list(PlmPu_all_ln_list=PlmPu,
+         summary_nLU_PlmPu=summary_nLU_PlmPu,
+         summary_LU_PlmPu=summary_LU_PlmPu)
   }
   
   #=========================================== For D2 npa stats ==========================================
@@ -476,16 +484,12 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       mtext(paste0("nL =",nL,", nU =",nU),cex=5,side=1,adj=0.7)
       dev.off()
     }
-  }
-  
-  return(list(CorlmCoru_all_ln_list=CorlmCoru,
-              PlmPu_all_ln_list=PlmPu,
-              D2umD2l_all_ln_list=D2umD2l,
-              summary_nLU_CorlmCoru=summary_nLU_CorlmCoru,
-              summary_nLU_PlmPu=summary_nLU_PlmPu,
+    
+    res<-list(D2umD2l_all_ln_list=D2umD2l,
               summary_nLU_D2umD2l=summary_nLU_D2umD2l,
-              summary_LU_CorlmCoru=summary_LU_CorlmCoru,
-              summary_LU_PlmPu=summary_LU_PlmPu,
-              summary_LU_D2umD2l=summary_LU_D2umD2l))
+              summary_LU_D2umD2l=summary_LU_D2umD2l)
+  }
+
+  return(res)
 }
 
