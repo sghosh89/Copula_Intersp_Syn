@@ -1,6 +1,6 @@
 ---
 title: "Supporting material : A new method to estimate interspecific synchrony and its causes in population ecology using ``copula'' approach"
-author: "Shyamolina Ghosh, Lawrence W. Sheppard, other authors, Daniel Reuman"
+author: "Shyamolina Ghosh, Lawrence W. Sheppard, Philip C. Reid, Daniel Reuman"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 geometry: "left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm"
 
@@ -45,396 +45,34 @@ library(tinytex)
 library(tibble)
 library(kableExtra)
 library(dplyr)
-aphid_info <- tibble(c0=c(1:20),
-                     c1=c("Apple grass aphid","Bird cherry oat aphid","Black bean aphid","Blackberry cereal aphid","Blackcurrant sowthistle aphid",
-                       "Corn leaf aphid","Currant lettuce aphid","Damson hop aphid","Grain aphid","Green spruce aphid",
-                       "Leaf-curling plum aphid","Mealy cabbage aphid","Mealy plum aphid","Pea aphid","Peach potato aphid",
-                       "Potato aphid","Rose grain aphid","Shallot aphid","Sycamore aphid","Willow carrot aphid"),
-                     c2=c("Rhopalosiphum insertum", "Rhopalosiphum padi", "Aphis fabae", "Sitobion fragariae", "Hyperomyzus lactucae",
-                       "Rhopalosiphum maidis", "Nasonovia ribisnigri","Phorodon humuli","Sitobion avenae","Elatobium abietinum",
-                       "Brachycaudus helichrysi","Brevicoryne brassicae","Hyalopterus pruni","Acyrthosiphon pisum","Myzus persicae",
-                       "Macrosiphum euphorbiae","Metopolophium dirhodum","Myzus ascalonicus","Drepanosiphum platanoidis","Cavariella aegopodii")
-)
-knitr::kable(aphid_info, "latex", booktabs = T, linesep = "",align="c",
-      caption = "Species names of 20 aphids for which data were available \\label{tab_aphid_info}",
+
+#aphid_info_org <- tibble(c0=c(1:20),
+#                     c1=c("Apple grass aphid","Bird cherry oat aphid","Black bean aphid","Blackberry cereal aphid",
+#                       "Blackcurrant sowthistle aphid",
+#                      "Corn leaf aphid","Currant lettuce aphid","Damson hop aphid","Grain aphid","Green spruce aphid",
+#                      "Leaf-curling plum aphid","Mealy cabbage aphid","Mealy plum aphid","Pea aphid","Peach potato aphid",
+#                      "Potato aphid","Rose grain aphid","Shallot aphid","Sycamore aphid","Willow carrot aphid"),
+#                    c2=c("Rhopalosiphum insertum", "Rhopalosiphum padi", "Aphis fabae", "Sitobion fragariae", "Hyperomyzus lactucae",
+#                      "Rhopalosiphum maidis", "Nasonovia ribisnigri","Phorodon humuli","Sitobion avenae","Elatobium abietinum",
+#                       "Brachycaudus helichrysi","Brevicoryne brassicae","Hyalopterus pruni","Acyrthosiphon pisum","Myzus persicae",
+#                       "Macrosiphum euphorbiae","Metopolophium dirhodum","Myzus ascalonicus","Drepanosiphum platanoidis","Cavariella #aegopodii")
+#)
+
+plankton_aphid_info <- tibble(c0=c(1:4,1:20),
+                     c2=c("Ceratium fusus","Ceratium furca","Ceratium tripos","Ceratium macroceros",
+                          "Rhopalosiphum insertum", "Rhopalosiphum padi", "Aphis fabae", "Sitobion fragariae",
+                          "Hyperomyzus lactucae", "Rhopalosiphum maidis", "Nasonovia ribisnigri","Phorodon humuli",
+                          "Sitobion avenae","Elatobium abietinum", "Brachycaudus helichrysi","Brevicoryne brassicae",
+                          "Hyalopterus pruni","Acyrthosiphon pisum","Myzus persicae", "Macrosiphum euphorbiae",
+                          "Metopolophium dirhodum","Myzus ascalonicus","Drepanosiphum platanoidis","Cavariella aegopodii"                                           ))
+knitr::kable(plankton_aphid_info, "latex", booktabs = T, linesep = "",align="c",
+      caption = "Species names of 4 planktons and 20 aphids for which data were used \\label{tab_plankton_aphid_info}",
       col.names = NULL)%>%
-     column_spec(column = 3,italic=T)%>%add_header_above(header=c("Species id" = 1,"Common name" = 1, "Latin binomial" = 1))
+      group_rows("Planktons", 1,4) %>%
+      group_rows("Aphids", 5,24) %>%
+      column_spec(column = 2,italic=T)%>%add_header_above(header=c("Species id" = 1, "Latin binomial" = 1))
 ```
 
-```{r tab_plankton_info, echo=F, results='asis',message=F}
-library(tibble)
-library(kableExtra)
-plankton_info <- tibble(c1=c(1:22),
-                        c2=c('Decapoda larvae','Echinoderm larvae',
-                        'Ceratium fusus','Ceratium furca','Ceratium tripos','Ceratium macroceros',
-                          'Centropages typicus','Oithona sp.', 'Acartia sp.',
-                          'Calanus finmarchicus',
-                          'Calanus stages I-IV','Para-Pseudocalanus spp.','Temora longicornis',
-                          'Calanus helgolandicus','Metridia lucens', 'Pseudocalanus sp.','Euphausiids',
-                     'Thalassiosira sp.','Rhizosolenia styliformis','Proboscia alata',
-                     'Pseudo-nitzschia delicatissima','Pseudo-nitzschia seriata')
-)
-
-cns<-c('Echinoderm larvae','Euphausiids','Decapoda larvae')
-'%ni%' <- Negate('%in%')
-idn<-which(plankton_info$c2%ni%cns)
-knitr::kable(plankton_info, "latex", booktabs = T, linesep = "",align="c",
-      caption = "Species names of 22 plankton taxa for which data were available \\label{tab_plankton_info}",
-      col.names = NULL)%>%
-      row_spec(c(3:6,10), bold = T, color = "blue")%>%row_spec(row=idn,italic=T)%>%add_header_above(c("species id"=1,"Plankton taxon name"=1))
-```
-
-```{r read_aphid_data, echo=F}
-source("aphid_css_datacall.R")
-firstflight<-as.matrix(read.csv("./Data/Aphid_data/APHID_DATA_RAW/aphidtsfirstflight141117.csv",header=F))
-data_ff<-aphid_css_datacall(d0=firstflight)
-
-# create res folder for aphids
-if(!dir.exists("./Results/aphid_results/")){
-  dir.create("./Results/aphid_results/")
-}
-```
-
-```{r winter_avg_temp,echo=F,results="hide"}
-# Time series analysis aphids
-temp_aphid_raw<-as.matrix(read.csv("./Data/Aphid_data/APHID_DATA_RAW/aphidmonthlytempdata.csv",header = F))
-
-temp_aphid<-vector("list",dim(temp_aphid_raw)[1])
-names(temp_aphid)<-paste("loc",c(1:dim(temp_aphid_raw)[1]),sep="")
-
-for(il in 1:length(temp_aphid)){
-  
-  s<-matrix(temp_aphid_raw[il,],36,12,byrow = T)
-  rownames(s)<-c(1975:2010)
-  colnames(s)<-c("jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec")
-  
-  temp_aphid[[il]]<-s
-}
-
-winter_avg_temp<-matrix(NA,11,35)
-rownames(winter_avg_temp)<-paste("loc",c(1:dim(temp_aphid_raw)[1]),sep="")
-colnames(winter_avg_temp)<-c(1976:2010)
-
-for(il in 1:length(temp_aphid)){
-  temploc<-temp_aphid[[il]]
-  for(i in 2:dim(temploc)[1]){
-    t<-c(temploc[i-1,12],temploc[i,1:3]) # previous yr dec to present year march averaging temp.
-    winter_avg_temp[il,i-1]<-mean(t,na.rm = T)
-  }
-}
-#------------------------------------------------------------------
-pdf("./Results/aphid_results/all_loc_winter_avg_temp_timeseries_multipanel_plot.pdf",height=20,width=20)
-op<-par(mfrow=c(4,3),mar=c(3,3,3,3), mgp=c(1.5,0.5,0))
-for(loc in 1:nrow(winter_avg_temp)){
-  y<-winter_avg_temp[loc,]
-  x<-c(1976:2010)
-  plot(x,y,type="b",xlab="Year",ylab="Avg. winter temp.",ylim=c(0,8),
-       panel.first = grid(lwd=2,col="red"))
-  mtext(paste0("loc =",loc),side = 3, line=0.15, adj=0.5, col="red")
-}
-par(op)
-dev.off()
-#----------------------
-pdf("./Results/aphid_results/all_loc_winter_avg_temp_timeseries_in_single_plot.pdf",height=10,width=10)
-plot(NA,xlim=c(1976,2010),ylim=c(1,8),xlab="Year",ylab="winter_avg_temp",panel.first = grid(lwd=2,col="grey"))
-cl<-rainbow(11)
-for(loc in 1:nrow(winter_avg_temp)){
-  y<-winter_avg_temp[loc,]
-  x<-c(1976:2010)
-  lines(x,y,col=cl[loc],type="l")
-  text(x,y,labels = loc,col=cl[loc])
-}
-par(op)
-dev.off()
-#-----------------------------------------------------------------------
-pdf("./Results/aphid_results/all_loc_winter_avg_temp_multipanel_hist.pdf",height=20,width=20)
-op<-par(mfrow=c(4,3),mar=c(3,3,3,3), mgp=c(1.5,0.5,0))
-for(loc in 1:nrow(winter_avg_temp)){
-  y<-winter_avg_temp[loc,]
-  hist(y,breaks = 50,main = paste0("loc =",loc),cex.main=2,xlim=c(0,8))
-}
-par(op)
-dev.off()
-```
-
-```{r aphid_data_with_winter_avg_temp,echo=F}
-
-data_ff_with_temp<-vector("list",length(data_ff)) #initializing
-names(data_ff_with_temp)<-names(data_ff)
-
-for(loc in 1:length(data_ff_with_temp)){
-  s<-data.frame(Year=c(1976:2010),Dat=winter_avg_temp[loc,])
-  s<-list(winter.avg.temp=s)
-  data_ff_with_temp[[loc]]<-append(data_ff[[loc]],s)
-}
-
-saveRDS(data_ff_with_temp,"./Results/aphid_results/data_aphid_ff_winter_avg_temp.RDS")
-```
-
-```{r map_plot_css_ff, echo=F, results="hide"}
-source("good_splist.R")
-library(maps)
-
-longs<-c(-4.567,0.57,-3.069,-3.312,-2.637,-1.682,-2.763,-0.356,-3.454,0.427,0.939)
-lats<-c(55.477,52.26,56.457,55.949,52.125,55.213,53.854,51.807,50.628,51.733,51.185)
-
-ff_selected_loc<-c()
-for(loc in c(1:11)){
-  temp<-good_splist(d_allsp=data_ff_with_temp,loc=loc,data_pt_thrs=29) # at least 29 datapts for each pairwise species taken
-  nsp<-length(data_ff_with_temp[[loc]])
-  if(length(temp)==nsp){ # considering that is true for all 20+1 species
-    ff_selected_loc<-c(ff_selected_loc,loc)
-  }
-}
-
-saveRDS(ff_selected_loc,"./Results/aphid_results/ff_selected_loc_data_pt_thrs_29.RDS")
-
-locno<-length(longs)
-df_loc_info_org<-data.frame(loc_no=c(1:length(lats)),longs=longs,lats=lats)
-df_loc_info<-df_loc_info_org[ff_selected_loc,]
-xlim=c(-10,2)
-ylim=c(50, 60)
-
-pdf("./Results/aphid_results/map_plot_css_ff_selected_loc.pdf",height=8,width=8)
-map("world", fill=TRUE, col="grey84", bg="white",border=0, xlim=xlim, ylim=ylim)
-#grid(col="black")
-map.axes(cex.axis=2.5)
-points(x = df_loc_info_org$longs, y = df_loc_info_org$lats, col="red",pch=16)
-points(x = df_loc_info$longs, y = df_loc_info$lats, col="blue", pch=0, cex=1.5)
-text(df_loc_info_org$loc_no, x = df_loc_info_org$longs, y = df_loc_info_org$lats, col="red",  pos=1)
-dev.off()
-```
-
-```{r save_plot_css_aphid_with_winter_avg_temp, echo=F, results="hide", cache=T, cache.extra=list(seed,ff_selected_loc,data_ff_with_temp,mtime("vivj_matrix.R"))}
-source("./vivj_matrix.R")
-set.seed(seed)
- 
-nsp<-length(data_ff_with_temp[[1]]) # at any location it should be 20+1(temp) sp.
-numloc<-length(ff_selected_loc)
-level<-0.05 # p value threshold to check independence
-
-pdf("./Results/aphid_results/copulaplot_ff_with_temp_all_loc.pdf",width=nsp*2, height=nsp*2)
-op<-par(mfrow=c(nsp,nsp),mar=c(4,4,4,4), mgp=c(3,0.5,0))
-  
-for(loc in 1:numloc){
-
-    for(i in 1:nsp){
-      for(j in 1:nsp){
-        
-        ms<-vivj_matrix(d_allsp = data_ff_with_temp,loc=ff_selected_loc[loc],
-                        i=i,j=j,level=0.05,ploton=T,tagon=F)
-      }
-    }
-}
-par(op)
-dev.off()
-```
-
-```{r ff_npa, echo=F, cache=T, cache.extra=list(seed,data_ff_with_temp,ff_selected_loc,mtime("good_splist.R"),mtime("NonParamStat.R"),mtime("vivj_matrix.R"),mtime("CopulaFunctions.R"), mtime("CopulaFunctions_flexible.R"))}
-
-source("good_splist.R")
-source("NonParamStat.R")
-
-set.seed(seed) 
-
-resloc<-"./Results/aphid_results/ff_npa_stat_results/"
-
-if(!dir.exists(resloc)){
-  dir.create(resloc)
-}
-
-numloc<-length(ff_selected_loc)
-cor_stat_ff_ln_all<-vector("list",numloc)
-names(cor_stat_ff_ln_all)<-paste("loc",ff_selected_loc,sep="")
-
-P_stat_ff_ln_all<-cor_stat_ff_ln_all
-D2_stat_ff_ln_all<-cor_stat_ff_ln_all
-
-for(loc in c(1:numloc)){
-  nm<-names(cor_stat_ff_ln_all)[loc]
-  if (!dir.exists(paste(resloc,nm,sep=""))){
-  dir.create(paste(resloc,nm,sep=""))
-  }
-  
-  good_sp <- good_splist(d_allsp=data_ff_with_temp,loc=ff_selected_loc[loc],data_pt_thrs=29)
-  
-  #cat(paste("start-time: ",Sys.time(),"\n"))
-  resloc2<-paste(resloc,names(cor_stat_ff_ln_all)[loc],"/",sep="")
-  
-  #------------------------- cor npa stat ------------------------------
-  cor_stat_ff<-multcall(d_allsp=data_ff_with_temp,
-                          loc=ff_selected_loc[loc],
-                          pfname=paste(resloc2,"ff",sep=''),
-                          good_sp=good_sp,
-                          nbin=2,npa_stats = "cor")
-  cor_stat_ff_ln_all[[loc]]<-cor_stat_ff
-  
-  #------------------------- P npa stat ------------------------------
-  P_stat_ff<-multcall(d_allsp=data_ff_with_temp,
-                          loc=ff_selected_loc[loc],
-                          pfname=paste(resloc2,"ff",sep=''),
-                          good_sp=good_sp,
-                          nbin=2,npa_stats = "P")
-  P_stat_ff_ln_all[[loc]]<-P_stat_ff
-  
-  #------------------------- D2 npa stat ------------------------------
-  D2_stat_ff<-multcall(d_allsp=data_ff_with_temp,
-                          loc=ff_selected_loc[loc],
-                          pfname=paste(resloc2,"ff",sep=''),
-                          good_sp=good_sp,
-                          nbin=2,npa_stats = "D2")
-  D2_stat_ff_ln_all[[loc]]<-D2_stat_ff
-  
-  #cat(paste("stop-time: ",Sys.time(),"\n"))
-}
-
-saveRDS(cor_stat_ff_ln_all,paste(resloc,file="cor_stat_ff_ln_all.RDS",sep=''))
-saveRDS(P_stat_ff_ln_all,paste(resloc,file="P_stat_ff_ln_all.RDS",sep=''))
-saveRDS(D2_stat_ff_ln_all,paste(resloc,file="D2_stat_ff_ln_all.RDS",sep=''))
-```
-
-```{r plot_res_css_ff_npa, echo=F, results="hide",message=F,cache=T, cache.extra=list(seed,cor_stat_ff_ln_all,P_stat_ff_ln_all,D2_stat_ff_ln_all,mtime("NonParamStat_matrixplot.R"),mtime("mycorrplot.R"))}
-
-set.seed(seed)
-source("NonParamStat_matrixplot.R")
-resloc<-"./Results/aphid_results/ff_npa_stat_results/"
-
-#------------------------- cor npa stat ------------------------------
-cor_npa_diff_ff_ln_all<-NonParamStat_matrixplot(data_ln_all = cor_stat_ff_ln_all,
-                        resloc=resloc,
-                        nvar=1,nvar_names=c("Temp."),tagon=T,npa_stats="cor")
-saveRDS(cor_npa_diff_ff_ln_all,paste(resloc,file="cor_npa_diff_ff_ln_all.RDS",sep=''))
-
-#------------------------- P npa stat ------------------------------
-P_npa_diff_ff_ln_all<-NonParamStat_matrixplot(data_ln_all = P_stat_ff_ln_all,
-                        resloc=resloc,
-                        nvar=1,nvar_names=c("Temp."),tagon=T,npa_stats="P")
-saveRDS(P_npa_diff_ff_ln_all,paste(resloc,file="P_npa_diff_ff_ln_all.RDS",sep=''))
-
-#------------------------- D2 npa stat ------------------------------
-D2_npa_diff_ff_ln_all<-NonParamStat_matrixplot(data_ln_all = D2_stat_ff_ln_all,
-                        resloc=resloc,
-                        nvar=1,nvar_names=c("Temp."),tagon=T,npa_stats="D2")
-saveRDS(D2_npa_diff_ff_ln_all,paste(resloc,file="D2_npa_diff_ff_ln_all.RDS",sep=''))
-```
-
-```{r some_plots_aphid_ff,echo=F,results="hide"}
-
-#-------------- First generate a map for aphids ff with Corl-Coru stats summary for 20X20 sp-sp interaction matrix ------------
-
-summary_LU_ff_sp_only<-cor_npa_diff_ff_ln_all$summary_LU_CorlmCoru
-
-# on map
-pdf("./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf",height=9,width=9)
-op<-par(mar=c(1,8,1,3), mgp=c(1.5,1,0))
-
-library(maps)
-longs<-c(-4.567,0.57,-3.069,-3.312,-2.637,-1.682,-2.763,-0.356,-3.454,0.427,0.939)
-lats<-c(55.477,52.26,56.457,55.949,52.125,55.213,53.854,51.807,50.628,51.733,51.185)
-
-locno<-length(longs)
-df_loc_info<-data.frame(loc_no=c(1:length(lats)),longs=longs,lats=lats)
-xlim=c(-10,2)
-ylim=c(49, 60)
-
-map("world", fill=T, col="grey84", bg="white",border=0, xlim=xlim, ylim=ylim)
-map.axes(cex.axis=2.5)
-
-frcval_L<-summary_LU_ff_sp_only[1,]/(summary_LU_ff_sp_only[1,]+abs(summary_LU_ff_sp_only[2,]))
-frcval_U<-abs(summary_LU_ff_sp_only[2,])/(summary_LU_ff_sp_only[1,]+abs(summary_LU_ff_sp_only[2,]))
-frcval_L[is.na(frcval_L)]<-0
-frcval_U[is.na(frcval_U)]<-0
-
-points(x = df_loc_info$longs+0.4, y = df_loc_info$lats-0.1, col=rgb(1,0,0,frcval_L),pch=25,bg=rgb(1,0,0,frcval_L),cex=1.5)
-points(x = df_loc_info$longs+0.4, y = df_loc_info$lats+0.1, col=rgb(0,0,1,frcval_U),pch=24,bg=rgb(0,0,1,frcval_U),cex=1.5)
-
-moreL<-which(frcval_L>frcval_U)
-moreU<-which(frcval_L<frcval_U)
-
-text(df_loc_info$loc_no[moreU], x = df_loc_info$longs[moreU], y = df_loc_info$lats[moreU], 
-     col="blue",cex=1.5)
-
-text(df_loc_info$loc_no[moreL], x = df_loc_info$longs[moreL], y = df_loc_info$lats[moreL], 
-     col="red",cex=1.5)
-
-
-legend("topright", legend=c(expression(f[L]),0.2,0.4,0.6,0.8,1),cex=2,
-       col=c(rgb(0,0,0,0),rgb(1,0,0,0.2),rgb(1,0,0,0.4),rgb(1,0,0,0.6),rgb(1,0,0,0.8),rgb(1,0,0,1)),
-       pch=25,pt.bg=c(rgb(0,0,0,0),rgb(1,0,0,0.2),rgb(1,0,0,0.4),rgb(1,0,0,0.6),rgb(1,0,0,0.8),rgb(1,0,0,1)),
-       pt.cex=2,horiz=F,bty="o")
-legend("topleft", legend=c(expression(f[U]),0.2,0.4,0.6,0.8,1), cex=2,
-       col=c(rgb(0,0,0,0),rgb(0,0,1,0.2),rgb(0,0,1,0.4),rgb(0,0,1,0.6),rgb(0,0,1,0.8),rgb(0,0,1,1)),
-       pch=24,pt.bg=c(rgb(0,0,0,0),rgb(0,0,1,0.2),rgb(0,0,1,0.4),rgb(0,0,1,0.6),rgb(0,0,1,0.8),rgb(0,0,1,1)),
-       pt.cex=2,horiz=F,bty="o")
-mtext("Tail-dep for sp-sp 20x20 matrix",cex=1.5)
-
-par(op)
-dev.off()
-
-#-------------- Now generate a scatter plot for aphids ff with Corl-Coru stats summary from 
-#                total values of 20X20 sp-sp CorlmCoru matrix and total values from 20 sp-temp values------------
-
-xx<-c() # to store values of total taildep. 20 sp-nvar corl-coru contribution from each location
-yy<-c() # to store values of total taildep. 20X20 sp-sp corl-coru contribution from each location
-
-x<-cor_npa_diff_ff_ln_all$CorlmCoru_all_ln_list
-for(loc in c(1:length(x))){
-  temp<-x[[loc]]
-  xx<-c(xx,sum(temp[1:20,21],na.rm=T))
-  yy<-c(yy,sum(temp[1:20,1:20],na.rm=T))
-}
-
-pdf("./Results/aphid_results/ff_npa_stat_results/Corstat_scatter_LmU_values.pdf",height=8,width=8)
-op<-par(mar=c(5.1, 5.1, 4.1, 2.1), mgp=c(3, 1, 0))
-plot(xx,yy,xlab="(L+U) for sp-temp.",ylab="(L+U) for sp-sp matrix",col=rgb(0,1,0,0.4),pch=19,cex=2,cex.lab=2,cex.axis=2)
-text(xx,yy,ff_selected_loc,pos=1,col="black",cex=1.2)
-lines(c(-100,100),c(0,0),type='l',lty='dashed',col="grey")
-lines(c(0,0),c(-100,100),type='l',lty='dashed',col="grey")
-dat<-data.frame(x=xx,y=yy)
-mylm<-lm(y~x,data=dat)
-abline(mylm,col="green4")
-c<-cor.test(dat$x,dat$y,method = "pearson",alternative = "t")
-mtext(paste0("Pearson correlation = ",round(unname(c$estimate),3),", p = ",round(c$p.value,4),sep=""),cex=2,line=1)
-dev.off()
-
-#----- Now generate another version of above approach to get multipanel plots for each location --------------------
-LTmUTdep_matlist_ff<-cor_npa_diff_ff_ln_all$CorlmCoru_all_ln_list
-pdf("./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_avg_sp_temp_multipanel_plot.pdf",height = 35,width = 45)
-op<-par(mfrow=c(4,3),mar=c(15,10,10,5.5), mgp=c(3,4,0))
-
-for(loc in 1:length(LTmUTdep_matlist_ff)){
-  st<-LTmUTdep_matlist_ff[[loc]]
-  s<-st[1:20,1:20]
-  avg_s<-apply(X=s,MARGIN = 1,FUN = mean,na.rm=T)
-  s_temp<-st[1:20,21]
-  ylim<-range(avg_s,s_temp,na.rm = T)
-  ylim[2]<-ylim[2]+0.1
-  t<-cbind(avg_s,s_temp)
-  t<-na.omit(t)
-  ct<-cor.test(t[,1],t[,2],alternative = "greater",method = "kendall",conf.level = 0.95)
-  pval<-ct$p.value
-  tau<-unname(ct$estimate)
-  nt<-nrow(t)
-  t<-t[,1]/t[,2]
-  t<-sum(t>0,na.rm=T)
-  plot(c(1:20),avg_s,type="b",col="red",xlab="",cex=4,pch=16,ylim = ylim,ylab="",cex.axis=7,xaxt="n")
-  axis(side = 1, at = seq(from=1,to=20,by=1), cex.axis=8)
-  mtext("species", side=1, line=11, col="black", cex=7)
-  #mtext(paste("loc=",loc,", s.sign=",t," out of",nt,", tau=",round(tau,2),", p=",round(pval,3)),cex=3.5)
-  mtext(paste("K =",round(tau,2),", p=",round(pval,3)),cex=6,side=3, line=1.5)
-  mtext(paste("Loc =",loc,sep=""),cex=7,side=3,line=-7,adj=0.05)
-  points(c(1:20),s_temp,type="b",col="blue",cex=4,pch=16)
-  lines(c(1,20),c(0,0),type='l',lty='dashed')
-  #legend("topleft", legend=c("avg_sp", "sp-temp"),
-  #       col=c("red", "blue"), pch=c(16,16),cex=3.5,horiz=T,bty="n")
-}
-op<-par(fig = c(0, 1, 0, 1), oma = c(0, 0, 0, 0), mar = c(0, 1, 0, 0), new = TRUE)
-plot(0, 0, type = "n", bty = "n", xaxt = "n", yaxt = "n")
-legend("bottomright", c("row-wise average of \nsp-sp interaction matrix \n(lower - upper tail dep.)\n", "sp-temperature \ninteraction cell \n(lower - upper tail dep.)"), col = c("red","blue"),bty="n",
-       cex = 8, pch = c(16, 16), lty=c(1,1), xpd = TRUE, horiz = F, inset = c(0.06,0.05)) 
-par(op)
-dev.off()
-```
 
 ```{r read_plankton_data,echo=F,results="hide"}
 set.seed(seed)
@@ -792,50 +430,373 @@ id_indep<-which(rowSums(xxyy)==0) # locations which were independent
 xxyy<-xxyy[-id_indep,]
 pdf("./Results/plankton_results/npa_stat_results/Corstat_scatter_LmU_values.pdf",height=8,width=8)
 op<-par(mar=c(5.1, 5.1, 4.1, 2.1), mgp=c(3, 1, 0))
-plot(xxyy$xx,xxyy$yy,xlab="(L+U) for sp-nvar matrix",ylab="(L+U) for sp-sp matrix",col=rgb(0,1,0,0.4),pch=19,cex=2,cex.lab=2,cex.axis=2)
+plot(xxyy$xx,xxyy$yy,xlab="(L+U) for sp-nvar matrix",ylab="(L+U) for sp-sp matrix",col=rgb(0,0,0,0.4),pch=19,cex=2,cex.lab=2,cex.axis=2)
 text(xxyy$xx,xxyy$yy,good_loc_plankton[-id_indep],pos=1,col="black",cex=1.2)
 lines(c(-100,100),c(0,0),type='l',lty='dashed',col="grey")
 lines(c(0,0),c(-100,100),type='l',lty='dashed',col="grey")
 dat<-data.frame(x=xxyy$xx,y=xxyy$yy)
 mylm<-lm(y~x,data=dat)
-abline(mylm,col="green4")
+abline(mylm)
 c<-cor.test(dat$x,dat$y,method = "pearson",alternative = "t")
 mtext(paste0("Pearson correlation = ",round(unname(c$estimate),3),", p = ",round(c$p.value,4),sep=""),cex=2,line=1)
 dev.off()
 ```
 
 
+```{r read_aphid_data, echo=F}
+source("aphid_css_datacall.R")
+firstflight<-as.matrix(read.csv("./Data/Aphid_data/APHID_DATA_RAW/aphidtsfirstflight141117.csv",header=F))
+data_ff<-aphid_css_datacall(d0=firstflight)
+
+# create res folder for aphids
+if(!dir.exists("./Results/aphid_results/")){
+  dir.create("./Results/aphid_results/")
+}
+```
+
+```{r winter_avg_temp,echo=F,results="hide"}
+# Time series analysis aphids
+temp_aphid_raw<-as.matrix(read.csv("./Data/Aphid_data/APHID_DATA_RAW/aphidmonthlytempdata.csv",header = F))
+
+temp_aphid<-vector("list",dim(temp_aphid_raw)[1])
+names(temp_aphid)<-paste("loc",c(1:dim(temp_aphid_raw)[1]),sep="")
+
+for(il in 1:length(temp_aphid)){
+  
+  s<-matrix(temp_aphid_raw[il,],36,12,byrow = T)
+  rownames(s)<-c(1975:2010)
+  colnames(s)<-c("jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec")
+  
+  temp_aphid[[il]]<-s
+}
+
+winter_avg_temp<-matrix(NA,11,35)
+rownames(winter_avg_temp)<-paste("loc",c(1:dim(temp_aphid_raw)[1]),sep="")
+colnames(winter_avg_temp)<-c(1976:2010)
+
+for(il in 1:length(temp_aphid)){
+  temploc<-temp_aphid[[il]]
+  for(i in 2:dim(temploc)[1]){
+    t<-c(temploc[i-1,12],temploc[i,1:3]) # previous yr dec to present year march averaging temp.
+    winter_avg_temp[il,i-1]<-mean(t,na.rm = T)
+  }
+}
+#------------------------------------------------------------------
+pdf("./Results/aphid_results/all_loc_winter_avg_temp_timeseries_multipanel_plot.pdf",height=20,width=20)
+op<-par(mfrow=c(4,3),mar=c(3,3,3,3), mgp=c(1.5,0.5,0))
+for(loc in 1:nrow(winter_avg_temp)){
+  y<-winter_avg_temp[loc,]
+  x<-c(1976:2010)
+  plot(x,y,type="b",xlab="Year",ylab="Avg. winter temp.",ylim=c(0,8),
+       panel.first = grid(lwd=2,col="red"))
+  mtext(paste0("loc =",loc),side = 3, line=0.15, adj=0.5, col="red")
+}
+par(op)
+dev.off()
+#----------------------
+pdf("./Results/aphid_results/all_loc_winter_avg_temp_timeseries_in_single_plot.pdf",height=10,width=10)
+plot(NA,xlim=c(1976,2010),ylim=c(1,8),xlab="Year",ylab="winter_avg_temp",panel.first = grid(lwd=2,col="grey"))
+cl<-rainbow(11)
+for(loc in 1:nrow(winter_avg_temp)){
+  y<-winter_avg_temp[loc,]
+  x<-c(1976:2010)
+  lines(x,y,col=cl[loc],type="l")
+  text(x,y,labels = loc,col=cl[loc])
+}
+par(op)
+dev.off()
+#-----------------------------------------------------------------------
+pdf("./Results/aphid_results/all_loc_winter_avg_temp_multipanel_hist.pdf",height=20,width=20)
+op<-par(mfrow=c(4,3),mar=c(3,3,3,3), mgp=c(1.5,0.5,0))
+for(loc in 1:nrow(winter_avg_temp)){
+  y<-winter_avg_temp[loc,]
+  hist(y,breaks = 50,main = paste0("loc =",loc),cex.main=2,xlim=c(0,8))
+}
+par(op)
+dev.off()
+```
+
+```{r aphid_data_with_winter_avg_temp,echo=F}
+
+data_ff_with_temp<-vector("list",length(data_ff)) #initializing
+names(data_ff_with_temp)<-names(data_ff)
+
+for(loc in 1:length(data_ff_with_temp)){
+  s<-data.frame(Year=c(1976:2010),Dat=winter_avg_temp[loc,])
+  s<-list(winter.avg.temp=s)
+  data_ff_with_temp[[loc]]<-append(data_ff[[loc]],s)
+}
+
+saveRDS(data_ff_with_temp,"./Results/aphid_results/data_aphid_ff_winter_avg_temp.RDS")
+```
+
+```{r map_plot_css_ff, echo=F, results="hide"}
+source("good_splist.R")
+library(maps)
+
+longs<-c(-4.567,0.57,-3.069,-3.312,-2.637,-1.682,-2.763,-0.356,-3.454,0.427,0.939)
+lats<-c(55.477,52.26,56.457,55.949,52.125,55.213,53.854,51.807,50.628,51.733,51.185)
+
+ff_selected_loc<-c()
+for(loc in c(1:11)){
+  temp<-good_splist(d_allsp=data_ff_with_temp,loc=loc,data_pt_thrs=30) # at least 30 datapts for each pairwise species taken
+  nsp<-length(data_ff_with_temp[[loc]])
+  if(length(temp)==nsp){ # considering that is true for all 20+1 species
+    ff_selected_loc<-c(ff_selected_loc,loc)
+  }
+}
+
+saveRDS(ff_selected_loc,"./Results/aphid_results/ff_selected_loc_data_pt_thrs_30.RDS")
+
+locno<-length(longs)
+df_loc_info_org<-data.frame(loc_no=c(1:length(lats)),longs=longs,lats=lats)
+df_loc_info<-df_loc_info_org[ff_selected_loc,]
+xlim=c(-10,2)
+ylim=c(50, 60)
+
+pdf("./Results/aphid_results/map_plot_css_ff_selected_loc.pdf",height=8,width=8)
+map("world", fill=TRUE, col="grey84", bg="white",border=0, xlim=xlim, ylim=ylim)
+#grid(col="black")
+map.axes(cex.axis=2.5)
+points(x = df_loc_info_org$longs, y = df_loc_info_org$lats, col="red",pch=16)
+points(x = df_loc_info$longs, y = df_loc_info$lats, col="blue", pch=0, cex=1.5)
+text(df_loc_info_org$loc_no, x = df_loc_info_org$longs, y = df_loc_info_org$lats, col="red",  pos=1)
+dev.off()
+```
+
+```{r save_plot_css_aphid_with_winter_avg_temp, echo=F, results="hide", cache=T, cache.extra=list(seed,ff_selected_loc,data_ff_with_temp,mtime("vivj_matrix.R"))}
+source("./vivj_matrix.R")
+set.seed(seed)
+ 
+nsp<-length(data_ff_with_temp[[1]]) # at any location it should be 20+1(temp) sp.
+numloc<-length(ff_selected_loc)
+level<-0.05 # p value threshold to check independence
+
+pdf("./Results/aphid_results/copulaplot_ff_with_temp_all_loc.pdf",width=nsp*2, height=nsp*2)
+op<-par(mfrow=c(nsp,nsp),mar=c(4,4,4,4), mgp=c(3,0.5,0))
+  
+for(loc in 1:numloc){
+
+    for(i in 1:nsp){
+      for(j in 1:nsp){
+        
+        ms<-vivj_matrix(d_allsp = data_ff_with_temp,loc=ff_selected_loc[loc],
+                        i=i,j=j,level=0.05,ploton=T,tagon=F)
+      }
+    }
+}
+par(op)
+dev.off()
+```
+
+```{r ff_npa, echo=F, cache=T, cache.extra=list(seed,data_ff_with_temp,ff_selected_loc,mtime("good_splist.R"),mtime("NonParamStat.R"),mtime("vivj_matrix.R"),mtime("CopulaFunctions.R"), mtime("CopulaFunctions_flexible.R"))}
+
+source("good_splist.R")
+source("NonParamStat.R")
+
+set.seed(seed) 
+
+resloc<-"./Results/aphid_results/ff_npa_stat_results/"
+
+if(!dir.exists(resloc)){
+  dir.create(resloc)
+}
+
+numloc<-length(ff_selected_loc)
+cor_stat_ff_ln_all<-vector("list",numloc)
+names(cor_stat_ff_ln_all)<-paste("loc",ff_selected_loc,sep="")
+
+P_stat_ff_ln_all<-cor_stat_ff_ln_all
+D2_stat_ff_ln_all<-cor_stat_ff_ln_all
+
+for(loc in c(1:numloc)){
+  nm<-names(cor_stat_ff_ln_all)[loc]
+  if (!dir.exists(paste(resloc,nm,sep=""))){
+  dir.create(paste(resloc,nm,sep=""))
+  }
+  
+  good_sp <- good_splist(d_allsp=data_ff_with_temp,loc=ff_selected_loc[loc],data_pt_thrs=30)
+  
+  #cat(paste("start-time: ",Sys.time(),"\n"))
+  resloc2<-paste(resloc,names(cor_stat_ff_ln_all)[loc],"/",sep="")
+  
+  #------------------------- cor npa stat ------------------------------
+  cor_stat_ff<-multcall(d_allsp=data_ff_with_temp,
+                          loc=ff_selected_loc[loc],
+                          pfname=paste(resloc2,"ff",sep=''),
+                          good_sp=good_sp,
+                          nbin=2,npa_stats = "cor")
+  cor_stat_ff_ln_all[[loc]]<-cor_stat_ff
+  
+  #------------------------- P npa stat ------------------------------
+  P_stat_ff<-multcall(d_allsp=data_ff_with_temp,
+                          loc=ff_selected_loc[loc],
+                          pfname=paste(resloc2,"ff",sep=''),
+                          good_sp=good_sp,
+                          nbin=2,npa_stats = "P")
+  P_stat_ff_ln_all[[loc]]<-P_stat_ff
+  
+  #------------------------- D2 npa stat ------------------------------
+  D2_stat_ff<-multcall(d_allsp=data_ff_with_temp,
+                          loc=ff_selected_loc[loc],
+                          pfname=paste(resloc2,"ff",sep=''),
+                          good_sp=good_sp,
+                          nbin=2,npa_stats = "D2")
+  D2_stat_ff_ln_all[[loc]]<-D2_stat_ff
+  
+  #cat(paste("stop-time: ",Sys.time(),"\n"))
+}
+
+saveRDS(cor_stat_ff_ln_all,paste(resloc,file="cor_stat_ff_ln_all.RDS",sep=''))
+saveRDS(P_stat_ff_ln_all,paste(resloc,file="P_stat_ff_ln_all.RDS",sep=''))
+saveRDS(D2_stat_ff_ln_all,paste(resloc,file="D2_stat_ff_ln_all.RDS",sep=''))
+```
+
+```{r plot_res_css_ff_npa, echo=F, results="hide",message=F,cache=T, cache.extra=list(seed,cor_stat_ff_ln_all,P_stat_ff_ln_all,D2_stat_ff_ln_all,mtime("NonParamStat_matrixplot.R"),mtime("mycorrplot.R"))}
+
+set.seed(seed)
+source("NonParamStat_matrixplot.R")
+resloc<-"./Results/aphid_results/ff_npa_stat_results/"
+
+#------------------------- cor npa stat ------------------------------
+cor_npa_diff_ff_ln_all<-NonParamStat_matrixplot(data_ln_all = cor_stat_ff_ln_all,
+                        resloc=resloc,
+                        nvar=1,nvar_names=c("Temp."),tagon=T,npa_stats="cor")
+saveRDS(cor_npa_diff_ff_ln_all,paste(resloc,file="cor_npa_diff_ff_ln_all.RDS",sep=''))
+
+#------------------------- P npa stat ------------------------------
+P_npa_diff_ff_ln_all<-NonParamStat_matrixplot(data_ln_all = P_stat_ff_ln_all,
+                        resloc=resloc,
+                        nvar=1,nvar_names=c("Temp."),tagon=T,npa_stats="P")
+saveRDS(P_npa_diff_ff_ln_all,paste(resloc,file="P_npa_diff_ff_ln_all.RDS",sep=''))
+
+#------------------------- D2 npa stat ------------------------------
+D2_npa_diff_ff_ln_all<-NonParamStat_matrixplot(data_ln_all = D2_stat_ff_ln_all,
+                        resloc=resloc,
+                        nvar=1,nvar_names=c("Temp."),tagon=T,npa_stats="D2")
+saveRDS(D2_npa_diff_ff_ln_all,paste(resloc,file="D2_npa_diff_ff_ln_all.RDS",sep=''))
+```
+
+```{r some_plots_aphid_ff,echo=F,results="hide"}
+
+#-------------- First generate a map for aphids ff with Corl-Coru stats summary for 20X20 sp-sp interaction matrix ------------
+
+summary_LU_ff_sp_only<-cor_npa_diff_ff_ln_all$summary_LU_CorlmCoru
+
+# on map
+pdf("./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf",height=9,width=9)
+op<-par(mar=c(1,8,1,3), mgp=c(1.5,1,0))
+
+library(maps)
+longs<-c(-4.567,0.57,-3.069,-3.312,-2.637,-1.682,-2.763,-0.356,-3.454,0.427,0.939)
+lats<-c(55.477,52.26,56.457,55.949,52.125,55.213,53.854,51.807,50.628,51.733,51.185)
+
+locno<-length(longs)
+df_loc_info<-data.frame(loc_no=c(1:length(lats)),longs=longs,lats=lats)
+
+df_loc_info<-df_loc_info[-1,] # removing 1st location based on 30 years of data
+
+xlim=c(-10,2)
+ylim=c(49, 60)
+
+map("world", fill=T, col="grey84", bg="white",border=0, xlim=xlim, ylim=ylim)
+map.axes(cex.axis=2.5)
+
+frcval_L<-summary_LU_ff_sp_only[1,]/(summary_LU_ff_sp_only[1,]+abs(summary_LU_ff_sp_only[2,]))
+frcval_U<-abs(summary_LU_ff_sp_only[2,])/(summary_LU_ff_sp_only[1,]+abs(summary_LU_ff_sp_only[2,]))
+frcval_L[is.na(frcval_L)]<-0
+frcval_U[is.na(frcval_U)]<-0
+
+points(x = df_loc_info$longs+0.4, y = df_loc_info$lats-0.1, col=rgb(1,0,0,frcval_L),pch=25,bg=rgb(1,0,0,frcval_L),cex=1.5)
+points(x = df_loc_info$longs+0.4, y = df_loc_info$lats+0.1, col=rgb(0,0,1,frcval_U),pch=24,bg=rgb(0,0,1,frcval_U),cex=1.5)
+
+moreL<-which(frcval_L>frcval_U)
+moreU<-which(frcval_L<frcval_U)
+
+text(df_loc_info$loc_no[moreU], x = df_loc_info$longs[moreU], y = df_loc_info$lats[moreU], 
+     col="blue",cex=1.5)
+
+text(df_loc_info$loc_no[moreL], x = df_loc_info$longs[moreL], y = df_loc_info$lats[moreL], 
+     col="red",cex=1.5)
 
 
-<!--aphid results-->
+legend("topright", legend=c(expression(f[L]),0.2,0.4,0.6,0.8,1),cex=2,
+       col=c(rgb(0,0,0,0),rgb(1,0,0,0.2),rgb(1,0,0,0.4),rgb(1,0,0,0.6),rgb(1,0,0,0.8),rgb(1,0,0,1)),
+       pch=25,pt.bg=c(rgb(0,0,0,0),rgb(1,0,0,0.2),rgb(1,0,0,0.4),rgb(1,0,0,0.6),rgb(1,0,0,0.8),rgb(1,0,0,1)),
+       pt.cex=2,horiz=F,bty="o")
+legend("topleft", legend=c(expression(f[U]),0.2,0.4,0.6,0.8,1), cex=2,
+       col=c(rgb(0,0,0,0),rgb(0,0,1,0.2),rgb(0,0,1,0.4),rgb(0,0,1,0.6),rgb(0,0,1,0.8),rgb(0,0,1,1)),
+       pch=24,pt.bg=c(rgb(0,0,0,0),rgb(0,0,1,0.2),rgb(0,0,1,0.4),rgb(0,0,1,0.6),rgb(0,0,1,0.8),rgb(0,0,1,1)),
+       pt.cex=2,horiz=F,bty="o")
+mtext("Tail-dep for sp-sp 20x20 matrix",cex=1.5)
 
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=8 cm,height=8 cm]{./Results/aphid_results/map_plot_css_ff_selected_loc.pdf} 
-\caption{Position of 11 suction traps that sample flying aphids. We considered each location to collect 35 year long time series (1976-2010) data for 20 chosen aphid species firstflight date. \label{fig_aphid_map}}
-\end{center}
-\end{figure}
+par(op)
+dev.off()
 
+#-------------- Now generate a scatter plot for aphids ff with Corl-Coru stats summary from 
+#                total values of 20X20 sp-sp CorlmCoru matrix and total values from 20 sp-temp values------------
 
+xx<-c() # to store values of total taildep. 20 sp-nvar corl-coru contribution from each location
+yy<-c() # to store values of total taildep. 20X20 sp-sp corl-coru contribution from each location
 
-<!--aphid : npa : corl - coru all location plot-->
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc1/loc1_Corl-Coru.pdf} 
-\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc2/loc2_Corl-Coru.pdf} 
-\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc3/loc3_Corl-Coru.pdf}\\ 
-\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc4/loc4_Corl-Coru.pdf} 
-\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc5/loc5_Corl-Coru.pdf} 
-\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc6/loc6_Corl-Coru.pdf} \\
-\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc7/loc7_Corl-Coru.pdf} 
-\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc8/loc8_Corl-Coru.pdf} 
-\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc9/loc9_Corl-Coru.pdf} \\
-\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc10/loc10_Corl-Coru.pdf} 
-\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc11/loc11_Corl-Coru.pdf} 
-\caption{Analogous figure as of Fig. \ref{fig_LTmUT_ff_all_loc} for (lower tail - upper tail) dependence matrix calculated using
-$\cor_l - \cor_u$ non-parametric statistic, details were discussed in Appendix \ref{nonparam}. \label{fig_CorlmCoru_ff_all_loc}}
-\end{center}
-\end{figure}
+x<-cor_npa_diff_ff_ln_all$CorlmCoru_all_ln_list
+for(loc in c(1:length(x))){
+  temp<-x[[loc]]
+  xx<-c(xx,sum(temp[1:20,21],na.rm=T))
+  yy<-c(yy,sum(temp[1:20,1:20],na.rm=T))
+}
+
+pdf("./Results/aphid_results/ff_npa_stat_results/Corstat_scatter_LmU_values.pdf",height=8,width=8)
+op<-par(mar=c(5.1, 5.1, 4.1, 2.1), mgp=c(3, 1, 0))
+plot(xx,yy,xlab="(L+U) for sp-temp.",ylab="(L+U) for sp-sp matrix",col=rgb(0,0,0,0.4),pch=19,cex=2,cex.lab=2,cex.axis=2)
+text(xx,yy,ff_selected_loc,pos=1,col="black",cex=1.2)
+lines(c(-100,100),c(0,0),type='l',lty='dashed',col="grey")
+lines(c(0,0),c(-100,100),type='l',lty='dashed',col="grey")
+dat<-data.frame(x=xx,y=yy)
+mylm<-lm(y~x,data=dat)
+abline(mylm)
+c<-cor.test(dat$x,dat$y,method = "pearson",alternative = "t")
+mtext(paste0("Pearson correlation = ",round(unname(c$estimate),3),", p = ",round(c$p.value,4),sep=""),cex=2,line=1)
+dev.off()
+
+#----- Now generate another version of above approach to get multipanel plots for each location --------------------
+LTmUTdep_matlist_ff<-cor_npa_diff_ff_ln_all$CorlmCoru_all_ln_list
+pdf("./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_avg_sp_temp_multipanel_plot.pdf",height = 35,width = 45)
+op<-par(mfrow=c(4,3),mar=c(15,10,10,5.5), mgp=c(3,4,0))
+
+for(loc in 1:length(LTmUTdep_matlist_ff)){
+  st<-LTmUTdep_matlist_ff[[loc]]
+  s<-st[1:20,1:20]
+  avg_s<-apply(X=s,MARGIN = 1,FUN = mean,na.rm=T)
+  s_temp<-st[1:20,21]
+  ylim<-range(avg_s,s_temp,na.rm = T)
+  ylim[2]<-ylim[2]+0.1
+  t<-cbind(avg_s,s_temp)
+  t<-na.omit(t)
+  ct<-cor.test(t[,1],t[,2],alternative = "greater",method = "kendall",conf.level = 0.95)
+  pval<-ct$p.value
+  tau<-unname(ct$estimate)
+  nt<-nrow(t)
+  t<-t[,1]/t[,2]
+  t<-sum(t>0,na.rm=T)
+  plot(c(1:20),avg_s,type="b",col="red",xlab="",cex=4,pch=16,ylim = ylim,ylab="",cex.axis=7,xaxt="n")
+  axis(side = 1, at = seq(from=1,to=20,by=1), cex.axis=8)
+  mtext("species", side=1, line=11, col="black", cex=7)
+  #mtext(paste("loc=",loc,", s.sign=",t," out of",nt,", tau=",round(tau,2),", p=",round(pval,3)),cex=3.5)
+  mtext(paste("K =",round(tau,2),", p=",round(pval,3)),cex=6,side=3, line=1.5)
+  mtext(paste("Loc =",ff_selected_loc[loc],sep=""),cex=7,side=3,line=-7,adj=0.05)
+  points(c(1:20),s_temp,type="b",col="blue",cex=4,pch=16)
+  lines(c(1,20),c(0,0),type='l',lty='dashed')
+  #legend("topleft", legend=c("avg_sp", "sp-temp"),
+  #       col=c("red", "blue"), pch=c(16,16),cex=3.5,horiz=T,bty="n")
+}
+op<-par(fig = c(0, 1, 0, 1), oma = c(0, 0, 0, 0), mar = c(0, 1, 0, 0), new = TRUE)
+plot(0, 0, type = "n", bty = "n", xaxt = "n", yaxt = "n")
+legend("bottomright", c("row-wise average of \nsp-sp interaction matrix \n(lower - upper tail dep.)\n", "sp-temperature \ninteraction cell \n(lower - upper tail dep.)"), col = c("red","blue"),bty="n",
+       cex = 8, pch = c(16, 16), lty=c(1,1), xpd = TRUE, horiz = F, inset = c(0.06,0.05)) 
+par(op)
+dev.off()
+```
 
 
 <!--ceratium results-->
@@ -873,10 +834,44 @@ $\cor_l - \cor_u$ non-parametric statistic, details were discussed in Appendix \
 \end{center}
 \end{figure}
 
-\clearpage
+
+<!--aphid results-->
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=8 cm,height=8 cm]{./Results/aphid_results/map_plot_css_ff_selected_loc.pdf} 
+\caption{Position of 11 suction traps that sample flying aphids. We considered each location to collect 35 year long time series (1976-2010) data for 20 chosen aphid species firstflight date. \label{fig_aphid_map}}
+\end{center}
+\end{figure}
+
+
+
+<!--aphid : npa : corl - coru all location plot-->
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc2/loc2_Corl-Coru.pdf} 
+\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc3/loc3_Corl-Coru.pdf}
+\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc4/loc4_Corl-Coru.pdf}\\
+\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc5/loc5_Corl-Coru.pdf} 
+\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc6/loc6_Corl-Coru.pdf}
+\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc7/loc7_Corl-Coru.pdf}\\ 
+\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc8/loc8_Corl-Coru.pdf} 
+\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc9/loc9_Corl-Coru.pdf} 
+\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc10/loc10_Corl-Coru.pdf}\\ 
+\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc11/loc11_Corl-Coru.pdf} 
+\caption{Analogous figure as of Fig. \ref{fig_LTmUT_ff_all_loc} for (lower tail - upper tail) dependence matrix calculated using
+$\cor_l - \cor_u$ non-parametric statistic, details were discussed in Appendix \ref{nonparam}. \label{fig_CorlmCoru_ff_all_loc}}
+\end{center}
+\end{figure}
+
+
 
 # References
-\indent
+\setlength{\parindent}{-0.2in}
+\setlength{\leftskip}{0.2in}
+\setlength{\parskip}{1pt}
+\noindent
+
 
 
 

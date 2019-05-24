@@ -45,7 +45,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
   
   for(loc in 1:numloc){
     resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-    pdf(paste(resloc2,selected_loc[loc],file="_Spearman.pdf",sep=''),width=20, height=20)
+    pdf(paste(resloc2,selected_loc[loc],file="_Spearman.pdf",sep=''),width=24, height=24)
     z<-tempo[[loc]]
     
     if(nvar!=0){
@@ -79,7 +79,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
   
   for(loc in 1:numloc){
     resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-    pdf(paste(resloc2,selected_loc[loc],file="_Kendall.pdf",sep=''),width=20, height=20)
+    pdf(paste(resloc2,selected_loc[loc],file="_Kendall.pdf",sep=''),width=24, height=24)
     z<-tempo[[loc]]
     if(nvar!=0){
       dl<-nrow(z)-nvar+1
@@ -114,7 +114,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     
     for(loc in 1:numloc){
       resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-      pdf(paste(resloc2,selected_loc[loc],file="_Corl.pdf",sep=''),width=20, height=20)
+      pdf(paste(resloc2,selected_loc[loc],file="_Corl.pdf",sep=''),width=24, height=24)
       z<-tempo[[loc]]
       if(nvar!=0){
         dl<-nrow(z)-nvar+1
@@ -146,7 +146,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     
     for(loc in 1:numloc){
       resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-      pdf(paste(resloc2,selected_loc[loc],file="_Coru.pdf",sep=''),width=20, height=20)
+      pdf(paste(resloc2,selected_loc[loc],file="_Coru.pdf",sep=''),width=24, height=24)
       z<-tempo[[loc]]
       if(nvar!=0){
         dl<-nrow(z)-nvar+1
@@ -190,7 +190,8 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     
     for(loc in 1:numloc){
       resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-      pdf(paste(resloc2,selected_loc[loc],file="_Corl-Coru.pdf",sep=''),width=20, height=20)
+      pdf(paste(resloc2,selected_loc[loc],file="_Corl-Coru.pdf",sep=''),width=24, height=24)
+      #op<-par(mar=c(5.1, 2, 4.1, 8), mgp=c(3, 1, 0), las=0)
       z<-tempo[[loc]]
       if(nvar!=0){
         dl<-nrow(z)-nvar+1
@@ -215,9 +216,12 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       summary_LU_CorlmCoru[1,loc]<-L
       summary_LU_CorlmCoru[2,loc]<-U
       if(tagon == T){
-        mtext(paste0(selected_loc[loc],"  "),cex=5,side=1,col="red",adj=0.3)
+        mtext(paste0(selected_loc[loc]," : "),cex=6,side=1,adj=0.3)
       }
-      mtext(paste0("nL =",nL,", nU =",nU),cex=5,side=1,adj=0.7)
+      #mtext(paste0("nL =",nL,", nU =",nU),cex=5,side=1,adj=0.7)
+      mtext((as.expression(bquote('N'['L']*' = '*.(nL)))),cex=6,side=1,adj=0.5,col="red")
+      mtext((as.expression(bquote('N'['U']*' = '*.(nU)))),cex=6,side=1,adj=0.8,col="blue")
+      #par(op)
       dev.off()
     }
     
@@ -245,7 +249,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     
     for(loc in 1:numloc){
       resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-      pdf(paste(resloc2,selected_loc[loc],file="_Pl.pdf",sep=''),width=20, height=20)
+      pdf(paste(resloc2,selected_loc[loc],file="_Pl.pdf",sep=''),width=24, height=24)
       z<-tempo[[loc]]
       if(nvar!=0){
         dl<-nrow(z)-nvar+1
@@ -278,7 +282,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     
     for(loc in 1:numloc){
       resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-      pdf(paste(resloc2,selected_loc[loc],file="_Pu.pdf",sep=''),width=20, height=20)
+      pdf(paste(resloc2,selected_loc[loc],file="_Pu.pdf",sep=''),width=24, height=24)
       z<-tempo[[loc]]
       if(nvar!=0){
         dl<-nrow(z)-nvar+1
@@ -323,7 +327,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     
     for(loc in 1:numloc){
       resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-      pdf(paste(resloc2,selected_loc[loc],file="_Pl-Pu.pdf",sep=''),width=20, height=20)
+      pdf(paste(resloc2,selected_loc[loc],file="_Pl-Pu.pdf",sep=''),width=24, height=24)
       z<-tempo[[loc]]
       if(nvar!=0){
         dl<-nrow(z)-nvar+1
@@ -348,9 +352,10 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       summary_LU_PlmPu[1,loc]<-L
       summary_LU_PlmPu[2,loc]<-U
       if(tagon == T){
-        mtext(paste0(selected_loc[loc],"  "),cex=5,side=1,col="red",adj=0.3)
+        mtext(paste0(selected_loc[loc]," : "),cex=6,side=1,adj=0.3)
       }
-      mtext(paste0("nL =",nL,", nU =",nU),cex=5,side=1,adj=0.7)
+      mtext((as.expression(bquote('N'['L']*' = '*.(nL)))),cex=6,side=1,adj=0.5,col="red")
+      mtext((as.expression(bquote('N'['U']*' = '*.(nU)))),cex=6,side=1,adj=0.8,col="blue")
       dev.off()
     }
     
@@ -379,7 +384,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     
     for(loc in 1:numloc){
       resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-      pdf(paste(resloc2,selected_loc[loc],file="_D2l.pdf",sep=''),width=20, height=20)
+      pdf(paste(resloc2,selected_loc[loc],file="_D2l.pdf",sep=''),width=24, height=24)
       z<-tempo[[loc]]
       if(nvar!=0){
         dl<-nrow(z)-nvar+1
@@ -411,7 +416,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     
     for(loc in 1:numloc){
       resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-      pdf(paste(resloc2,selected_loc[loc],file="_D2u.pdf",sep=''),width=20, height=20)
+      pdf(paste(resloc2,selected_loc[loc],file="_D2u.pdf",sep=''),width=24, height=24)
       z<-tempo[[loc]]
       if(nvar!=0){
         dl<-nrow(z)-nvar+1
@@ -454,7 +459,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     
     for(loc in 1:numloc){
       resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-      pdf(paste(resloc2,selected_loc[loc],file="_D2u-D2l.pdf",sep=''),width=20, height=20)
+      pdf(paste(resloc2,selected_loc[loc],file="_D2u-D2l.pdf",sep=''),width=24, height=24)
       z<-tempo[[loc]]
       if(nvar!=0){
         dl<-nrow(z)-nvar+1
@@ -479,9 +484,10 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       summary_LU_D2umD2l[1,loc]<-L
       summary_LU_D2umD2l[2,loc]<-U
       if(tagon == T){
-        mtext(paste0(selected_loc[loc],"  "),cex=5,side=1,col="red",adj=0.3)
+        mtext(paste0(selected_loc[loc]," : "),cex=6,side=1,adj=0.3)
       }
-      mtext(paste0("nL =",nL,", nU =",nU),cex=5,side=1,adj=0.7)
+      mtext((as.expression(bquote('N'['L']*' = '*.(nL)))),cex=6,side=1,adj=0.5,col="red")
+      mtext((as.expression(bquote('N'['U']*' = '*.(nU)))),cex=6,side=1,adj=0.8,col="blue")
       dev.off()
     }
     

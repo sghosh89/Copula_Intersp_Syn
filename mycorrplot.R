@@ -17,8 +17,8 @@ mycorrplot<-function(z,posnI_ind,posnN_ind,colrange){
   diag(z)[2]<-colrange[2]     # though all entries are either +ve or -ve
   
   corrplot(z,is.corr = F,col=col1(100),method="color",addgrid.col = "black",
-           diag=F,bg = "white",tl.cex=2.5,tl.col = "black",
-           cl.cex = 2.2,cl.lim = colrange,
+           diag=F,bg = "white",tl.cex=4.5,tl.col = "black",
+           cl.cex = 4,cl.lim = colrange,
            cl.align.text = "l",cl.ratio = 0.2)
   
   # colorize as black for diagonal indices
