@@ -1,0 +1,308 @@
+--- 
+title: "A new method to estimate interspecific synchrony and its causes in population ecology using ``copula'' approach"
+author: "Shyamolina Ghosh, Lawrence W. Sheppard, Philip C. Reid, Daniel Reuman"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+geometry: "left=1 in,right=1 in,top=1 in,bottom=1 in"
+
+output: 
+  pdf_document:
+    number_sections: no
+    keep_tex: yes
+    fig_caption: yes
+    includes:
+      in_header: head_MainText.sty
+      
+tables: True
+link-citations: True
+urlcolor : blue
+indent : True
+
+csl: TheAmericanNaturalist.csl
+bibliography: REF_CIS.bib
+---
+
+```{r setup_MainText, echo=F}
+library(rmarkdown)
+knitr::opts_chunk$set(echo = TRUE, fig.pos = "H")
+options(scipen = 1, digits = 5) #This option round all numbers appeared in the inline r code upto 5th digit
+seed<-101
+```
+
+\noindent \emph{Affiliations:}
+
+\noindent Ghosh: Department of Ecology and Evolutionary Biology and Kansas Biological Survey, University of Kansas, Lawrence, KS, 66045, USA
+
+\noindent Sheppard: Department of Ecology and Evolutionary Biology and Kansas Biological Survey, University of Kansas, Lawrence, KS, 66045, USA
+
+\noindent Reid: School of Biological & Marine Sciences, University of Plymouth, Drake Circus, Plymouth PL4 8AA, UK; Continuous Plankton Recorder Survey, The Marine Biological Association, The Laboratory, Citadel Hill, Plymouth PL1 2PB, UK
+
+\noindent Reuman: Department of Ecology and Evolutionary Biology and Kansas Biological Survey, University of Kansas, Lawrence, KS, 66047, USA; Laboratory of Populations, Rockefeller University, 1230 York Ave, New York, NY, 10065, USA
+
+<!--\noindent\makebox[\linewidth]{\rule{\columnwidth}{1pt}}
+\scriptsize-->
+
+\newpage
+
+\noindent \textbf{ABSTRACT:} 
+<!--\small write abstract here-->
+
+
+
+\noindent \textbf{\textit{Keywords:}} tail dependence, copula, inter-species synchrony, aphids, planktons
+
+
+<!--\noindent\makebox[\linewidth]{\rule{\columnwidth}{1pt}}
+\normalsize-->
+
+\newpage 
+
+# Introduction\label{intro}
+<!--Q1 : Does cross-species synchrony have any specific tail dependence, 
+Q2: if yes, then what is the reason behind that?-->
+
+<!--Motivation of the paper-->
+Studying spatial patterns of 
+metapopulation-abundance through time and identifying 
+the cause behind their correlated temporal 
+flucuation (known as "spatial synchrony") have been of common
+interest to ecologists [@lande1999; @liebhold2004; @walter2017]. 
+Likewise, estimating synchronous or compensatory dynamics
+among different species occupying a common geographical area
+is a longstanding focus in ecology to predict the stability of 
+aggregate community or ecosystem properties [@raimondo2004interspecific; @kent2007synchrony;
+@loreau2008species; @gonzalez2009causes; @jochimsen2013compensatory]. In general,
+past studies used correlation based approach or regression based analysis
+to characterize temporal fluctuations of co-occuring species and thereby
+overlooked the information of the dependence structure embedded in multi-species 
+distribution over time. Our recent study [BIVAN paper] showed 
+the concept of "copula" can be useful in quantifying "spatial synchrony" 
+among metapopulations and could give us more insight in explaining the 
+causes and consequences of their synchronous response. But in case of inter-species 
+synchrony, use of copula, to our knowledge, remains unexplored. Here, we will 
+demonstrate the scope of using the statistical concept of "copula" in quantifying
+the synchronous or compensatory fluctuations of multiple co-occuring species over time.
+
+<!--what is copula?-->
+Copulas give a unique and 
+complete representation of the dependence between variables, in the sense that
+the joint distribution of two variables can be reconstructed 
+completely from the copula and the marginal distributions [@sklar1959_theorem]. 
+Copula approaches [@joe2014_dependence; @nelsen2006_copula] separate the information contained in a bivariate
+random variable into two distinct parts: the information contained in the marginal distributions
+(which says nothing about the dependence between the variables), 
+and the remaining information (which is solely about the dependence between the
+variables). To elaborate, a bivariate copula can be constructed from a set of two variables
+$\{ x_i, y_i\}, i= 1,2,...,n$ after some ranking procedure is applied so that their marginal
+distributions become uniform. If $\{ \bar{u_i}, \bar{v_i}\}$ are the corresponding ranks 
+of $\{ x_i, y_i\}$, then $\{ u_i, v_i\} = \{ \bar{u_i}, \bar{v_i}\} / (n+1)$
+reveals the associated dependence in the bivariate copula when plotted in a unit square.
+Thus, measures of association which depend only on the copula and not on the marginal
+distributions (e.g., Kendall's $\tau$ and Spearman's $\rho$) remain unchanged but usual
+Pearson linear product-moment correlations of variables and of their copula transformed 
+form are not the same. As a result, correlation coefficients measure only the overall 
+association and could not tell us how their association varies across the distribution.
+Through suitable choice from a wide varity of families and parameters, 
+a good deal of control can be achieved in modelling the dependence structure of a bivariate
+copula which shows over what parts of the distributions the 
+variables are more strongly associated. One aspect emphasized 
+below is estimating the strength of the relationship between variables
+in the tails of the distributions. 
+
+<!--what is tail-dep.-->
+Tail dependence is association 
+between extreme values of two variables in a copula. 
+Therefore, if smaller values of two positively associated variables 
+are more strongly associated than the larger values, the variables 
+are said to have stronger 
+lower-tail dependence than upper-tail dependence. Several families of copula
+are available with positive tail dependence exclusively in either
+or both tail (see Appendix \ref{SM-Methods} for details). Copula from 'Normal' family, having 
+zero tail-dependence (both lower and upper), could serve as a
+benchmark to measure this tail dependence between any bivariate 
+asymmetric copula considered. Following we will discuss the relevance of 
+copula with its unique tail-dependence feature in modelling multi-species
+ecological response.
+
+<!-- How tail-dep. is relevent in multi-species interaction?-->
+Estimating tail-dependence could be
+accounted for an alternative metric to measure synchrony (or compensation)
+between two correlated ecological variables. For example, 
+if we consider a bivariate copula made of 
+two co-existing species abundance data (through years),
+which are positively correlated, then we can estimate their interspecific 
+response by measuring the tail-dependence of the constructed copula. Two 
+synchronously rare (or abundant) species will show stronger 
+lower-tail (or upper-tail) dependence, 
+when their abundance-time series data will be plotted as a bivariate 
+copula with positive correlation. But if the two species are competing
+with each other for same resources then they are negatively correlated and in that 
+case weak competitor species will be limited by the abundance of stronger 
+one. Thus, here tail-dependence could also illuminate the causal relationship between
+interspecific dynamics. 
+
+<!--Why tail-dep is important?------explain : 1. Leibigs law, 2.for aggregated abundance?-->
+Monitoring tail dependence could reveal interesting information about 
+an ecosystem. At any given time in a particular ecosystem,
+productivity is constrained by a single, metabolically essential factor that is
+present in least supply relative to the potential biological demand (Leibig's law).
+This limiting factor could be climatic (temperature, windspeed, salinity 
+or moisture) or the factor could involve an insufficient
+supply of a particular nutrient, or an excessive, toxic availability of another chemical.
+In this sense, the limiting factor represents a type of ecological stress which
+if alleviated will result in greater productivity and development of the ecosystem.
+For example, extreme temperature could have profound effect on plant-productivity 
+or its pollination rate depending upon the species [@hatfield2015]. Copula structure with 
+lower (or upper) tail-dependence could reveal the scenario whether temperature (or any other
+abiotic/ biotic variable) suppress (or accelerate) species' productivity. 
+Similarly, in most freshwater lakes algal-productivity is limited by the availability 
+of inorganic phosphorus, thus represented by lower tail-dependence (stronger association
+between smaller values) in a copula made of plankton abundance and phosphorous level.
+But excessive fertilizers (through sewage or 
+agricultural runoff) beyond a threshold can catalyze their growth. Phytoplankton bloom, an
+ecosystem-level perturbations, occurs when compensatory dynamics between perturbation-sensitive
+phytoplankton and perturbation-tolerant taxa 
+become weak and thereby affecting the total biomass on aggregate level. As phytoplankton
+communities are diverse in response to change in the nutrient level in a lake, monitoring 
+their individual dynamics through copula could help to better understand the phytoplankton-resilience
+on the community level.
+
+In this paper, we will show, by minimum 
+AIC-weight based model selection approach, how to measure 
+the "tail-dependence" between inter-species dependence structure.
+We will also show an alternative non-parametric analysis to verify
+model selection based findings. Here we will analyze inter-species synchrony 
+with two multi-species
+spatio-temporal datasets of two different taxa 
+(aphid and plankton) to answer the following questions: 
+(Q1) Do different species show a synchrony with a specific (lower- or upper-) 
+tail-dependence?
+and (Q2) if they do show such asymmetric tail-dependence (this is a property of 
+non-Normal copula structure) then
+what could be the probable reason?
+
+
+# Materials and Methods\label{M&M}
+
+## Data \label{Data} 
+
+We used phenological data of aphid first-flight dates from 11 locations (Fig. \ref{SM-fig_aphid_map}) 
+across the United Kingdom (UK) for 20 aphid species (Table \ref{SM-tab_aphid_info}), for the 
+35 years from 1976 to 2010. These time series were computed from the the Rothamsted Insect 
+Survey suction-trap dataset [@harrington2014; @bell2015]. Data pre-processing for the aphids
+was the same as that of [@sheppard2016]. 
+
+Our second spatio-temporal dataset comprised average annual 
+abundance estimates for 26 locations (Fig. \ref{SM-fig_plankton_map})
+in the North Sea and British seas for 22 plankton taxa (Table \ref{SM-tab_plankton_info}) for the 
+56 years from 1958 to 2013. The locations are $2^\circ$ by $2^\circ$ grid cells. These data 
+were obtained from the Continuous Plankton Recorder (CPR) dataset maintained by the Sir 
+Alistair Hardy Foundation for Ocean Science (SAHFOS), now part of the Marine Biological 
+Association of the UK. Data pre-processing was similar but not identical to that 
+of [@sheppard2017]. Sheppard et al. [@sheppard2017] converted monthly 
+values to yearly values by averaging over all months. But here we only allowed maximum
+4 months in a year with missing data which were replaced by median value for 
+that month (drawn from all years in which data was available). As dinoflagellate 
+are considered having important role in phytoplankton bloom,
+we screened 4 Ceratium species (out of 9 phytoplanktons) and 
+their generalist predator zooplankton \textit{Calanus finmarchicus} from 15 
+selected locations. Locations were selected based on presence of atleast any two 
+ceratium species along with their predator having minimum 36 years of data. 
+
+## Methods to answer (Q1)
+
+## Methods to answer (Q2)
+
+
+
+# Results\label{Results}
+
+<!--Results for Q1-->
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/loc6/loc6_Corl-Coru.pdf}
+\includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/loc7/loc7_Corl-Coru.pdf}
+\includegraphics[width=10 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf} 
+\caption{Lower tail - upper tail dependence matrix ($C_{L-U}^n$ for location index n = 6 and n = 7) with first flight
+data of 20 aphid species, the last row and column indicates estimates from interaction between each 
+aphid species and winter average temperature (which was supposed to be the driver of the species' synchrony),
+details were discussed in \nameref{Results}. $N_L$ and $N_U$ are the count of positive and 
+negative cells for 20$\times$ 20 matrix; $N_L > N_U$ in $(A)$ (respectively, $N_U > N_L$ in $(B)$)
+indicates major lower (respectively, upper) tail dependence in sp-sp interaction matrix. 
+Yellow cells indicate independent relationship. $(C)$ Proportion of tail dominant 
+contribution ($f_L$ for lower tail and $f_U$ for upper tail) were plotted for each 
+location separately for 20 $\times$ 20 sp-sp interaction matrix.\label{fig_CorlmCoru_ff_loc67map}}
+\end{center}
+\end{figure}
+
+
+
+
+
+<!--Results for Q2-->
+
+
+
+
+
+
+
+# Discussion\label{Discussion}
+
+
+
+
+<!--Table with species info -->
+```{r tab_plankton_aphid_info, echo=F, results='asis',message=F}
+library(tinytex)
+library(tibble)
+library(kableExtra)
+library(dplyr)
+
+#aphid_info_org <- tibble(c0=c(1:20),
+#                     c1=c("Apple grass aphid","Bird cherry oat aphid","Black bean aphid","Blackberry cereal aphid",
+#                       "Blackcurrant sowthistle aphid",
+#                      "Corn leaf aphid","Currant lettuce aphid","Damson hop aphid","Grain aphid","Green spruce aphid",
+#                      "Leaf-curling plum aphid","Mealy cabbage aphid","Mealy plum aphid","Pea aphid","Peach potato aphid",
+#                      "Potato aphid","Rose grain aphid","Shallot aphid","Sycamore aphid","Willow carrot aphid"),
+#                    c2=c("Rhopalosiphum insertum", "Rhopalosiphum padi", "Aphis fabae", "Sitobion fragariae", "Hyperomyzus lactucae",
+#                      "Rhopalosiphum maidis", "Nasonovia ribisnigri","Phorodon humuli","Sitobion avenae","Elatobium abietinum",
+#                       "Brachycaudus helichrysi","Brevicoryne brassicae","Hyalopterus pruni","Acyrthosiphon pisum","Myzus persicae",
+#                       "Macrosiphum euphorbiae","Metopolophium dirhodum","Myzus ascalonicus","Drepanosiphum platanoidis","Cavariella #aegopodii")
+#)
+
+plankton_aphid_info <- tibble(c0=c(1:4,1:20),
+                     c2=c("Ceratium fusus","Ceratium furca","Ceratium tripos","Ceratium macroceros",
+                          "Rhopalosiphum insertum", "Rhopalosiphum padi", "Aphis fabae", "Sitobion fragariae",
+                          "Hyperomyzus lactucae", "Rhopalosiphum maidis", "Nasonovia ribisnigri","Phorodon humuli",
+                          "Sitobion avenae","Elatobium abietinum", "Brachycaudus helichrysi","Brevicoryne brassicae",
+                          "Hyalopterus pruni","Acyrthosiphon pisum","Myzus persicae", "Macrosiphum euphorbiae",
+                          "Metopolophium dirhodum","Myzus ascalonicus","Drepanosiphum platanoidis","Cavariella aegopodii"                                           ))
+knitr::kable(plankton_aphid_info, "latex", booktabs = T, linesep = "",align="c",
+      caption = "Species names of 4 planktons and 20 aphids for which data were used \\label{tab_plankton_aphid_info}",
+      col.names = NULL)%>%
+      group_rows("Planktons", 1,4) %>%
+      group_rows("Aphids", 5,24) %>%
+      column_spec(column = 2,italic=T)%>%add_header_above(header=c("Species id" = 1, "Latin binomial" = 1))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+\clearpage
+
+# Literature cited
+
+\setlength{\parindent}{-0.2in}
+\setlength{\leftskip}{0.2in}
+\setlength{\parskip}{1pt}
+\noindent

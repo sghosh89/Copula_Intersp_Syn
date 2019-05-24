@@ -18,6 +18,7 @@ tables: True
 link-citations: True
 urlcolor : blue
 indent : True
+csl: TheAmericanNaturalist.csl
 bibliography: REF_CIS.bib
 ---
 
@@ -40,40 +41,7 @@ library(kableExtra)
 source("mtime.R") #A function needed for caching
 ```
 
-```{r tab_aphid_info, echo=F, results='asis',message=F}
-library(tinytex)
-library(tibble)
-library(kableExtra)
-library(dplyr)
-
-#aphid_info_org <- tibble(c0=c(1:20),
-#                     c1=c("Apple grass aphid","Bird cherry oat aphid","Black bean aphid","Blackberry cereal aphid",
-#                       "Blackcurrant sowthistle aphid",
-#                      "Corn leaf aphid","Currant lettuce aphid","Damson hop aphid","Grain aphid","Green spruce aphid",
-#                      "Leaf-curling plum aphid","Mealy cabbage aphid","Mealy plum aphid","Pea aphid","Peach potato aphid",
-#                      "Potato aphid","Rose grain aphid","Shallot aphid","Sycamore aphid","Willow carrot aphid"),
-#                    c2=c("Rhopalosiphum insertum", "Rhopalosiphum padi", "Aphis fabae", "Sitobion fragariae", "Hyperomyzus lactucae",
-#                      "Rhopalosiphum maidis", "Nasonovia ribisnigri","Phorodon humuli","Sitobion avenae","Elatobium abietinum",
-#                       "Brachycaudus helichrysi","Brevicoryne brassicae","Hyalopterus pruni","Acyrthosiphon pisum","Myzus persicae",
-#                       "Macrosiphum euphorbiae","Metopolophium dirhodum","Myzus ascalonicus","Drepanosiphum platanoidis","Cavariella #aegopodii")
-#)
-
-plankton_aphid_info <- tibble(c0=c(1:4,1:20),
-                     c2=c("Ceratium fusus","Ceratium furca","Ceratium tripos","Ceratium macroceros",
-                          "Rhopalosiphum insertum", "Rhopalosiphum padi", "Aphis fabae", "Sitobion fragariae",
-                          "Hyperomyzus lactucae", "Rhopalosiphum maidis", "Nasonovia ribisnigri","Phorodon humuli",
-                          "Sitobion avenae","Elatobium abietinum", "Brachycaudus helichrysi","Brevicoryne brassicae",
-                          "Hyalopterus pruni","Acyrthosiphon pisum","Myzus persicae", "Macrosiphum euphorbiae",
-                          "Metopolophium dirhodum","Myzus ascalonicus","Drepanosiphum platanoidis","Cavariella aegopodii"                                           ))
-knitr::kable(plankton_aphid_info, "latex", booktabs = T, linesep = "",align="c",
-      caption = "Species names of 4 planktons and 20 aphids for which data were used \\label{tab_plankton_aphid_info}",
-      col.names = NULL)%>%
-      group_rows("Planktons", 1,4) %>%
-      group_rows("Aphids", 5,24) %>%
-      column_spec(column = 2,italic=T)%>%add_header_above(header=c("Species id" = 1, "Latin binomial" = 1))
-```
-
-
+<!--read plankton data in our format with all 22 species and growing season temperature-->
 ```{r read_plankton_data,echo=F,results="hide"}
 set.seed(seed)
 source("./plankton_css_datacall.R")
@@ -141,6 +109,7 @@ par(op)
 dev.off()
 ```
 
+<!--screen plankton data for the locations which had ceratium sp. and CALFIN data for more than 35 years-->
 ```{r screening_plankton_data,echo=F,results="hide"}
 set.seed(seed)
 #---------------------------
@@ -223,6 +192,7 @@ saveRDS(splist_updated,"./Results/plankton_results/splist_updated.RDS")
 saveRDS(good_loc_plankton,"./Results/plankton_results/good_loc_plankton.RDS")
 ```
 
+<!--A map showing selected locations among 26 sampling sites for planktons-->
 ```{r map_plot_css_plankton, echo=F, results="hide"}
 #source("good_splist.R")
 library(maps)
@@ -249,6 +219,7 @@ text(df_loc_info_org$loc_no, x = df_loc_info_org$longs+1, y = df_loc_info_org$la
 dev.off()
 ```
 
+<!--Computing non-parametric statistics at two tails (nbin=3) of plankton copula-->
 ```{r plankton_npa, echo=F, cache=T, cache.extra=list(seed,data_plankton,mtime("NonParamStat.R"),mtime("vivj_matrix.R"),mtime("CopulaFunctions.R"), mtime("CopulaFunctions_flexible.R"))}
 
 source("NonParamStat.R")
@@ -317,6 +288,7 @@ saveRDS(P_stat_plankton_ln_all,paste(resloc,file="P_stat_plankton_ln_all.RDS",se
 saveRDS(D2_stat_plankton_ln_all,paste(resloc,file="D2_stat_plankton_ln_all.RDS",sep=''))
 ```
 
+<!--Genarating plots with results from non-parametric statistics computed on plankton copula-->
 ```{r plot_res_plankton_npa, echo=F, results="hide",message=F,cache=T,warning=F, cache.extra=list(seed,cor_stat_plankton_ln_all,P_stat_plankton_ln_all,D2_stat_plankton_ln_all,mtime("NonParamStat_matrixplot.R"),mtime("mycorrplot.R"))}
 set.seed(seed)
 source("NonParamStat_matrixplot.R")
@@ -325,22 +297,23 @@ resloc<-"./Results/plankton_results/npa_stat_results/"
 #----------------------- cor npa stat ---------------------------------------------------------
 cor_npa_diff_plankton_ln_all<-NonParamStat_matrixplot(data_ln_all = cor_stat_plankton_ln_all,
                         resloc=resloc,
-                        nvar=2,nvar_names=c("CALFIN","Temp."),tagon=T,npa_stats = "cor")
+                        nvar=2,nvar_names=c("C. fin.","Temp."),tagon=T,npa_stats = "cor")
 saveRDS(cor_npa_diff_plankton_ln_all,paste(resloc,file="cor_npa_diff_plankton_ln_all.RDS",sep=''))
 
 #----------------------- P npa stat ---------------------------------------------------------
 P_npa_diff_plankton_ln_all<-NonParamStat_matrixplot(data_ln_all = P_stat_plankton_ln_all,
                         resloc=resloc,
-                        nvar=2,nvar_names=c("CALFIN","Temp."),tagon=T,npa_stats = "P")
+                        nvar=2,nvar_names=c("C. fin.","Temp."),tagon=T,npa_stats = "P")
 saveRDS(P_npa_diff_plankton_ln_all,paste(resloc,file="P_npa_diff_plankton_ln_all.RDS",sep=''))
 
 #----------------------- D2 npa stat ---------------------------------------------------------
 D2_npa_diff_plankton_ln_all<-NonParamStat_matrixplot(data_ln_all = D2_stat_plankton_ln_all,
                         resloc=resloc,
-                        nvar=2,nvar_names=c("CALFIN","Temp."),tagon=T,npa_stats = "D2")
+                        nvar=2,nvar_names=c("C. fin.","Temp."),tagon=T,npa_stats = "D2")
 saveRDS(D2_npa_diff_plankton_ln_all,paste(resloc,file="D2_npa_diff_plankton_ln_all.RDS",sep=''))
 ```
 
+<!--plots with plankton results: 1) summary of tail dep. results on map answering Q1, 2) scatter plot answering Q2-->
 ```{r some_plots_plankton,echo=F,results="hide"}
 
 #-------------- First generate a map for planktons with Corl-Coru stats summary for sp-sp interaction matrix ------------
@@ -442,7 +415,7 @@ mtext(paste0("Pearson correlation = ",round(unname(c$estimate),3),", p = ",round
 dev.off()
 ```
 
-
+<!--read aphid data in our format-->
 ```{r read_aphid_data, echo=F}
 source("aphid_css_datacall.R")
 firstflight<-as.matrix(read.csv("./Data/Aphid_data/APHID_DATA_RAW/aphidtsfirstflight141117.csv",header=F))
@@ -454,6 +427,7 @@ if(!dir.exists("./Results/aphid_results/")){
 }
 ```
 
+<!--read avg. winter temperature DEC-MAR for each site and make some basic plots with that-->
 ```{r winter_avg_temp,echo=F,results="hide"}
 # Time series analysis aphids
 temp_aphid_raw<-as.matrix(read.csv("./Data/Aphid_data/APHID_DATA_RAW/aphidmonthlytempdata.csv",header = F))
@@ -516,6 +490,7 @@ par(op)
 dev.off()
 ```
 
+<!--formatted data with aphid firstflight and avg. winter temp. for 11 sites-->
 ```{r aphid_data_with_winter_avg_temp,echo=F}
 
 data_ff_with_temp<-vector("list",length(data_ff)) #initializing
@@ -530,6 +505,7 @@ for(loc in 1:length(data_ff_with_temp)){
 saveRDS(data_ff_with_temp,"./Results/aphid_results/data_aphid_ff_winter_avg_temp.RDS")
 ```
 
+<!--showing map for 10 selected sites with atleast 30 years of aphid firstflight data-->
 ```{r map_plot_css_ff, echo=F, results="hide"}
 source("good_splist.R")
 library(maps)
@@ -564,6 +540,7 @@ text(df_loc_info_org$loc_no, x = df_loc_info_org$longs, y = df_loc_info_org$lats
 dev.off()
 ```
 
+<!--21 by 21 (20 aphid sp, 1 winter avg temp.) copula plot at 10 selected locations-->
 ```{r save_plot_css_aphid_with_winter_avg_temp, echo=F, results="hide", cache=T, cache.extra=list(seed,ff_selected_loc,data_ff_with_temp,mtime("vivj_matrix.R"))}
 source("./vivj_matrix.R")
 set.seed(seed)
@@ -589,6 +566,7 @@ par(op)
 dev.off()
 ```
 
+<!--Computing non-parametric statistics at two tails (nbin=2) of aphid copula-->
 ```{r ff_npa, echo=F, cache=T, cache.extra=list(seed,data_ff_with_temp,ff_selected_loc,mtime("good_splist.R"),mtime("NonParamStat.R"),mtime("vivj_matrix.R"),mtime("CopulaFunctions.R"), mtime("CopulaFunctions_flexible.R"))}
 
 source("good_splist.R")
@@ -652,6 +630,7 @@ saveRDS(P_stat_ff_ln_all,paste(resloc,file="P_stat_ff_ln_all.RDS",sep=''))
 saveRDS(D2_stat_ff_ln_all,paste(resloc,file="D2_stat_ff_ln_all.RDS",sep=''))
 ```
 
+<!--Genarating plots with results from non-parametric statistics computed on aphid copula-->
 ```{r plot_res_css_ff_npa, echo=F, results="hide",message=F,cache=T, cache.extra=list(seed,cor_stat_ff_ln_all,P_stat_ff_ln_all,D2_stat_ff_ln_all,mtime("NonParamStat_matrixplot.R"),mtime("mycorrplot.R"))}
 
 set.seed(seed)
@@ -677,6 +656,7 @@ D2_npa_diff_ff_ln_all<-NonParamStat_matrixplot(data_ln_all = D2_stat_ff_ln_all,
 saveRDS(D2_npa_diff_ff_ln_all,paste(resloc,file="D2_npa_diff_ff_ln_all.RDS",sep=''))
 ```
 
+<!--plots with aphid results: 1) summary of tail dep. results on map answering Q1, 2) scatter plot, 3) multipanel plot answering Q2-->
 ```{r some_plots_aphid_ff,echo=F,results="hide"}
 
 #-------------- First generate a map for aphids ff with Corl-Coru stats summary for 20X20 sp-sp interaction matrix ------------
@@ -728,7 +708,7 @@ legend("topleft", legend=c(expression(f[U]),0.2,0.4,0.6,0.8,1), cex=2,
        col=c(rgb(0,0,0,0),rgb(0,0,1,0.2),rgb(0,0,1,0.4),rgb(0,0,1,0.6),rgb(0,0,1,0.8),rgb(0,0,1,1)),
        pch=24,pt.bg=c(rgb(0,0,0,0),rgb(0,0,1,0.2),rgb(0,0,1,0.4),rgb(0,0,1,0.6),rgb(0,0,1,0.8),rgb(0,0,1,1)),
        pt.cex=2,horiz=F,bty="o")
-mtext("Tail-dep for sp-sp 20x20 matrix",cex=1.5)
+#mtext("Summary of tail-dep. for 20X20 sp-sp interaction matrix",cex=1.5)
 
 par(op)
 dev.off()
