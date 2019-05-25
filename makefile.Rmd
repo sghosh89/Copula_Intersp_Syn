@@ -14,7 +14,7 @@ library(checkpoint)
 if (!dir.exists("./.checkpoint/")){
   dir.create("./.checkpoint/")
 }
-checkpoint("2019-05-23",R.version=getRversion(),checkpointLocation=getwd()) #mine is R-3.4.4
+checkpoint("2019-01-01",R.version=getRversion(),checkpointLocation=getwd()) #mine is R-3.4.4
 ```
 
 ```{r}

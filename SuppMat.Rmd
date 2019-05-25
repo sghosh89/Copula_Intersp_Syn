@@ -53,7 +53,7 @@ if(!dir.exists("./Results/plankton_results/")){
   dir.create("./Results/plankton_results/")
 }
 
-# Now, include growing season temp. data for planktons as 11 -th species
+# Now, include growing season temp. data for planktons 
 temp_gr<-as.matrix(read.csv("./Data/Plankton_UK_Sea_data/northseaweather/timeseriestemp0202153to9.csv",header=F))
 colnames(temp_gr)<-c(1945:2014)
 ys<-which(colnames(temp_gr)==1958)
@@ -165,7 +165,7 @@ for(loc in 1:26){
 }
 #------------------------------
 
-loc_ts_n<-which(locwise_n$n>35)  # location based on 1st threshold : check on n
+loc_ts_n<-which(locwise_n$n>=36)  # location based on 1st threshold : check on n
 
 min_n<-min(locwise_n$n[loc_ts_n]) # minimum number of data points among all locations after 1st threshold
 

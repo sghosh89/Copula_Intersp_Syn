@@ -185,32 +185,39 @@ what could be the probable reason?
 
 ## Data \label{Data} 
 
-We used phenological data of aphid first-flight dates from 11 locations (Fig. \ref{SM-fig_aphid_map}) 
-across the United Kingdom (UK) for 20 aphid species (Table \ref{SM-tab_aphid_info}), for the 
-35 years from 1976 to 2010. These time series were computed from the the Rothamsted Insect 
-Survey suction-trap dataset [@harrington2014; @bell2015]. Data pre-processing for the aphids
-was the same as that of [@sheppard2016]. 
-
-Our second spatio-temporal dataset comprised average annual 
+Our first spatio-temporal dataset comprised average annual 
 abundance estimates for 26 locations (Fig. \ref{SM-fig_plankton_map})
-in the North Sea and British seas for 22 plankton taxa (Table \ref{SM-tab_plankton_info}) for the 
-56 years from 1958 to 2013. The locations are $2^\circ$ by $2^\circ$ grid cells. These data 
-were obtained from the Continuous Plankton Recorder (CPR) dataset maintained by the Sir 
-Alistair Hardy Foundation for Ocean Science (SAHFOS), now part of the Marine Biological 
-Association of the UK. Data pre-processing was similar but not identical to that 
-of [@sheppard2017]. Sheppard et al. [@sheppard2017] converted monthly 
-values to yearly values by averaging over all months. But here we only allowed maximum
-4 months in a year with missing data which were replaced by median value for 
-that month (drawn from all years in which data was available). As dinoflagellate 
-are considered having important role in phytoplankton bloom,
+in the North Sea and British seas for 22 plankton taxa for the 
+56 years from 1958 to 2013 [@sheppard2017]. 
+The locations are $2^\circ$ by $2^\circ$ grid cells.
+These data were obtained from the Continuous Plankton Recorder (CPR) dataset, 
+now operated and maintained by 
+the Marine Biological Association of the United Kingdom. 
+Data preprocessing steps are same as used in Ghosh et al. (in review). 
+As dinoflagellate are considered having important role in phytoplankton bloom,
 we screened 4 Ceratium species (out of 9 phytoplanktons) and 
-their generalist predator zooplankton \textit{Calanus finmarchicus} from 15 
-selected locations. Locations were selected based on presence of atleast any two 
-ceratium species along with their predator having minimum 36 years of data. 
+their generalist predator zooplankton \textit{Calanus finmarchicus} (hereafter abbreviated as C. fin.)
+from 15 selected locations. Locations were screened based on presence of atleast any two 
+ceratium species along with their predator C. fin. having minimum 36 years of data. We also used
+time series of temperature (for growing season) at each selected grid to be one of the key drivers
+which caused synchronous response among \textit{Ceratium} sp.
 
-## Methods to answer (Q1)
+As second spatio-temporal dataset, we used phenological data of aphid first-flight dates from 10 among 11 
+locations (Fig. \ref{SM-fig_aphid_map}) across the United Kingdom (UK) 
+for 20 aphid species (Table \ref{tab_plankton_aphid_info}). Locations are screened 
+based on atleast 30 data points available for all sp. at each site 
+during the timespan of 1976-2010. These time series were computed 
+from the the Rothamsted Insect Survey suction-trap dataset 
+[@harrington2014; @bell2015]. Data pre-processing for the aphids
+was the same as that of [@sheppard2016]. Time-series of winter average 
+temperature (December, $n^{th}$ year to March, $(n+1)^{th}$ year) was considered as 
+main driver causing synchronous arrival of aphids at each site.
 
-## Methods to answer (Q2)
+## Methods 
+
+<!--## Methods to answer (Q1)-->
+
+<!--## Methods to answer (Q2)-->
 
 
 
