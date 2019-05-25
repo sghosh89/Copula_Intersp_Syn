@@ -45,7 +45,7 @@ seed<-101
 
 \noindent \textbf{ABSTRACT:} 
 <!--\small write abstract here-->
-
+<!--200 words limit : J Am Nat-->
 
 
 \noindent \textbf{\textit{Keywords:}} tail dependence, copula, inter-species synchrony, aphids, planktons
@@ -214,6 +214,40 @@ temperature (December, $n^{th}$ year to March, $(n+1)^{th}$ year) was considered
 main driver causing synchronous arrival of aphids at each site.
 
 ## Methods 
+
+For each selected location we constructed a bivariate copula made of time series of either
+two species or with a species and time series of the driver (i. e. temperature or predator abundance)
+in the following way: given a bivariate dataset from $n^{th}$ site, $(x_t^n,y_t^n)$ for $t=1,...,T$, 
+first, we produced ranks $(\tilde{u}_t^n,\tilde{v}_t^n)$ where $\tilde{u}_t^n$ is the rank of $x_t^n$ in the set 
+$\{x_t^n:i=1,...,T\}$ and $\tilde{v}_t^n$ is the rank of $y_t^n$ in the set $\{y_t^n:i=1,...,T\}$. 
+we set $u_t^n=\tilde{u}_t^n/(T+1)$ and $v_t^n=\tilde{v}_t^n/(T+1)$; subsequent analysis used these 
+*normalized ranks* $u_t^n \in [0,1]$ and $v_t^n \in [0,1]$. Ranks were $1$ for the smallest element in a set. 
+Second, we did a test of the independence of the $u_t^n$ and $v_t^n$ 
+(implemented in `BiCopIndTest` in the `VineCopula` package). 
+If independence could be rejected ($0.05$ significance level), we computed the partial Spearman 
+correlation statistics $\cor_{l_b,u_b}$ as introduced in Ghosh et al. (in review)
+at either tail of the copula. 
+
+Given lower and upper boundaries by two parallel lines ($u_t^n+v_t^n = 2l_b$ and $u_t^n+v_t^n = 2u_b$) 
+which scans the region of interest of the copula within a unit square box, we here
+redefine the statistics we computed within the bounds; 
+\begin{equation}\label{eq.Cor}
+   \cor_{l_b,u_b}^n(u,v) = \frac{\sum 
+   (u_t^n-\mean(u)) (v_t^n-\mean(v))}{(T-1)\sqrt{\var(u)\var(v)}}.
+\end{equation}
+Here means and sample variances are computed using all $T$ data points for $n^{th}$ location, but the
+sum is over only the indices $t$ for which $u_t^n+v_t^n > 2l_b$ and $u_t^n+v_t^n < 2u_b$. 
+The sum of $\cor_{0,0.5}^n(u,v)$ and $\cor_{0.5,1}^n(u,v)$ (or some other choice of 
+$\cor_{l_{b_k},u_{b_k}}^n(u,v)$ for bounds $l_{b_k},u_{b_k}$ that partition the 
+interval $(0,1)$) equals the standard Spearman correlation. Higher partial Spearman correlation 
+in lower tail, i. e., when $\cor_{0,0.5}^n(u,v)  - \cor_{0.5,1}^n(u,v)$ is positive, 
+indicates asymmetry in tail-dependence of a copula and to be specific 
+stronger lower tail dependence than upper. Similarly, negative value of 
+$\cor_{0,0.5}^n(u,v) - \cor_{0.5,1}^n(u,v)$ would indicate stronger upper tail 
+dependence than lower in an asymmetric copula.
+
+To compute lower 
+
 
 <!--## Methods to answer (Q1)-->
 
