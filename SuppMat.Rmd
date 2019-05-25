@@ -700,11 +700,11 @@ text(df_loc_info$loc_no[moreL], x = df_loc_info$longs[moreL], y = df_loc_info$la
      col="red",cex=1.5)
 
 
-legend("topright", legend=c(expression(f[L]),0.2,0.4,0.6,0.8,1),cex=2,
+legend("topleft", legend=c(expression(f[L]),0.2,0.4,0.6,0.8,1),cex=2,
        col=c(rgb(0,0,0,0),rgb(1,0,0,0.2),rgb(1,0,0,0.4),rgb(1,0,0,0.6),rgb(1,0,0,0.8),rgb(1,0,0,1)),
        pch=25,pt.bg=c(rgb(0,0,0,0),rgb(1,0,0,0.2),rgb(1,0,0,0.4),rgb(1,0,0,0.6),rgb(1,0,0,0.8),rgb(1,0,0,1)),
        pt.cex=2,horiz=F,bty="o")
-legend("topleft", legend=c(expression(f[U]),0.2,0.4,0.6,0.8,1), cex=2,
+legend("topright", legend=c(expression(f[U]),0.2,0.4,0.6,0.8,1), cex=2,
        col=c(rgb(0,0,0,0),rgb(0,0,1,0.2),rgb(0,0,1,0.4),rgb(0,0,1,0.6),rgb(0,0,1,0.8),rgb(0,0,1,1)),
        pch=24,pt.bg=c(rgb(0,0,0,0),rgb(0,0,1,0.2),rgb(0,0,1,0.4),rgb(0,0,1,0.6),rgb(0,0,1,0.8),rgb(0,0,1,1)),
        pt.cex=2,horiz=F,bty="o")

@@ -174,11 +174,11 @@ model selection based findings. Here we will analyze inter-species synchrony
 with two multi-species
 spatio-temporal datasets of two different taxa 
 (aphid and plankton) to answer the following questions: 
-(Q1) Do different species show a synchrony with a specific (lower- or upper-) 
-tail-dependence?
+(Q1) Do different species show synchronous behavior through asymmetric tail 
+dependence (particularly, lower or particularly upper) in their copula structure?
 and (Q2) if they do show such asymmetric tail-dependence (this is a property of 
-non-Normal copula structure) then
-what could be the probable reason?
+non-Normal copula structure) then what causes such tail dependence? We hypothesized 
+possible biotic and/ or abiotic drivers causes such inter-specific synchrony.
 
 
 # Materials and Methods\label{M&M}
@@ -219,16 +219,18 @@ For each selected location we constructed a bivariate copula made of time series
 two species or with a species and time series of the driver (i. e. temperature or predator abundance)
 in the following way: given a bivariate dataset from $n^{th}$ site, $(x_t^n,y_t^n)$ for $t=1,...,T$, 
 first, we produced ranks $(\tilde{u}_t^n,\tilde{v}_t^n)$ where $\tilde{u}_t^n$ is the rank of $x_t^n$ in the set 
-$\{x_t^n:i=1,...,T\}$ and $\tilde{v}_t^n$ is the rank of $y_t^n$ in the set $\{y_t^n:i=1,...,T\}$. 
+$\{x_t^n:t=1,...,T\}$ and $\tilde{v}_t^n$ is the rank of $y_t^n$ in the set $\{y_t^n:t=1,...,T\}$. 
 we set $u_t^n=\tilde{u}_t^n/(T+1)$ and $v_t^n=\tilde{v}_t^n/(T+1)$; subsequent analysis used these 
 *normalized ranks* $u_t^n \in [0,1]$ and $v_t^n \in [0,1]$. Ranks were $1$ for the smallest element in a set. 
 Second, we did a test of the independence of the $u_t^n$ and $v_t^n$ 
 (implemented in `BiCopIndTest` in the `VineCopula` package). 
-If independence could be rejected ($0.05$ significance level), we computed the partial Spearman 
-correlation statistics $\cor_{l_b,u_b}$ as introduced in Ghosh et al. (in review)
-at either tail of the copula. 
+If independence could be rejected ($0.05$ significance level), and $(u_t^n, v_t^n)$
+were postively correlated then we proceed to measure dependence. For significantly negative 
+association, we started with $(x_t^n, - y_t^n)$ so that $(u_t^n, v_t^n)$ remained positively correlated.
+we computed the partial Spearman correlation statistics $\cor_{l_b,u_b}$ as introduced in Ghosh et al. (in review)
+as dependence measure for a positively correlated bivariate copula. 
 
-Given lower and upper boundaries by two parallel lines ($u_t^n+v_t^n = 2l_b$ and $u_t^n+v_t^n = 2u_b$) 
+Given lower and upper boundaries by two parallel lines ($u_t^n+v_t^n = 2l_b$, $u_t^n+v_t^n = 2u_b$ such that $0 \leq l_b < u_b \leq 1$) 
 which scans the region of interest of the copula within a unit square box, we here
 redefine the statistics we computed within the bounds; 
 \begin{equation}\label{eq.Cor}
@@ -237,21 +239,49 @@ redefine the statistics we computed within the bounds;
 \end{equation}
 Here means and sample variances are computed using all $T$ data points for $n^{th}$ location, but the
 sum is over only the indices $t$ for which $u_t^n+v_t^n > 2l_b$ and $u_t^n+v_t^n < 2u_b$. 
-The sum of $\cor_{0,0.5}^n(u,v)$ and $\cor_{0.5,1}^n(u,v)$ (or some other choice of 
+The sum of $\cor_{0,1/2}^n(u,v)$ and $\cor_{1/2,1}^n(u,v)$ (or some other choice of 
 $\cor_{l_{b_k},u_{b_k}}^n(u,v)$ for bounds $l_{b_k},u_{b_k}$ that partition the 
-interval $(0,1)$) equals the standard Spearman correlation. Higher partial Spearman correlation 
-in lower tail, i. e., when $\cor_{0,0.5}^n(u,v)  - \cor_{0.5,1}^n(u,v)$ is positive, 
-indicates asymmetry in tail-dependence of a copula and to be specific 
-stronger lower tail dependence than upper. Similarly, negative value of 
-$\cor_{0,0.5}^n(u,v) - \cor_{0.5,1}^n(u,v)$ would indicate stronger upper tail 
-dependence than lower in an asymmetric copula.
-
-To compute lower 
-
+interval $(0,1)$) equals the standard Spearman correlation.
 
 <!--## Methods to answer (Q1)-->
+If a bivariate copula was made with *normalized ranks* $(u, v)$ of any two time series 
+of species $(i, j)$ taken from $n^{th}$ site, then we used the shorthand notation
+for lower tail dependence as $C^n_L(i, j) = \cor_{lb,ub}^n(u,v); \;\; 0 \leq l_b \leq u_b \leq 0.5$ 
+and upper tail dependence as $C^n_U(i, j) = \cor_{lb,ub}^n(u,v); \;\; 0.5 \leq l_b \leq u_b \leq 1$,
+respctively. Higher partial Spearman 
+correlation in lower tail, i.e., when $C^n_{L-U}(i, j) = C_L^n(i, j)  - C_U^n(i, j)$ is positive, 
+indicates asymmetry in tail-dependence of the copula and to be specific 
+stronger lower tail dependence than upper. Similarly, negative value of 
+$C^n_{L-U}(i, j)$ would indicate stronger upper tail 
+dependence than lower in an asymmetric copula. 
+For $n^{th}$ site, we estimated $C^n_{L-U}(i, j)$ for all pairwise combination of $(i, j)$ and counted
+number of lower and upper tail dominant species pair as 
+$N_L : C^n_{L-U}(i, j)>0$ and $N_U : C^n_{L-U}(i, j)<0$, respectively.
+We also added up all positive and negative values of $C^n_{L-U}(i,j)$ and defined lower and upper
+asymmetric estimates on species level for $n^{th}$ site as $A_S^{n+} = \sum_{i=1}^{S}\sum_{j=1}^{S}[C^n_{L-U}(i, j) > 0]$ and 
+$A_S^{n-} = \sum_{i=1}^{S}\sum_{j=1}^{S}[C^n_{L-U}(i, j) < 0]$, 
+respectively. Total species-asymmetry $A_S^{n} = A_S^{n+} + A_S^{n-}$ was assessed for 
+each selected site which could
+answer (Q1); if $A_S^{n} \neq 0$ then it would indicate asymmetry in 
+overall tail-dependence. But to get more precise answer, whether the asymmetric
+tail dependence was stronger in lower values or upper, proportion 
+of lower and upper tail dominance
+in overall asymmetry at each site were measured
+by $f_L = \frac{A_S^{n+}}{A_S^{n+} + |A_S^{n-}|}$ and
+$f_U = \frac{|A_S^{n-}|}{A_S^{n+} + |A_S^{n-}|}$, respectively.
+These values of $f_L$ and $f_U$ from each site were used to answer (Q1). 
+
+<!-- write in results : 
+we used $\cor_{0,1/3}^n(u,v)  - \cor_{2/3,1}^n(u,v)$ as an estimate of $C^n_{L-U}(i, j)$ in case of planktons, 
+whereas because of fewer data points for aphids, we used $\cor_{0,1/2}^n(u,v)  - \cor_{1/2,1}^n(u,v)$. -->
 
 <!--## Methods to answer (Q2)-->
+
+If there were total $S$ number of species time series data available from $n^{th}$ site,
+we measured asymmetry of tail dependence with $D$ number of biotic or abiotic drivers for 
+
+
+
 
 
 
@@ -261,23 +291,23 @@ To compute lower
 
 \begin{figure}[!h]
 \begin{center}
+\includegraphics[width=10 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf} 
 \includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/loc6/loc6_Corl-Coru.pdf}
 \includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/loc7/loc7_Corl-Coru.pdf}
-\includegraphics[width=10 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf} 
-\caption{Lower tail - upper tail dependence matrix ($C_{L-U}^n$ for location index n = 6 and n = 7) with first flight
+\caption{$(A)$ Proportion of tail dominant contribution ($f_L$ for lower tail and $f_U$ for upper tail 
+showing on a color scale between 0 to 1) in overall asymmetry were plotted for each 
+location separately for 20 $\times$ 20 sp-sp interaction matrix summarizes the overall 
+asymmetry in tail-dependence for all sampling sites. Lower tail - upper tail dependence matrix 
+($C_{L-U}^n$ for location n = 6 and n = 7) with first flight
 data of 20 aphid species, the last row and column indicates estimates from interaction between each 
 aphid species and winter average temperature (which was supposed to be the driver of the species' synchrony),
 details were discussed in \nameref{Results}. $N_L$ and $N_U$ are the count of positive and 
-negative cells for 20$\times$ 20 matrix; $N_L > N_U$ in $(A)$ (respectively, $N_U > N_L$ in $(B)$)
+negative cells for 20$\times$ 20 matrix; $N_L > N_U$ in $(B)$ (respectively, $N_U > N_L$ in $(C)$)
 indicates major lower (respectively, upper) tail dependence in sp-sp interaction matrix. 
-Yellow cells indicate independent relationship. $(C)$ Proportion of tail dominant 
-contribution ($f_L$ for lower tail and $f_U$ for upper tail) were plotted for each 
-location separately for 20 $\times$ 20 sp-sp interaction matrix.\label{fig_CorlmCoru_ff_loc67map}}
+Yellow cells indicate independent relationship. Cells with green dot indicates associated 
+variables were negatively correlated initially and hence we reversed the variables in column so that the copula had positive association.\label{fig_CorlmCoru_ff_loc67map}}
 \end{center}
 \end{figure}
-
-
-
 
 
 <!--Results for Q2-->
