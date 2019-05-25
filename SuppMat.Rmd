@@ -116,19 +116,20 @@ set.seed(seed)
 # This function to screen locations
 call_summary_each_loc_plankton<-function(rawdata,ploton){
   
-  summary_each_loc<-data.frame(sp=c(1:5),n=NA,nT=NA,nrep0=NA,avg.Abun.=NA)
+  summary_each_loc<-data.frame(sp=c(1:5),n=NA,nT=NA,n0=NA,avg.Abun.=NA)
 
   for(sp in c(1:5)){
     temp0<-rawdata[[sp]]
     temp<-na.omit(temp0)
     summary_each_loc$n[sp]<-nrow(temp) # number of data_pt. available
     summary_each_loc$nT[sp]<-length(temp$Dat)-length(unique(temp$Dat)) #no. of ties
-    n0<-sum(temp$Dat==0)
-    if(n0>0){
-      summary_each_loc$nrep0[sp]<-n0-1 # no. of repeat of 0
-    }else{
-      summary_each_loc$nrep0[sp]<-NA
-    }
+    n0<-sum(temp$Dat==0) # number of years when a species was absent at a given location 
+    summary_each_loc$n0[sp]<-n0
+    #if(n0>0){
+    #  summary_each_loc$nrep0[sp]<-n0-1# no. of repeat of 0
+    #}else{
+    #  summary_each_loc$nrep0[sp]<-NA
+    #}
     summary_each_loc$avg.Abun.[sp]<-mean(temp$Dat) # avg. abundance
     
     
@@ -138,7 +139,7 @@ call_summary_each_loc_plankton<-function(rawdata,ploton){
       mtext(paste0("sp=",sp,
                   ", n=",summary_each_loc$n[sp],
                  ", nT=",summary_each_loc$nT[sp],
-                 ", nrep0=",summary_each_loc$nrep0[sp],
+                 ", n0=",summary_each_loc$n0[sp],
                  ", avg.Ab.=",round(summary_each_loc$avg.Abun.[sp],3),sep=""))
     }
   }
@@ -165,11 +166,11 @@ for(loc in 1:26){
 }
 #------------------------------
 
-loc_ts_n<-which(locwise_n$n>=36)  # location based on 1st threshold : check on n
+loc_ts_n<-which(locwise_n$n>=36)  # screen location based on 1st threshold : check on n
 
-min_n<-min(locwise_n$n[loc_ts_n]) # minimum number of data points among all locations after 1st threshold
+#min_n<-min(locwise_n$n[loc_ts_n]) # minimum number of data points among all locations after 1st threshold
 
-thrs<-0.1 # percentage allowed for ties : 2nd threshold
+thrs<-0.1 # percentage threshold
 splist_updated<-vector("list",26)
 names(splist_updated)<-paste0("loc",1:26,sep="")
 
@@ -177,7 +178,10 @@ good_loc_plankton<-c()
 for(i in 1:length(loc_ts_n)){
   splist<-c(1:5)
   loc<-loc_ts_n[i]
-  badsp<-which(summary_all_loc_raw_plankton[[loc]]$nrep0>thrs*min_n)
+  #badsp<-which(summary_all_loc_raw_plankton[[loc]]$n0>thrs*min_n) # sp absent for more than (10% of 36 years) data were not allowed
+  
+  # screen species : sp absent for more than (10% of vailable years of data for a given selected location) was not allowed
+  badsp<-which(summary_all_loc_raw_plankton[[loc]]$n0>thrs*summary_all_loc_raw_plankton[[loc]]$n)
   temp<-setdiff(splist,badsp)
   splist_upd<-temp
   splist_updated[[loc]]<-splist_upd
@@ -220,7 +224,7 @@ dev.off()
 ```
 
 <!--Computing non-parametric statistics at two tails (nbin=3) of plankton copula-->
-```{r plankton_npa, echo=F, cache=T, cache.extra=list(seed,data_plankton,mtime("NonParamStat.R"),mtime("vivj_matrix.R"),mtime("CopulaFunctions.R"), mtime("CopulaFunctions_flexible.R"))}
+```{r plankton_npa, echo=F, cache=T, cache.extra=list(seed,data_plankton,splist_updated,good_loc_plankton,mtime("NonParamStat.R"),mtime("vivj_matrix.R"),mtime("CopulaFunctions.R"), mtime("CopulaFunctions_flexible.R"))}
 
 source("NonParamStat.R")
 
@@ -377,7 +381,7 @@ legend("topleft", legend=c(expression(f[U]),0.2,0.4,0.6,0.8,1),
        pt.bg=c(rgb(0,0,0,0),rgb(0,0,1,0.2),rgb(0,0,1,0.4),rgb(0,0,1,0.6),rgb(0,0,1,0.8),rgb(0,0,1,1)),
        pt.cex=1.5,horiz=F,bty="o",bg="white",cex=2,y.intersp = 0.75,x.intersp = 0.6)
 
-mtext("Tail-dep for Ceratium sp-sp matrix",cex=2,line=1.05)
+#mtext("Tail-dep for Ceratium sp-sp matrix",cex=2,line=1.05)
 
 par(op)
 dev.off()
@@ -791,24 +795,21 @@ dev.off()
 \begin{figure}[!h]
 \begin{center}
 \hspace{-2 cm}
-\includegraphics[width=5 cm]{./Results/plankton_results/npa_stat_results/loc2/loc2_Corl-Coru.pdf} 
-\includegraphics[width=5 cm]{./Results/plankton_results/npa_stat_results/loc3/loc3_Corl-Coru.pdf} 
-\includegraphics[width=5 cm]{./Results/plankton_results/npa_stat_results/loc7/loc7_Corl-Coru.pdf}
-\includegraphics[width=5 cm]{./Results/plankton_results/npa_stat_results/loc10/loc10_Corl-Coru.pdf}\\
+\includegraphics[width=6 cm]{./Results/plankton_results/npa_stat_results/loc2/loc2_Corl-Coru.pdf} 
+\includegraphics[width=6 cm]{./Results/plankton_results/npa_stat_results/loc7/loc7_Corl-Coru.pdf}
+\includegraphics[width=6 cm]{./Results/plankton_results/npa_stat_results/loc10/loc10_Corl-Coru.pdf}\\
 \hspace{-2 cm}
-\includegraphics[width=5 cm]{./Results/plankton_results/npa_stat_results/loc11/loc11_Corl-Coru.pdf} 
-\includegraphics[width=5 cm]{./Results/plankton_results/npa_stat_results/loc12/loc12_Corl-Coru.pdf} 
-\includegraphics[width=5 cm]{./Results/plankton_results/npa_stat_results/loc14/loc14_Corl-Coru.pdf} 
-\includegraphics[width=5 cm]{./Results/plankton_results/npa_stat_results/loc17/loc17_Corl-Coru.pdf}\\
+\includegraphics[width=6 cm]{./Results/plankton_results/npa_stat_results/loc11/loc11_Corl-Coru.pdf} 
+\includegraphics[width=6 cm]{./Results/plankton_results/npa_stat_results/loc14/loc14_Corl-Coru.pdf}
+\includegraphics[width=6 cm]{./Results/plankton_results/npa_stat_results/loc17/loc17_Corl-Coru.pdf}\\
 \hspace{-2 cm}
-\includegraphics[width=5 cm]{./Results/plankton_results/npa_stat_results/loc18/loc18_Corl-Coru.pdf} 
-\includegraphics[width=5 cm]{./Results/plankton_results/npa_stat_results/loc20/loc20_Corl-Coru.pdf} 
-\includegraphics[width=5 cm]{./Results/plankton_results/npa_stat_results/loc21/loc21_Corl-Coru.pdf}
-\includegraphics[width=5 cm]{./Results/plankton_results/npa_stat_results/loc23/loc23_Corl-Coru.pdf}\\
+\includegraphics[width=6 cm]{./Results/plankton_results/npa_stat_results/loc18/loc18_Corl-Coru.pdf} 
+\includegraphics[width=6 cm]{./Results/plankton_results/npa_stat_results/loc20/loc20_Corl-Coru.pdf}
+\includegraphics[width=6 cm]{./Results/plankton_results/npa_stat_results/loc21/loc21_Corl-Coru.pdf}\\
 \hspace{-2 cm}
-\includegraphics[width=5 cm]{./Results/plankton_results/npa_stat_results/loc24/loc24_Corl-Coru.pdf}
-\includegraphics[width=5 cm]{./Results/plankton_results/npa_stat_results/loc25/loc25_Corl-Coru.pdf}
-\includegraphics[width=5 cm]{./Results/plankton_results/npa_stat_results/loc26/loc26_Corl-Coru.pdf}
+\includegraphics[width=6 cm]{./Results/plankton_results/npa_stat_results/loc23/loc23_Corl-Coru.pdf}
+\includegraphics[width=6 cm]{./Results/plankton_results/npa_stat_results/loc24/loc24_Corl-Coru.pdf}
+\includegraphics[width=6 cm]{./Results/plankton_results/npa_stat_results/loc25/loc25_Corl-Coru.pdf}
 \caption{Analogous figure as of Fig. \ref{fig_LTmUT_ceratium_all_loc} for (lower tail - upper tail) dependence matrix calculated using
 $\cor_l - \cor_u$ non-parametric statistic, details were discussed in Appendix \ref{nonparam}.\label{fig_CorlmCoru_ceratium_all_loc}}
 \end{center}
