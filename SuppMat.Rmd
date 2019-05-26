@@ -783,15 +783,26 @@ dev.off()
 ```
 
 
-<!--ceratium results-->
+<!--plankton results : sampling sites in map-->
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=8 cm,height=8 cm]{./Results/plankton_results/map_plot_plankton_selected_loc.pdf} 
-\caption{Plankton abundance data were obtained from 26 locations (2$^\circ$ $\times$ 2$^\circ$ grid) [Plankton Recorder (CPR) data set maintained by the Sir Alistair Hardy Foundation for Ocean Science (SAHFOS)] for 56 years (1958-2013). We considered selectively 15 locations (indicated by blue-boxes) based on (i) locations had at least 36 year of data points available for any two ceratium species and zooplankton (CALFIN), (ii) species at considered locations should not be rare (0 count value) for more than 3 years.\label{fig_plankton_map}}
+\includegraphics[width=16 cm]{./Results/plankton_results/map_plot_plankton_selected_loc.pdf} 
+\caption{Plankton abundance data were obtained from 26 locations (2$^\circ$ $\times$ 2$^\circ$ grid) [Plankton Recorder (CPR) data set maintained by the Sir Alistair Hardy Foundation for Ocean Science (SAHFOS)] for 56 years (1958-2013). We considered selectively 15 locations (indicated by blue-boxes) based on criterion listed in \nameref{MT-Data}\label{fig_plankton_map}}
 \end{center}
 \end{figure}
 
-<!--ceratium : corl-coru plot for all location-->
+<!--aphid results : sampling sites in map-->
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=16 cm]{./Results/aphid_results/map_plot_css_ff_selected_loc.pdf} 
+\caption{Position of 11 suction traps that sample flying aphids. We considered only 10 locations 
+(shown within blue boxes) which had atleast 30 years of firstflight data for 20 aphid species during (1976-2010) timespan. \label{fig_aphid_map}}
+\end{center}
+\end{figure}
+
+
+<!--plankton results : corl-coru plot for all location-->
 \begin{figure}[!h]
 \begin{center}
 \hspace{-2 cm}
@@ -810,38 +821,28 @@ dev.off()
 \includegraphics[width=6 cm]{./Results/plankton_results/npa_stat_results/loc23/loc23_Corl-Coru.pdf}
 \includegraphics[width=6 cm]{./Results/plankton_results/npa_stat_results/loc24/loc24_Corl-Coru.pdf}
 \includegraphics[width=6 cm]{./Results/plankton_results/npa_stat_results/loc25/loc25_Corl-Coru.pdf}
-\caption{Analogous figure as of Fig. \ref{fig_LTmUT_ceratium_all_loc} for (lower tail - upper tail) dependence matrix calculated using
-$\cor_l - \cor_u$ non-parametric statistic, details were discussed in Appendix \ref{nonparam}.\label{fig_CorlmCoru_ceratium_all_loc}}
+\caption{Analogous figure as of \ref{MT-fig_CorlmCoru_plankton_map_loc12_26}(B) and (C) showing 
+$C_{L-U}^n$ for all selected sampling sites except for location 3 (as it had independent copulas)
+and the two shown in Figs. \ref{MT-fig_CorlmCoru_plankton_map_loc12_26}(B-C); details 
+were discussed in \nameref{MT-Results}.\label{fig_CorlmCoru_plankton_all_loc}}
 \end{center}
 \end{figure}
 
 
-<!--aphid results-->
-
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=8 cm,height=8 cm]{./Results/aphid_results/map_plot_css_ff_selected_loc.pdf} 
-\caption{Position of 11 suction traps that sample flying aphids. We considered each location to collect 35 year long time series (1976-2010) data for 20 chosen aphid species firstflight date. \label{fig_aphid_map}}
-\end{center}
-\end{figure}
-
-
-
-<!--aphid : npa : corl - coru all location plot-->
+<!--aphid results : npa : corl - coru all location plot-->
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc2/loc2_Corl-Coru.pdf} 
 \includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc3/loc3_Corl-Coru.pdf}
 \includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc4/loc4_Corl-Coru.pdf}\\
 \includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc5/loc5_Corl-Coru.pdf} 
-\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc6/loc6_Corl-Coru.pdf}
-\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc7/loc7_Corl-Coru.pdf}\\ 
 \includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc8/loc8_Corl-Coru.pdf} 
-\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc9/loc9_Corl-Coru.pdf} 
-\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc10/loc10_Corl-Coru.pdf}\\ 
+\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc9/loc9_Corl-Coru.pdf}\\
+\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc10/loc10_Corl-Coru.pdf} 
 \includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc11/loc11_Corl-Coru.pdf} 
-\caption{Analogous figure as of Fig. \ref{fig_LTmUT_ff_all_loc} for (lower tail - upper tail) dependence matrix calculated using
-$\cor_l - \cor_u$ non-parametric statistic, details were discussed in Appendix \ref{nonparam}. \label{fig_CorlmCoru_ff_all_loc}}
+\caption{Analogous figure as of Figs. \ref{MT-fig_CorlmCoru_ff_map_loc6_7}(B) and (C) showing $C_{L-U}^n$ 
+for rest of 8 selected sites, details were discussed in \nameref{MT-Results}.
+\label{fig_CorlmCoru_ff_all_loc}}
 \end{center}
 \end{figure}
 

@@ -216,7 +216,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       summary_LU_CorlmCoru[1,loc]<-L
       summary_LU_CorlmCoru[2,loc]<-U
       if(tagon == T){
-        mtext(paste0(selected_loc[loc]," : "),cex=6,side=1,adj=0.3)
+        mtext(paste0(selected_loc[loc]," : "),cex=6,side=1,adj=0.3,line=-1)
       }
       #mtext(paste0("nL =",nL,", nU =",nU),cex=5,side=1,adj=0.7)
       mtext((as.expression(bquote('N'['L']*' = '*.(nL)))),cex=6,side=1,adj=0.5,col="red")
@@ -352,7 +352,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       summary_LU_PlmPu[1,loc]<-L
       summary_LU_PlmPu[2,loc]<-U
       if(tagon == T){
-        mtext(paste0(selected_loc[loc]," : "),cex=6,side=1,adj=0.3)
+        mtext(paste0(selected_loc[loc]," : "),cex=6,side=1,adj=0.3,line=-1)
       }
       mtext((as.expression(bquote('N'['L']*' = '*.(nL)))),cex=6,side=1,adj=0.5,col="red")
       mtext((as.expression(bquote('N'['U']*' = '*.(nU)))),cex=6,side=1,adj=0.8,col="blue")
@@ -484,7 +484,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       summary_LU_D2umD2l[1,loc]<-L
       summary_LU_D2umD2l[2,loc]<-U
       if(tagon == T){
-        mtext(paste0(selected_loc[loc]," : "),cex=6,side=1,adj=0.3)
+        mtext(paste0(selected_loc[loc]," : "),cex=6,side=1,adj=0.3,line=-1)
       }
       mtext((as.expression(bquote('N'['L']*' = '*.(nL)))),cex=6,side=1,adj=0.5,col="red")
       mtext((as.expression(bquote('N'['U']*' = '*.(nU)))),cex=6,side=1,adj=0.8,col="blue")
