@@ -326,7 +326,7 @@ summary_LU_plankton_sp_only<-cor_npa_diff_plankton_ln_all$summary_LU_CorlmCoru
 
 # on map
 pdf("./Results/plankton_results/npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf",height=7,width=8)
-op<-par(mar=c(1,8,1,3), mgp=c(1.5,1,0))
+op<-par(mar=c(1,8,0,0), mgp=c(1.5,1,0))
 #op<-par(mfrow=c(1,2),mar=c(1,3,1,3), mgp=c(1.5,1,0))
 
 library(maps)
@@ -407,7 +407,7 @@ id_indep<-which(rowSums(xxyy)==0) # locations which were independent
 xxyy<-xxyy[-id_indep,]
 pdf("./Results/plankton_results/npa_stat_results/Corstat_scatter_LmU_values.pdf",height=8,width=8)
 op<-par(mar=c(7,8, 4.1, 2), mgp=c(4, 1, 0))
-plot(xxyy$xx,xxyy$yy,xlab=expression(A[D]^n),ylab=expression(A[S]^n),col=rgb(0,0,0,0.4),pch=19,cex=2,cex.lab=3,cex.axis=2)
+plot(xxyy$xx,xxyy$yy,xlab=expression(A[D]^n),ylab=expression(A[S]^n),col=rgb(0,0,0,0.2),pch=19,cex=2,cex.lab=3,cex.axis=2)
 text(xxyy$xx,xxyy$yy,good_loc_plankton[-id_indep],pos=1,col="black",cex=1.2)
 lines(c(-100,100),c(0,0),type='l',lty='dashed',col="grey")
 lines(c(0,0),c(-100,100),type='l',lty='dashed',col="grey")
@@ -745,7 +745,7 @@ dev.off()
 
 #----- Now generate another version of above approach to get multipanel plots for each location --------------------
 LTmUTdep_matlist_ff<-cor_npa_diff_ff_ln_all$CorlmCoru_all_ln_list
-pdf("./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_avg_sp_temp_multipanel_plot.pdf",height = 35,width = 45)
+pdf("./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_avg_sp_temp_multipanel_plot.pdf",height = 33,width = 48)
 op<-par(mfrow=c(4,3),mar=c(20,25,15,5.5), mgp=c(8,1,0))
 
 for(loc in 1:length(LTmUTdep_matlist_ff)){
@@ -764,12 +764,12 @@ for(loc in 1:length(LTmUTdep_matlist_ff)){
   t<-t[,1]/t[,2]
   t<-sum(t>0,na.rm=T)
   plot(c(1:20),avg_s,type="b",col="red",cex=4,pch=16,ylim = ylim, 
-       ylab=expression(alpha[X]^n*(i)),cex.lab=12,cex.axis=7,xlab="",xaxt="n")
+       ylab=expression(alpha[X]^n*(i)),cex.lab=12,cex.axis=8,xlab="",xaxt="n")
   axis(side = 1, at = seq(from=1,to=20,by=1), cex.axis=8, line=NA,padj=0.8)
   mtext((expression(i^th * species)), side=1, line=18, col="black", cex=7)
   #mtext(paste("loc=",loc,", s.sign=",t," out of",nt,", tau=",round(tau,2),", p=",round(pval,3)),cex=3.5)
   mtext(paste("K =",round(tau,2),", p=",round(pval,3)),cex=6,side=3, line=1.5)
-  mtext(paste("Loc =",ff_selected_loc[loc],sep=""),cex=7,side=3,line=-7,adj=0.05)
+  mtext(paste("n = ",ff_selected_loc[loc],sep=""),cex=6,side=3,line=-7,adj=0.06)
   points(c(1:20),s_temp,type="b",col="blue",cex=4,pch=16)
   lines(c(1,20),c(0,0),type='l',lty='dashed')
   #legend("topleft", legend=c("avg_sp", "sp-temp"),
@@ -778,7 +778,7 @@ for(loc in 1:length(LTmUTdep_matlist_ff)){
 #op2<-par(fig = c(0, 1, 0, 1), oma = c(0, 0, 0, 0), mar = c(0, 1, 0, 0), new = TRUE)
 plot(0, 0, type = "n", bty = "n", xaxt = "n", yaxt = "n")
 legend("center", c("X = S", "X = D"), col = c("red","blue"),bty="n",
-       cex = 8, pch = c(16, 16), lty=c(1,1), xpd = TRUE, horiz = F, inset = c(0.06,0.05)) 
+       cex = 9, pch = c(16, 16), lty=c(1,1), xpd = TRUE, horiz = F, inset = c(0.06,0.05)) 
 par(op)
 dev.off()
 ```

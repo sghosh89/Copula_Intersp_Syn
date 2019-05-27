@@ -332,15 +332,19 @@ estimates of copulas from community matrix or sp-sp interaction matrix, $C_{L-U}
 <!--plankton plots : Q1-->
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=10 cm]{./Results/plankton_results/npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf} 
+\textbf{ (A)} \\
+\includegraphics[width=8 cm]{./Results/plankton_results/npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf} \\
+\vspace{1 cm}
+\textbf{ \hspace{1 cm} (B) \hspace{7 cm} (C)} \\
 \includegraphics[width=8 cm]{./Results/plankton_results/npa_stat_results/loc12/loc12_Corl-Coru.pdf}
 \includegraphics[width=8 cm]{./Results/plankton_results/npa_stat_results/loc26/loc26_Corl-Coru.pdf}
 \caption{$(A)$ Proportion of tail dominant contribution ($f_L$ for lower tail and $f_U$ for upper tail 
 showing on a color scale between 0 to 1) in overall asymmetry, plotted for each 
 selected locations among 26 sites (see Fig. \ref{SM-fig_plankton_map}) separately for sp-sp interaction matrix,
-summarizes the overall 
-asymmetry in tail-dependence for all sampling sites. Site 3 has independent relationship between species. 
-Lower tail - upper tail dependence matrix ($C_{L-U}^n$ for location n = 12 and n = 26) with Ceratium abundances 
+summarizes the overall asymmetry in tail-dependence for all sampling sites. Sites with lower tail dominance
+have site code in red color, whereas upper tail dominant sites have blue site code. Site 3 has independent 
+relationship between species. Lower tail - upper tail dependence 
+matrix ($C_{L-U}^n$ for location n = 12 and n = 26) with Ceratium abundances 
 are showin in $(B)$ and $(C)$, respectively. For other locations see Fig. \ref{SM-fig_CorlmCoru_plankton_all_loc}.
 The last 2 rows and columns are for the estimates from interaction between Ceratium sp. and  
 drivers (\textit{Calanus finmarchicus}, growing season temperature).
@@ -355,17 +359,21 @@ variables were negatively correlated initially and hence we reversed the variabl
 <!--aphid plots : Q1-->
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=10 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf} 
+\textbf{ (A)} \\
+\includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf} \\
+\vspace{1 cm}
+\textbf{ (B) \hspace{7 cm} (C)} \\
 \includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/loc6/loc6_Corl-Coru.pdf}
 \includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/loc7/loc7_Corl-Coru.pdf}
 \caption{$(A)$ Proportion of tail dominant contribution ($f_L$ for lower tail and $f_U$ for upper tail 
-showing on a color scale between 0 to 1) in overall asymmetry were plotted for each 
-selected 10 locations (see Fig. \ref{SM-fig_aphid_map}) separately for 20 $\times$ 20 sp-sp 
-interaction matrix summarizes the overall 
-asymmetry in tail-dependence for all sampling sites. Lower tail - upper tail dependence matrix 
-($C_{L-U}^n$ for location n = 6 and n = 7) with first flight
-data of 20 aphid species (for other locations see Fig. \ref{SM-fig_CorlmCoru_ff_all_loc}.), 
-the last row and column indicates estimates from interaction between each 
+showing on a color scale between 0 to 1) in overall asymmetry for each 
+selected 10 locations (see Fig. \ref{SM-fig_aphid_map}) plotted on map. summarizes the overall 
+asymmetry in tail-dependence for all sampling sites. Sites with lower tail dominance
+have site code in red color, whereas upper tail dominant sites have blue site code. 
+Lower tail - upper tail dependence matrix 
+($C_{L-U}^n$) with first flight data of 20 aphid species have shown in (B) for location n = 6 and
+in (C) for location n = 7, for other locations see Fig. \ref{SM-fig_CorlmCoru_ff_all_loc}. 
+The last row and column indicates estimates from interaction between each 
 aphid species and winter average temperature (which was supposed to be the driver of the species' synchrony),
 details were discussed in \nameref{Results}. $N_L$ and $N_U$ are the count of positive and 
 negative cells for 20$\times$ 20 matrix; $N_L > N_U$ in $(B)$ 
@@ -377,7 +385,9 @@ variables were negatively correlated initially and hence we reversed the variabl
 
 
 <!--Results for Q2-->
-
+We observed species synchronous response towards biotic and/ or abiotic stress
+which transmitted the similar asymmetric tail-dependence from drivers level ($A_S^n$ or $\alpha_S^n$)
+to species level ($A_D^n$ or $\alpha_D^n$).
 
 
 
@@ -386,7 +396,10 @@ variables were negatively correlated initially and hence we reversed the variabl
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=10 cm]{./Results/plankton_results/npa_stat_results/Corstat_scatter_LmU_values.pdf} 
-\caption{plghjjjjjjjjjjjjjj\label{fig_plankton_scatter}}
+\caption{Siginificant positive Pearson correlation (p value based on two-tailed test) between total 
+asymmetry on species level $A_S^n$ and on driver level $A_D^n$ represents causal relationship between 
+tail-dependence of inter-species synchrony with its drivers (C. fin. and growing season temperature) for 
+\textit{Ceratium} sp., numbers in the plot represents the side code $n$.\label{fig_plankton_scatter}}
 \end{center}
 \end{figure}
 
@@ -395,7 +408,8 @@ variables were negatively correlated initially and hence we reversed the variabl
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=16 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_avg_sp_temp_multipanel_plot.pdf} 
-\caption{plghjjjjjjjjjjjjjj\label{fig_aphid_multipanel}}
+\caption{Significant Kendall correlation (based on p value from one tailed test for positive association) between $\alpha_S^n(i)$ and $\alpha_D^n(i) ; i = 1, 2, \dots 20$, for most of the selected sampling sites explains asymmetric tail-dependence between species-winter
+average temperature was the reason for similar tail-dependence between $i^{th}$ species to other species.\label{fig_aphid_multipanel}}
 \end{center}
 \end{figure}
 
