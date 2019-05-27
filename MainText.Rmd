@@ -104,7 +104,7 @@ association and could not tell us how their association varies across the distri
 Through suitable choice from a wide varity of families and parameters, 
 a good deal of control can be achieved in modelling the dependence structure of a bivariate
 copula which shows over what parts of the distributions the 
-variables are more strongly associated. One aspect emphasized 
+variables are more strongly associated [REF BIVAN]. One aspect emphasized 
 below is estimating the strength of the relationship between variables
 in the tails of the distributions. 
 
@@ -114,12 +114,14 @@ between extreme values of two variables in a copula.
 Therefore, if smaller values of two positively associated variables 
 are more strongly associated than the larger values, the variables 
 are said to have stronger 
-lower-tail dependence than upper-tail dependence. Several families of copula
+lower-tail dependence than upper-tail dependence. Similarly, stronger upper tail 
+dependence in copula results from two variables correlated strongly in their higher values.
+In either case, those variables give rise to asymmetric copula structure. Several families of copula
 are available with positive tail dependence exclusively in either
-or both tail (see Appendix \ref{SM-Methods} for details). Copula from 'Normal' family, having 
-zero tail-dependence (both lower and upper), could serve as a
-benchmark to measure this tail dependence between any bivariate 
-asymmetric copula considered. Following we will discuss the relevance of 
+or both tail [@joe2014_dependence; @nelsen2006_copula], in addition to 
+a copula from 'Normal' family, having 
+zero tail-dependence (in both lower and upper tail, and hence symmetric copula). Following 
+we will discuss the relevance of 
 copula with its unique tail-dependence feature in modelling multi-species
 ecological response.
 
@@ -306,17 +308,26 @@ tail-dependence in species-driver copulas.
 # Results\label{Results}
 
 <!--Results for Q1-->
-
-
-
-
-
-
-
-
-
-
-
+We found major asymmetric tail-dependence when we considered all pairwise combination of any 
+two species time-series from a given location.
+Summarized results for all selected locations showing asymmetry in either tail for \textit{Ceratium} sp. 
+was depicted in Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}(A), where we plotted $f_L$ and
+$f_U$ (see \nameref{Methods}) for each selected sites 
+(except site 3 as there were no significant dependence between species abundances). Site
+codes in map were mentioned in red color if sites showed 
+stronger lower tail dependence contribution (i.e. $f_L > f_U$ for synchronous rare 
+occurrence of \textit{Ceratium}s). Similarly, locations where \textit{Ceratium} sp. were synchronously 
+abundant (site codes in blue color of Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}A), had 
+more upper tail dependent contribution ($f_U > f_L$). Partial Spearman correlation-based lower minus upper 
+tail dependence matrix ($C_{L-U}^n$) for site $n=12$ (Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}B) and $n=26$ (Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}C) were shown as examplary case (for 
+other locations see Fig. \ref{SM-fig_CorlmCoru_plankton_all_loc}). 
+Whereas Location 12 showed dominantly lower tail-dependent interspecific synchrony with all 12 pairwise copula had 
+lower tail dependence ($N_L = 12, N_U = 0$), Location 26 showed stronger upper tail dependence
+($N_L = 2, N_U = 4$). Similar conclusion was made for aphid firstflight time series, where copulas showed
+stronger tail-dependence in either tail (lower or upper) for all selected sites 
+(Fig. \ref{fig_CorlmCoru_ff_map_loc6_7}). Major asymmetric tail-dependence observed with one population (planktons)
+and one phenological (aphids firstflight) data answered (Q1) that inter-specific synchrony was captured through tail-dependence
+estimates of copulas from community matrix or sp-sp interaction matrix, $C_{L-U}^n$ for a given location $n$.
 
 <!--plankton plots : Q1-->
 \begin{figure}[!h]
@@ -326,7 +337,8 @@ tail-dependence in species-driver copulas.
 \includegraphics[width=8 cm]{./Results/plankton_results/npa_stat_results/loc26/loc26_Corl-Coru.pdf}
 \caption{$(A)$ Proportion of tail dominant contribution ($f_L$ for lower tail and $f_U$ for upper tail 
 showing on a color scale between 0 to 1) in overall asymmetry, plotted for each 
-selected 14 locations separately for sp-sp interaction matrix, summarizes the overall 
+selected locations among 26 sites (see Fig. \ref{SM-fig_plankton_map}) separately for sp-sp interaction matrix,
+summarizes the overall 
 asymmetry in tail-dependence for all sampling sites. Site 3 has independent relationship between species. 
 Lower tail - upper tail dependence matrix ($C_{L-U}^n$ for location n = 12 and n = 26) with Ceratium abundances 
 are showin in $(B)$ and $(C)$, respectively. For other locations see Fig. \ref{SM-fig_CorlmCoru_plankton_all_loc}.
@@ -348,7 +360,8 @@ variables were negatively correlated initially and hence we reversed the variabl
 \includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/loc7/loc7_Corl-Coru.pdf}
 \caption{$(A)$ Proportion of tail dominant contribution ($f_L$ for lower tail and $f_U$ for upper tail 
 showing on a color scale between 0 to 1) in overall asymmetry were plotted for each 
-selected 10 locations separately for 20 $\times$ 20 sp-sp interaction matrix summarizes the overall 
+selected 10 locations (see Fig. \ref{SM-fig_aphid_map}) separately for 20 $\times$ 20 sp-sp 
+interaction matrix summarizes the overall 
 asymmetry in tail-dependence for all sampling sites. Lower tail - upper tail dependence matrix 
 ($C_{L-U}^n$ for location n = 6 and n = 7) with first flight
 data of 20 aphid species (for other locations see Fig. \ref{SM-fig_CorlmCoru_ff_all_loc}.), 
@@ -366,6 +379,25 @@ variables were negatively correlated initially and hence we reversed the variabl
 <!--Results for Q2-->
 
 
+
+
+
+<!--plankton scatter plot : Q2-->
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=10 cm]{./Results/plankton_results/npa_stat_results/Corstat_scatter_LmU_values.pdf} 
+\caption{plghjjjjjjjjjjjjjj\label{fig_plankton_scatter}}
+\end{center}
+\end{figure}
+
+
+<!--aphid multipanel plot : Q2-->
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=16 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_avg_sp_temp_multipanel_plot.pdf} 
+\caption{plghjjjjjjjjjjjjjj\label{fig_aphid_multipanel}}
+\end{center}
+\end{figure}
 
 
 
