@@ -419,6 +419,45 @@ mtext(paste0("Pearson correlation = ",round(unname(c$estimate),3),", p = ",round
 dev.off()
 ```
 
+<!--skewness : ceratiums-->
+```{r skew_ceratium,echo=F,results="hide",cache=T,cache.extra=list(seed,data_plankton,splist_updated,good_loc_plankton,mtime("ncsurrog.R"),mtime("skewness_testing.R"))}
+set.seed(seed)
+source("skewness_testing.R")
+#------Skewness results calculation with 4 ceratium sp. for all selected loc ---------------------------------------------------
+
+good_loc<-good_loc_plankton
+pdf("./Results/plankton_results/ceratium_skewness.pdf",height=16,width=16)
+op<-par(mfrow=c(4,4),mar=c(4.2,5,1,1),mgp=c(3,1,0))
+
+tab_ceratium_skew_screened_sp<-matrix(NA,nrow = length(good_loc),ncol = 2)
+tab_ceratium_skew_screened_sp[,1]<-good_loc
+colnames(tab_ceratium_skew_screened_sp)<-c("loc","p_left") 
+
+
+for(i in 1:length(good_loc)){
+  
+  loc<-good_loc[i]
+  cat("----i = ",i,"----loc = ",loc,"-------","\n")
+  ceratium_data<-data_plankton[[loc]][c(1:4)]
+  df<-cbind(ceratium_data$Ceratium_fusus$Dat,
+            ceratium_data$Ceratium_furca$Dat,
+            ceratium_data$Ceratium_tripos$Dat,
+            ceratium_data$Ceratium_macroceros$Dat)
+  colnames(df)<-names(ceratium_data)
+  
+  df<-na.omit(df)
+  
+  temp<-skewness_testing(ts_matrix=df,splist=c(1:ncol(df)),numsurrog=10000,ploton=T,plotcheckon=F,corpres="spearman",resloc=NA)
+  #mtext(paste0("loc= ",good_loc[i],", p_left= ",temp[1],sep=""),side = 3, line=-2, adj=0)
+  tab_ceratium_skew_screened_sp[i,2]<-temp$p_left
+  
+}
+par(op)
+dev.off()
+saveRDS(tab_ceratium_skew_screened_sp,"./Results/plankton_results/tab_ceratium_skew.RDS")
+```
+
+
 <!--read aphid data in our format-->
 ```{r read_aphid_data, echo=F}
 source("aphid_css_datacall.R")
@@ -788,7 +827,7 @@ dev.off()
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=16 cm]{./Results/plankton_results/map_plot_plankton_selected_loc.pdf} 
-\caption{Plankton abundance data were obtained from 26 locations (2$^\circ$ $\times$ 2$^\circ$ grid) [Plankton Recorder (CPR) data set maintained by the Sir Alistair Hardy Foundation for Ocean Science (SAHFOS)] for 56 years (1958-2013). We considered selectively 15 locations (indicated by blue-boxes) based on criterion listed in \nameref{MT-Data}\label{fig_plankton_map}}
+\caption[Sampling sites on map for Plankton abundance data]{Plankton abundance data were obtained from 26 locations (2$^\circ$ $\times$ 2$^\circ$ grid) [Plankton Recorder (CPR) data set maintained by the Sir Alistair Hardy Foundation for Ocean Science (SAHFOS)] for 56 years (1958-2013). We considered selectively 15 locations (indicated by blue-boxes) based on criterion listed in \nameref{MT-Data}\label{fig_plankton_map}}
 \end{center}
 \end{figure}
 
@@ -797,8 +836,10 @@ dev.off()
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=16 cm]{./Results/aphid_results/map_plot_css_ff_selected_loc.pdf} 
-\caption{Position of 11 suction traps that sample flying aphids. We considered only 10 locations 
-(shown within blue boxes) which had atleast 30 years of firstflight data for 20 aphid species during (1976-2010) timespan. \label{fig_aphid_map}}
+\caption[Position of 11 suction traps on map that sample flying aphids]{Position of 
+11 suction traps that sample flying aphids. We considered only 10 locations 
+(shown within blue boxes) which had atleast 30 years of firstflight data for 
+20 aphid species during (1976-2010) timespan. \label{fig_aphid_map}}
 \end{center}
 \end{figure}
 
@@ -822,7 +863,8 @@ dev.off()
 \includegraphics[width=6 cm]{./Results/plankton_results/npa_stat_results/loc23/loc23_Corl-Coru.pdf}
 \includegraphics[width=6 cm]{./Results/plankton_results/npa_stat_results/loc24/loc24_Corl-Coru.pdf}
 \includegraphics[width=6 cm]{./Results/plankton_results/npa_stat_results/loc25/loc25_Corl-Coru.pdf}
-\caption{Analogous figure as of \ref{MT-fig_CorlmCoru_plankton_map_loc12_26}(B) and (C) showing 
+\caption[Planktons: $C_{L-U}^n$ matrix plot for selected locations]{Analogous figure as of 
+\ref{MT-fig_CorlmCoru_plankton_map_loc12_26}(B) and (C) showing 
 $C_{L-U}^n$ for all selected sampling sites except for location 3 (as it had independent copulas)
 and the two shown in Figs. \ref{MT-fig_CorlmCoru_plankton_map_loc12_26}(B-C); details 
 were discussed in \nameref{MT-Results}.\label{fig_CorlmCoru_plankton_all_loc}}
@@ -841,19 +883,20 @@ were discussed in \nameref{MT-Results}.\label{fig_CorlmCoru_plankton_all_loc}}
 \includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc9/loc9_Corl-Coru.pdf}\\
 \includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc10/loc10_Corl-Coru.pdf} 
 \includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc11/loc11_Corl-Coru.pdf} 
-\caption{Analogous figure as of Figs. \ref{MT-fig_CorlmCoru_ff_map_loc6_7}(B) and (C) showing $C_{L-U}^n$ 
+\caption[Aphids: $C_{L-U}^n$ matrix plot for selected locations]{Analogous 
+figure as of Figs. \ref{MT-fig_CorlmCoru_ff_map_loc6_7}(B) and (C) showing $C_{L-U}^n$ 
 for rest of 8 selected sites, details were discussed in \nameref{MT-Results}.
 \label{fig_CorlmCoru_ff_all_loc}}
 \end{center}
 \end{figure}
 
 
-
+<!--
 # References
 \setlength{\parindent}{-0.2in}
 \setlength{\leftskip}{0.2in}
 \setlength{\parskip}{1pt}
-\noindent
+\noindent-->
 
 
 

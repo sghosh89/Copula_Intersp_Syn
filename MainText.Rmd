@@ -109,7 +109,7 @@ below is estimating the strength of the relationship between variables
 in the tails of the distributions. 
 
 <!--what is tail-dep.-->
-Tail dependence is association 
+Tail dependence is an association 
 between extreme values of two variables in a copula. 
 Therefore, if smaller values of two positively associated variables 
 are more strongly associated than the larger values, the variables 
@@ -120,8 +120,8 @@ In either case, those variables give rise to asymmetric copula structure. Severa
 are available with positive tail dependence exclusively in either
 or both tail [@joe2014_dependence; @nelsen2006_copula], in addition to 
 a copula from 'Normal' family, having 
-zero tail-dependence (in both lower and upper tail, and hence symmetric copula). Following 
-we will discuss the relevance of 
+zero tail-dependence in both tail, and hence considered as a symmetric copula.
+Following we will discuss the relevance of 
 copula with its unique tail-dependence feature in modelling multi-species
 ecological response.
 
@@ -142,45 +142,29 @@ case weak competitor species will be limited by the abundance of stronger
 one. Thus, here tail-dependence could also illuminate the causal relationship between
 interspecific dynamics. 
 
-<!--Why tail-dep is important?------explain : 1. Leibigs law, 2.for aggregated abundance?-->
-Monitoring tail dependence could reveal interesting information about 
-an ecosystem. At any given time in a particular ecosystem,
-productivity is constrained by a single, metabolically essential factor that is
-present in least supply relative to the potential biological demand (Leibig's law).
+<!--What causes asymmetric tail-dep ?------Leibigs law : limiting effects of environment, predators?-->
+Monitoring tail dependence between species could reveal interesting information about 
+an ecosystem. If most of its member species in a 
+community go synchronously rare or synchronously abundant,
+then their synchronous behavior results in asymmetric tail-dependence for the overall community.
+Net productivity for an ecosystem could be constrained by some limiting factors (Leibig's law).
 This limiting factor could be climatic (temperature, windspeed, salinity 
-or moisture) or the factor could involve an insufficient
-supply of a particular nutrient, or an excessive, toxic availability of another chemical.
-In this sense, the limiting factor represents a type of ecological stress which
-if alleviated will result in greater productivity and development of the ecosystem.
-For example, extreme temperature could have profound effect on plant-productivity 
+or moisture) or could be biotic (predators) which propagates through trophic levels.
+For example, extreme temperature had profound effect on plant-productivity 
 or its pollination rate depending upon the species [@hatfield2015]. Copula structure with 
-lower (or upper) tail-dependence could reveal the scenario whether temperature (or any other
-abiotic/ biotic variable) suppress (or accelerate) species' productivity. 
-Similarly, in most freshwater lakes algal-productivity is limited by the availability 
-of inorganic phosphorus, thus represented by lower tail-dependence (stronger association
-between smaller values) in a copula made of plankton abundance and phosphorous level.
-But excessive fertilizers (through sewage or 
-agricultural runoff) beyond a threshold can catalyze their growth. Phytoplankton bloom, an
-ecosystem-level perturbations, occurs when compensatory dynamics between perturbation-sensitive
-phytoplankton and perturbation-tolerant taxa 
-become weak and thereby affecting the total biomass on aggregate level. As phytoplankton
-communities are diverse in response to change in the nutrient level in a lake, monitoring 
-their individual dynamics through copula could help to better understand the phytoplankton-resilience
-on the community level.
+lower (or upper) tail-dependence could reveal the scenario whether any abiotic or biotic variable
+causes such asymmetric tail dependences in inter-species copulas. 
 
-In this paper, we will show, by minimum 
-AIC-weight based model selection approach, how to measure 
+In this paper, we will introduce "partial-Spearman correlation" based approach to measure 
 the "tail-dependence" between inter-species dependence structure.
-We will also show an alternative non-parametric analysis to verify
-model selection based findings. Here we will analyze inter-species synchrony 
-with two multi-species
+We will analyze inter-species synchrony with two multi-species
 spatio-temporal datasets of two different taxa 
 (aphid and plankton) to answer the following questions: 
 (Q1) Do different species show synchronous behavior through asymmetric tail 
 dependence (particularly lower or particularly upper) in their copula structure?
-and (Q2) if they do show such asymmetric tail-dependence (this is a property of 
-non-Normal copula structure) then what causes such tail dependence? We hypothesized 
-possible biotic and/ or abiotic drivers causes such inter-specific synchrony.
+and (Q2) if they do show such asymmetric tail-dependence then what causes such tail dependence? 
+We hypothesized possible biotic and/ or abiotic drivers causes such tail-dependence in 
+inter-specific synchrony.
 
 
 # Materials and Methods\label{M&M}
@@ -386,10 +370,22 @@ variables were negatively correlated initially and hence we reversed the variabl
 
 <!--Results for Q2-->
 We observed species synchronous response towards biotic and/ or abiotic stress
-which transmitted the similar asymmetric tail-dependence from drivers level ($A_S^n$ or $\alpha_S^n$)
-to species level ($A_D^n$ or $\alpha_D^n$).
-
-
+which transmitted similar asymmetric tail-dependence from drivers level ($A_S^n$ or $\alpha_S^n$)
+to species level ($A_D^n$ or $\alpha_D^n$). To explain asymmetric tail-dependence between 
+\textit{Ceratium} sp. ($s = 4$), we considered abundance of predator C. fin 
+and growing season temperature as two key drivers ($d = 2$) for inter-specific synchrony.
+We did a two-tailed correlation test between $A_S^n$ and $A_D^n$ for all selected location $n$ 
+except $n = 3$ (as site 3 was independent). We got significant 
+positive Pearson correlation ($0.699$)<!--caution : not automated link--> with p-value $<<0.05$, 
+which confirmed our hypothesis for (Q2) that tail-asymmetry translated from driver to species level 
+(Fig. \ref{fig_plankton_scatter}).
+For aphids, we considered winter average temperature as the main driver $(d = 1)$ for their
+synchronous firstflight date at a given location, $n$. For each of the selected 10 locations,
+we computed Kendall correlation coefficient $(K)$ between $\alpha_S^n(i)$ and $\alpha_D^n(i)$, where
+$i = 1, 2, \dots 20$ represented the species index. We found for the $i^{th}$ aphid species, the 
+tail dependence of species-temperature copula results in similar tail dependence in inter-species copula 
+for 7 out of 10 sites (based on p-value with $0.05$ significance level, Fig. \ref{fig_aphid_multipanel}),
+which answered the probable causal mechanism behind inter-species synchrony as addressed in (Q2). 
 
 
 <!--plankton scatter plot : Q2-->
@@ -408,8 +404,11 @@ tail-dependence of inter-species synchrony with its drivers (C. fin. and growing
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=16 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_avg_sp_temp_multipanel_plot.pdf} 
-\caption{Significant Kendall correlation (based on p value from one tailed test for positive association) between $\alpha_S^n(i)$ and $\alpha_D^n(i) ; i = 1, 2, \dots 20$, for most of the selected sampling sites explains asymmetric tail-dependence between species-winter
-average temperature was the reason for similar tail-dependence between $i^{th}$ species to other species.\label{fig_aphid_multipanel}}
+\caption{Significant Kendall correlation (based on p value $\leq 0.05$ from one tailed test for 
+positive association) between $\alpha_S^n(i)$ and $\alpha_D^n(i) ; i = 1, 2, \dots 20$, for most 
+of the selected sampling sites explains asymmetric tail-dependence between species-winter
+average temperature was the reason for similar tail-dependence between $i^{th}$ species
+to other species.\label{fig_aphid_multipanel}}
 \end{center}
 \end{figure}
 
@@ -418,6 +417,40 @@ average temperature was the reason for similar tail-dependence between $i^{th}$ 
 
 
 # Discussion\label{Discussion}
+
+
+<!--Why tail-dep is important?------explain : 1. Leibigs law, 2.for aggregated abundance?
+Monitoring tail dependence could reveal interesting information about 
+an ecosystem. At any given time in a particular ecosystem,
+productivity is constrained by a single, metabolically essential factor that is
+present in least supply relative to the potential biological demand (Leibig's law).
+This limiting factor could be climatic (temperature, windspeed, salinity 
+or moisture) or the factor could involve an insufficient
+supply of a particular nutrient, or an excessive, toxic availability of another chemical.
+In this sense, the limiting factor represents a type of ecological stress which
+if alleviated will result in greater productivity and development of the ecosystem.
+For example, extreme temperature could have profound effect on plant-productivity 
+or its pollination rate depending upon the species [@hatfield2015]. Copula structure with 
+lower (or upper) tail-dependence could reveal the scenario whether temperature (or any other
+abiotic/ biotic variable) suppress (or accelerate) species' productivity. 
+Similarly, in most freshwater lakes algal-productivity is limited by the availability 
+of inorganic phosphorus, thus represented by lower tail-dependence (stronger association
+between smaller values) in a copula made of plankton abundance and phosphorous level.
+But excessive fertilizers (through sewage or 
+agricultural runoff) beyond a threshold can catalyze their growth. Phytoplankton bloom, an
+ecosystem-level perturbations, occurs when compensatory dynamics between perturbation-sensitive
+phytoplankton and perturbation-tolerant taxa 
+become weak and thereby affecting the total biomass on aggregate level. As phytoplankton
+communities are diverse in response to change in the nutrient level in a lake, monitoring 
+their individual dynamics through copula could help to better understand the phytoplankton-resilience
+on the community level.-->
+
+
+
+
+
+
+
 
 
 
