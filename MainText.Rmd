@@ -166,6 +166,15 @@ and (Q2) if they do show such asymmetric tail-dependence then what causes such t
 We hypothesized possible biotic and/ or abiotic drivers causes such tail-dependence in 
 inter-specific synchrony.
 
+<!--introductory fig.-->
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=8 cm]{./Results/fig_intro_A.pdf}
+\includegraphics[width=8 cm]{./Results/fig_intro_BCDE.pdf} 
+\caption{intro fig.\label{fig_intro}}
+\end{center}
+\end{figure}
+
 
 # Materials and Methods\label{M&M}
 
@@ -369,16 +378,20 @@ variables were negatively correlated initially and hence we reversed the variabl
 
 
 <!--Results for Q2-->
-We observed species synchronous response towards biotic and/ or abiotic stress
-which transmitted similar asymmetric tail-dependence from drivers level ($A_S^n$ or $\alpha_S^n$)
-to species level ($A_D^n$ or $\alpha_D^n$). To explain asymmetric tail-dependence between 
+To explain asymmetric tail-dependence between 
 \textit{Ceratium} sp. ($s = 4$), we considered abundance of predator C. fin 
-and growing season temperature as two key drivers ($d = 2$) for inter-specific synchrony.
+and growing season temperature as two key drivers ($d = 2$) for inter-specific synchrony. 
+We observed species synchronous response towards biotic and/ or abiotic stress
+which transmitted similar asymmetric tail-dependence from drivers level ($A_D^n$ or $\alpha_D^n$)
+to species level ($A_S^n$ or $\alpha_S^n$). 
 We did a two-tailed correlation test between $A_S^n$ and $A_D^n$ for all selected location $n$ 
 except $n = 3$ (as site 3 was independent). We got significant 
 positive Pearson correlation ($0.699$)<!--caution : not automated link--> with p-value $<<0.05$, 
 which confirmed our hypothesis for (Q2) that tail-asymmetry translated from driver to species level 
 (Fig. \ref{fig_plankton_scatter}).
+
+<!--explain aphids scatter plot failed and how aphids motivates the species specific approach-->
+
 For aphids, we considered winter average temperature as the main driver $(d = 1)$ for their
 synchronous firstflight date at a given location, $n$. For each of the selected 10 locations,
 we computed Kendall correlation coefficient $(K)$ between $\alpha_S^n(i)$ and $\alpha_D^n(i)$, where
@@ -404,10 +417,9 @@ tail-dependence of inter-species synchrony with its drivers (C. fin. and growing
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=16 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_avg_sp_temp_multipanel_plot.pdf} 
-\caption{Significant Kendall correlation (based on p value $\leq 0.05$ from one tailed test for 
-positive association) between $\alpha_S^n(i)$ and $\alpha_D^n(i) ; i = 1, 2, \dots 20$, for most 
-of the selected sampling sites explains asymmetric tail-dependence between species-winter
-average temperature was the reason for similar tail-dependence between $i^{th}$ species
+\caption{For 7 out of 10 sites, the Kendall correlation between $\alpha_S^n(i)$ and $\alpha_D^n(i) ; i = 1, 2, \dots 20$, 
+is significant (p $< 0.05$, one tailed test). This indicates asymmetric tail-dependence between species-winter
+average temperature is the reason for similar tail-dependence between $i^{th}$ species
 to other species.\label{fig_aphid_multipanel}}
 \end{center}
 \end{figure}

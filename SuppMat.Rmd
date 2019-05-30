@@ -41,6 +41,12 @@ library(kableExtra)
 source("mtime.R") #A function needed for caching
 ```
 
+<!--introductory fig, also used in methods-->
+```{r fig_intro,echo=F,results="hide"}
+set.seed(seed)
+source("./fig_intro.R")
+```
+
 <!--read plankton data in our format with all 22 species and growing season temperature-->
 ```{r read_plankton_data,echo=F,results="hide"}
 set.seed(seed)
