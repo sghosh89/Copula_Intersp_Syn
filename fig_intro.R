@@ -2,7 +2,7 @@ library(VineCopula)
 
 pdf("./Results/fig_intro_A.pdf",height=8,width=8)
 op<-par(mar=c(5,5,1,2),mgp=c(3,0.5,0))
-cc<-BiCopSim(N=50,family=3,par=2)
+cc<-BiCopSim(N=50,family=3,par=3.5)
 plot(cc[,1],cc[,2],xlim=c(0,1),ylim=c(0,1),xlab="u",ylab="v",
      asp=1,col=rgb(0,0,0,0.3),pch=16,cex=1.5,cex.lab=3,cex.axis=2)
 rect(0,0,1,1)
