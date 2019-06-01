@@ -43,9 +43,37 @@ seed<-101
 
 \newpage
 
-\noindent \textbf{ABSTRACT:} 
+\noindent \textbf{ABSTRACT} 
 <!--\small write abstract here-->
-<!--200 words limit : J Am Nat-->
+<!--200 words limit : J Am Nat, 350 words for J. animal eco.-->
+
+Recent study [@Ghosh_copula] showed potential use of copula in detecting
+"spatial synchrony" between metapopulations. 
+We used this copula concept to estimate synchronous and/ or compensatory
+response between different species which shared 
+same environments. We applied partial-Spearman correlation based approach
+to measure lower and upper tail-dependence
+between two variables at their extreme lower and higher values, respectively. 
+Stronger dependence in either tail of the joint distribution of 
+two associated species' time-series from same 
+location lead to asymmetry in inter-specific response. 
+With two long-term spatio-temporal datasets (\textit{Ceratium} sp. abundance data and 
+aphids firstflight data), we showed overall asymmetric tail-dependence is a common signature for 
+inter-specific synchrony within a community, when we considered all combinations of species-pair.
+We explained this asymmetry across species level to be in effect due to similar 
+asymmetric tail-dependence of the species in response to their biotic/ abiotic drivers.
+We considered abundance of generalist predator 
+\textit{Calanus finmarchicus} and growing season temperature as two key drivers 
+which shaped the tail-dependence between phytoplankton community, whereas dependence in 
+aphids firstflight dates were influenced by average winter temperature. We found 
+significant correlation between asymmetric tail-dependence of species-drivers 
+and species-species copula, which explained the probable causal mechanism 
+behind such commonly found asymmetric inter-specific response. We also proposed two 
+alternate approach to measure such correlation between asymmetries, because 
+whereas \textit{Ceratium}s behaved as a community, the aphids were more non-interacting 
+on their aggregate level.
+
+
 
 
 \noindent \textbf{\textit{Keywords:}} tail dependence, copula, inter-species synchrony, aphids, planktons
