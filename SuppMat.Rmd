@@ -776,9 +776,9 @@ for(loc in c(1:length(x))){
 }
 
 pdf("./Results/aphid_results/ff_npa_stat_results/Corstat_scatter_LmU_values.pdf",height=8,width=8)
-op<-par(mar=c(5.1, 5.1, 4.1, 2.1), mgp=c(3, 1, 0))
-plot(xx,yy,xlab="(L+U) for sp-temp.",ylab="(L+U) for sp-sp matrix",col=rgb(0,0,0,0.4),pch=19,cex=2,cex.lab=2,cex.axis=2)
-text(xx,yy,ff_selected_loc,pos=1,col="black",cex=1.2)
+op<-par(mar=c(7,8, 4.1, 2), mgp=c(4, 1, 0))
+plot(xx,yy,xlab=expression(A[D]^n),ylab=expression(A[S]^n),col=rgb(0,0,0,0.2),pch=19,cex=2,cex.lab=3,cex.axis=2,ylim=c(min(yy),max(yy)+1))
+text(xx,yy,ff_selected_loc,pos=3,col="black",cex=1.2)
 lines(c(-100,100),c(0,0),type='l',lty='dashed',col="grey")
 lines(c(0,0),c(-100,100),type='l',lty='dashed',col="grey")
 dat<-data.frame(x=xx,y=yy)
@@ -881,10 +881,10 @@ were discussed in \nameref{MT-Results}.\label{fig_CorlmCoru_plankton_all_loc}}
 <!--aphid results : npa : corl - coru all location plot-->
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc2/loc2_Corl-Coru.pdf} 
 \includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc3/loc3_Corl-Coru.pdf}
-\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc4/loc4_Corl-Coru.pdf}\\
-\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc5/loc5_Corl-Coru.pdf} 
+\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc4/loc4_Corl-Coru.pdf}
+\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc6/loc6_Corl-Coru.pdf}\\ 
+\includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc7/loc7_Corl-Coru.pdf} 
 \includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc8/loc8_Corl-Coru.pdf} 
 \includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc9/loc9_Corl-Coru.pdf}\\
 \includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc10/loc10_Corl-Coru.pdf} 
@@ -893,6 +893,16 @@ were discussed in \nameref{MT-Results}.\label{fig_CorlmCoru_plankton_all_loc}}
 figure as of Figs. \ref{MT-fig_CorlmCoru_ff_map_loc6_7}(B) and (C) showing $C_{L-U}^n$ 
 for rest of 8 selected sites, details were discussed in \nameref{MT-Results}.
 \label{fig_CorlmCoru_ff_all_loc}}
+\end{center}
+\end{figure}
+
+
+<!--aphid scatter plot : Q2 : failed result-->
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=10 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_scatter_LmU_values.pdf} 
+\caption{Aphid firstflight data showed no significant relationship between total asymmetry on species level $A_S^n$ and 
+on driver level $A_D^n$. Numbers in the plot represent the side code $n$.\label{fig_aphid_scatter}}
 \end{center}
 \end{figure}
 
