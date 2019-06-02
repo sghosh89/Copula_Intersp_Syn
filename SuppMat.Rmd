@@ -890,7 +890,7 @@ were discussed in \nameref{MT-Results}.\label{fig_CorlmCoru_plankton_all_loc}}
 \includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc10/loc10_Corl-Coru.pdf} 
 \includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc11/loc11_Corl-Coru.pdf} 
 \caption[Aphids: $C_{L-U}^n$ matrix plot for selected locations]{Analogous 
-figure as of Figs. \ref{MT-fig_CorlmCoru_ff_map_loc6_7}(B) and (C) showing $C_{L-U}^n$ 
+figure as of Figs. \ref{MT-fig_CorlmCoru_ff_map_loc2_5}(B) and (C) showing $C_{L-U}^n$ 
 for rest of 8 selected sites, details were discussed in \nameref{MT-Results}.
 \label{fig_CorlmCoru_ff_all_loc}}
 \end{center}

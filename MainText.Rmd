@@ -119,9 +119,9 @@ random variable into two distinct parts: the information contained in the margin
 (which says nothing about the dependence between the variables), 
 and the remaining information (which is solely about the dependence between the
 variables). To elaborate, a bivariate copula can be constructed from a set of two variables
-$\{ x_i, y_i\}, i= 1,2,...,n$ after some ranking procedure is applied so that their marginal
+$\{ x_i, y_i\}, i= 1,2,...,T$ after some ranking procedure is applied so that their marginal
 distributions become uniform. If $\{ \bar{u_i}, \bar{v_i}\}$ are the corresponding ranks 
-of $\{ x_i, y_i\}$, then $\{ u_i, v_i\} = \{ \bar{u_i}, \bar{v_i}\} / (n+1)$
+of $\{ x_i, y_i\}$, then $\{ u_i, v_i\} = \{ \bar{u_i}, \bar{v_i}\} / (T+1)$
 reveals the associated dependence in the bivariate copula when plotted in a unit square.
 Thus, measures of association which depend only on the copula and not on the marginal
 distributions (e.g., Kendall's $\tau$ and Spearman's $\rho$) remain unchanged but usual
@@ -139,59 +139,62 @@ in the tails of the distributions.
 Tail dependence is an association 
 between extreme values of two variables in a copula. 
 Therefore, if smaller values of two positively associated variables 
-are more strongly associated than the larger values, the variables 
+are more strongly associated than the larger values as depicted in Fig. \ref{fig_intro}(A-C), the variables 
 are said to have stronger 
 lower-tail dependence than upper-tail dependence. Similarly, stronger upper tail 
-dependence in copula results from two variables correlated strongly in their higher values.
-In either case, those variables give rise to asymmetric copula structure. Several families of copula
-are available with positive tail dependence exclusively in either
+dependence in copula results from two variables correlated strongly in their 
+higher values (Fig. \ref{fig_intro}D,E).
+In either case, those variables give rise to asymmetric copula structure. Several
+families of copula are available with positive tail dependence exclusively in either
 or both tail [@joe2014_dependence; @nelsen2006_copula], in addition to 
-a copula from 'Normal' family, having 
-zero tail-dependence in both tail, and hence considered as a symmetric copula.
+a copula from 'Normal' family, having zero tail-dependence in 
+both tail, and hence considered as a symmetric copula.
 Following we will discuss the relevance of 
 copula with its unique tail-dependence feature in modelling multi-species
 ecological response.
-
-<!-- How tail-dep. is relevent in multi-species interaction?-->
-Estimating tail-dependence could be
-accounted for an alternative metric to measure synchrony (or compensation)
-between two correlated ecological variables. For example, 
-if we consider a bivariate copula made of 
-two co-existing species abundance data (through years),
-which are positively correlated, then we can estimate their interspecific 
-response by measuring the tail-dependence of the constructed copula. Two 
-synchronously rare (or abundant) species will show stronger 
-lower-tail (or upper-tail) dependence, 
-when their abundance-time series data will be plotted as a bivariate 
-copula with positive correlation. But if the two species are competing
-with each other for same resources then they are negatively correlated and in that 
-case weak competitor species will be limited by the abundance of stronger 
-one. Thus, here tail-dependence could also illuminate the causal relationship between
-interspecific dynamics. 
 
 <!--What causes asymmetric tail-dep ?------Leibigs law : limiting effects of environment, predators?-->
 Monitoring tail dependence between species could reveal interesting information about 
 an ecosystem. If most of its member species in a 
 community go synchronously rare or synchronously abundant,
 then their synchronous behavior results in asymmetric tail-dependence for the overall community.
-Net productivity for an ecosystem could be constrained by some limiting factors (Leibig's law).
-This limiting factor could be climatic (temperature, windspeed, salinity 
-or moisture) or could be biotic (predators) which propagates through trophic levels.
+Net productivity for such ecosystem could be constrained by some limiting factors (Leibig's law)
+which included abiotic (temperature, windspeed, salinity 
+or moisture) and biotic (predators, food-webs) interactions.
 For example, extreme temperature had profound effect on plant-productivity 
 or its pollination rate depending upon the species [@hatfield2015]. Copula structure with 
 lower (or upper) tail-dependence could reveal the scenario whether any abiotic or biotic variable
-causes such asymmetric tail dependences in inter-species copulas. 
+causes such asymmetric tail dependences in inter-species dependence structures. We will
+ellaborate this idea in the following example.
+
+<!--earlier work on sp-driver relationships : aphids and planktons-->
+Earlier work showed winter temperature had profound effect on spatial 
+synchrony between aphids [@sheppard2016]. Similarly, plankton 
+community in the North Sea was found to be affected by 
+climatic variables like temperature and 
+its predator zooplankton [@defriez2016climate; @sheppard2017; @sheppard2019].
+Inspiring from those findings, in this paper, we hypothesize possible biotic and/ or 
+abiotic drivers causes asymmetric tail-dependence in inter-specific synchrony, if any found for 
+planktons or aphids. For example, consider a situation when harsh winter delayed arrival of aphids 
+on a site, i. e., aphids firstflight date was negatively correlated with winter temperature. If we 
+made a copula with aphid firstflight dates and negative winter temperature, then it could be 
+either lower tail (Fig. \ref{fig_intro}B) or upper-tail dependent (Fig. \ref{fig_intro}D) depending on 
+individual aphid's response. Fig. \ref{fig_intro}B represents that species $i$ came early when 
+the site was warmer than usual (species firstflight date facilitated by warmer temperature), whereas 
+Fig. \ref{fig_intro}D represents arrival of species $i$ at a site was limited by cold winter. 
+If majority of other aphids also showed similar trend with the temperature 
+at a given site as depicted in Fig. \ref{fig_intro}B or D, then we hypothesize, we
+would see the corresponding asymmetric tail-dependence between two species ($i \neq j$) firstflight dates 
+as depicted in Fig. \ref{fig_intro}C or E, respectively.
 
 In this paper, we will introduce "partial-Spearman correlation" based approach to measure 
 the "tail-dependence" between inter-species dependence structure.
-We will analyze inter-species synchrony with two multi-species
-spatio-temporal datasets of two different taxa 
-(aphid and plankton) to answer the following questions: 
+We will analyze inter-species synchrony with two spatio-temporal datasets of 
+two different taxa (planktons and aphids) to answer the following questions: 
 (Q1) Do different species show synchronous behavior through asymmetric tail 
 dependence (particularly lower or particularly upper) in their copula structure?
-and (Q2) if they do show such asymmetric tail-dependence then what causes such tail dependence? 
-We hypothesized possible biotic and/ or abiotic drivers causes such tail-dependence in 
-inter-specific synchrony.
+and (Q2) if they do show such asymmetric tail-dependence then what causes such asymmetry? 
+We will also present two alternative approach for investigating (Q2) for planktons and aphids. 
 
 <!--introductory fig.-->
 \begin{figure}[!h]
