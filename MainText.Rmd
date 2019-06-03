@@ -154,11 +154,9 @@ copula with its unique tail-dependence feature in modelling multi-species
 ecological response.
 
 <!--What causes asymmetric tail-dep ?------Leibigs law : limiting effects of environment, predators?-->
-Monitoring tail dependence between species could reveal interesting information about 
-an ecosystem. If most of its member species in a 
-community go synchronously rare or synchronously abundant,
-then their synchronous behavior results in asymmetric tail-dependence for the overall community.
-Net productivity for such ecosystem could be constrained by some limiting factors (Leibig's law)
+Asymmetric tail-dependence for the overall community is expected to observe when most of its 
+member species go synchronously rare or synchronously abundant. Net productivity for 
+such ecosystem could be constrained by some limiting factors (Leibig's law)
 which included abiotic (temperature, windspeed, salinity 
 or moisture) and biotic (predators, food-webs) interactions.
 For example, extreme temperature had profound effect on plant-productivity 
@@ -477,39 +475,38 @@ to other species.\label{fig_aphid_multipanel}}
 \end{figure}
 
 
-
-
-
 # Discussion\label{Discussion}
 
+<!--summary results-->
+We found asymmetric tail-dependence between different species sharing same location through time, which 
+indicated there was substantial inter-specific synchrony between them. With two long-term 
+spatio-temporal datasets from two different taxa, We showed partial-Spearman correlation 
+estimates at extreme tails of copulas could be used as a simple tool to measure dependence 
+interactions between species. We also analyzed the probable causal mechanism of observed asymmetric 
+tail-dependence. We hypothesized asymmetric interactions (biotic/ abiotic) of species with its 
+environmental drivers which transmitted similar tail-dependence through the inter-species level. We 
+verified our hypothesis with two alternative approach for planktons and aphids, respectively. We think 
+our approach could be useful in investigating inter-species dependence structures for more
+complex systems like foodwebs with multiple trophic interactions.
 
-<!--Why tail-dep is important?------explain : 1. Leibigs law, 2.for aggregated abundance?
-Monitoring tail dependence could reveal interesting information about 
-an ecosystem. At any given time in a particular ecosystem,
-productivity is constrained by a single, metabolically essential factor that is
-present in least supply relative to the potential biological demand (Leibig's law).
-This limiting factor could be climatic (temperature, windspeed, salinity 
-or moisture) or the factor could involve an insufficient
-supply of a particular nutrient, or an excessive, toxic availability of another chemical.
-In this sense, the limiting factor represents a type of ecological stress which
-if alleviated will result in greater productivity and development of the ecosystem.
-For example, extreme temperature could have profound effect on plant-productivity 
-or its pollination rate depending upon the species [@hatfield2015]. Copula structure with 
-lower (or upper) tail-dependence could reveal the scenario whether temperature (or any other
-abiotic/ biotic variable) suppress (or accelerate) species' productivity. 
-Similarly, in most freshwater lakes algal-productivity is limited by the availability 
+<!--what extra info do you get by monitoring tail dep. for planktons?-->
+
+Monitoring tail dependence (a measure of "synchrony") could reveal interesting information about 
+an ecosystem. In most freshwater lakes algal-productivity is limited by the availability 
 of inorganic phosphorus, thus represented by lower tail-dependence (stronger association
 between smaller values) in a copula made of plankton abundance and phosphorous level.
-But excessive fertilizers (through sewage or 
-agricultural runoff) beyond a threshold can catalyze their growth. Phytoplankton bloom, an
+But excessive fertilizers (through sewage or agricultural runoff) beyond a threshold 
+can catalyze plankton-growth. Phytoplankton bloom, an
 ecosystem-level perturbations, occurs when compensatory dynamics between perturbation-sensitive
-phytoplankton and perturbation-tolerant taxa 
-become weak and thereby affecting the total biomass on aggregate level. As phytoplankton
-communities are diverse in response to change in the nutrient level in a lake, monitoring 
-their individual dynamics through copula could help to better understand the phytoplankton-resilience
-on the community level.-->
+phytoplankton and perturbation-tolerant taxa become weak and thereby affecting the total
+biomass on aggregate level. As phytoplankton communities are diverse in response to change
+in the nutrient level in a lake, monitoring their individual dynamics through copula 
+could help to better understand the phytoplankton-resilience on the community level and 
+even could be used as an "early warning" before the actual bloom occurs.
 
+<!--plankton regime shift (CALFIN-CALHEL) depending on temperature or salinity?-->
 
+<!--why aphids showing more upper tail dep. like in fig1e, rather than 1c?-->
 
 
 
