@@ -194,7 +194,11 @@ We will also present two alternative approach for investigating (Q2) for plankto
 \begin{center}
 \includegraphics[width=8 cm]{./Results/fig_intro_A.pdf}
 \includegraphics[width=8 cm]{./Results/fig_intro_BCDE.pdf} 
-\caption{intro fig.\label{fig_intro}}
+\caption{(A) Pedagogical figure of a copula showing stronger dependence in lower tail ( considered 
+for the points lying on left of solid black or red lines) than in upper tail (considered for the points lying 
+on the right of solid black or blue lines). Asymmetric tail dependence in species-driver (negative 
+temperature was considered as a driver for aphid species firstflight date) copulas (B, D) caused similar 
+asymmetric tail dependence in inter-species copulas (C, E).\label{fig_intro}}
 \end{center}
 \end{figure}
 
