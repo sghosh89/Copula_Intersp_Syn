@@ -65,16 +65,11 @@ asymmetric tail-dependence of the species in response to their biotic/ abiotic d
 We considered abundance of generalist predator 
 \textit{Calanus finmarchicus} and growing season temperature as two key drivers 
 which shaped the tail-dependence between phytoplankton community, whereas dependence in 
-aphids firstflight dates were influenced by average winter temperature. We found 
+aphids firstflight dates were influenced by average winter temperature. With two alternate 
+approach for \textit{Ceratium}s and aphids, we found 
 significant correlation between asymmetric tail-dependence of species-drivers 
 and species-species copula, which explained the probable causal mechanism 
-behind such commonly found asymmetric inter-specific response. We also proposed two 
-alternate approach to measure such correlation between asymmetries, because 
-whereas \textit{Ceratium}s behaved as a community, the aphids were more non-interacting 
-on their aggregate level.
-
-
-
+behind such commonly found asymmetric inter-specific response. 
 
 \noindent \textbf{\textit{Keywords:}} tail dependence, copula, inter-species synchrony, aphids, planktons
 
@@ -507,7 +502,10 @@ even could be used as an "early warning" before the actual bloom occurs.
 <!--plankton regime shift (CALFIN-CALHEL) depending on temperature or salinity?-->
 
 <!--why aphids showing more upper tail dep. like in fig1e, rather than 1c?-->
-
+We found aphids were more common with synchronous late arrival (upper tail dependence;
+$N_U > N_L$) at 8 out of 10 sites. This was attributed to the fact that aphids firstflight dates
+were limited by too cold winter temperature (Fig. \ref{fig_intro}D), causing Fig. \ref{fig_intro}E 
+more frequent than Fig. \ref{fig_intro}C. 
 
 
 
