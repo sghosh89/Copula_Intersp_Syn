@@ -1,5 +1,5 @@
 --- 
-title: "A new method to estimate interspecific synchrony and its causes in population ecology using ``copula'' approach"
+title: "A new approach to interspecific synchrony and its causes in population ecology using ``copulas''"
 author: "Shyamolina Ghosh, Lawrence W. Sheppard, Philip C. Reid, Daniel Reuman"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 geometry: "left=1 in,right=1 in,top=1 in,bottom=1 in"
@@ -545,9 +545,9 @@ plankton_aphid_info <- tibble(c0=c(1:4,1:20),
                           "Hyalopterus pruni","Acyrthosiphon pisum","Myzus persicae", "Macrosiphum euphorbiae",
                           "Metopolophium dirhodum","Myzus ascalonicus","Drepanosiphum platanoidis","Cavariella aegopodii"                                           ))
 knitr::kable(plankton_aphid_info, "latex", booktabs = T, linesep = "",align="c",
-      caption = "Species names of 4 planktons and 20 aphids for which data were used \\label{tab_plankton_aphid_info}",
+      caption = "Species names of 4 plankton and 20 aphids for which data were used \\label{tab_plankton_aphid_info}",
       col.names = NULL)%>%
-      group_rows("Planktons", 1,4) %>%
+      group_rows("Plankton", 1,4) %>%
       group_rows("Aphids", 5,24) %>%
       column_spec(column = 2,italic=T)%>%add_header_above(header=c("Species id" = 1, "Latin binomial" = 1))
 ```
