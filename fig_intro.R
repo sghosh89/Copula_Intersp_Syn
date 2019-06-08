@@ -28,22 +28,22 @@ scc1<-BiCopSim(N=50,family=13,par=3)
 scc2<-BiCopSim(N=50,family=13,par=2.5)
 
 plot(cc1[,1],cc1[,2],xlim=c(0,1),ylim=c(0,1),xlab="-Temp.",ylab=expression(Sp[i]),
-     col=rgb(0,0,0,0.3),pch=16,cex=1.5,cex.lab=3,cex.axis=2)
+     col=rgb(1,0,0,0.3),pch=16,cex=1.5,cex.lab=3,cex.axis=2)
 segments(0,1,1,0)
 legend("topleft","B",bty="n",cex=3,x.intersp=0.1,y.intersp = -0.3)
 
 plot(cc2[,1],cc2[,2],xlim=c(0,1),ylim=c(0,1),xlab=expression(Sp[i]),ylab=expression(Sp[j!=i]),
-     col=rgb(0,0,0,0.3),pch=16,cex=1.5,cex.lab=3,cex.axis=2)
+     col=rgb(1,0,0,0.3),pch=16,cex=1.5,cex.lab=3,cex.axis=2)
 segments(0,1,1,0)
 legend("topleft","C",bty="n",cex=3,x.intersp=0.1,y.intersp = -0.3)
 
 plot(scc1[,1],scc1[,2],xlim=c(0,1),ylim=c(0,1),xlab="-Temp.",ylab=expression(Sp[i]),
-     col=rgb(0,0,0,0.3),pch=16,cex=1.5,cex.lab=3,cex.axis=2)
+     col=rgb(0,0,1,0.3),pch=16,cex=1.5,cex.lab=3,cex.axis=2)
 segments(0,1,1,0)
 legend("topleft","D",bty="n",cex=3,x.intersp=0.1,y.intersp = -0.3)
 
 plot(scc2[,1],scc2[,2],xlim=c(0,1),ylim=c(0,1),xlab=expression(Sp[i]),ylab=expression(Sp[j!=i]),
-     col=rgb(0,0,0,0.3),pch=16,cex=1.5,cex.lab=3,cex.axis=2)
+     col=rgb(0,0,1,0.3),pch=16,cex=1.5,cex.lab=3,cex.axis=2)
 segments(0,1,1,0)
 legend("topleft","E",bty="n",cex=3,x.intersp=0.1,y.intersp = -0.3)
 

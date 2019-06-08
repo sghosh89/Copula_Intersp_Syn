@@ -540,7 +540,7 @@ par(op)
 dev.off()
 ```
 
-<!--formatted data with aphid firstflight and avg. winter temp. for 11 sites-->
+<!--formatted data with aphid first flight and avg. winter temp. for 11 sites-->
 ```{r aphid_data_with_winter_avg_temp,echo=F}
 
 data_ff_with_temp<-vector("list",length(data_ff)) #initializing
@@ -555,7 +555,7 @@ for(loc in 1:length(data_ff_with_temp)){
 saveRDS(data_ff_with_temp,"./Results/aphid_results/data_aphid_ff_winter_avg_temp.RDS")
 ```
 
-<!--showing map for 10 selected sites with atleast 30 years of aphid firstflight data-->
+<!--showing map for 10 selected sites with atleast 30 years of aphid first flight data-->
 ```{r map_plot_css_ff, echo=F, results="hide"}
 source("good_splist.R")
 library(maps)
@@ -845,7 +845,7 @@ dev.off()
 \includegraphics[width=16 cm]{./Results/aphid_results/map_plot_css_ff_selected_loc.pdf} 
 \caption[Position of 11 suction traps on map that sample flying aphids]{Position of 
 11 suction traps that sample flying aphids. We considered only 10 locations 
-(shown within blue boxes) which had atleast 30 years of firstflight data for 
+(shown within blue boxes) which had atleast 30 years of first flight data for 
 20 aphid species during (1976-2010) timespan. \label{fig_aphid_map}}
 \end{center}
 \end{figure}
@@ -902,7 +902,7 @@ for rest of 8 selected sites, details were discussed in \nameref{MT-Results}.
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=10 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_scatter_LmU_values.pdf} 
-\caption{Aphid firstflight data showed no significant relationship between total asymmetry on species level $A_S^n$ and 
+\caption{Aphid first flight data showed no significant relationship between total asymmetry on species level $A_S^n$ and 
 on driver level $A_D^n$. Numbers in the plot represent the side code $n$.\label{fig_aphid_scatter}}
 \end{center}
 \end{figure}
