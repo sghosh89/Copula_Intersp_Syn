@@ -47,28 +47,27 @@ seed<-101
 <!--\small write abstract here-->
 <!--200 words limit : J Am Nat, 350 words for J. animal eco.-->
 
-Recent study [@Ghosh_copula] showed potential use of copula in detecting
+A recent study [@Ghosh_copula] showed the potential uses of copula methods in examining
 "spatial synchrony" between metapopulations. 
 We used this copula concept to estimate synchronous and/ or compensatory
-response between different species which shared 
-same environments. We applied partial-Spearman correlation based approach
+responses between different species which shared 
+the same environment. We applied a partial-Spearman correlation based approach
 to measure lower and upper tail-dependence
 between two variables at their extreme lower and higher values, respectively. 
 Stronger dependence in either tail of the joint distribution of 
-two associated species' time-series from same 
-location lead to asymmetry in inter-specific response. 
+two associated species' time-series from the same 
+location leads to corresponding asymmetry in inter-specific relationships. 
 With two long-term spatio-temporal datasets (\textit{Ceratium} sp. abundance data and 
-aphids firstflight data), we showed overall asymmetric tail-dependence is a common signature for 
-inter-specific synchrony within a community, when we considered all combinations of species-pair.
-We explained this asymmetry across species level to be in effect due to similar 
+aphids first flight data), we showed overall asymmetric tail-dependence is a common feature of 
+inter-specific synchrony within a community, when we considered all combinations of species-pairs.
+We show this asymmetry at species level to be due to similar 
 asymmetric tail-dependence of the species in response to their biotic/ abiotic drivers.
-We considered abundance of generalist predator 
+We considered the abundance of the generalist predator 
 \textit{Calanus finmarchicus} and growing season temperature as two key drivers 
-which shaped the tail-dependence between phytoplankton community, whereas dependence in 
-aphids firstflight dates were influenced by average winter temperature. With two alternate 
-approach for \textit{Ceratium}s and aphids, we found 
-significant correlation between asymmetric tail-dependence of species-drivers 
-and species-species copula, which explained the probable causal mechanism 
+which shaped the phytoplankton community, whereas aphids 
+first flight dates were influenced by average winter temperature. With a non-species-specific approach for \textit{Ceratium spp.} and and a species-specific apprroach to aphids, we found 
+significant correlation between asymmetric tail-dependence of species-driver copulas
+and species-species copulas, which explained the probable causal mechanism 
 behind such commonly found asymmetric inter-specific response. 
 
 \noindent \textbf{\textit{Keywords:}} tail dependence, copula, inter-species synchrony, aphids, planktons
@@ -89,19 +88,19 @@ among different species occupying a common geographical area
 is a longstanding focus in ecology to predict the stability of 
 aggregate community or ecosystem properties [@raimondo2004interspecific; @kent2007synchrony;
 @loreau2008species; @gonzalez2009causes; @jochimsen2013compensatory]. In general,
-past studies used correlation based approach or regression based analysis
+past studies used correlation-based approaches or regression based analysis
 to characterize temporal fluctuations of co-occuring species and thereby
-overlooked the information of the dependence structure embedded in multi-species 
+overlooked the information of the dependence structure embedded in a multi-species 
 distribution over time. Our recent study [@Ghosh_copula] showed 
-the concept of "copula" can be useful in quantifying "spatial synchrony" 
-among metapopulations and could give us more insight in explaining the 
-causes and consequences of their synchronous response. Studying spatial patterns of 
+the concept of the "copula" can be useful when quantifying "spatial synchrony" 
+among metapopulations.  Studying spatial patterns of 
 metapopulation-abundance through time and identifying 
 the cause behind their correlated temporal 
-flucuation (known as "spatial synchrony") have been of common
-interest to ecologists [@lande1999; @liebhold2004; @walter2017]. But in case of inter-species 
-synchrony, use of copula, to our knowledge, remains unexplored. Here, we will 
-demonstrate the scope of using the statistical concept of "copula" in quantifying
+flucuation (known as "spatial synchrony") has also been of longstanding
+interest to ecologists [@lande1999; @liebhold2004; @walter2017]. The copula approach may give us more insight in explaining the 
+causes and consequences of their synchronous response.   But in case of inter-species 
+synchrony, the use of the copula, to our knowledge, remains unexplored. Here, we will 
+demonstrate the scope of using the statistical concept of the "copula" in studying
 the synchronous or compensatory fluctuations of multiple co-occuring species over time.
 
 <!--what is copula?-->
@@ -122,7 +121,7 @@ Thus, measures of association which depend only on the copula and not on the mar
 distributions (e.g., Kendall's $\tau$ and Spearman's $\rho$) remain unchanged but usual
 Pearson linear product-moment correlations of variables and of their copula transformed 
 form are not the same. As a result, correlation coefficients measure only the overall 
-association and could not tell us how their association varies across the distribution.
+association of the samples and cannot tell us how their association varies across the distribution.
 Through suitable choice from a wide varity of families and parameters, 
 a good deal of control can be achieved in modelling the dependence structure of a bivariate
 copula which shows over what parts of the distributions the 
@@ -133,61 +132,61 @@ in the tails of the distributions.
 <!--what is tail-dep.-->
 Tail dependence is an association 
 between extreme values of two variables in a copula. 
-Therefore, if smaller values of two positively associated variables 
+If smaller values of two positively associated variables 
 are more strongly associated than the larger values as depicted in Fig. \ref{fig_intro}(A-C), the variables 
 are said to have stronger 
 lower-tail dependence than upper-tail dependence. Similarly, stronger upper tail 
 dependence in copula results from two variables correlated strongly in their 
 higher values (Fig. \ref{fig_intro}D,E).
-In either case, those variables give rise to asymmetric copula structure. Several
-families of copula are available with positive tail dependence exclusively in either
+In either case, those variables have asymmetric copula structure. Several
+families of copulas are available with positive tail dependence exclusively in either
 or both tail [@joe2014_dependence; @nelsen2006_copula], in addition to 
-a copula from 'Normal' family, having zero tail-dependence in 
-both tail, and hence considered as a symmetric copula.
-Following we will discuss the relevance of 
+a copula from the 'Normal' family, having zero tail-dependence in 
+both tails, and hence considered as a symmetric copula.
+In the following we will discuss the relevance of the 
 copula with its unique tail-dependence feature in modelling multi-species
 ecological response.
 
 <!--What causes asymmetric tail-dep ?------Leibigs law : limiting effects of environment, predators?-->
-Asymmetric tail-dependence for the overall community is expected to observe when most of its 
+Asymmetric tail-dependence for the overall community is expected to be observed when most of its 
 member species go synchronously rare or synchronously abundant. Net productivity for 
-such ecosystem could be constrained by some limiting factors (Leibig's law)
-which included abiotic (temperature, windspeed, salinity 
+such an ecosystem could be constrained by some limiting factors (Leibig's law)
+which include abiotic (temperature, windspeed, salinity 
 or moisture) and biotic (predators, food-webs) interactions.
-For example, extreme temperature had profound effect on plant-productivity 
-or its pollination rate depending upon the species [@hatfield2015]. Copula structure with 
-lower (or upper) tail-dependence could reveal the scenario whether any abiotic or biotic variable
-causes such asymmetric tail dependences in inter-species dependence structures. We will
-ellaborate this idea in the following example.
+For example, extreme temperature has a profound effect on plant-productivity 
+or plant pollination rate depending upon the species [@hatfield2015]. Copula structure with 
+lower (or upper) tail-dependence of the dependence on such an abiotic or biotic variable
+could cause corresponding asymmetric tail dependences in inter-species dependence structures. We will
+elaborate this idea in the following example.
 
 <!--earlier work on sp-driver relationships : aphids and planktons-->
-Earlier work showed winter temperature had profound effect on spatial 
-synchrony between aphids [@sheppard2016]. Similarly, plankton 
+Earlier work showed winter temperature had a profound effect on spatial 
+synchrony between aphids [@sheppard2016]. Similarly, the plankton 
 community in the North Sea was found to be affected by 
 climatic variables like temperature and 
-its predator zooplankton [@defriez2016climate; @sheppard2017; @sheppard2019].
-Inspiring from those findings, in this paper, we hypothesize possible biotic and/ or 
-abiotic drivers causes asymmetric tail-dependence in inter-specific synchrony, if any found for 
-planktons or aphids. For example, consider a situation when harsh winter delayed arrival of aphids 
+predatory zooplankton [@defriez2016climate; @sheppard2017; @sheppard2019].
+Inspired by those findings, in this paper, we hypothesize possible biotic and/ or 
+abiotic drivers could cause asymmetric tail-dependence in inter-specific synchrony for 
+planktons or aphids. For example, consider a situation when harsh winter delayed first flight of aphids 
 on a site, i. e., aphids firstflight date was negatively correlated with winter temperature. If we 
 made a copula with aphid firstflight dates and negative winter temperature, then it could be 
-either lower tail (Fig. \ref{fig_intro}B) or upper-tail dependent (Fig. \ref{fig_intro}D) depending on 
-individual aphid's response. Fig. \ref{fig_intro}B represents that species $i$ came early when 
+either lower tail (Fig. \ref{fig_intro}B) or upper-tail dependent (Fig. \ref{fig_intro}D) depending on the
+individual aphid species' response. Fig. \ref{fig_intro}B represents the idea that species $i$ came early when 
 the site was warmer than usual (species firstflight date facilitated by warmer temperature), whereas 
-Fig. \ref{fig_intro}D represents arrival of species $i$ at a site was limited by cold winter. 
+Fig. \ref{fig_intro}D represents the idea that species $i$ came late when the site was colder than usual (arrival of species $i$ at a site was limited by cold winter). 
 If majority of other aphids also showed similar trend with the temperature 
-at a given site as depicted in Fig. \ref{fig_intro}B or D, then we hypothesize, we
+at a given site as depicted in Fig. \ref{fig_intro}B or D, then we hypothesize that we
 would see the corresponding asymmetric tail-dependence between two species ($i \neq j$) firstflight dates 
 as depicted in Fig. \ref{fig_intro}C or E, respectively.
 
-In this paper, we will introduce "partial-Spearman correlation" based approach to measure 
-the "tail-dependence" between inter-species dependence structure.
+In this paper, we will introduce a "partial-Spearman correlation"-based approach to measure 
+the "tail-dependence" of inter-species dependence structure.
 We will analyze inter-species synchrony with two spatio-temporal datasets of 
 two different taxa (planktons and aphids) to answer the following questions: 
-(Q1) Do different species show synchronous behavior through asymmetric tail 
+(Q1) Do different species show synchronous behavior with asymmetric tail 
 dependence (particularly lower or particularly upper) in their copula structure?
 and (Q2) if they do show such asymmetric tail-dependence then what causes such asymmetry? 
-We will also present two alternative approach for investigating (Q2) for planktons and aphids. 
+We will also present two alternative approach for investigating (Q2) for \textit{Ceratium spp.} and aphids. 
 
 <!--introductory fig.-->
 \begin{figure}[!h]
@@ -195,7 +194,7 @@ We will also present two alternative approach for investigating (Q2) for plankto
 \includegraphics[width=8 cm]{./Results/fig_intro_A.pdf}
 \includegraphics[width=8 cm]{./Results/fig_intro_BCDE.pdf} 
 \caption{(A) Pedagogical figure of a copula showing stronger dependence in lower tail ( considered 
-for the points lying on left of solid black or red lines) than in upper tail (considered for the points lying 
+to be the points lying on left of solid black or red lines) than in upper tail (considered to be the points lying 
 on the right of solid black or blue lines). Asymmetric tail dependence in species-driver (negative 
 temperature was considered as a driver for aphid species firstflight date) copulas (B, D) caused similar 
 asymmetric tail dependence in inter-species copulas (C, E).\label{fig_intro}}
@@ -211,34 +210,34 @@ Our first spatio-temporal dataset comprised average annual
 abundance estimates for 26 locations (Fig. \ref{SM-fig_plankton_map})
 in the North Sea and British seas for 22 plankton taxa for the 
 56 years from 1958 to 2013 [@sheppard2017]. 
-The locations are $2^\circ$ by $2^\circ$ grid cells.
+The locations are $2^\circ$ by $2^\circ$ degree grid cells.
 These data were obtained from the Continuous Plankton Recorder (CPR) dataset, 
 now operated and maintained by 
 the Marine Biological Association of the United Kingdom. 
 Data preprocessing steps are same as used in [@Ghosh_copula]. 
-As dinoflagellate are considered having important role in phytoplankton bloom,
+As dinoflagellates are considered to have an important role in the phytoplankton bloom,
 we screened 4 Ceratium species (Table \ref{tab_plankton_aphid_info}) and 
 their generalist predator zooplankton \textit{Calanus finmarchicus} (hereafter abbreviated as C. fin.)
 from 15 selected locations. Screening of locations and species involved several steps: 
-first, we chose a subset, from 26 locations, which had atleast 36 years of data available for all species.
+first, we chose a subset, from 26 locations, which had at least 36 years of data available for all species.
 Second, for a given location, we screened species excluding the ones that were absent for more 
 than 10$\%$ of sampling years at that location. Finally, 
-we considered only those selected locations which had atleast any two 
-\textit{Ceratium} sp. along with their predator C. fin. We also used
-time series of temperature (for growing season) at each selected grid (Fig. \ref{SM-fig_plankton_map}) 
+we considered only those selected locations which had at least two 
+\textit{Ceratium} sp. along with their predator C. fin. We also considered
+time series of sea surface temperature (for growing season) at each selected grid cell (Fig. \ref{SM-fig_plankton_map}) 
 to be one of the key drivers
 which caused synchronous response among \textit{Ceratium} sp.
 
-As second spatio-temporal dataset, we used phenological data of aphid first-flight dates for 10 selected 
+As a second spatio-temporal dataset, we used phenological data of aphid first-flight dates for 10 selected 
 among total of 11 sites (Fig. \ref{SM-fig_aphid_map}) across the United Kingdom (UK). 
 Data were available for 20 aphid species (Table \ref{tab_plankton_aphid_info}). Locations are screened 
-based on atleast 30 years of data points available for all sp. at each site 
+by requiring at least 30 years of data points available for all sp. at each site 
 during the timespan of 1976-2010. These time series were computed 
 from the the Rothamsted Insect Survey suction-trap dataset 
 [@harrington2014; @bell2015]. Data pre-processing for the aphids
 was the same as that of [@sheppard2016]. Time-series of winter average 
-temperature (December, $n^{th}$ year to March, $(n+1)^{th}$ year) was considered as 
-main driver causing synchronous arrival of aphids at each site.
+temperature (December, $(t-1)^{th}$ year to March, $t^{th}$ year) was considered a 
+main driver causing spatially synchronous changes in arrival date of flying aphids at each site.
 
 ## Methods\label{Methods}
 
@@ -250,14 +249,14 @@ in the following way: given a bivariate dataset from $n^{th}$ site, $(x_t^n,y_t^
 first, we produced ranks $(\tilde{u}_t^n,\tilde{v}_t^n)$ where $\tilde{u}_t^n$ is the rank of $x_t^n$ in the set 
 $\{x_t^n:t=1,...,T\}$ and $\tilde{v}_t^n$ is the rank of $y_t^n$ in the set $\{y_t^n:t=1,...,T\}$. 
 we set $u_t^n=\tilde{u}_t^n/(T+1)$ and $v_t^n=\tilde{v}_t^n/(T+1)$; subsequent analysis used these 
-*normalized ranks* $u_t^n \in [0,1]$ and $v_t^n \in [0,1]$. Ranks were $1$ for the smallest element in a set. 
+*normalized ranks* $u_t^n \in [0,1]$ and $v_t^n \in [0,1]$. Rank was $1$ for the smallest element in each set. 
 Second, we did a test of the independence of the $u_t^n$ and $v_t^n$ 
 (implemented in `BiCopIndTest` in the `VineCopula` package). 
 If independence could be rejected ($0.05$ significance level), and $(u_t^n, v_t^n)$
-were postively correlated then we proceed to measure dependence. For significantly negative 
+were postively correlated then we proceed to measure dependence. For a significantly negative 
 association, we started with $(x_t^n, - y_t^n)$ so that $(u_t^n, v_t^n)$ remained positively correlated.
-we computed the partial Spearman correlation statistics $\cor_{l_b,u_b}$ as introduced in [@Ghosh_copula]
-as dependence measure for a positively correlated bivariate copula. 
+We computed the partial Spearman correlation statistics $\cor_{l_b,u_b}$ as introduced in [@Ghosh_copula]
+as dependence measures for a positively correlated bivariate copula. 
 
 Given lower and upper boundaries by two parallel lines ($u_t^n+v_t^n = 2l_b$, $u_t^n+v_t^n = 2u_b$ such that $0 \leq l_b < u_b \leq 1$) 
 which scans the region of interest of the copula within a unit square box, we here
@@ -294,8 +293,8 @@ indicates asymmetry in tail-dependence of a copula and to be specific
 stronger lower tail dependence than upper. Similarly, negative value of 
 $C^n_{L-U}(i, j)$ would indicate stronger upper tail 
 dependence than lower in an asymmetric copula. 
-For $n^{th}$ site, we estimated $C^n_{L-U}(i, j)$ for all pairwise combination of $(i, j)$ and counted
-number of lower ($N_L$) and upper ($N_U$) tail dominant species pair for which 
+For the $n^{th}$ site, we estimated $C^n_{L-U}(i, j)$ for all pairwise combination of $(i, j)$ and counted
+the number of lower ($N_L$) and upper ($N_U$) tail dominant species pair for which 
 $C^n_{L-U}(i, j)>0$ and $C^n_{L-U}(i, j)<0$, respectively.
 We also added up all positive and negative values of $C^n_{L-U}(i,j)$ and defined lower and upper
 asymmetric estimates on species level for $n^{th}$ site as $A_S^{n+} = \sum_{i=1}^{s}\sum_{j=1}^{s}[C^n_{L-U}(i, j) > 0]$ and 
@@ -303,8 +302,8 @@ $A_S^{n-} = \sum_{i=1}^{s}\sum_{j=1}^{s}[C^n_{L-U}(i, j) < 0]$,
 respectively. Total species-asymmetry $A_S^{n} = A_S^{n+} + A_S^{n-}$ was assessed for 
 each selected site which could
 answer (Q1); if $A_S^{n} \neq 0$ then it would indicate asymmetry in 
-overall tail-dependence. But to get more precise answer, whether the asymmetric
-tail dependence was stronger in lower values or upper, proportion 
+overall tail-dependence. But to get a more precise answer, whether the asymmetric
+tail dependence was stronger in the lower values or upper, the proportion 
 of lower and upper tail dominance
 in overall asymmetry at each site were measured
 by $f_L = \frac{A_S^{n+}}{A_S^{n+} + |A_S^{n-}|}$ and
@@ -315,12 +314,12 @@ These values of $f_L$ and $f_U$ from each site were used to answer (Q1).
 
 To answer (Q2), our approach was to investigate the causal relationship between 
 inter-species tail dependence and tail-dependence between
-species with biotic and/ or abiotic drivers. We used two slightly different estimate to answer (Q2) 
+species with biotic and/ or abiotic drivers. We used two slightly different estimators to answer (Q2) 
 for our two datasets. First, we estimated lower minus upper tail dependence
 $C_{L-U}^n(i, k); i = 1,\dots ,s$ and $k = 1,\dots ,d$ 
 for the copulas made with species and drivers' time series from any $n^{th}$ site
 as we did with copulas for any two species pair combination. Then, we measured total asymmetry 
-on drivers level as $A_D^n = \sum_{i=1}^{s}\sum_{k=1}^{d} C^n_{L-U}(i, k)$ and tested if there was
+of driver dependencies as $A_D^n = \sum_{i=1}^{s}\sum_{k=1}^{d} C^n_{L-U}(i, k)$ and tested if there was
 any significant correlation between $A_D^n$ and $A_S^n$ considered for all selected sites. This 
 approach was better when we examined behaviour of fewer but similar species, like the four Ceratium sp. 
 of dinoflagellate class. Our second approach was more suitable when 
@@ -330,7 +329,7 @@ Here we examined correlation between response for $i^{th}$ individual species
 with all the other species ($\alpha_S^n(i)$) and with its drivers ($\alpha_D^n(i)$). 
 We measured those two quantities as $\alpha_S^n(i) = \sum_{j=1}^{s} C^n_{L-U}(i, j)$ and 
 $\alpha_D^n(i) = \sum_{k=1}^{d} C^n_{L-U}(i, k)$, respectively, for a given $i^{th}$ species. Significant correlation 
-between $A_D^n$ and $A_S^n$ (for planktons) or between $\alpha_D^n(i)$ and $\alpha_S^n(i)$ (for aphids)
+between $A_D^n$ and $A_S^n$ (for plankton) or between $\alpha_D^n(i)$ and $\alpha_S^n(i)$ (for aphids)
 would establish our hypothesis that tail dependence in inter-specific response was caused by similar
 tail-dependence in species-driver copulas.
 
@@ -338,34 +337,39 @@ tail-dependence in species-driver copulas.
 # Results\label{Results}
 
 <!--Results for Q1-->
-We found major asymmetric tail-dependence when we considered all pairwise combination of any 
-two species time-series from a given location.
+We found major asymmetric tail-dependence when we considered all pairwise combinations of
+species time-series from a given location.
+
 Summarized results for all selected locations showing asymmetry in either tail for \textit{Ceratium} sp. 
-was depicted in Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}(A), where we plotted $f_L$ and
-$f_U$ (see \nameref{Methods}) for each selected sites 
+is depicted in Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}(A), where we plot $f_L$ and
+$f_U$ (see \nameref{Methods}) for each of the selected sites 
 (except site 3 as there were no significant dependence between species abundances). Site
-codes in map were mentioned in red color if sites showed 
-stronger lower tail dependence contribution (i.e. $f_L > f_U$ for synchronous rare 
+codes in the map are colored red if sites showed a
+stronger lower tail dependence contribution (i.e. $f_L > f_U$ indicating synchronous rare 
 occurrence of \textit{Ceratium}s). Similarly, locations where \textit{Ceratium} sp. were synchronously 
 abundant (site codes in blue color of Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}A), had 
-more upper tail dependent contribution ($f_U > f_L$). Partial Spearman correlation-based lower minus upper 
-tail dependence matrix ($C_{L-U}^n$) for site $n=12$ (Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}B) and $n=26$ (Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}C) were shown as two examplary cases (for 
+more upper tail dependent contribution ($f_U > f_L$). The partial Spearman correlation-based lower minus upper 
+tail dependence matrix ($C_{L-U}^n$) for sites $n=12$ (Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}B) and $n=26$ (Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}C) are shown as two example cases (for 
 other locations see Fig. \ref{SM-fig_CorlmCoru_plankton_all_loc}). 
 Whereas Location 12 showed dominantly lower tail-dependent interspecific synchrony with 
 all 12 pairwise copula having
 lower tail dependence ($N_L = 12, N_U = 0$), Location 26 showed 
-stronger upper tail dependence ($N_L = 2, N_U = 4$). We got similar findings for aphid firsflight data (Fig. \ref{fig_CorlmCoru_ff_map_loc2_5}). Proportion of lower 
+stronger upper tail dependence ($N_L = 2, N_U = 4$). 
+
+We got similar findings for aphid firsflight data (Fig. \ref{fig_CorlmCoru_ff_map_loc2_5}). Proportion of lower 
 ($f_L$) and upper ($f_U$) tail dependence estimates in overall tail-asymmetry was summarized for 10 selected 
 sampling sites in Fig. \ref{fig_CorlmCoru_ff_map_loc2_5}(A). $8$ out of $10$ sites were dominantly upper 
 tail dependent in $C_{L-U}^n$ (site codes in blue color of Fig. \ref{fig_CorlmCoru_ff_map_loc2_5}A),
 indicating overall synchronous late arrival of 20 aphids at those $8$ locations.
 Two representative cases for major lower 
 (where $N_L > N_U$ for site $n = 2$) and upper (where $N_U > N_L$ for site $n = 5$) tail 
-dependence matrix $C_{L-U}^n$ were pictured in 
-Fig. \ref{fig_CorlmCoru_ff_map_loc2_5}(B) and (C), respectively. Major asymmetric tail-dependence 
-observed with one population (planktons)
-and one phenological (aphids firstflight) data answered (Q1) that inter-specific 
-synchrony was captured through tail-dependence
+dependence matrix $C_{L-U}^n$ are pictured in 
+Fig. \ref{fig_CorlmCoru_ff_map_loc2_5}(B) and (C), respectively. 
+
+Major asymmetric tail-dependence 
+observed with one set of population data (plankton)
+and one set of phenological data (aphids firstflight) answered (Q1), indicating that inter-specific 
+synchrony could be described through tail-dependence
 estimates of copulas from community matrix or sp-sp interaction matrix $C_{L-U}^n$ for a given location $n$.
 
 <!--plankton plots : Q1-->
@@ -390,7 +394,7 @@ drivers (\textit{Calanus finmarchicus}, growing season temperature).
 $N_L$ and $N_U$ are the count of cells with positive and 
 negative values for positively correlated species pair. $N_L > N_U$ in $(B)$ 
 indicates major lower tail dependence in sp-sp interaction matrix. Similarly, $N_U > N_L$ in $(C)$ indicates more upper
-tail dependence. Yellow cells indicate independent relationship. Cells with green dot indicates associated 
+tail dependence. Yellow cells indicate independent relationship. Cells with a green dot indicates associated 
 variables were negatively correlated initially and hence we reversed the variables in column so that the copula had positive association.\label{fig_CorlmCoru_plankton_map_loc12_26}}
 \end{center}
 \end{figure}
@@ -405,19 +409,19 @@ variables were negatively correlated initially and hence we reversed the variabl
 \includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/loc2/loc2_Corl-Coru.pdf}
 \includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/loc5/loc5_Corl-Coru.pdf}
 \caption{$(A)$ Proportion of tail dominant contribution ($f_L$ for lower tail and $f_U$ for upper tail 
-showing on a color scale between 0 to 1) in overall asymmetry for each 
-selected 10 locations (see Fig. \ref{SM-fig_aphid_map}) plotted on map summarizes the overall 
+showing on a color scale between 0 to 1) in overall asymmetry for each of the
+selected 10 locations (see Fig. \ref{SM-fig_aphid_map}) summarizes the overall 
 asymmetry in tail-dependence for all sampling sites. Sites with lower tail dominance
 have site code in red color, whereas upper tail dominant sites have blue site code. 
 Lower tail - upper tail dependence matrix 
-($C_{L-U}^n$) with first flight data of 20 aphid species have shown in (B) for location n = 2 and
+($C_{L-U}^n$) with first flight data of 20 aphid species are shown in (B) for location n = 2 and
 in (C) for location n = 5, for other locations see Fig. \ref{SM-fig_CorlmCoru_ff_all_loc}. 
-The last row and column indicates estimates from interaction between each 
+The last row and column indicates estimates from the interaction between each 
 aphid species and winter average temperature (which was supposed to be the driver of the species' synchrony),
 details were discussed in \nameref{Results}. $N_L$ and $N_U$ are the count of positive and 
 negative cells for 20$\times$ 20 matrix; $N_L > N_U$ in $(B)$ 
-indicates major lower tail dependence in sp-sp interaction matrix. Similarly, $N_U > N_L$ in $(C)$ indicates more upper
-tail dependence. Yellow cells indicate independent relationship. Cells with green dot indicates associated 
+indicating major lower tail dependence in the sp-sp interaction matrix. Similarly, $N_U > N_L$ in $(C)$ indicates more upper
+tail dependence. Yellow cells indicate independent relationship. Cells with a green dot indicate the associated 
 variables were negatively correlated initially and hence we reversed the variables in column so that the copula had positive association.\label{fig_CorlmCoru_ff_map_loc2_5}}
 \end{center}
 \end{figure}
@@ -427,7 +431,7 @@ variables were negatively correlated initially and hence we reversed the variabl
 To explain asymmetric tail-dependence between 
 \textit{Ceratium} sp. ($s = 4$), we considered abundance of predator C. fin 
 and growing season temperature as two key drivers ($d = 2$) for inter-specific synchrony. 
-We observed species synchronous response towards biotic and/ or abiotic stress
+We observed species synchronous responses towards biotic and/ or abiotic stress
 which transmitted similar asymmetric tail-dependence from drivers level ($A_D^n$ or $\alpha_D^n$)
 to species level ($A_S^n$ or $\alpha_S^n$). 
 We did a two-tailed correlation test between $A_S^n$ and $A_D^n$ for all selected location $n$ 
@@ -436,18 +440,18 @@ positive Pearson correlation ($0.699$)<!--caution : not automated link--> with p
 which confirmed our hypothesis for (Q2) that tail-asymmetry translated from driver to species level 
 (Fig. \ref{fig_plankton_scatter}). For aphids, we considered winter average temperature as 
 the main driver $(d = 1)$ for their synchronous firstflight date at a given location, $n$. 
-We tried similar approach as of \textit{Ceratium} sp. to explain causal mechanism for 
-asymmetric tail-dependence on species level. Since, aphids were 20 different sp. which 
-varied widely in their inter-specific response and were also expected 
-not having direct interactions as of \textit{Ceratium}s, it is obvious that
-$A_S^n$ and $A_D^n$ on total asymmetry level could not illuminate any causal relationship 
-(Fig. \ref{SM-fig_aphid_scatter}). On an alternative approach, for each of the selected 
-10 locations, we computed Kendall correlation coefficient $(K)$ between
+We tried a similar approach as of \textit{Ceratium} sp. to explain the causal mechanism for 
+asymmetric tail-dependence at species level. <!--add correlation and non-significant p value here-->Since aphids were 20 different sp. which 
+varied widely in their inter-specific response and were also not expected 
+to have direct interactions as of the \textit{Ceratium} community,
+$A_S^n$ and $A_D^n$ could not illuminate the causal relationship 
+(Fig. \ref{SM-fig_aphid_scatter}). In an alternative approach, for each of the selected 
+10 locations, we computed the Kendall's correlation coefficient $(K)$ between
 $\alpha_S^n(i)$ and $\alpha_D^n(i)$, where
 $i = 1, 2, \dots ,20$ represented the species index. We found for the $i^{th}$ aphid species, the 
 tail dependence of species-temperature copula results in similar tail dependence in inter-species copula 
 for 7 out of 10 sites (based on p-value with $0.05$ significance level, Fig. \ref{fig_aphid_multipanel}),
-which answered the probable causal mechanism behind inter-species synchrony as addressed in (Q2). 
+which answered the probable causal mechanism behind inter-species synchrony (Q2). 
 
 
 <!--plankton scatter plot : Q2-->
@@ -468,8 +472,8 @@ tail-dependence of inter-species synchrony with its drivers (C. fin. and growing
 \includegraphics[width=16 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_avg_sp_temp_multipanel_plot.pdf} 
 \caption{For 7 out of 10 sites, the Kendall correlation between $\alpha_S^n(i)$ and $\alpha_D^n(i) ; i = 1, 2, \dots, 20$, 
 is significant (p $< 0.05$, one tailed test). This indicates asymmetric tail-dependence between species-winter
-average temperature is the reason for similar tail-dependence between $i^{th}$ species
-to other species.\label{fig_aphid_multipanel}}
+average temperature is the reason for similar tail-dependence between the $i^{th}$ species
+and the other species.\label{fig_aphid_multipanel}}
 \end{center}
 \end{figure}
 
@@ -477,29 +481,27 @@ to other species.\label{fig_aphid_multipanel}}
 # Discussion\label{Discussion}
 
 <!--summary results-->
-We found asymmetric tail-dependence between different species sharing same location through time, which 
-indicated there was substantial inter-specific synchrony between them. With two long-term 
-spatio-temporal datasets from two different taxa, We showed partial-Spearman correlation 
-estimates at extreme tails of copulas could be used as a simple tool to measure dependence 
+We found  substantial inter-specific synchrony with asymmetric tail-dependence between different species sharing same location through time.  With two long-term spatio-temporal datasets from two different taxa, we showed partial-Spearman correlation 
+estimates at extreme tails of copulas could be used as a simple tool to study dependence 
 interactions between species. We also analyzed the probable causal mechanism of observed asymmetric 
 tail-dependence. We hypothesized asymmetric interactions (biotic/ abiotic) of species with its 
 environmental drivers which transmitted similar tail-dependence through the inter-species level. We 
-verified our hypothesis with two alternative approach for planktons and aphids, respectively. We think 
-our approach could be useful in investigating inter-species dependence structures for more
+verified our hypothesis with two alternative approaches for planktons and aphids, respectively. We think 
+our approaches could be useful in investigating inter-species dependence structures for more
 complex systems like foodwebs with multiple trophic interactions.
 
 <!--what extra info do you get by monitoring tail dep. for planktons?-->
 
 Monitoring tail dependence (a measure of "synchrony") could reveal interesting information about 
-an ecosystem. In most freshwater lakes algal-productivity is limited by the availability 
-of inorganic phosphorus, thus represented by lower tail-dependence (stronger association
+an ecosystem. We expect our resuts to generalize to other plankton systems subject to limiting factors.   In most freshwater lakes algal-productivity is limited by the availability 
+of inorganic phosphorus, represented by lower tail-dependence (stronger association
 between smaller values) in a copula made of plankton abundance and phosphorous level.
 But excessive fertilizers (through sewage or agricultural runoff) beyond a threshold 
 can catalyze plankton-growth. Phytoplankton bloom, an
-ecosystem-level perturbations, occurs when compensatory dynamics between perturbation-sensitive
-phytoplankton and perturbation-tolerant taxa become weak and thereby affecting the total
+ecosystem-level perturbation, occurs when compensatory dynamics between perturbation-sensitive
+phytoplankton and perturbation-tolerant taxa become weak and so dramatic changes occur in the total
 biomass on aggregate level. As phytoplankton communities are diverse in response to change
-in the nutrient level in a lake, monitoring their individual dynamics through copula 
+in the nutrient level in a lake, monitoring their individual dynamics through copula approaches 
 could help to better understand the phytoplankton-resilience on the community level and 
 even could be used as an "early warning" before the actual bloom occurs.
 
@@ -507,9 +509,9 @@ even could be used as an "early warning" before the actual bloom occurs.
 
 <!--why aphids showing more upper tail dep. like in fig1e, rather than 1c?-->
 We found aphids were more common with synchronous late arrival (upper tail dependence;
-$N_U > N_L$) at 8 out of 10 sites. This was attributed to the fact that aphids firstflight dates
-were limited by too cold winter temperature (Fig. \ref{fig_intro}D), causing Fig. \ref{fig_intro}E 
-more frequent than Fig. \ref{fig_intro}C. 
+$N_U > N_L$) at 8 out of 10 sites. This was attributed to the fact that aphid firstflight dates
+were limited by cold winter effects (Fig. \ref{fig_intro}D), causing a dependence structure like Fig. \ref{fig_intro}E 
+more frequently than Fig. \ref{fig_intro}C. We believe this is explained by the particular sensitivity of overwintering aphids to frost conditions (killing non-winged morphs) delaying the population reaching the winged-morph stage, and first flight.
 
 
 
