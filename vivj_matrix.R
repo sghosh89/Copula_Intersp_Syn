@@ -8,6 +8,10 @@
 # level : significance level for BiCopIndepTest p-value
 # ploton : (optional) logical, if T gives copula plot without transforming j-th variable to it's -ve value
 # tagon : a logical tag if you want to label each point in the plot with year
+# onbounds : a logical tag (default=FALSE) to get info about the points exactly lying on bounds, if set to TRUE 
+#            then the arguments lb and ub must be numeric
+# lb : numeric value between [0,1] for lower bound (default =NA)
+# ub : numeric value between [0,1] for upper bound (default =NA), ub should be greater than lb 
 
 # Output :
 # A list of 4 elements:
@@ -15,10 +19,11 @@
 #                      tauval : Kendall's tauvalue 
 #                      pval   : pvalue of Kendall's cor.test
 #                      IndepTestRes : BiCopIndepTest p-value
+
 # and an optional plot of the copula
 
 library(VineCopula)
-vivj_matrix<-function(d_allsp,loc,i,j,level=0.05,ploton,tagon){
+vivj_matrix<-function(d_allsp,loc,i,j,level=0.05,ploton,tagon,onbounds=F,lb=NA,ub=NA){
   
     ds1<-d_allsp[[loc]][[i]]
     ds2<-d_allsp[[loc]][[j]]
@@ -68,9 +73,22 @@ vivj_matrix<-function(d_allsp,loc,i,j,level=0.05,ploton,tagon){
   pval<-ct$p.value
   
   if(ploton==T){
-    if(IndepTestRes<level && tauval>0){
+    if(IndepTestRes<level && tauval>0){ # for significant positive correlation
       plot(vi,vj,type='p',col=rgb(0,0,0,0.3),pch=19,xlim=c(0,1),ylim=c(0,1),
              xlab=names(d_allsp[[loc]])[i],ylab=names(d_allsp[[loc]])[j],cex.lab=1.5)
+      
+      if(onbounds==T & identical(vi,vj)==F){
+        ind_lb<-which(vi+vj==(2*lb))
+        ind_ub<-which(vi+vj==(2*ub))
+        onlb<-length(ind_lb)
+        onub<-length(ind_ub)
+        
+        if(onlb!=0 | onub!=0){
+          mtext(paste0("onbs = (",onlb," , ",onub,")"),
+                side = 4, line=0.15, adj=0.5, col="red") 
+        }
+      }
+      
       if(tagon==T && timeavg==F){
         text(vi,vj,labels = d1[,1],cex=0.5,col="blue")
       }else if(tagon==T && timeavg==T){
@@ -78,9 +96,23 @@ vivj_matrix<-function(d_allsp,loc,i,j,level=0.05,ploton,tagon){
       }else{
         points(-1,0)
       }
-    }else if(IndepTestRes<level && tauval<0){
+    }else if(IndepTestRes<level && tauval<0){ # for significant negative correlation
       plot(vi,vj,type='p',col=rgb(0,1,0,0.3),pch=19,xlim=c(0,1),ylim=c(0,1),
            xlab=names(d_allsp[[loc]])[i],ylab=names(d_allsp[[loc]])[j],cex.lab=1.5)
+      
+      if(onbounds==T & identical(vi,vj)==F){
+        vjneg<-VineCopula::pobs(-(d2$Dat)) # see when we count points on bounds we took reverse of one variable
+        ind_lb<-which(vi+vjneg==(2*lb))
+        ind_ub<-which(vi+vjneg==(2*ub))
+        onlb<-length(ind_lb)
+        onub<-length(ind_ub)
+        
+        if(onlb!=0 | onub!=0){
+          mtext(paste0("onbs = (",onlb," , ",onub,")"),
+                side = 4, line=0.15, adj=0.5, col="red") 
+        }
+      }
+      
       if(tagon==T && timeavg==F){
         text(vi,vj,labels = d1[,1],cex=0.5,col="blue")
       }else if(tagon==T && timeavg==T){
@@ -88,12 +120,15 @@ vivj_matrix<-function(d_allsp,loc,i,j,level=0.05,ploton,tagon){
       }else{
         points(-1,0)
       }
-    }else{
+      
+      
+    }else{ # independent case
       plot(-1,0,xlim=c(0,1),ylim=c(0,1),xlab=names(d_allsp[[loc]])[i],ylab=names(d_allsp[[loc]])[j],cex.lab=1.5)
       text(0.5,0.5,"Indep.",adj=c(0.5,.5),cex=2)
     }
     mtext(paste0("(sp_x, sp_y) = (",i," , ",j,")"),
           side = 3, line=0.15, adj=0.5, col="black")
+    
   }
   
   if(IndepTestRes<level && tauval<0){
@@ -112,5 +147,13 @@ vivj_matrix<-function(d_allsp,loc,i,j,level=0.05,ploton,tagon){
               pval=pval,
               IndepTestRes=IndepTestRes))  
 }
+
+
+
+
+
+
+
+
 
 
