@@ -114,6 +114,13 @@ op<-par(mfrow=c(nsp,nsp),mar=c(4,4,4,4), mgp=c(2.5,0.5,0))
   }
 par(op)
 dev.off()
+
+#============ NOTES : How to interprete ./Results/plankton_results/plankton_all_cop.pdf ? =========================
+
+# Each of 26 pages of this pdf indicates (6 X 6 panel) copula plots for each location. significantly +ve correlated copulas are 
+# represented in grey scale, whereas significantly -ve correlated copulas are represented in green. [sp_i,sp_j] copula
+# should be symmetric with [sp_j,sp_i] copula unless they are significantly -ve correlated. If they are -vely correlated,
+# then consider upper tringular part of 6 X 6 matrix plot arrangements; where sp_j is reversed.
 ```
 
 <!--screen plankton data for the locations which had ceratium sp. and CALFIN data for more than 35 years-->
@@ -621,6 +628,12 @@ for(loc in 1:numloc){
 }
 par(op)
 dev.off()
+#============ NOTES : How to interprete ./Results/aphid_results/copulaplot_ff_with_temp_all_loc.pdf ? =========================
+
+# Each of 11 pages of this pdf indicates (21 X 21 panel) copula plots for each location. significantly +ve correlated copulas are 
+# represented in grey scale, whereas significantly -ve correlated copulas are represented in green. [sp_i,sp_j] copula
+# should be symmetric with [sp_j,sp_i] copula unless they are significantly -ve correlated. If they are -vely correlated,
+# then consider upper tringular part of 21 X 21 matrix plot arrangements; where sp_j is reversed.
 ```
 
 <!--Computing non-parametric statistics at two tails (nbin=2) of aphid copula-->

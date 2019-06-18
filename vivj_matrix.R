@@ -101,13 +101,18 @@ vivj_matrix<-function(d_allsp,loc,i,j,level=0.05,ploton,tagon,onbounds=F,lb=NA,u
            xlab=names(d_allsp[[loc]])[i],ylab=names(d_allsp[[loc]])[j],cex.lab=1.5)
       
       if(onbounds==T & identical(vi,vj)==F){
-        vjneg<-VineCopula::pobs(-(d2$Dat)) # see when we count points on bounds we took reverse of one variable
-        ind_lb<-which(vi+vjneg==(2*lb))
-        ind_ub<-which(vi+vjneg==(2*ub))
+        vneg<-VineCopula::pobs(-(d2$Dat)) # see when we count points on bounds we took reverse of second variable
+        ind_lb<-which(vi+vneg==(2*lb))
+        ind_ub<-which(vi+vneg==(2*ub))
+        
+        #vneg<-VineCopula::pobs(-(d1$Dat)) # NOTE : onbs will not be same if we consider first variable to be reversed
+        #ind_lb<-which(vj+vneg==(2*lb))
+        #ind_ub<-which(vj+vneg==(2*ub))
+        
         onlb<-length(ind_lb)
         onub<-length(ind_ub)
         
-        if(onlb!=0 | onub!=0){
+        if(onlb!=0 | onub!=0){ 
           mtext(paste0("onbs = (",onlb," , ",onub,")"),
                 side = 4, line=0.15, adj=0.5, col="red") 
         }
