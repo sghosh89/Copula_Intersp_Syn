@@ -204,7 +204,12 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
                  colrange=c(-cr,cr))
       segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
       segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
-      z[data_ln_all[[loc]]$posnN]<-NA
+      
+      z[data_ln_all[[loc]]$posnN]<-NA # this line was added to exclude -vely correlated species pair from nL,nU,L,U 
+                                          # calculation, but it does not matter as for -vely correlated cells [sp_i,sp_j] and 
+                                          # [sp_j,sp_i] nL,nU both will increase by same number, whereas L+U remains same and
+                                          # both L, U will change by same +, - factor
+      
       dl2<-nrow(z)-nvar
       z1<-z[1:dl2,1:dl2] # only select sp-sp interaction matrix to calculate nL,nU,L,U
       nL<-sum(z1>0,na.rm = T)
@@ -340,7 +345,12 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
                  colrange=c(-cr,cr))
       segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
       segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
-      z[data_ln_all[[loc]]$posnN]<-NA
+     
+       z[data_ln_all[[loc]]$posnN]<-NA   # this line was added to exclude -vely correlated species pair from nL,nU,L,U 
+                                             # calculation, but it does not matter as for -vely correlated cells [sp_i,sp_j] and 
+                                             # [sp_j,sp_i] nL,nU both will increase by same number, whereas L+U remains same and
+                                             # both L, U will change by same +, - factor
+      
       dl2<-nrow(z)-nvar
       z1<-z[1:dl2,1:dl2] # only select sp-sp interaction matrix to calculate nL,nU,L,U
       nL<-sum(z1>0,na.rm = T)
@@ -472,7 +482,12 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
                  colrange=c(-cr,cr))
       segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
       segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
-      z[data_ln_all[[loc]]$posnN]<-NA
+      
+      z[data_ln_all[[loc]]$posnN]<-NA         # this line was added to exclude -vely correlated species pair from nL,nU,L,U 
+                                              # calculation, but it does not matter as for -vely correlated cells [sp_i,sp_j] and 
+                                              # [sp_j,sp_i] nL,nU both will increase by same number, whereas L+U remains same and
+                                              # both L, U will change by same +, - factor
+      
       dl2<-nrow(z)-nvar
       z1<-z[1:dl2,1:dl2] # only select sp-sp interaction matrix to calculate nL,nU,L,U
       nL<-sum(z1>0,na.rm = T)

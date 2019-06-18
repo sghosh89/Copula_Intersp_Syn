@@ -400,12 +400,19 @@ xx<-c() # to store values of total taildep. 20 sp-nvar corl-coru contribution fr
 yy<-c() # to store values of total taildep. 20X20 sp-sp corl-coru contribution from each location
 
 x<-cor_npa_diff_plankton_ln_all$CorlmCoru_all_ln_list
+x_detailed<-cor_stat_plankton_ln_all
 for(loc in c(1:length(x))){
   tempo<-x[[loc]]
   dl2<-ncol(tempo)-nvar
-  tempo_spmat<-tempo[1:dl2,1:dl2]
+  
+  tempo_sp_poscor<-tempo # this considers sp-sp interaction matrix with only positive correlated cells
+  ind_N<-x_detailed[[loc]]$posnN
+  tempo_sp_poscor[ind_N]<-NA
+  tempo_spmat<-tempo_sp_poscor[1:dl2,1:dl2]
+  
   dl<-ncol(tempo)-nvar+1
   tempo_spnvar<-tempo[c(1:dl2),c(dl:ncol(tempo))]
+  
   xx<-c(xx,sum(tempo_spnvar,na.rm=T))
   yy<-c(yy,sum(tempo_spmat,na.rm=T))
 }
@@ -772,7 +779,7 @@ yy<-c() # to store values of total taildep. 20X20 sp-sp corl-coru contribution f
 x<-cor_npa_diff_ff_ln_all$CorlmCoru_all_ln_list
 for(loc in c(1:length(x))){
   temp<-x[[loc]]
-  xx<-c(xx,sum(temp[1:20,21],na.rm=T))
+  xx<-c(xx,sum(temp[1:20,21],na.rm=T)) # for aphids we know all aphid sp are +vely correlated always with each other
   yy<-c(yy,sum(temp[1:20,1:20],na.rm=T))
 }
 
