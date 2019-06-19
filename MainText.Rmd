@@ -276,18 +276,21 @@ Spearman correlation.
 
 <!--## Methods to answer (Q1)-->
 Consider, a bivariate copula was made with *normalized ranks* $(u, v)$ of any two time series
-(e.g. see Fig. \ref{fig_intro}A) of species pair $(i, j)$ taken from $n^{th}$ site and
-$p$ equispaced patitions were made to the diagonal (dotted line in Fig. \ref{fig_intro}A) 
-of the box. To estimate lower and upper tail dependence, Eq. \ref{eq.Cor} was 
-applied for the points lying in the first and the last triangular partitions, respectively. 
-Given $0 \leq b (= 1/p) \leq 0.5$, we used the 
-shorthand notation for lower tail dependence as $C^n_L(i, j) = \cor_{l_b,u_b}^n(u,v)$ with $(l_b,u_b)=(0,b)$
+(e.g. see Fig. \ref{fig_intro}A) of species pair $(i, j)$ taken from $n^{th}$ site. For simplicity, 
+let us assume that the corresponding variables $(u, v)$ showed significant positive 
+correlation, i. e., points are scattered along the 
+diagonal (dotted line in Fig. \ref{fig_intro}A) of the unit square box. We divided the diagonal
+line by $p$ equispaced partitions so that dependence between $(u, v)$ could be measured by parts. 
+To estimate lower and upper tail dependence in specific, Eq. \ref{eq.Cor} was 
+applied for the points lying in the bottommost and the topmost triangular partitions, respectively. 
+Given $0 \leq b (= 1/p) \leq 0.5$, we used the shorthand notation for lower tail 
+dependence as $C^n_L(i, j) = \cor_{l_b,u_b}^n(u,v)$ with $(l_b,u_b)=(0,b)$
 and for the upper tail dependence as $C^n_U(i, j) = \cor_{l_b,u_b}^n(u,v)$ with $(l_b,u_b)=(1-b,1)$,
-respectively. We considered three equispaced partitions ($b = 1/3$) for plankton data; $C^n_L(i, j)$
+respectively. We considered $b = 1/3$ for plankton data; $C^n_L(i, j)$
 was computed for the points lying on the left side of the red line whereas $C^n_U(i, j)$ was computed 
 for the points lying on the right side of the blue line in Fig. \ref{fig_intro}A. Due to fewer data
 points of aphid first flight data, we examined two equal halves ($b = 1/2$) of the unit 
-square. $C^n_L(i, j)$ and $C^n_U(i, j)$ were measured for the points scattered on the left and right side of 
+square where $C^n_L(i, j)$ and $C^n_U(i, j)$ were measured for the points scattered on the left and right side of 
 the solid black line (Fig. \ref{fig_intro}A), respectively. 
 
 Higher partial Spearman 
@@ -296,22 +299,28 @@ indicates asymmetry in tail-dependence of a copula and to be specific
 stronger lower tail dependence than upper. Similarly, negative value of 
 $C^n_{L-U}(i, j)$ would indicate stronger upper tail 
 dependence than lower in an asymmetric copula. 
-For the $n^{th}$ site, we estimated $C^n_{L-U}(i, j)$ for all pairwise combination of $(i, j)$ and counted
-the number of lower ($N_L$) and upper ($N_U$) tail dominant species pair for which 
-$C^n_{L-U}(i, j)>0$ and $C^n_{L-U}(i, j)<0$, respectively.
-We also added up all positive and negative values of $C^n_{L-U}(i,j)$ and defined lower and upper
-asymmetric estimates on species level for $n^{th}$ site as $A_S^{n+} = \sum_{i=1}^{s}\sum_{j=1}^{s}[C^n_{L-U}(i, j) > 0]$ and 
-$A_S^{n-} = \sum_{i=1}^{s}\sum_{j=1}^{s}[C^n_{L-U}(i, j) < 0]$, 
+For the $n^{th}$ site, we estimated $C^n_{L-U}(i, j)$ for all 
+pairwise combination of $(i \neq j)$ to exclude self-comparison, and from now on 
+it is implicit that whenever we would mention estimates for any species pair $(i,j)$, they
+are coming from two different species, i. e. $i \neq j$. 
+Considering only positive correlation ($0.05$ significance level) between species, 
+we counted number of lower-tail dominant ($N_L$) and upper-tail dominant ($N_U$) 
+species pair for which $C^n_{L-U}(i, j)>0$ and $C^n_{L-U}(i, j)<0$, respectively. 
+We defined lower and upper tail
+asymmetric estimates on species level for $n^{th}$ site as
+$A_S^{n+} = \sum_{i=1}^{s}\sum_{j=1}^{s}C^n_{L-U}(i, j)$ where $C^n_{L-U}(i, j) >0$ 
+and $A_S^{n-} = \sum_{i=1}^{s}\sum_{j=1}^{s}C^n_{L-U}(i, j)$ where $C^n_{L-U}(i, j) <0$, 
 respectively. Total species-asymmetry $A_S^{n} = A_S^{n+} + A_S^{n-}$ was assessed for 
 each selected site which could
 answer (Q1); if $A_S^{n} \neq 0$ then it would indicate asymmetry in 
-overall tail-dependence. But to get a more precise answer, whether the asymmetric
+overall tail-dependence. But to get more precise answer, whether the asymmetric
 tail dependence was stronger in the lower values or upper, the proportion 
 of lower and upper tail dominance
 in overall asymmetry at each site were measured
 by $f_L = \frac{A_S^{n+}}{A_S^{n+} + |A_S^{n-}|}$ and
 $f_U = \frac{|A_S^{n-}|}{A_S^{n+} + |A_S^{n-}|}$, respectively.
-These values of $f_L$ and $f_U$ from each site were used to answer (Q1). 
+These values of $f_L$ and $f_U$ from each site were used to answer (Q1) that different 
+species could show synchronous behavior with specific tail-dependent asymmetry. 
 
 <!--## Methods to answer (Q2)-->
 
@@ -326,15 +335,15 @@ of driver dependencies as $A_D^n = \sum_{i=1}^{s}\sum_{k=1}^{d} C^n_{L-U}(i, k)$
 any significant correlation between $A_D^n$ and $A_S^n$ considered for all selected sites. This 
 approach was better when we examined behaviour of fewer but similar species, like the four \textit{Ceratium spp.} 
 of dinoflagellate class. Our second approach was more suitable when 
-there were several species but not from same genus, so expected to show more variation
+there were several species coming from different genus, so expected to show more variation
 in inter-species response, as we will see with aphid (20 species) first flight data. 
 Here we examined correlation between response for $i^{th}$ individual species 
 with all the other species ($\alpha_S^n(i)$) and with its drivers ($\alpha_D^n(i)$). 
 We measured those two quantities as $\alpha_S^n(i) = \sum_{j=1}^{s} C^n_{L-U}(i, j)$ and 
 $\alpha_D^n(i) = \sum_{k=1}^{d} C^n_{L-U}(i, k)$, respectively, for a given $i^{th}$ species. Significant correlation 
 between $A_D^n$ and $A_S^n$ (for plankton) or between $\alpha_D^n(i)$ and $\alpha_S^n(i)$ (for aphids)
-would establish our hypothesis that tail dependence in inter-specific response was caused by similar
-tail-dependence in species-driver copulas.
+would establish our hypothesis that asymmetric tail dependence in inter-specific response was caused by similar
+asymmetric tail-dependence in species-driver copulas.
 
 
 # Results\label{Results}

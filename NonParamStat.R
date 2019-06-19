@@ -165,7 +165,7 @@ multcall<-function(d_allsp,loc,pfname,good_sp,nbin,npa_stats){
       #cat("i,j",i,j,"\n")
       
       #if(i!=j){
-      ms<-vivj_matrix(d_allsp=d_allsp,loc=loc,i=i,j=j,level=0.05,ploton=F,tagon=F)
+      ms<-vivj_matrix(d_allsp=d_allsp,loc=loc,i=i,j=j,level=0.05,ploton=F,onbounds=F,lb=NA,ub=NA)
       m<-ms$mat
       
       tau_kend[ii,jj]<-ms$tauval
@@ -206,7 +206,7 @@ multcall<-function(d_allsp,loc,pfname,good_sp,nbin,npa_stats){
         i<-good_sp[ii]
         j<-good_sp[jj]
         
-        ms<-vivj_matrix(d_allsp=d_allsp,loc=loc,i=i,j=j,level=0.05,ploton=F,tagon=F)
+        ms<-vivj_matrix(d_allsp=d_allsp,loc=loc,i=i,j=j,level=0.05,ploton=F,onbounds=F,lb=NA,ub=NA)
         m<-ms$mat
         thisres<-copsync(m,nbin=nbin,npa_stats=npa_stats)
         
