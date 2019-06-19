@@ -308,9 +308,10 @@ we counted number of lower-tail dominant ($N_L$) and upper-tail dominant ($N_U$)
 species pair for which $C^n_{L-U}(i, j)>0$ and $C^n_{L-U}(i, j)<0$, respectively. 
 We defined lower and upper tail
 asymmetric estimates on species level for $n^{th}$ site as
-$A_S^{n+} = \sum_{i=1}^{s}\sum_{j=1}^{s}C^n_{L-U}(i, j)$ where $C^n_{L-U}(i, j) >0$ 
-and $A_S^{n-} = \sum_{i=1}^{s}\sum_{j=1}^{s}C^n_{L-U}(i, j)$ where $C^n_{L-U}(i, j) <0$, 
-respectively. Total species-asymmetry $A_S^{n} = A_S^{n+} + A_S^{n-}$ was assessed for 
+$A_S^{n+} = \sum\limits_{i=1}^s\sum\limits_{j=1}^s C^n_{L-U}(i, j)$ where $C^n_{L-U}(i, j) >0$ 
+and $A_S^{n-} = \sum\limits_{i=1}^s\sum\limits_{j=1}^s C^n_{L-U}(i, j)$ where $C^n_{L-U}(i, j) <0$, 
+respectively. These sums were considered for positively correlated species pair ($i \neq j$). 
+Total species-asymmetry $A_S^{n} = A_S^{n+} + A_S^{n-}$ was assessed for 
 each selected site which could
 answer (Q1); if $A_S^{n} \neq 0$ then it would indicate asymmetry in 
 overall tail-dependence. But to get more precise answer, whether the asymmetric
@@ -331,16 +332,16 @@ for our two datasets. First, we estimated lower minus upper tail dependence
 $C_{L-U}^n(i, k); i = 1,\dots ,s$ and $k = 1,\dots ,d$ 
 for the copulas made with species and drivers' time series from any $n^{th}$ site
 as we did with copulas for any two species pair combination. Then, we measured total asymmetry 
-of driver dependencies as $A_D^n = \sum_{i=1}^{s}\sum_{k=1}^{d} C^n_{L-U}(i, k)$ and tested if there was
+of driver dependencies as $A_D^n =\sum\limits_{i=1}^s\sum\limits_{k=1}^d C^n_{L-U}(i, k)$ and tested if there was
 any significant correlation between $A_D^n$ and $A_S^n$ considered for all selected sites. This 
 approach was better when we examined behaviour of fewer but similar species, like the four \textit{Ceratium spp.} 
 of dinoflagellate class. Our second approach was more suitable when 
 there were several species coming from different genus, so expected to show more variation
 in inter-species response, as we will see with aphid (20 species) first flight data. 
-Here we examined correlation between response for $i^{th}$ individual species 
-with all the other species ($\alpha_S^n(i)$) and with its drivers ($\alpha_D^n(i)$). 
-We measured those two quantities as $\alpha_S^n(i) = \sum_{j=1}^{s} C^n_{L-U}(i, j)$ and 
-$\alpha_D^n(i) = \sum_{k=1}^{d} C^n_{L-U}(i, k)$, respectively, for a given $i^{th}$ species. Significant correlation 
+For a species-specific approach, we examined correlation between response for 
+$i^{th}$ individual species with all the other species ($\alpha_S^n(i)$) and with its drivers ($\alpha_D^n(i)$). 
+We measured those two quantities as $\alpha_S^n(i) = \sum\limits_{j=1}^{s} C^n_{L-U}(i, j)$ for $(i \neq j)$ and 
+$\alpha_D^n(i) = \sum\limits_{k=1}^{d} C^n_{L-U}(i, k)$, respectively, for a given $i^{th}$ species. Significant correlation 
 between $A_D^n$ and $A_S^n$ (for plankton) or between $\alpha_D^n(i)$ and $\alpha_S^n(i)$ (for aphids)
 would establish our hypothesis that asymmetric tail dependence in inter-specific response was caused by similar
 asymmetric tail-dependence in species-driver copulas.
