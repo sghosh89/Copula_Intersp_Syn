@@ -60,8 +60,8 @@ location leads to corresponding asymmetry in inter-specific relationships.
 With two long-term spatio-temporal datasets (\textit{Ceratium spp.} abundance data and 
 aphids first flight data), we showed overall asymmetric tail-dependence is a common feature of 
 inter-specific synchrony within a community, when we considered all combinations of species-pairs.
-We showed this asymmetry at species level emerged due to the similar 
-asymmetric tail-dependence of the species in response to their biotic/ abiotic drivers.
+We investigated whether this asymmetry at species level was due to similar 
+asymmetric tail-dependence of the species in response to their biotic and/ or abiotic drivers.
 We considered the abundance of the generalist predator 
 \textit{Calanus finmarchicus} and growing season temperature as two key drivers 
 which shaped the phytoplankton community, whereas aphids 
@@ -70,7 +70,7 @@ significant correlation between asymmetric tail-dependence of species-driver cop
 and species-species copulas, which explained the probable causal mechanism 
 behind such commonly found asymmetric inter-specific response. 
 
-\noindent \textbf{\textit{Keywords:}} tail dependence, copula, inter-species synchrony, aphids, planktons
+\noindent \textbf{\textit{Keywords:}} tail dependence, copula, inter-species synchrony, aphids, plankton
 
 
 <!--\noindent\makebox[\linewidth]{\rule{\columnwidth}{1pt}}
@@ -159,7 +159,7 @@ lower (or upper) tail-dependence of the dependence on such an abiotic or biotic 
 could cause corresponding asymmetric tail dependences in inter-species dependence structures. We will
 elaborate this idea in the following example.
 
-<!--earlier work on sp-driver relationships : aphids and planktons-->
+<!--earlier work on sp-driver relationships : aphids and plankton-->
 Earlier work showed winter temperature had a profound effect on spatial 
 synchrony between aphids [@sheppard2016]. Similarly, the plankton 
 community in the North Sea was found to be affected by 
@@ -167,7 +167,7 @@ climatic variables like temperature and
 predatory zooplankton [@defriez2016climate; @sheppard2017; @sheppard2019].
 Inspired by those findings, in this paper, we hypothesize possible biotic and/ or 
 abiotic drivers could cause asymmetric tail-dependence in inter-specific synchrony for 
-planktons or aphids. For example, consider a situation when harsh winter delayed first flight of aphids 
+plankton or aphids. For example, consider a situation when harsh winter delayed first flight of aphids 
 on a site, i. e., aphids first flight date was negatively correlated with winter temperature. If we 
 made a copula with aphid first flight dates and negative winter temperature, then it could be 
 either lower tail (Fig. \ref{fig_intro}B) or upper-tail dependent (Fig. \ref{fig_intro}D) depending on the
@@ -182,7 +182,7 @@ as depicted in Fig. \ref{fig_intro}C or E, respectively.
 In this paper, we will introduce a "partial-Spearman correlation"-based approach to measure 
 the "tail-dependence" of inter-species dependence structure.
 We will analyze inter-species synchrony with two spatio-temporal datasets of 
-two different taxa (planktons and aphids) to answer the following questions: 
+two different taxa (plankton and aphids) to answer the following questions: 
 (Q1) Do different species show synchronous behavior with asymmetric tail 
 dependence (particularly lower or particularly upper) in their copula structure?
 and (Q2) if they do show such asymmetric tail-dependence then what causes such asymmetry? 
@@ -544,7 +544,7 @@ of asymmetry estimates ($A_S^{n+}$, $A_S^{n-}$, $A_S^{n}$) at location $n=18$, a
 and our hypothesis that the inter-species tail dependence measures would match driver-species
 tail dependence measures cannot be applied to this species.
 
-<!--what extra info do you get by monitoring tail dep. for planktons?-->
+<!--what extra info do you get by monitoring tail dep. for plankton?-->
 Monitoring tail dependence (a measure of "synchrony") could reveal interesting information about 
 an ecosystem. We expect our resuts to generalize to other plankton systems subject to limiting factors.
 In most freshwater lakes algal-productivity is limited by the availability 
