@@ -107,13 +107,20 @@ op<-par(mfrow=c(nsp,nsp),mar=c(4,4,4,4), mgp=c(2.5,0.5,0))
     for(i in 1:nsp){
       for(j in 1:nsp){
         
-        ms<-vivj_matrix(d_allsp = data_plankton,loc=loc,i=i,j=j,level=0.05,ploton=T,tagon=F)
+        ms<-vivj_matrix(d_allsp = data_plankton,loc=loc,i=i,j=j,level=0.05,ploton=T,onbounds=T,lb=1/3,ub=2/3)
         
       }
     }
   }
 par(op)
 dev.off()
+
+#============ NOTES : How to interprete ./Results/plankton_results/plankton_all_cop.pdf ? =========================
+
+# Each of 26 pages of this pdf indicates (6 X 6 panel) copula plots for each location. significantly +ve correlated copulas are 
+# represented in grey scale, whereas significantly -ve correlated copulas are represented in green. [sp_i,sp_j] copula
+# should be symmetric with [sp_j,sp_i] copula unless they are significantly -ve correlated. If they are -vely correlated,
+# then consider upper tringular part of 6 X 6 matrix plot arrangements; where sp_j is reversed.
 ```
 
 <!--screen plankton data for the locations which had ceratium sp. and CALFIN data for more than 35 years-->
@@ -400,12 +407,19 @@ xx<-c() # to store values of total taildep. 20 sp-nvar corl-coru contribution fr
 yy<-c() # to store values of total taildep. 20X20 sp-sp corl-coru contribution from each location
 
 x<-cor_npa_diff_plankton_ln_all$CorlmCoru_all_ln_list
+x_detailed<-cor_stat_plankton_ln_all
 for(loc in c(1:length(x))){
   tempo<-x[[loc]]
   dl2<-ncol(tempo)-nvar
-  tempo_spmat<-tempo[1:dl2,1:dl2]
+  
+  tempo_sp_poscor<-tempo # this considers sp-sp interaction matrix with only positive correlated cells
+  ind_N<-x_detailed[[loc]]$posnN
+  tempo_sp_poscor[ind_N]<-NA
+  tempo_spmat<-tempo_sp_poscor[1:dl2,1:dl2]
+  
   dl<-ncol(tempo)-nvar+1
   tempo_spnvar<-tempo[c(1:dl2),c(dl:ncol(tempo))]
+  
   xx<-c(xx,sum(tempo_spnvar,na.rm=T))
   yy<-c(yy,sum(tempo_spmat,na.rm=T))
 }
@@ -608,12 +622,18 @@ for(loc in 1:numloc){
       for(j in 1:nsp){
         
         ms<-vivj_matrix(d_allsp = data_ff_with_temp,loc=ff_selected_loc[loc],
-                        i=i,j=j,level=0.05,ploton=T,tagon=F)
+                        i=i,j=j,level=0.05,ploton=T,onbounds=T,lb=0,ub=0.5)
       }
     }
 }
 par(op)
 dev.off()
+#============ NOTES : How to interprete ./Results/aphid_results/copulaplot_ff_with_temp_all_loc.pdf ? =========================
+
+# Each of 11 pages of this pdf indicates (21 X 21 panel) copula plots for each location. significantly +ve correlated copulas are 
+# represented in grey scale, whereas significantly -ve correlated copulas are represented in green. [sp_i,sp_j] copula
+# should be symmetric with [sp_j,sp_i] copula unless they are significantly -ve correlated. If they are -vely correlated,
+# then consider upper tringular part of 21 X 21 matrix plot arrangements; where sp_j is reversed.
 ```
 
 <!--Computing non-parametric statistics at two tails (nbin=2) of aphid copula-->
@@ -772,7 +792,7 @@ yy<-c() # to store values of total taildep. 20X20 sp-sp corl-coru contribution f
 x<-cor_npa_diff_ff_ln_all$CorlmCoru_all_ln_list
 for(loc in c(1:length(x))){
   temp<-x[[loc]]
-  xx<-c(xx,sum(temp[1:20,21],na.rm=T))
+  xx<-c(xx,sum(temp[1:20,21],na.rm=T)) # for aphids we know all aphid sp are +vely correlated always with each other
   yy<-c(yy,sum(temp[1:20,1:20],na.rm=T))
 }
 
