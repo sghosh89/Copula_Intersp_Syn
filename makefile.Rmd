@@ -1,5 +1,5 @@
 ---
-title: "Makefile, compiliation notes"
+title: "Aphid/plankton makefile, compiliation notes"
 author: "Daniel Reuman, Shyamolina Ghosh"
 date: ""
 output: pdf_document
