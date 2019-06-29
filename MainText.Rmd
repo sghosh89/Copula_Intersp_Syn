@@ -337,7 +337,11 @@ species with biotic and/ or abiotic drivers. We used two slightly different esti
 for our two datasets. First, we estimated lower minus upper tail dependence
 $C_{L-U}^n(i, k); i = 1,\dots ,s$ and $k = 1,\dots ,d$ 
 for the copulas made with species and drivers' time series from any $n^{th}$ site
-as we did with copulas for any two species pair combination. Then, we measured total asymmetry 
+as we did with copulas for any two species pair combination. If time series of $i^{th}$ species 
+at $n^{th}$ site (say, $x_i^n$) were negatively correlated with time 
+series of $k^{th}$ drivers at that site (say, $y_k^n$), then we made a copula with $(x_i^n, -y_k^n)$ 
+and subsequent asymmetry of tail-dependence was measured using that copula. For positively correlated 
+species and drivers through time, we did not reverse the time series $y_k^n$. We measured total asymmetry 
 of driver dependencies as $A_D^n =\sum\limits_{i=1}^s\sum\limits_{k=1}^d C^n_{L-U}(i, k)$ and tested if there was
 any significant correlation between $A_D^n$ and $A_S^n$ considered for all selected sites. This 
 approach was better when we examined behaviour of fewer but similar species, like the four \textit{Ceratium spp.} 
