@@ -269,6 +269,40 @@ for aphid first flight date (e.g., @sheppard2016).
 
 ## Methods\label{Methods}
 
+<!--***DAN: I am assuming normalizd ranks the standard copula plot were
+already described in the Intro. In particular, it needs to be mentioned there
+that rank of the smallest value is 1.-->
+Given bivariate data $(x_t,y_t)$ for a set of years, $t$, of size $T$, 
+and after computing
+normalized ranks $(u_t,v_t)$ as described in the Introduction, tail
+dependence and asymmetry of tail dependence were measured using the 
+*partial Spearman correlation*, which we here define following @Ghosh_copula. 
+Given two bounds $1\leq l_b < u_b \leq 1$, we define the boundary lines 
+$u+v=2l_b$ and $u+v=2u_b$ (Fig. \ref{fig_intro}A), 
+which intersect the unit square on which 
+a copula is plotted (Introduction). The partial Spearman correlation for the
+band between these boundaries and within the unit square is
+\begin{equation}\label{eq.Cor}
+   \cor_{l_b,u_b}(u,v) = \frac{\sum 
+   (u_t^n-\mean(u)) (v_t^n-\mean(v))}{(T-1)\sqrt{\var(u)\var(v)}}.
+\end{equation}
+\noindent Here, means and sample variances are computed using all $T$ data points, 
+but the sum is over only the indices $t$ for which $u_t+v_t > 2l_b$ and 
+$u_t+v_t < 2u_b$. The partial Spearman correlation is not defined if there
+are no points within the band. The partial Spearman correlations 
+$\cor_{0,b}$ and $\cor_{1-b,1}$ for $b\leq 0.5$ 
+measure tail dependence, and can be compared
+via a difference, $\cor_{0,b}-\cor_{1-b,1}$, to measure asymmetry of tail 
+dependence. 
+The sum of $\cor_{0,1/2}(u,v)$ and 
+$\cor_{1/2,1}(u,v)$ (or the sum of
+$\cor_{l_{b_k},u_{b_k}}(u,v)$ for any other choice of bands 
+$(l_{b_k},u_{b_k})$ that partition the interval $(0,1)$) equals the standard 
+Spearman correlation, as long as no points happen to lie directly 
+on the bounds $u+v=2l_{b_k}$ and $u+v=2u_{b_k}$. 
+
+<!--***DAN: got to here 2019 07 02-->
+
 To begin with, we considered $T$ years long time series were available for $s$ number of species along with 
 $d$ abiotic and/ or biotic drivers (i. e. temperature or predator abundance) for any $n^{th}$ site.
 For each selected location we constructed a bivariate copula made of time series of either
