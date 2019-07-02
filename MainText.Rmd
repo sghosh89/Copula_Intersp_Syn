@@ -206,39 +206,66 @@ asymmetric tail dependence in inter-species copulas (C, E).\label{fig_intro}}
 
 ## Data \label{Data} 
 
-Our first spatio-temporal dataset comprised average annual 
-abundance estimates for 26 locations (Fig. \ref{SM-fig_plankton_map})
-in the North Sea and British seas for 22 plankton taxa for the 
-56 years from 1958 to 2013 [@sheppard2017]. 
+<!--***DAN: I've written this assuming in the new Intro we will have mentioned
+we will be working with a population and a phenology dataset, so make sure
+to do that-->
+Our population dataset comprised average annual 
+abundance estimates for 15 locations (Fig. \ref{SM-fig_plankton_map})
+in the North Sea and British seas for 4 species from the *Ceratium*
+genus of dinoflagelates, and for the generalist consumer copepod species
+*Calanus finmarchicus*, for the 56 years 1958 to 2013.
+These data were a subset of a larger dataset covering 22 taxa 
+and 26 locations, analyzed by @sheppard2017, @sheppard2019, and @Ghosh_copula.
 The locations are $2^\circ$ by $2^\circ$ degree grid cells.
-These data were obtained from the Continuous Plankton Recorder (CPR) dataset, 
+The data were originally obtained from the 
+Continuous Plankton Recorder (CPR) dataset, 
 now operated and maintained by 
 the Marine Biological Association of the United Kingdom. 
-Data preprocessing steps are same as used in [@Ghosh_copula]. 
-As dinoflagellates are considered to have an important role in the phytoplankton bloom,
-we screened 4 Ceratium species (Table \ref{tab_plankton_aphid_info}) and 
-their generalist predator zooplankton \textit{Calanus finmarchicus} (hereafter abbreviated as C. fin.)
-from 15 selected locations. Screening of locations and species involved several steps: 
-first, we chose a subset, from 26 locations, which had at least 36 years of data available for all species.
-Second, for a given location, we screened species excluding the ones that were absent for more 
-than 10$\%$ of sampling years at that location. Finally, 
-we considered only those selected locations which had at least two 
-\textit{Ceratium spp.} along with their predator C. fin. We also considered
-time series of sea surface temperature (for growing season) at each selected grid cell (Fig. \ref{SM-fig_plankton_map}) 
-to be one of the key drivers
-which caused synchronous response among \textit{Ceratium spp}. Sea surface 
-temperature data pre-processing was the same as used in @sheppard2017.
+Data preprocessing steps were same as used by @Ghosh_copula. 
+*Ceratium* species were extracted in part because they
+have an important role in red tides, and also because four 
+species were available from the genus (Table \ref{tab_plankton_aphid_info}), 
+and we wanted closely related 
+species because they may compete with one another, and may 
+be influenced in similar ways
+by environmental variables. The 15 locations we used were 
+selected from the 26 locations of the larger dataset 
+(Fig. \ref{SM-fig_plankton_map}) as follows. 
+First, to reduce the effects of sampling variation on statistical results,
+we chose the subset of locations for which at least 36 years
+<!--***DAN: why 36? Seems odd as stated-->
+of data were available for all species.
+Second, for a given location, we excluded *Ceratium* species 
+that were undetected for more than 10$\%$ of sampled years at that location. 
+Finally, we considered only those locations for which at least two 
+*Ceratium* species remained. We also had average growing season 
+sea surface temperature for each grid cell and year
+[@sheppard2017; @sheppard2019]. Earlier analyses (e.g., @sheppard2019)
+demonstrated that sea surface temperature and *C. finmarchicus* 
+abundance are important covariates of phytoplankton dynamics 
+in United Kingdom (UK) seas, 
+though associations between temperature and phytoplankton are
+probably due to relationships both these variables have with nutrient 
+abundance in surface ocean layers. Sea surface 
+temperature data preprocessing was the same as used by @sheppard2017.
 
-As a second spatio-temporal dataset, we used phenological data of aphid first-flight dates for 10 selected 
-among total of 11 sites (Fig. \ref{SM-fig_aphid_map}) across the United Kingdom (UK). 
-Data were available for 20 aphid species (Table \ref{tab_plankton_aphid_info}). Locations are screened 
-by requiring at least 30 years of data points available for all sp. at each site 
-during the timespan of 1976-2010. These time series were computed 
-from the the Rothamsted Insect Survey suction-trap dataset 
-[@harrington2014; @bell2015]. Data pre-processing for the aphids
-was the same as that of [@sheppard2016]. Time-series of winter average 
-temperature (December, $(t-1)^{th}$ year to March, $t^{th}$ year) was considered a 
-main driver causing spatially synchronous changes in arrival date of flying aphids at each site.
+Our phenological dataset comprised annual first flight dates
+for 20 aphid species (Table \ref{tab_plankton_aphid_info})
+from 10 locations across the UK (Fig. \ref{SM-fig_aphid_map}),
+spanning the 35 years 1976 to 2010. These data were a subset of a larger
+dataset covering 11 locations, analyzed previously by @sheppard2016
+and @Ghosh_copula. The data were originally obtained from the 
+Rothamsted Insect Survey suction-trap dataset 
+[@harrington2014; @bell2015]. Data preprocessing 
+was the same as that of [@sheppard2016]. 
+Locations were screened, leading to the removal of one of the original
+11 sampling locations, by requiring at least 30 years of data be 
+available for all species, again to reduce sampling variation of
+statistics. We also had time series of winter average 
+temperature for each location and year. The winter temerature for 
+year $t$ was the average of December of year $t-1$ to March of year $t$.
+Earlier analyses have demonstrated the importance of winter temperature
+for aphid first flight date (e.g., @sheppard2016).
 
 ## Methods\label{Methods}
 
