@@ -6,11 +6,12 @@
 #   nvar_names : a vector of characters containing names of n-variables
 #   tagon : logical (argument for vivj_matrix fn call)
 #   npa_stats : a character tag to choose any one of 3 npa stats
+#   wd,ht : width and height of fenarated plot
 #---------------------------
 source("mycorrplot.R")
 #---------------------------
 
-NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_stats){
+NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_stats,wd,ht){
   
   #------------------------------------
   # initialize
@@ -45,7 +46,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
   
   for(loc in 1:numloc){
     resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-    pdf(paste(resloc2,selected_loc[loc],file="_Spearman.pdf",sep=''),width=24, height=24)
+    pdf(paste(resloc2,selected_loc[loc],file="_Spearman.pdf",sep=''),width=wd, height=ht)
     z<-tempo[[loc]]
     
     if(nvar!=0){
@@ -57,9 +58,10 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     mycorrplot(z=z,
                posnI_ind=data_ln_all[[loc]]$posnI,
                posnN_ind=data_ln_all[[loc]]$posnN,
-               colrange=c(-cr,cr))
-    segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
-    segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
+               colrange=c(-cr,cr),nvar=nvar)
+    #segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+    #segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
+    #cat("loc=",loc,"\n")
     dev.off()
   }
   
@@ -79,7 +81,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
   
   for(loc in 1:numloc){
     resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-    pdf(paste(resloc2,selected_loc[loc],file="_Kendall.pdf",sep=''),width=24, height=24)
+    pdf(paste(resloc2,selected_loc[loc],file="_Kendall.pdf",sep=''),width=wd, height=ht)
     z<-tempo[[loc]]
     if(nvar!=0){
       dl<-nrow(z)-nvar+1
@@ -89,9 +91,9 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     mycorrplot(z=z,
                posnI_ind=data_ln_all[[loc]]$posnI,
                posnN_ind=data_ln_all[[loc]]$posnN,
-               colrange=c(-cr,cr))
-    segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
-    segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
+               colrange=c(-cr,cr),nvar=nvar)
+    #segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+    #segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
     dev.off()
   }
   
@@ -114,7 +116,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     
     for(loc in 1:numloc){
       resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-      pdf(paste(resloc2,selected_loc[loc],file="_Corl.pdf",sep=''),width=24, height=24)
+      pdf(paste(resloc2,selected_loc[loc],file="_Corl.pdf",sep=''),width=wd, height=ht)
       z<-tempo[[loc]]
       if(nvar!=0){
         dl<-nrow(z)-nvar+1
@@ -124,9 +126,9 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       mycorrplot(z=z,
                  posnI_ind=data_ln_all[[loc]]$posnI,
                  posnN_ind=data_ln_all[[loc]]$posnN,
-                 colrange=c(-cr,cr))
-      segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
-      segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
+                 colrange=c(-cr,cr),nvar=nvar)
+      #segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+      #segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
       dev.off()
     }
     
@@ -146,7 +148,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     
     for(loc in 1:numloc){
       resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-      pdf(paste(resloc2,selected_loc[loc],file="_Coru.pdf",sep=''),width=24, height=24)
+      pdf(paste(resloc2,selected_loc[loc],file="_Coru.pdf",sep=''),width=wd, height=ht)
       z<-tempo[[loc]]
       if(nvar!=0){
         dl<-nrow(z)-nvar+1
@@ -156,9 +158,9 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       mycorrplot(z=z,
                  posnI_ind=data_ln_all[[loc]]$posnI,
                  posnN_ind=data_ln_all[[loc]]$posnN,
-                 colrange=c(-cr,cr))
-      segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
-      segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
+                 colrange=c(-cr,cr),nvar=nvar)
+      #segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+      #segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
       dev.off()
     }
     
@@ -190,7 +192,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     
     for(loc in 1:numloc){
       resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-      pdf(paste(resloc2,selected_loc[loc],file="_Corl-Coru.pdf",sep=''),width=24, height=24)
+      pdf(paste(resloc2,selected_loc[loc],file="_Corl-Coru.pdf",sep=''),width=wd, height=ht)
       #op<-par(mar=c(5.1, 2, 4.1, 8), mgp=c(3, 1, 0), las=0)
       z<-tempo[[loc]]
       if(nvar!=0){
@@ -201,9 +203,9 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       mycorrplot(z=z,
                  posnI_ind=data_ln_all[[loc]]$posnI,
                  posnN_ind=data_ln_all[[loc]]$posnN,
-                 colrange=c(-cr,cr))
-      segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
-      segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
+                 colrange=c(-cr,cr),nvar=nvar)
+      #segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+      #segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
       
       z[data_ln_all[[loc]]$posnN]<-NA # this line was added to exclude -vely correlated species pair from nL,nU,L,U 
                                           # calculation, but it does not matter as for -vely correlated cells [sp_i,sp_j] and 
@@ -254,7 +256,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     
     for(loc in 1:numloc){
       resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-      pdf(paste(resloc2,selected_loc[loc],file="_Pl.pdf",sep=''),width=24, height=24)
+      pdf(paste(resloc2,selected_loc[loc],file="_Pl.pdf",sep=''),width=wd, height=ht)
       z<-tempo[[loc]]
       if(nvar!=0){
         dl<-nrow(z)-nvar+1
@@ -264,9 +266,9 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       mycorrplot(z=z,
                  posnI_ind=data_ln_all[[loc]]$posnI,
                  posnN_ind=data_ln_all[[loc]]$posnN,
-                 colrange=c(-cr,cr))
-      segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
-      segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
+                 colrange=c(-cr,cr),nvar=nvar)
+      #segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+      #segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
       dev.off()
     }
     
@@ -287,7 +289,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     
     for(loc in 1:numloc){
       resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-      pdf(paste(resloc2,selected_loc[loc],file="_Pu.pdf",sep=''),width=24, height=24)
+      pdf(paste(resloc2,selected_loc[loc],file="_Pu.pdf",sep=''),width=wd, height=ht)
       z<-tempo[[loc]]
       if(nvar!=0){
         dl<-nrow(z)-nvar+1
@@ -297,9 +299,9 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       mycorrplot(z=z,
                  posnI_ind=data_ln_all[[loc]]$posnI,
                  posnN_ind=data_ln_all[[loc]]$posnN,
-                 colrange=c(-cr,cr))
-      segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
-      segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
+                 colrange=c(-cr,cr),nvar=nvar)
+      #segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+      #segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
       dev.off()
     }
     
@@ -332,7 +334,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     
     for(loc in 1:numloc){
       resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-      pdf(paste(resloc2,selected_loc[loc],file="_Pl-Pu.pdf",sep=''),width=24, height=24)
+      pdf(paste(resloc2,selected_loc[loc],file="_Pl-Pu.pdf",sep=''),width=wd, height=ht)
       z<-tempo[[loc]]
       if(nvar!=0){
         dl<-nrow(z)-nvar+1
@@ -342,9 +344,9 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       mycorrplot(z=z,
                  posnI_ind=data_ln_all[[loc]]$posnI,
                  posnN_ind=data_ln_all[[loc]]$posnN,
-                 colrange=c(-cr,cr))
-      segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
-      segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
+                 colrange=c(-cr,cr),nvar=nvar)
+      #segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+      #segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
      
        z[data_ln_all[[loc]]$posnN]<-NA   # this line was added to exclude -vely correlated species pair from nL,nU,L,U 
                                              # calculation, but it does not matter as for -vely correlated cells [sp_i,sp_j] and 
@@ -394,7 +396,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     
     for(loc in 1:numloc){
       resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-      pdf(paste(resloc2,selected_loc[loc],file="_D2l.pdf",sep=''),width=24, height=24)
+      pdf(paste(resloc2,selected_loc[loc],file="_D2l.pdf",sep=''),width=wd, height=ht)
       z<-tempo[[loc]]
       if(nvar!=0){
         dl<-nrow(z)-nvar+1
@@ -404,9 +406,9 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       mycorrplot(z=z,
                  posnI_ind=data_ln_all[[loc]]$posnI,
                  posnN_ind=data_ln_all[[loc]]$posnN,
-                 colrange=c(-cr,cr))
-      segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
-      segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
+                 colrange=c(-cr,cr),nvar=nvar)
+      #segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+      #segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
       dev.off()
     }
     
@@ -426,7 +428,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     
     for(loc in 1:numloc){
       resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-      pdf(paste(resloc2,selected_loc[loc],file="_D2u.pdf",sep=''),width=24, height=24)
+      pdf(paste(resloc2,selected_loc[loc],file="_D2u.pdf",sep=''),width=wd, height=ht)
       z<-tempo[[loc]]
       if(nvar!=0){
         dl<-nrow(z)-nvar+1
@@ -436,9 +438,9 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       mycorrplot(z=z,
                  posnI_ind=data_ln_all[[loc]]$posnI,
                  posnN_ind=data_ln_all[[loc]]$posnN,
-                 colrange=c(-cr,cr))
-      segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
-      segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
+                 colrange=c(-cr,cr),nvar=nvar)
+      #segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+      #segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
       dev.off()
     }
     
@@ -469,7 +471,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     
     for(loc in 1:numloc){
       resloc2<-paste(resloc,selected_loc[loc],"/",sep="")
-      pdf(paste(resloc2,selected_loc[loc],file="_D2u-D2l.pdf",sep=''),width=24, height=24)
+      pdf(paste(resloc2,selected_loc[loc],file="_D2u-D2l.pdf",sep=''),width=wd, height=ht)
       z<-tempo[[loc]]
       if(nvar!=0){
         dl<-nrow(z)-nvar+1
@@ -479,9 +481,9 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       mycorrplot(z=z,
                  posnI_ind=data_ln_all[[loc]]$posnI,
                  posnN_ind=data_ln_all[[loc]]$posnN,
-                 colrange=c(-cr,cr))
-      segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
-      segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
+                 colrange=c(-cr,cr),nvar=nvar)
+      #segments(x0=c(0.5, 0.5), y0=c(0.5+nvar, 0.5+nrow(z)), x1=c(0.5+nrow(z), 0.5+nrow(z)), y1=c(0.5+nvar,0.5+nrow(z)), lwd=6,col="green")
+      #segments(c(0.5,0.5+nrow(z)), rep(0.5+nvar,1), c(0.5,0.5+nrow(z)), rep(0.5+nrow(z),1), lwd=6, col="green")
       
       z[data_ln_all[[loc]]$posnN]<-NA         # this line was added to exclude -vely correlated species pair from nL,nU,L,U 
                                               # calculation, but it does not matter as for -vely correlated cells [sp_i,sp_j] and 

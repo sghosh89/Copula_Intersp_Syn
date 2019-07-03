@@ -315,19 +315,19 @@ resloc<-"./Results/plankton_results/npa_stat_results/"
 #----------------------- cor npa stat ---------------------------------------------------------
 cor_npa_diff_plankton_ln_all<-NonParamStat_matrixplot(data_ln_all = cor_stat_plankton_ln_all,
                         resloc=resloc,
-                        nvar=2,nvar_names=c("C. fin.","Temp."),tagon=T,npa_stats = "cor")
+                        nvar=2,nvar_names=c("C. fin.","Temp."),tagon=T,npa_stats = "cor",wd=22,ht=16)
 saveRDS(cor_npa_diff_plankton_ln_all,paste(resloc,file="cor_npa_diff_plankton_ln_all.RDS",sep=''))
 
 #----------------------- P npa stat ---------------------------------------------------------
 P_npa_diff_plankton_ln_all<-NonParamStat_matrixplot(data_ln_all = P_stat_plankton_ln_all,
                         resloc=resloc,
-                        nvar=2,nvar_names=c("C. fin.","Temp."),tagon=T,npa_stats = "P")
+                        nvar=2,nvar_names=c("C. fin.","Temp."),tagon=T,npa_stats = "P",wd=22,ht=16)
 saveRDS(P_npa_diff_plankton_ln_all,paste(resloc,file="P_npa_diff_plankton_ln_all.RDS",sep=''))
 
 #----------------------- D2 npa stat ---------------------------------------------------------
 D2_npa_diff_plankton_ln_all<-NonParamStat_matrixplot(data_ln_all = D2_stat_plankton_ln_all,
                         resloc=resloc,
-                        nvar=2,nvar_names=c("C. fin.","Temp."),tagon=T,npa_stats = "D2")
+                        nvar=2,nvar_names=c("C. fin.","Temp."),tagon=T,npa_stats = "D2",wd=22,ht=16)
 saveRDS(D2_npa_diff_plankton_ln_all,paste(resloc,file="D2_npa_diff_plankton_ln_all.RDS",sep=''))
 ```
 
@@ -710,19 +710,19 @@ resloc<-"./Results/aphid_results/ff_npa_stat_results/"
 #------------------------- cor npa stat ------------------------------
 cor_npa_diff_ff_ln_all<-NonParamStat_matrixplot(data_ln_all = cor_stat_ff_ln_all,
                         resloc=resloc,
-                        nvar=1,nvar_names=c("Temp."),tagon=T,npa_stats="cor")
+                        nvar=1,nvar_names=c("Temp."),tagon=T,npa_stats="cor",wd=24,ht=24)
 saveRDS(cor_npa_diff_ff_ln_all,paste(resloc,file="cor_npa_diff_ff_ln_all.RDS",sep=''))
 
 #------------------------- P npa stat ------------------------------
 P_npa_diff_ff_ln_all<-NonParamStat_matrixplot(data_ln_all = P_stat_ff_ln_all,
                         resloc=resloc,
-                        nvar=1,nvar_names=c("Temp."),tagon=T,npa_stats="P")
+                        nvar=1,nvar_names=c("Temp."),tagon=T,npa_stats="P",wd=24,ht=24)
 saveRDS(P_npa_diff_ff_ln_all,paste(resloc,file="P_npa_diff_ff_ln_all.RDS",sep=''))
 
 #------------------------- D2 npa stat ------------------------------
 D2_npa_diff_ff_ln_all<-NonParamStat_matrixplot(data_ln_all = D2_stat_ff_ln_all,
                         resloc=resloc,
-                        nvar=1,nvar_names=c("Temp."),tagon=T,npa_stats="D2")
+                        nvar=1,nvar_names=c("Temp."),tagon=T,npa_stats="D2",wd=24,ht=24)
 saveRDS(D2_npa_diff_ff_ln_all,paste(resloc,file="D2_npa_diff_ff_ln_all.RDS",sep=''))
 ```
 
