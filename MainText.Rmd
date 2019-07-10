@@ -79,85 +79,202 @@ behind such commonly found asymmetric inter-specific response.
 \newpage 
 
 # Introduction\label{intro}
-<!--Q1 : Does cross-species synchrony have any specific tail dependence, 
-Q2: if yes, then what is the reason behind that?-->
 
-<!--Motivation of the paper-->
-Estimating synchronous or compensatory dynamics
-among different species occupying a common geographical area
-is a longstanding focus in ecology to predict the stability of 
-aggregate community or ecosystem properties [@raimondo2004interspecific; @kent2007synchrony;
-@loreau2008species; @gonzalez2009causes; @jochimsen2013compensatory]. In general,
-past studies used correlation-based approaches or regression based analysis
-to characterize temporal fluctuations of co-occuring species and thereby
-overlooked the information of the dependence structure embedded in a multi-species 
-distribution over time. Our recent study [@Ghosh_copula] showed 
-the concept of the "copula" can be useful when quantifying "spatial synchrony" 
-among metapopulations.  Studying spatial patterns of 
-metapopulation-abundance through time and identifying 
-the cause behind their correlated temporal 
-flucuation (known as "spatial synchrony") has also been of longstanding
-interest to ecologists [@lande1999; @liebhold2004; @walter2017]. The copula approach may give us more insight in explaining the 
-causes and consequences of their synchronous response.   But in the case of inter-species 
-synchrony, the use of the copula, to our knowledge, remains unexplored. Here, we will 
-demonstrate the scope of using the statistical concept of the "copula" in studying
-the synchronous or compensatory fluctuations of multiple co-occuring species over time.
+All ecologists study relationships between biological and environmental 
+variables. But standard methods for studying the association between two variables
+provide only a small slice of the information content of the association.
+For instance, the two pairs of variables in Fig. 1A, B have identical
+<!--***DAN: need a figure like Fig 1A,B of BIVAN, then make this an autolink-->
+Pearson and Spearman correlation coefficients, but nonetheless display
+very different patterns of association. The variables of Fig. 1A
+<!--***DAN: autolink-->
+(respectively, Fig. 1B) are more strongly related in the left
+<!--***DAN: autolink-->
+(respectively, right) portions of their distributions,
+a potentially important pattern of dependence
+that is not captured by the correlation coefficients. Correlations
+are not the only way to study associations,
+but they are very commonly used, and other standard methods in ecology
+provide a similarly limited amount of information.
 
-<!--what is copula?-->
-Copulas give a unique and 
-complete representation of the dependence between variables, in the sense that
-the joint distribution of two variables can be reconstructed 
-completely from the copula and the marginal distributions [@sklar1959_theorem]. 
-Copula approaches [@joe2014_dependence; @nelsen2006_copula] separate the information contained in a bivariate
-random variable into two distinct parts: the information contained in the marginal distributions
-(which says nothing about the dependence between the variables), 
-and the remaining information (which is solely about the dependence between the
-variables). To elaborate, a bivariate copula can be constructed from a set of two variables
-$\{ x_i, y_i\}, i= 1,2,...,T$ after some ranking procedure is applied so that their marginal
-distributions become uniform. If $\{ \bar{u_i}, \bar{v_i}\}$ are the corresponding ranks 
-of $\{ x_i, y_i\}$, then $\{ u_i, v_i\} = \{ \bar{u_i}, \bar{v_i}\} / (T+1)$
-reveals the associated dependence in the bivariate copula when plotted in a unit square.
-Thus, measures of association which depend only on the copula and not on the marginal
-distributions (e.g., Kendall's $\tau$ and Spearman's $\rho$) remain unchanged but usual
-Pearson linear product-moment correlations of variables and of their copula transformed 
-form are not the same. Correlation coefficients measure only the overall 
-association of the samples and cannot tell us how their association varies across the distribution.
-Through suitable choice from a wide varity of families and parameters, 
-a good deal of control can be achieved in modelling the dependence structure of a bivariate
-copula which shows over what parts of the distributions the 
-variables are more strongly associated [@Ghosh_copula]. One aspect emphasized 
-below is estimating the strength of the relationship between variables
-in the tails of the distributions. 
+Statistical approaches exist, however, that provide a complete description
+of the relationship between variables; these approaches are applied
+widely in fields such as finance and neuroscience, but not in ecology. 
+The approaches are based on the idea of the *copula* 
+[@nelsen2006_copula; @joe2014_dependence], which we here
+introduce in a manner that follows @Ghosh_copula. The potential
+of copulas to improve our understanding of ecology was 
+also elaborated by @Ghosh_copula. Copulas separate the 
+information content of a bivariate dataset, $(x_t,y_t)$ for $t=1,\ldots,T$, 
+into two non-overlapping parts: the information in the marginal
+distributions (which is not about the association between the variables)
+and the rest of the information (which is solely about the association).
+The association information is revealed by the plot of $u_t$
+against $v_t$, where $u_t$ is the rank of $x_t$ in the set
+$\{ x_1,x_2,\ldots,x_T \}$, divided by $T+1$; and $v_t$ is the rank 
+of $y_t$ in the set
+$\{ y_1,y_2,\ldots,y_T \}$, also divided by $T+1$. Here the rank of the smallest
+element of one of these sets is understood to be $1$ and the rank of the 
+largest element is $T$. We refer to the $u_t$ and $v_t$ as *normalized ranks*
+of the $x_t$ and $y_t$. We refer to the plot of $v_t$ against $u_t$ as 
+the *copula plot* for $y_t$ and $x_t$. For instance, the copula plots for
+Fig. 1A,B are in Fig. 1C,D, and show the asymmetric 
+associations in the tails.
+<!--***DAN: autolink, also, need the figure, obvious what it should be-->
+Ranking makes the marginal distributions uniform, isolating only the information
+on association between the variables. @nelsen2006_copula and @joe2014_dependence
+provide introductory background on copulas. @sklar1959_theorem
+proved a theorem stating that copulas give a unique and complete description
+of the association between variables. 
+Copula approaches have been used to great effect in neuroscience [@onken2009], 
+bioinformatics [@Kim2008], medical research [@Emura2016], direct study of environmental 
+variables [@Serinaldi2008; @She2018; @Goswami2018; @li2013], and finance [@Li2000]. 
+<!--***DAN: Shya, pls copy bib info for these references from BIVAN so these
+citations work here in this paper-->
+To our knowledge, copulas have not been used in ecology, except for a few
+studies which used a normal copulas [@Valpine2014; @Anderson2018; @Popovic2018], 
+which do not really harness the power 
+of the technique, and except for @Ghosh_copula.
 
-<!--what is tail-dep.-->
-Tail dependence is an association 
-between extreme values of two variables in a copula. 
-If smaller values of two positively associated variables 
-are more strongly associated than the larger values as depicted in Fig. \ref{fig_intro}(A-C), the variables 
-are said to have stronger 
-lower-tail dependence than upper-tail dependence. Similarly, stronger upper tail 
-dependence in copula results from two variables correlated strongly in their 
-higher values (Fig. \ref{fig_intro}D,E).
-In either case, those variables have asymmetric copula structure. Several
-families of copulas are available with positive tail dependence exclusively in either
-or both tail [@joe2014_dependence; @nelsen2006_copula], in addition to 
-a copula from the 'Normal' family, having zero tail-dependence in 
-both tails, and hence considered as a symmetric copula.
-In the following we will discuss the relevance of the 
-copula with its unique tail-dependence feature in modelling multi-species
-ecological response.
+A major benefit of the copula approach is that it can effectively reveal
+*tail dependence*. Tail dependence, already exemplified in Fig. 1,
+<!--***DAN: autolink--> 
+is associations between the more extreme values of distributions. For two 
+positively associated variables, *left-tail* (respectively, *right-tail*) 
+*dependence* is stronger association
+between values in the left or lower portions (respectively, the right or upper
+portions) of the two distributions. 
 
-<!--What causes asymmetric tail-dep ?------Leibigs law : limiting effects of environment, predators?-->
-Asymmetric tail-dependence for the overall community is expected to be observed when most of its 
-member species go synchronously rare or synchronously abundant. Net productivity for 
-such an ecosystem could be constrained by some limiting factors (Leibig's law)
-which include abiotic (temperature, windspeed, salinity 
-or moisture) and biotic (predators, food-webs) interactions.
-For example, extreme temperature has a profound effect on plant-productivity 
-or plant pollination rate depending upon the species [@hatfield2015]. Copula structure with 
-lower (or upper) tail-dependence of the dependence on such an abiotic or biotic variable
-could cause corresponding asymmetric tail dependences in inter-species dependence structures. We will
-elaborate this idea in the following example.
+The study of @Ghosh_copula was a wide-ranging study of the importance, 
+causes and consequences of copula structures in associations between
+ecologically important variables. One of the main foci of that paper was 
+associations between fluctuations through time of 
+population density or phenological measurements of the same
+species in different locations. This study instead focuses on population
+density and phenological measurements of different species in the same location.
+@Ghosh_copula studied, for instance, associations between first-flight time
+series, for a given species of aphid, measured at different locations in 
+the UK; and 
+associations between plankton density time series, for a given plankton taxon, 
+measured at different locations in seas around the UK. We instead study 
+associations between first-flight or population density time series
+measured in the same location for different (sympatric) species. Thus,
+in contrast with the study of @Ghosh_copula, this study 
+is more part of community ecology than of spatial ecology.
+Our reasons for this shift are as follows.
+
+First, *synchronous* (positively correlated) 
+and *compensatory* (negatively correlated) 
+population density dynamics
+of different species occupying the same area are longstanding 
+topics of concern in community ecology, with important ramifications
+for the stability or instability of aggregate community or ecosystem
+properties [@raimondo2004interspecific; @kent2007synchrony;
+@loreau2008species; @gonzalez2009causes; @jochimsen2013compensatory];
+there are reasons to believe copula structure of 
+associations in this context will play an important
+but unstudied role in understanding these topics.
+A major past insight into community dynamics [@gonzalez2009causes]
+was that an aggregate 
+property of a community, such as its total biomass, can be relatively
+stable through time although its constituent parts (population 
+biomasses of individual species)
+are highly variable, if the parts show compensatory dynamics [@hallett2014]. 
+Likewise,
+synchrony amplifies community biomass variability because
+the concordant variations of species biomass time series reinforce each
+other [@Ma2017]. If synchronous fluctuations are right-tail dependent,
+then species are highly abundant simulataneously, which may produce 
+years of extremely high community biomass. Alternatively, if synchronous
+fluctuations are left-tail dependent, species are very scarce simultaneously,
+potentially producing years of extremely low community biomass. 
+Thus the tail dependence of synchrony, not just the presence and strength
+of synchrony, may independently influence temporal variability of 
+aggregate community properties. 
+
+Second, studies of the phenology of species interacting in one area
+have also played a central role in community ecology, with 
+important ramifications for whether and to what extent interactions 
+will be modified by climate change [@Durant2007; @Yang2010];
+there are reasons to believe copula structure of 
+associations between variables in this context may play an
+important role here, as well.
+As climate changes and phenologies shift, there is the potential for 
+phenologies of interacting species to shift differently, disrupting
+the interaction [@Thackery2010]. This idea is referred to as the match-mismatch
+hypothesis. Even if, for instance, year-to-year fluctuations in the emergence times
+of two interacting species are 
+highly correlated, if this correlation is principally in the 
+right tails of the distributions of possible emergence times, 
+so that early emergences of the species are actually uncorrelated, then 
+mismatched years are likely to occur, impacting the species. Such 
+mismatches will occur, in this example, 
+when emergence is early. One potential mechanism by which 
+early emergences
+may be uncorrelated between species while later emergences remain correlated
+is if both species follow the same environmental cue for their 
+emergence, but physiological limitations of only one of the species prevent 
+emergence before a certain date. Advancing emergence dates of myriad species
+make this scenario more plausible.
+
+<!--***DAN: make sure to use language like "we begin to adress some of 
+these questions", because we have not really looked deeply into whether
+copula structure influences community variability, or into whether
+copula structure influences interactions between species. We are just
+looking at the precursor qs of whether copula structure is there and 
+what might be causing it.-->
+
+We here begin exploring whether copula structure may be important for 
+studies of synchrony and compensatory dynamics, and for studies
+of phenology and the match-mismatch hypothesis. We use a 
+56-year dataset of population densities of 4 species of dinoflagellates
+from the *Certaium* genus, from 15 locations in the seas around the 
+United Kingdom (UK); and a 35-year dataset of annual first-flight dates 
+for 20 species of aphid from 10 locations within the UK.
+Our aphid and plankton
+populatuion and phenology variables were 
+almost exclusively positively associated with each other (see Results).
+Furthermore, the terms left- and right-tail 
+dependence, defined above, do not apply to negatively associated 
+variables, because the 
+negative association means values in the left tail
+of one variable are associated with those in the right of the other; 
+distinct methods are required to study tail dependence and its
+asymmetry in negatively associated variables. 
+Therefore, we introduce methods and present results in this study
+chiefly for the case of positively associated variables, 
+returning to the topics of negatively 
+associated variables and compensatory population dynamics 
+in the Discussion.
+
+In addition to examining whether tail dependence in our data is
+asymmetric, we also test for possible causes of such patterns.
+One possible causal mechanism, similar to some of the mechanisms 
+explored by @Ghosh_copula, is explained for the *Ceratium* example as
+follows. Earlier work showed that average sea surface temperature 
+is an important
+correlate of phytoplankton abundance in our data [e.g., @sheppard2017; @sheppard2019]:
+cold water is associated with mor phytoplankton, likely because upwelling and 
+mixing of the surface and deeper ocean layers bring both 
+nutrients and cold water to the photic zone. 
+However, if it is the case that
+
+mederate winters produce, on average, no earlier first flights than
+do warm winters, then that corresponds to a right-tail-dependent 
+positive association between the "coldness" of winter (measured, for instance,
+by how many degrees colder a given winter is than the average winter)
+and first-flight date. If such tail dependence is strong and consistent
+across the aphid species for which we have data, it should
+produce positive associations with right-tail dependence between 
+first-flight time series for different species. Likewise, 
+in locations for which the winter coldness-first flight association
+is shows less right-tail dependence, one should 
+
+
+
+Final para of the intro
+
+
 
 <!--earlier work on sp-driver relationships : aphids and plankton-->
 Earlier work showed winter temperature had a profound effect on spatial 
@@ -203,6 +320,20 @@ asymmetric tail dependence in inter-species copulas (C, E).\label{fig_intro}}
 
 
 # Materials and Methods\label{M&M}
+
+<!--***DAN: some old text that used to be in the Intro that is no good for the Intor but might be useful in the Methods:
+Thus, measures of association which depend only on the copula and not on the marginal
+distributions (e.g., Kendall's $\tau$ and Spearman's $\rho$) remain unchanged but usual
+Pearson linear product-moment correlations of variables and of their copula transformed 
+form are not the same. Correlation coefficients measure only the overall 
+association of the samples and cannot tell us how their association varies across the distribution.
+Through suitable choice from a wide varity of families and parameters, 
+a good deal of control can be achieved in modelling the dependence structure of a bivariate
+copula which shows over what parts of the distributions the 
+variables are more strongly associated [@Ghosh_copula]. One aspect emphasized 
+below is estimating the strength of the relationship between variables
+in the tails of the distributions. 
+-->
 
 ## Data \label{Data} 
 
@@ -271,12 +402,12 @@ for aphid first flight date (e.g., @sheppard2016).
 
 <!--***DAN: I am assuming normalizd ranks the standard copula plot were
 already described in the Intro. In particular, it needs to be mentioned there
-that rank of the smallest value is 1.-->
+that the rank of the smallest value is considered to be 1.-->
 Given bivariate data $(x_t,y_t)$ for a set of years, $t$, of size $T$, 
 and after computing
 normalized ranks $(u_t,v_t)$ as described in the Introduction, tail
 dependence and asymmetry of tail dependence were measured using the 
-*partial Spearman correlation*, which we here define following @Ghosh_copula. 
+*partial Spearman correlation* of @Ghosh_copula, which we here reintroduce. 
 Given two bounds $1\leq l_b < u_b \leq 1$, we define the boundary lines 
 $u+v=2l_b$ and $u+v=2u_b$ (Fig. \ref{fig_intro}A), 
 which intersect the unit square on which 
@@ -284,24 +415,113 @@ a copula is plotted (Introduction). The partial Spearman correlation for the
 band between these boundaries and within the unit square is
 \begin{equation}\label{eq.Cor}
    \cor_{l_b,u_b}(u,v) = \frac{\sum 
-   (u_t^n-\mean(u)) (v_t^n-\mean(v))}{(T-1)\sqrt{\var(u)\var(v)}}.
+   (u_t-\mean(u)) (v_t-\mean(v))}{(T-1)\sqrt{\var(u)\var(v)}}.
 \end{equation}
 \noindent Here, means and sample variances are computed using all $T$ data points, 
-but the sum is over only the indices $t$ for which $u_t+v_t > 2l_b$ and 
+but the sum, $\Sigma$, is over only the indices $t$ for which $u_t+v_t > 2l_b$ and 
 $u_t+v_t < 2u_b$. The partial Spearman correlation is not defined if there
-are no points within the band. The partial Spearman correlations 
+are no points in the band. For positively associated 
+$(u_t,v_t)$, the partial Spearman correlations 
 $\cor_{0,b}$ and $\cor_{1-b,1}$ for $b\leq 0.5$ 
-measure tail dependence, and can be compared
+measure dependence in the left and right tails, respectively, and can be compared
 via a difference, $\cor_{0,b}-\cor_{1-b,1}$, to measure asymmetry of tail 
 dependence. 
-The sum of $\cor_{0,1/2}(u,v)$ and 
-$\cor_{1/2,1}(u,v)$ (or the sum of
-$\cor_{l_{b_k},u_{b_k}}(u,v)$ for any other choice of bands 
-$(l_{b_k},u_{b_k})$ that partition the interval $(0,1)$) equals the standard 
-Spearman correlation, as long as no points happen to lie directly 
+The sum of $\cor_{0,1/2}$ and 
+$\cor_{1/2,1}$ (or the sum of
+$\cor_{l_{b_k},u_{b_k}}$ for any other choice of bands 
+$(l_{b_k},u_{b_k})$ that partition $(0,1)$) equals the standard 
+Spearman correlation, as long as no points happen to lie exactly 
 on the bounds $u+v=2l_{b_k}$ and $u+v=2u_{b_k}$. 
 
-<!--***DAN: got to here 2019 07 02-->
+For each sampling location, $n$, we computed a matrix, $C^n$, which quantifies
+asymmetry of tail dependence between aphid or *Ceratium* time series at $n$. Denote by
+$s_i^n(t)$ the aphid first flight date or the *Ceratium* population density 
+for sampling location $n$, for the $i^{\text{th}}$ species that was present in the 
+cleaned data for location $n$, and for year $t$.
+We then defined the matrix $C^n$ 
+by defining $C^n(i,j)$ for two aphid or *Ceratium* 
+species $i,j$, as follows. $C^n(i,j)$ was not defined, or was defined to
+equal the missing-data space holder "NA", if $i=j$; or if the hypothesis
+that $s_i^n(t)$ and $s_j^n(t)$ were independent could not be rejected 
+($5\%$ level, using the `BiCopIndepTest` in the `VineCopula` package in R);
+or if independence was rejected but the Spearman correlation 
+of $s_i^n(t)$ and $s_j^n(t)$ was negative.
+Otherwise we defined 
+$C^n(i,j)=\cor_{0,b}(s_i^n(t),s_j^n(t))-\cor_{1-b,1}(s_i^n(t),s_j^n(t))$,
+where the partial Spearman correlations in this expression were computed
+over the times, $t$, for which data were available for location $n$.
+The entry $C^n(i,j)$ was set to NA if independence of 
+$s_i^n(t)$ and $s_j^n(t)$ 
+could not be rejected because attempting to quantify
+tail dependence (or anything else about dependence) for independent
+variables is pointless. $C^n(i,j)$ was set to NA for negatively associated
+$s_i^n(t)$ and $s_j^n(t)$ because only one negative association occurred
+in our data (plankton sampling location 18, species *C. furca* and 
+*C. macroceros*). Tail dependence
+for negatively associated variables should be studied (see Discussion),
+<!--***DAN: in the Discussion, make sure to talk about how studying asymmetry of 
+tail dependence for negative associations is complicated by the fact that
+it can depend on the arbitrary ordering of the two variables.-->
+but negative associations were too rare in our data to do so. 
+The matrix $C^n$ is symmetric. The
+value $b=1/3$ was used for plankton locations, whereas $b=1/2$
+was used for aphid locations because aphid time series were shorter, and
+larger $b$ reduces sampling variation for our statistics [@Ghosh_copula].
+
+We also computed a matrix $D^n$ which quantifies tail dependence between 
+aphid or plankton time series and their covariates. 
+Denote by $d_k^n(t)$ the value of the $k^{\text{th}}$ covariate 
+that operated at sampling location $n$ in year $t$ (winter temperature for an
+aphid sampling location, sea surface temperature or *C. finmarchicus* density
+for a *Ceratium* location). We then defined $D^n$ by defining 
+$D^n(i,k)$ for an aphid or *Ceratium* species $i$ and a covariate $k$,
+as follows. $D^n(i,k)$ was not defined, or was set to NA, if 
+the hypothesis that $s_i^n(t)$ and $d_k^n(t)$ were independent could not 
+be rejected ($5\%$ level, `BiCopIndepTest`). Otherwise, if  $s_i^n(t)$ and 
+$d_k^n(t)$ were positively associated (positive Spearman correlation), 
+we set $D^n(i,k) = \cor_{0,b}(s_i^n(t),d_k^n(t))-\cor_{1-b,1}(s_i^n(t),d_k^n(t))$;
+and if  $s_i^n(t)$ and $d_k^n(t)$ were negatively associated, we set
+$D^n(i,k) = \cor_{0,b}(s_i^n(t),-d_k^n(t))-\cor_{1-b,1}(s_i^n(t),-d_k^n(t))$.
+
+As mentioned above, $\cor_{0,b}(u,v)-\cor_{1-b,1}(u,v)$ can only be interpreted 
+as a measure of asymmetry of tail dependence for positively associated 
+$u$ and $v$. If $u$ and $v$ are negatively associated then $u$ and $-v$
+are positively associated. 
+
+A negative association between $s_i^n(t)$ and $d_k^n(t)$ is the same as a
+a positive association between $s_i^n(t)$ and $-d_k^n(t)$, and ; 
+
+(e.g., for $s_i^n(t)$ 
+representing aphid first flight date and $d_k^n(t)$ representing winter 
+temperature, first flight dates tend to be later when the preceding winter 
+was colder) is the same as a positive association of 
+
+everything was negatively associated with temp, and ceratium were 
+almost always negatively assoc with C fin
+
+
+$D^n(i,k)$, for an aphid or *Ceratium* species $i$ and a driver $k$ for which data 
+were present in the cleaned dataset for sampling location $n$, is defined as follows:
+-not defined when $s^n_i(t)$ and $d^n_k(t)$ were not significantly associated
+-if they were positively associated, $D^n(i,k) = \cor_{0,b}(s_i^n(t),d_k^n(t))-\cor_{1-b,1}(s_i^n(t),d_k^n(t))$
+-if they were negatively associated, $D^n(i,k) = \cor_{0,b}(s_i^n(t),-d_k^n(t))-\cor_{1-b,1}(s_i^n(t),-d_k^n(t))$
+Explain why the minus sign in the above.
+We used b=1/2 for the aphid sampling locations and b=1/3 for the plankton ones, explain why
+
+Our interpretation of $\cor_{0,b}$ and $\cor_{1-b,1}$ for $b\leq 0.5$ as measures
+of left- and right-tail dependence assumes positively associated 
+variables, $(u,v)$. For all cases we considered for which  
+
+For a given sampling location, $n$, we arranged the aphid phenology or
+*Ceratium* population density data, and accompanying data on the drivers 
+temperature and *C. finmarchicus* density, into a 
+matrix, $M$, with rows corresponding to the $T_n$ years for which
+data were avaiable for the site, left columns corresponding to aphid 
+or *Ceratium* species, and right columns corresponding to drivers.
+We then created a square matrix of measurements of asymmetry of tail dependence
+between columns as follows. The 
+
+<!--***-->
 
 To begin with, we considered $T$ years long time series were available for $s$ number of species along with 
 $d$ abiotic and/ or biotic drivers (i. e. temperature or predator abundance) for any $n^{th}$ site.
