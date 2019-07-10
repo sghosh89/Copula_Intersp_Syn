@@ -128,8 +128,6 @@ of the association between variables.
 Copula approaches have been used to great effect in neuroscience [@onken2009], 
 bioinformatics [@Kim2008], medical research [@Emura2016], direct study of environmental 
 variables [@Serinaldi2008; @She2018; @Goswami2018; @li2013], and finance [@Li2000]. 
-<!--***DAN: Shya, pls copy bib info for these references from BIVAN so these
-citations work here in this paper-->
 To our knowledge, copulas have not been used in ecology, except for a few
 studies which used a normal copulas [@Valpine2014; @Anderson2018; @Popovic2018], 
 which do not really harness the power 
