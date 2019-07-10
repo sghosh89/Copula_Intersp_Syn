@@ -303,10 +303,13 @@ temperature was considered as a driver for aphid species first flight date) copu
 asymmetric tail dependence in inter-species copulas (C, E).\label{fig_intro}}
 \end{center}
 \end{figure}
+
 <!--***DAN: Shya, Fig. 1 needs to be redone like this:
 panels a, b) just like a and b of Fig. 1 in BIVAN
 panels c, d) just like c, d of Fig. 1 in BIVAN, but without the contour lines
 panel e) <to be determined>
+
+***Shya: see the plots saved in Results folder named "pedagog_fig.pdf"
 -->
 
 # Materials and Methods\label{M&M}

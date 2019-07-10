@@ -46,6 +46,7 @@ source("mtime.R") #A function needed for caching
 ```{r fig_intro,echo=F,results="hide"}
 set.seed(seed)
 source("./fig_intro.R")
+source("./pedagog_fig.R")
 ```
 
 <!--read plankton data in our format with all 22 species and growing season temperature-->
