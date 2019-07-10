@@ -37,6 +37,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     tempo[[i]]<-data_ln_all[[i]]$spear
     indI<-data_ln_all[[i]]$posnI
     tempo[[i]][indI]<-NA
+    diag(tempo[[i]])<-NA
   }
   
   minval<-min(unlist(lapply(tempo,min,na.rm=T)))
@@ -72,6 +73,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
     tempo[[i]]<-data_ln_all[[i]]$kend
     indI<-data_ln_all[[i]]$posnI
     tempo[[i]][indI]<-NA
+    diag(tempo[[i]])<-NA
   }
   
   minval<-min(unlist(lapply(tempo,min,na.rm=T)))
@@ -107,6 +109,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       tempo[[i]]<-data_ln_all[[i]]$Corl
       indI<-data_ln_all[[i]]$posnI
       tempo[[i]][indI]<-NA
+      diag(tempo[[i]])<-NA
     }
     
     minval<-min(unlist(lapply(tempo,min,na.rm=T)))
@@ -139,6 +142,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       tempo[[i]]<-data_ln_all[[i]]$Coru
       indI<-data_ln_all[[i]]$posnI
       tempo[[i]][indI]<-NA
+      diag(tempo[[i]])<-NA
     }
     
     minval<-min(unlist(lapply(tempo,min,na.rm=T)))
@@ -247,6 +251,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       tempo[[i]]<-data_ln_all[[i]]$Pl
       indI<-data_ln_all[[i]]$posnI
       tempo[[i]][indI]<-NA
+      diag(tempo[[i]])<-NA
     }
     
     minval<-min(unlist(lapply(tempo,min,na.rm=T)))
@@ -280,6 +285,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       tempo[[i]]<-data_ln_all[[i]]$Pu
       indI<-data_ln_all[[i]]$posnI
       tempo[[i]][indI]<-NA
+      diag(tempo[[i]])<-NA
     }
     
     minval<-min(unlist(lapply(tempo,min,na.rm=T)))
@@ -387,6 +393,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       tempo[[i]]<-data_ln_all[[i]]$D2l
       indI<-data_ln_all[[i]]$posnI
       tempo[[i]][indI]<-NA
+      diag(tempo[[i]])<-NA
     }
     
     minval<-min(unlist(lapply(tempo,min,na.rm=T)))
@@ -419,6 +426,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       tempo[[i]]<-data_ln_all[[i]]$D2u
       indI<-data_ln_all[[i]]$posnI
       tempo[[i]][indI]<-NA
+      diag(tempo[[i]])<-NA
     }
     
     minval<-min(unlist(lapply(tempo,min,na.rm=T)))
