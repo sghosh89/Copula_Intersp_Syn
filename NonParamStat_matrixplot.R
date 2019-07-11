@@ -29,6 +29,7 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
   
   numloc<-length(data_ln_all)
   selected_loc<-names(data_ln_all)
+  ind_loc<-stringr::str_sub(selected_loc,4,5) 
   
   #--------------------------Spearman plot---------------------------
   
@@ -227,11 +228,11 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       summary_LU_CorlmCoru[1,loc]<-L
       summary_LU_CorlmCoru[2,loc]<-U
       if(tagon == T){
-        mtext(paste0(selected_loc[loc]," : "),cex=6,side=1,adj=0.3,line=-1)
+        mtext(paste0("n = ",ind_loc[loc]," : "),cex=6,side=1,adj=0.3,line=-1)
       }
       #mtext(paste0("nL =",nL,", nU =",nU),cex=5,side=1,adj=0.7)
-      mtext((as.expression(bquote('N'['L']*' = '*.(nL)))),cex=6,side=1,adj=0.5,col="red")
-      mtext((as.expression(bquote('N'['U']*' = '*.(nU)))),cex=6,side=1,adj=0.8,col="blue")
+      mtext((as.expression(bquote('N'['L']^'n'*' = '*.(nL)))),cex=6,side=1,adj=0.5,col="red")# number of cells with Lower or Left tail dep.
+      mtext((as.expression(bquote('N'['R']^'n'*' = '*.(nU)))),cex=6,side=1,adj=0.8,col="blue")# number of cells with Upper or Right tail dep.
       #par(op)
       dev.off()
     }
@@ -370,10 +371,10 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       summary_LU_PlmPu[1,loc]<-L
       summary_LU_PlmPu[2,loc]<-U
       if(tagon == T){
-        mtext(paste0(selected_loc[loc]," : "),cex=6,side=1,adj=0.3,line=-1)
+        mtext(paste0("n = ",ind_loc[loc]," : "),cex=6,side=1,adj=0.3,line=-1)
       }
-      mtext((as.expression(bquote('N'['L']*' = '*.(nL)))),cex=6,side=1,adj=0.5,col="red")
-      mtext((as.expression(bquote('N'['U']*' = '*.(nU)))),cex=6,side=1,adj=0.8,col="blue")
+      mtext((as.expression(bquote('N'['L']^'n'*' = '*.(nL)))),cex=6,side=1,adj=0.5,col="red")# number of cells with Lower or Left tail dep.
+      mtext((as.expression(bquote('N'['R']^'n'*' = '*.(nU)))),cex=6,side=1,adj=0.8,col="blue")# number of cells with Upper or Right tail dep.
       dev.off()
     }
     
@@ -509,10 +510,10 @@ NonParamStat_matrixplot<-function(data_ln_all,resloc,nvar,nvar_names,tagon,npa_s
       summary_LU_D2umD2l[1,loc]<-L
       summary_LU_D2umD2l[2,loc]<-U
       if(tagon == T){
-        mtext(paste0(selected_loc[loc]," : "),cex=6,side=1,adj=0.3,line=-1)
+        mtext(paste0("n = ",ind_loc[loc]," : "),cex=6,side=1,adj=0.3,line=-1)
       }
-      mtext((as.expression(bquote('N'['L']*' = '*.(nL)))),cex=6,side=1,adj=0.5,col="red")
-      mtext((as.expression(bquote('N'['U']*' = '*.(nU)))),cex=6,side=1,adj=0.8,col="blue")
+      mtext((as.expression(bquote('N'['L']^'n'*' = '*.(nL)))),cex=6,side=1,adj=0.5,col="red")# number of cells with Lower or Left tail dep.
+      mtext((as.expression(bquote('N'['R']^'n'*' = '*.(nU)))),cex=6,side=1,adj=0.8,col="blue")# number of cells with Upper or Right tail dep.
       dev.off()
     }
     

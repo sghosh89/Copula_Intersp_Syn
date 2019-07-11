@@ -218,7 +218,7 @@ United Kingdom (UK); and a 35-year dataset of annual first-flight dates
 for 20 species of aphid from 10 locations within the UK.
 Our aphid and plankton
 populatuion and phenology variables were 
-almost exclusively positively associated with each other (see Results).
+almost exclusively positively associated with each other (see \nameref{Results}).
 <!--***DAN: make sure you explicitly revisit this in Results-->
 Furthermore, the terms left- and right-tail 
 dependence, defined above, do not apply to negatively associated 
@@ -320,6 +320,8 @@ panel e) <to be determined>
 as in the BIVAN figure? 
 Also, I put some notes on your desk indicating how to make panels e and f.
 See above the new caption for the new Fig. 1, in case it helps to understand how we are using this.
+
+***Shya : see the modified fig.
 -->
 
 # Methods\label{M&M}
@@ -435,7 +437,8 @@ species $i,j$, as follows. $C^n(i,j)$ was not defined, or was defined to
 equal the missing-data space holder "NA", if $i=j$; or if the hypothesis
 that $s_i^n(t)$ and $s_j^n(t)$ were independent could not be rejected 
 ($5\%$ level, using the `BiCopIndepTest` in the `VineCopula` package in R);
-or if independence was rejected but the Spearman correlation 
+or if independence was rejected but the Kendall correlation
+<!--***Shya : in my code I used Kendall, not Spearman-->
 of $s_i^n(t)$ and $s_j^n(t)$ was negative. Otherwise we defined 
 $C^n(i,j)=\cor_{0,b}(s_i^n(t),s_j^n(t))-\cor_{1-b,1}(s_i^n(t),s_j^n(t))$,
 where the partial Spearman correlations in this expression were computed
@@ -472,7 +475,8 @@ $D^n(i,k)$ for an aphid or *Ceratium* species $i$ and a covariate $k$,
 as follows. $D^n(i,k)$ was not defined, or was set to NA, if 
 the hypothesis that $s_i^n(t)$ and $d_k^n(t)$ were independent could not 
 be rejected ($5\%$ level, `BiCopIndepTest`). Otherwise, if  $s_i^n(t)$ and 
-$d_k^n(t)$ were positively associated (positive Spearman correlation), 
+$d_k^n(t)$ were positively associated (positive Kendall correlation)
+<!--***Shya : in my code I used Kendall, not Spearman-->, 
 we set $D^n(i,k) = \cor_{0,b}(s_i^n(t),d_k^n(t))-\cor_{1-b,1}(s_i^n(t),d_k^n(t))$;
 and if  $s_i^n(t)$ and $d_k^n(t)$ were negatively associated, we set
 $D^n(i,k) = \cor_{0,b}(s_i^n(t),-d_k^n(t))-\cor_{1-b,1}(s_i^n(t),-d_k^n(t))$.
@@ -503,7 +507,7 @@ temperature. For display, we horizontally concatenated the matrices
 $C^n$ and $D^n$ and displayed matrix values using color. 
 
 We used the matrices $C^n$ for each sampling location $n$ to answer
-Q1 from the Introduction, as follows. First, we counted the number, 
+Q1 from the \nameref{intro}, as follows. First, we counted the number, 
 $N_L^n$, of entries of $C^n$ which were not NA and which were greater than 
 $0$. These were the "left-tail dominant" species pairs, i.e., pairs of species 
 for which left-tail dependence was greater than right-tail dependence.
@@ -528,7 +532,9 @@ changes to some of the figs in both the main text and sup mat, please. Note
 also that the old f quantities were always positive (you took an absolute values
 in the numerator of one of them), but these new quantities are signed in the
 same way as the As. I think this is more consistent. If this requires any 
-presentational changes, please make them.-->
+presentational changes, please make them.
+
+***Shya : I made changes in figs. upto Fig. 1-3, S1-S4 and notations in text upto here.-->
 Together, these statistics provide an answer to Q1.
 
 We used the matrices $C^n$ and $D^n$ to answer Q2 from the Introduction for the 
@@ -624,13 +630,13 @@ selected locations among 26 sites (see Fig. \ref{SM-fig_plankton_map}) separatel
 summarizes the overall asymmetry in tail-dependence for all sampling sites. Sites with lower tail dominance
 have site code in red color, whereas upper tail dominant sites have blue site code. Site 3 has independent 
 relationship between species. Lower tail - upper tail dependence 
-matrix ($C_{L-U}^n$ for location n = 12 and n = 26) with Ceratium abundances 
+matrix ($C^n$ for location n = 12 and n = 26) with Ceratium abundances 
 are showin in $(B)$ and $(C)$, respectively. For other locations see Fig. \ref{SM-fig_CorlmCoru_plankton_all_loc}.
 The last 2 rows and columns are for the estimates from interaction between \textit{Ceratium spp.} and  
 drivers (\textit{Calanus finmarchicus}, growing season temperature).
-$N_L$ and $N_U$ are the count of cells with positive and 
-negative values for positively correlated species pair. $N_L > N_U$ in $(B)$ 
-indicates major lower tail dependence in sp-sp interaction matrix. Similarly, $N_U > N_L$ in $(C)$ indicates more upper
+$N_L^n$ and $N_R^n$ are the count of cells with positive and 
+negative values for positively correlated species pair. $N_L^n > N_R^n$ in $(B)$ 
+indicates major lower tail dependence in sp-sp interaction matrix. Similarly, $N_R^n > N_L^n$ in $(C)$ indicates more upper
 tail dependence. Yellow cells indicate independent relationship. Cells with a green dot indicates associated 
 variables were negatively correlated initially and hence we reversed the variables in column so that the copula had positive association.\label{fig_CorlmCoru_plankton_map_loc12_26}}
 \end{center}
@@ -645,19 +651,19 @@ variables were negatively correlated initially and hence we reversed the variabl
 \textbf{ (B) \hspace{7 cm} (C)} \\
 \includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/loc2/loc2_Corl-Coru.pdf}
 \includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/loc5/loc5_Corl-Coru.pdf}
-\caption{$(A)$ Proportion of tail dominant contribution ($f_L$ for lower tail and $f_U$ for upper tail 
+\caption{$(A)$ Proportion of tail dominant contribution ($F_{C,L}$ for lower tail and $F_{C,R}$ for upper tail 
 showing on a color scale between 0 to 1) in overall asymmetry for each of the
 selected 10 locations (see Fig. \ref{SM-fig_aphid_map}) summarizes the overall 
 asymmetry in tail-dependence for all sampling sites. Sites with lower tail dominance
 have site code in red color, whereas upper tail dominant sites have blue site code. 
 Lower tail - upper tail dependence matrix 
-($C_{L-U}^n$) with first flight data of 20 aphid species are shown in (B) for location n = 2 and
+($C^n$) with first flight data of 20 aphid species are shown in (B) for location n = 2 and
 in (C) for location n = 5, for other locations see Fig. \ref{SM-fig_CorlmCoru_ff_all_loc}. 
 The last row and column indicates estimates from the interaction between each 
 aphid species and winter average temperature (which was supposed to be the driver of the species' synchrony),
-details were discussed in \nameref{Results}. $N_L$ and $N_U$ are the count of positive and 
-negative cells for 20$\times$ 20 matrix; $N_L > N_U$ in $(B)$ 
-indicating major lower tail dependence in the sp-sp interaction matrix. Similarly, $N_U > N_L$ in $(C)$ indicates more upper
+details were discussed in \nameref{Results}. $N_L^n$ and $N_R^n$ are the count of positive and 
+negative cells for 20$\times$ 20 matrix; $N_L^n > N_R^n$ in $(B)$ 
+indicating major lower tail dependence in the sp-sp interaction matrix. Similarly, $N_R^n > N_L^n$ in $(C)$ indicates more upper
 tail dependence. Yellow cells indicate independent relationship. Cells with a green dot indicate the associated 
 variables were negatively correlated initially and hence we reversed the variables in column so that the copula had positive association.\label{fig_CorlmCoru_ff_map_loc2_5}}
 \end{center}
@@ -702,7 +708,7 @@ was particularly correlated in its lower tail with the other aphid species.
 \begin{center}
 \includegraphics[width=10 cm]{./Results/plankton_results/npa_stat_results/Corstat_scatter_LmU_values.pdf} 
 \caption{Siginificant positive Pearson correlation (p value based on two-tailed test) between total 
-asymmetry on species level $A_S^n$ and on driver level $A_D^n$ represents causal relationship between 
+asymmetry on species level $A_C^n$ and on driver level $A_D^n$ represents causal relationship between 
 tail-dependence of inter-species synchrony with its drivers (C. fin. and growing season temperature) for 
 \textit{Ceratium spp.}, numbers in the plot represent the side code $n$.\label{fig_plankton_scatter}}
 \end{center}

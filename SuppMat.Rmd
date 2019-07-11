@@ -771,11 +771,11 @@ text(df_loc_info$loc_no[moreL], x = df_loc_info$longs[moreL], y = df_loc_info$la
      col="red",cex=1.5)
 
 
-legend("topleft", legend=c(expression(f[L]),0.2,0.4,0.6,0.8,1),cex=2,
+legend("topleft", legend=c(expression(F[paste(C,",",L)]),0.2,0.4,0.6,0.8,1),cex=2,
        col=c(rgb(0,0,0,0),rgb(1,0,0,0.2),rgb(1,0,0,0.4),rgb(1,0,0,0.6),rgb(1,0,0,0.8),rgb(1,0,0,1)),
        pch=25,pt.bg=c(rgb(0,0,0,0),rgb(1,0,0,0.2),rgb(1,0,0,0.4),rgb(1,0,0,0.6),rgb(1,0,0,0.8),rgb(1,0,0,1)),
-       pt.cex=2,horiz=F,bty="o")
-legend("topright", legend=c(expression(f[U]),0.2,0.4,0.6,0.8,1), cex=2,
+       pt.cex=2,horiz=F,bty="o") 
+legend("topright", legend=c(expression(F[paste(C,",",R)]),0.2,0.4,0.6,0.8,1), cex=2,
        col=c(rgb(0,0,0,0),rgb(0,0,1,0.2),rgb(0,0,1,0.4),rgb(0,0,1,0.6),rgb(0,0,1,0.8),rgb(0,0,1,1)),
        pch=24,pt.bg=c(rgb(0,0,0,0),rgb(0,0,1,0.2),rgb(0,0,1,0.4),rgb(0,0,1,0.6),rgb(0,0,1,0.8),rgb(0,0,1,1)),
        pt.cex=2,horiz=F,bty="o")
@@ -891,9 +891,9 @@ dev.off()
 \includegraphics[width=6 cm]{./Results/plankton_results/npa_stat_results/loc23/loc23_Corl-Coru.pdf}
 \includegraphics[width=6 cm]{./Results/plankton_results/npa_stat_results/loc24/loc24_Corl-Coru.pdf}
 \includegraphics[width=6 cm]{./Results/plankton_results/npa_stat_results/loc25/loc25_Corl-Coru.pdf}
-\caption[Planktons: $C_{L-U}^n$ matrix plot for selected locations]{Analogous figure as of 
+\caption[Planktons: $C^n$ matrix plot for selected locations]{Analogous figure as of 
 \ref{MT-fig_CorlmCoru_plankton_map_loc12_26}(B) and (C) showing 
-$C_{L-U}^n$ for all selected sampling sites except for location 3 (as it had independent copulas)
+$C^n$ for all selected sampling sites except for location 3 (as it had independent copulas)
 and the two shown in Figs. \ref{MT-fig_CorlmCoru_plankton_map_loc12_26}(B-C); details 
 were discussed in \nameref{MT-Results}.\label{fig_CorlmCoru_plankton_all_loc}}
 \end{center}
@@ -911,7 +911,7 @@ were discussed in \nameref{MT-Results}.\label{fig_CorlmCoru_plankton_all_loc}}
 \includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc9/loc9_Corl-Coru.pdf}\\
 \includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc10/loc10_Corl-Coru.pdf} 
 \includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc11/loc11_Corl-Coru.pdf} 
-\caption[Aphids: $C_{L-U}^n$ matrix plot for selected locations]{Analogous 
+\caption[Aphids: $C^n$ matrix plot for selected locations]{Analogous 
 figure as of Figs. \ref{MT-fig_CorlmCoru_ff_map_loc2_5}(B) and (C) showing $C_{L-U}^n$ 
 for rest of 8 selected sites, details were discussed in \nameref{MT-Results}.
 \label{fig_CorlmCoru_ff_all_loc}}
@@ -923,7 +923,7 @@ for rest of 8 selected sites, details were discussed in \nameref{MT-Results}.
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=10 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_scatter_LmU_values.pdf} 
-\caption{Aphid first flight data showed no significant relationship between total asymmetry on species level $A_S^n$ and 
+\caption{Aphid first flight data showed no significant relationship between total asymmetry on species level $A_C^n$ and 
 on driver level $A_D^n$. Numbers in the plot represent the side code $n$.\label{fig_aphid_scatter}}
 \end{center}
 \end{figure}
