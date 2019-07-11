@@ -384,13 +384,13 @@ text(df_loc_info$loc_no[moreL], x = df_loc_info$longs[moreL]+1, y = df_loc_info$
 text(df_loc_info$loc_no[id_indep], x = df_loc_info$longs[id_indep]+1, y = df_loc_info$lats[id_indep]+1, 
      col="black",cex=1.5)
 
-legend("bottomright", legend=c(expression(f[L]),0.2,0.4,0.6,0.8,1),
+legend("bottomright", legend=c(expression(F[paste(C,",",L)]),0.2,0.4,0.6,0.8,1),
        col=c(rgb(0,0,0,0),rgb(1,0,0,0.2),rgb(1,0,0,0.4),rgb(1,0,0,0.6),rgb(1,0,0,0.8),rgb(1,0,0,1)),
        pch=25,
        pt.bg=c(rgb(0,0,0,0),rgb(1,0,0,0.2),rgb(1,0,0,0.4),rgb(1,0,0,0.6),rgb(1,0,0,0.8),rgb(1,0,0,1)),
        pt.cex=1.5,horiz=F,bty="o",bg="white",cex=2,y.intersp = 0.75,x.intersp = 0.6)
 
-legend("topleft", legend=c(expression(f[U]),0.2,0.4,0.6,0.8,1),
+legend("topleft", legend=c(expression(F[paste(C,",",R)]),0.2,0.4,0.6,0.8,1),
        col=c(rgb(0,0,0,0),rgb(0,0,1,0.2),rgb(0,0,1,0.4),rgb(0,0,1,0.6),rgb(0,0,1,0.8),rgb(0,0,1,1)),
        pch=24,
        pt.bg=c(rgb(0,0,0,0),rgb(0,0,1,0.2),rgb(0,0,1,0.4),rgb(0,0,1,0.6),rgb(0,0,1,0.8),rgb(0,0,1,1)),

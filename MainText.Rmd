@@ -624,7 +624,7 @@ common, with the same resultant correlation coefficient.
 \textbf{ \hspace{1 cm} (B) \hspace{7 cm} (C)} \\
 \includegraphics[width=8 cm]{./Results/plankton_results/npa_stat_results/loc12/loc12_Corl-Coru.pdf}
 \includegraphics[width=8 cm]{./Results/plankton_results/npa_stat_results/loc26/loc26_Corl-Coru.pdf}
-\caption{$(A)$ Proportion of tail dominant contribution ($f_L$ for lower tail and $f_U$ for upper tail 
+\caption{$(A)$ Proportion of tail dominant contribution ($F_{C,L}$ for lower tail and $F_{C,R}$ for upper tail 
 showing on a color scale between 0 to 1) in overall asymmetry, plotted for each 
 selected locations among 26 sites (see Fig. \ref{SM-fig_plankton_map}) separately for sp-sp interaction matrix,
 summarizes the overall asymmetry in tail-dependence for all sampling sites. Sites with lower tail dominance
