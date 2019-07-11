@@ -1,5 +1,5 @@
 --- 
-title: "A new approach to interspecific synchrony and its causes in population ecology using ``copulas''"
+title: "A new approach to interspecific synchrony and its causes in population ecology using copulas"
 author: "Shyamolina Ghosh, Lawrence W. Sheppard, Philip C. Reid, Daniel Reuman"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 geometry: "left=1 in,right=1 in,top=1 in,bottom=1 in"
@@ -36,7 +36,7 @@ seed<-101
 
 \noindent Reid: School of Biological & Marine Sciences, University of Plymouth, Drake Circus, Plymouth PL4 8AA, UK; Continuous Plankton Recorder Survey, The Marine Biological Association, The Laboratory, Citadel Hill, Plymouth PL1 2PB, UK
 
-\noindent Reuman: Department of Ecology and Evolutionary Biology and Kansas Biological Survey, University of Kansas, Lawrence, KS, 66047, USA; Laboratory of Populations, Rockefeller University, 1230 York Ave, New York, NY, 10065, USA
+\noindent Reuman: Department of Ecology and Evolutionary Biology and Kansas Biological Survey, University of Kansas, Lawrence, KS, 66047, USA
 
 <!--\noindent\makebox[\linewidth]{\rule{\columnwidth}{1pt}}
 \scriptsize-->
@@ -82,13 +82,10 @@ behind such commonly found asymmetric inter-specific response.
 All ecologists study relationships between biological and environmental 
 variables. But standard methods for studying the association between two variables
 provide only a small slice of the information content of the association.
-For instance, the two pairs of variables in Fig. 1A, B have identical
-<!--***DAN: need a figure like Fig 1A,B of BIVAN, then make this an autolink-->
+For instance, the two pairs of variables in Fig. \ref{pedagogfig}A, B have identical
 Pearson and Spearman correlation coefficients, but nonetheless display
-very different patterns of association. The variables of Fig. 1A
-<!--***DAN: autolink-->
-(respectively, Fig. 1B) are more strongly related in the left
-<!--***DAN: autolink-->
+very different patterns of association. The variables of Fig. \ref{pedagogfig}A
+(respectively, Fig. \ref{pedagogfig}B) are more strongly related in the left
 (respectively, right) portions of their distributions,
 a potentially important pattern of dependence
 that is not captured by the correlation coefficients. Correlations
@@ -117,9 +114,8 @@ element of one of these sets is understood to be $1$ and the rank of the
 largest element is $T$. We refer to the $u_t$ and $v_t$ as *normalized ranks*
 of the $x_t$ and $y_t$. We refer to the plot of $v_t$ against $u_t$ as 
 the *copula plot* for $y_t$ and $x_t$. For instance, the copula plots for
-Fig. 1A,B are in Fig. 1C,D, and show the asymmetric 
+Fig. \ref{pedagogfig}A,B are in Fig. \ref{pedagogfig}C,D, and show the asymmetric 
 associations in the tails.
-<!--***DAN: autolink, also, need the figure, obvious what it should be-->
 Ranking makes the marginal distributions uniform, isolating only the information
 on association between the variables. @nelsen2006_copula and @joe2014_dependence
 provide introductory background on copulas. @sklar1959_theorem
@@ -134,8 +130,7 @@ which do not really harness the power
 of the technique, and except for @Ghosh_copula.
 
 A major benefit of the copula approach is that it can effectively reveal
-*tail dependence*. Tail dependence, already exemplified in Fig. 1,
-<!--***DAN: autolink--> 
+*tail dependence*. Tail dependence, already exemplified in Fig. \ref{pedagogfig},
 is associations between the more extreme values of distributions. For two 
 positively associated variables, *left-tail* (respectively, *right-tail*) 
 *dependence* is stronger association
@@ -237,10 +232,6 @@ returning to the topics of negatively
 associated variables and compensatory population dynamics 
 in the Discussion.
 
-<!--***DAN: I switched the example from aphids (what it was before)
-to Ceratium because we do Ceratium first, and it is a little simpler 
-how we do it because we just average across all species in a location instead
-of needing to account for species-specific responses.-->
 In addition to examining whether tail dependence in our data is
 asymmetric, we also test for possible causes of such patterns.
 One possible mechanism, similar to some of the mechanisms 
@@ -291,7 +282,7 @@ introduced above are ample evidence, in our view, of the potential for tail
 dependence to make a crucial difference in how ecologists understand these 
 important topics in ecology.
 
-<!--introductory fig.-->
+<!--old introductory fig., keeping it around for a bit in case we need it
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=8 cm]{./Results/fig_intro_A.pdf}
@@ -303,6 +294,19 @@ temperature was considered as a driver for aphid species first flight date) copu
 asymmetric tail dependence in inter-species copulas (C, E).\label{fig_intro}}
 \end{center}
 \end{figure}
+-->
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=8cm]{./Results/pedagog_fig.pdf}
+\caption{Pedagogical figure for introducing copulas, tail dependence, and partial Spearman correlation.
+(A, B) Two pairs of variables that have identical Pearson (P) and Spearman (S) correlation coefficients
+but differ markedly in the nature of the association, panel A showing stronger left- than right-tail dependence
+and panel B showing the reverse. (C, D) Copula plots (see Introduction) for panels A and B, respectively. 
+(E, F) Graphics supporting the definitions of partial Spearman correlation and our statistic measuring 
+asymmetry of tail dependence (see Methods).}\label{pedagogfig}
+\end{center}
+\end{figure}
 
 <!--***DAN: Shya, Fig. 1 needs to be redone like this:
 panels a, b) just like a and b of Fig. 1 in BIVAN
@@ -310,6 +314,11 @@ panels c, d) just like c, d of Fig. 1 in BIVAN, but without the contour lines
 panel e) <to be determined>
 
 ***Shya: see the plots saved in Results folder named "pedagog_fig.pdf"
+
+***DAN: Looks good, but can you add the Pearson and Spearman correlations to A and B (only), please,
+as in the BIVAN figure? 
+Also, I put some notes on your desk indicating how to make panels e and f.
+See above the new caption for the new Fig. 1, in case it helps to understand how we are using this.
 -->
 
 # Materials and Methods\label{M&M}
@@ -333,9 +342,6 @@ the "tail-dependence" of inter-species dependence structure.
 
 ## Data \label{Data} 
 
-<!--***DAN: I've written this assuming in the new Intro we will have mentioned
-we will be working with a population and a phenology dataset, so make sure
-to do that-->
 Our population dataset comprised average annual 
 abundance estimates for 15 locations (Fig. \ref{SM-fig_plankton_map})
 in the North Sea and British seas for 4 species from the *Ceratium*
@@ -376,7 +382,7 @@ probably due to relationships both these variables have with nutrient
 abundance in surface ocean layers. Sea surface 
 temperature data preprocessing was the same as used by @sheppard2017.
 
-Our phenological dataset comprised annual first flight dates
+Our phenology dataset comprised annual first flight dates
 for 20 aphid species (Table \ref{tab_plankton_aphid_info})
 from 10 locations across the UK (Fig. \ref{SM-fig_aphid_map}),
 spanning the 35 years 1976 to 2010. These data were a subset of a larger
@@ -396,14 +402,16 @@ for aphid first flight date (e.g., @sheppard2016).
 
 ## Methods\label{Methods}
 
-<!--***DAN: I am assuming normalizd ranks the standard copula plot were
-already described in the Intro. In particular, it needs to be mentioned there
-that the rank of the smallest value is considered to be 1.-->
 Given bivariate data $(x_t,y_t)$ for a set of years, $t$, of size $T$, 
 and after computing
 normalized ranks $(u_t,v_t)$ as described in the Introduction, tail
 dependence and asymmetry of tail dependence were measured using the 
 *partial Spearman correlation* of @Ghosh_copula, which we here reintroduce. 
+The standard Spearman correlation itself measures association between the variables 
+$x_t$ and $y_t$ (or between $u_t$ and $v_t$ - recall the Spearman correlation
+is based on ranks, so is the same for both sets of variables);
+but it conflates associations that may occur in the either
+of the tails or in the central parts of the distributions of the variables.
 Given two bounds $1\leq l_b < u_b \leq 1$, we define the boundary lines 
 $u+v=2l_b$ and $u+v=2u_b$ (Fig. \ref{fig_intro}A), 
 which intersect the unit square on which 
