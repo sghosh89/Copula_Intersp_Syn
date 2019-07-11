@@ -299,7 +299,7 @@ asymmetric tail dependence in inter-species copulas (C, E).\label{fig_intro}}
 
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=8cm]{./Results/pedagog_fig.pdf}
+\includegraphics[width=10cm]{./Results/pedagog_fig.pdf}
 \caption{Pedagogical figure for introducing copulas, tail dependence, and partial Spearman correlation.
 (A, B) Two pairs of variables that have identical Pearson (P) and Spearman (S) correlation coefficients
 but differ markedly in the nature of the association, panel A showing stronger left- than right-tail dependence
