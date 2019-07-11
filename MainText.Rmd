@@ -51,8 +51,8 @@ A recent study [@Ghosh_copula] showed the potential uses of copula methods in ex
 We used this copula concept to estimate synchronous and/ or compensatory
 responses between different species which shared 
 the same environment. We applied a partial-Spearman correlation based approach
-to measure lower and upper tail-dependence
-between two variables at their extreme lower and higher values, respectively. 
+to measure left and right tail-dependence
+between two variables at their extreme left and higher values, respectively. 
 Stronger dependence in either tail of the joint distribution of 
 two associated species' time-series from the same 
 location leads to corresponding asymmetry in inter-specific relationships. 
@@ -219,11 +219,12 @@ for 20 species of aphid from 10 locations within the UK.
 Our aphid and plankton
 populatuion and phenology variables were 
 almost exclusively positively associated with each other (see Results).
+<!--***DAN: make sure you explicitly revisit this in Results-->
 Furthermore, the terms left- and right-tail 
 dependence, defined above, do not apply to negatively associated 
 variables, because the 
 negative association means values in the left tail
-of one variable are associated with those in the right of the other; 
+of one variable are associated with those in the right tail of the other; 
 distinct methods are required to study tail dependence and its
 asymmetry in negatively associated variables. 
 Therefore, we introduce methods and present results in this study
@@ -321,24 +322,7 @@ Also, I put some notes on your desk indicating how to make panels e and f.
 See above the new caption for the new Fig. 1, in case it helps to understand how we are using this.
 -->
 
-# Materials and Methods\label{M&M}
-
-<!--***DAN: some old text that used to be in the Intro that is no good for the Intor but might be useful in the Methods:
-Thus, measures of association which depend only on the copula and not on the marginal
-distributions (e.g., Kendall's $\tau$ and Spearman's $\rho$) remain unchanged but usual
-Pearson linear product-moment correlations of variables and of their copula transformed 
-form are not the same. Correlation coefficients measure only the overall 
-association of the samples and cannot tell us how their association varies across the distribution.
-Through suitable choice from a wide varity of families and parameters, 
-a good deal of control can be achieved in modelling the dependence structure of a bivariate
-copula which shows over what parts of the distributions the 
-variables are more strongly associated [@Ghosh_copula]. One aspect emphasized 
-below is estimating the strength of the relationship between variables
-in the tails of the distributions. 
-
-In this paper, we will introduce a "partial-Spearman correlation"-based approach to measure 
-the "tail-dependence" of inter-species dependence structure.
--->
+# Methods\label{M&M}
 
 ## Data \label{Data} 
 
@@ -346,7 +330,7 @@ Our population dataset comprised average annual
 abundance estimates for 15 locations (Fig. \ref{SM-fig_plankton_map})
 in the North Sea and British seas for 4 species from the *Ceratium*
 genus of dinoflagelates, and for the generalist consumer copepod species
-*Calanus finmarchicus*, for the 56 years 1958 to 2013.
+*C. finmarchicus*, for the 56 years 1958 to 2013.
 These data were a subset of a larger dataset covering 22 taxa 
 and 26 locations, analyzed by @sheppard2017, @sheppard2019, and @Ghosh_copula.
 The locations are $2^\circ$ by $2^\circ$ degree grid cells.
@@ -354,12 +338,12 @@ The data were originally obtained from the
 Continuous Plankton Recorder (CPR) dataset, 
 now operated and maintained by 
 the Marine Biological Association of the United Kingdom. 
-Data preprocessing steps were same as used by @Ghosh_copula. 
+Data preprocessing steps were the same as used by @Ghosh_copula. 
 *Ceratium* species were extracted in part because they
 have an important role in red tides, and also because four 
 species were available from the genus (Table \ref{tab_plankton_aphid_info}), 
 and we wanted closely related 
-species because they may compete with one another, and may 
+species because they may compete with one another and may 
 be influenced in similar ways
 by environmental variables. The 15 locations we used were 
 selected from the 26 locations of the larger dataset 
@@ -391,7 +375,7 @@ and @Ghosh_copula. The data were originally obtained from the
 Rothamsted Insect Survey suction-trap dataset 
 [@harrington2014; @bell2015]. Data preprocessing 
 was the same as that of [@sheppard2016]. 
-Locations were screened, leading to the removal of one of the original
+Locations were screened, leading to the the removal of one of the original
 11 sampling locations, by requiring at least 30 years of data be 
 available for all species, again to reduce sampling variation of
 statistics. We also had time series of winter average 
@@ -410,18 +394,19 @@ dependence and asymmetry of tail dependence were measured using the
 The standard Spearman correlation itself measures association between the variables 
 $x_t$ and $y_t$ (or between $u_t$ and $v_t$ - recall the Spearman correlation
 is based on ranks, so is the same for both sets of variables);
-but it conflates associations that may occur in the either
-of the tails or in the central parts of the distributions of the variables.
+but Spearman correlation measures only the overall 
+association of the samples and cannot tell us how association varies across the distributions
+of the variables.
 Given two bounds $1\leq l_b < u_b \leq 1$, we define the boundary lines 
-$u+v=2l_b$ and $u+v=2u_b$ (Fig. \ref{fig_intro}A), 
+$u+v=2l_b$ and $u+v=2u_b$ (Fig. \ref{pedagogfig}E), 
 which intersect the unit square on which 
-a copula is plotted (Introduction). The partial Spearman correlation for the
+a copula is plotted (Introduction, Fig. \ref{pedagogfig}A-D). The partial Spearman correlation for the
 band between these boundaries and within the unit square is
 \begin{equation}\label{eq.Cor}
    \cor_{l_b,u_b}(u,v) = \frac{\sum 
    (u_t-\mean(u)) (v_t-\mean(v))}{(T-1)\sqrt{\var(u)\var(v)}}.
 \end{equation}
-\noindent Here, means and sample variances are computed using all $T$ data points, 
+\noindent Here, sample means and sample variances are computed using all $T$ data points, 
 but the sum, $\Sigma$, is over only the indices $t$ for which $u_t+v_t > 2l_b$ and 
 $u_t+v_t < 2u_b$. The partial Spearman correlation is not defined if there
 are no points in the band. For positively associated 
@@ -429,13 +414,15 @@ $(u_t,v_t)$, the partial Spearman correlations
 $\cor_{0,b}$ and $\cor_{1-b,1}$ for $b\leq 0.5$ 
 measure dependence in the left and right tails, respectively, and can be compared
 via a difference, $\cor_{0,b}-\cor_{1-b,1}$, to measure asymmetry of tail 
-dependence. 
+dependence. Positive values (respectively, negative) of this difference mean greater left-tail
+(respectively, right-tail) dependence.
+<!--***DAN: make sure you *either* use left or lower-tail throughout, similar for right and upper-->
 The sum of $\cor_{0,1/2}$ and 
 $\cor_{1/2,1}$ (or the sum of
 $\cor_{l_{b_k},u_{b_k}}$ for any other choice of bands 
 $(l_{b_k},u_{b_k})$ that partition $(0,1)$) equals the standard 
 Spearman correlation, as long as no points happen to lie exactly 
-on the bounds $u+v=2l_{b_k}$ and $u+v=2u_{b_k}$. 
+on the bounds. 
 
 For each sampling location, $n$, we computed a matrix, $C^n$, which quantifies
 asymmetry of tail dependence between aphid or *Ceratium* time series at $n$. Denote by
@@ -449,8 +436,7 @@ equal the missing-data space holder "NA", if $i=j$; or if the hypothesis
 that $s_i^n(t)$ and $s_j^n(t)$ were independent could not be rejected 
 ($5\%$ level, using the `BiCopIndepTest` in the `VineCopula` package in R);
 or if independence was rejected but the Spearman correlation 
-of $s_i^n(t)$ and $s_j^n(t)$ was negative.
-Otherwise we defined 
+of $s_i^n(t)$ and $s_j^n(t)$ was negative. Otherwise we defined 
 $C^n(i,j)=\cor_{0,b}(s_i^n(t),s_j^n(t))-\cor_{1-b,1}(s_i^n(t),s_j^n(t))$,
 where the partial Spearman correlations in this expression were computed
 over the times, $t$, for which data were available for location $n$.
@@ -459,14 +445,18 @@ $s_i^n(t)$ and $s_j^n(t)$
 could not be rejected because attempting to quantify
 tail dependence (or anything else about dependence) for independent
 variables is pointless. $C^n(i,j)$ was set to NA for negatively associated
-$s_i^n(t)$ and $s_j^n(t)$ because only one negative association occurred
+$s_i^n(t)$ and $s_j^n(t)$ because negative association occurred for only 
+one pair of species in one location 
 in our data (plankton sampling location 18, species *C. furca* and 
-*C. macroceros*). Tail dependence
-for negatively associated variables should be studied (see Discussion),
+*C. macroceros*, see Results). 
+<!--***DAN: Dan, make sure this is explicitly mentioned again in the Results-->
+Tail dependence
+for negatively associated variables should be studied, and this
+topic is revisited in the Discussion,
 <!--***DAN: in the Discussion, make sure to talk about how studying asymmetry of 
 tail dependence for negative associations is complicated by the fact that
 it can depend on the arbitrary ordering of the two variables.-->
-but negative associations were too rare in our data to do so. 
+but negative associations were too rare in our data to study them. 
 The matrix $C^n$ is symmetric. The
 value $b=1/3$ was used for plankton locations, whereas $b=1/2$
 was used for aphid locations because aphid time series were shorter, and
@@ -486,133 +476,74 @@ $d_k^n(t)$ were positively associated (positive Spearman correlation),
 we set $D^n(i,k) = \cor_{0,b}(s_i^n(t),d_k^n(t))-\cor_{1-b,1}(s_i^n(t),d_k^n(t))$;
 and if  $s_i^n(t)$ and $d_k^n(t)$ were negatively associated, we set
 $D^n(i,k) = \cor_{0,b}(s_i^n(t),-d_k^n(t))-\cor_{1-b,1}(s_i^n(t),-d_k^n(t))$.
+For aphid first-flight time series, for which $k$ was always $1$ and 
+$d_k^n(t)$ was winter temperature in location $n$, associations between
+$s_i^n(t)$ and $d_k^n(t)$ were always negative when they were significant
+(see Results). The same was true for *Ceratium* density time series and
+sea surface temperature. 
+<!--***DAN: make sure to explicitly re-mention these facts in the Results,
+when you actually get those results-->
+Thus our practice of using $-d_k^n(t)$ was
+equivalent, in the case of temperature variables, to using a "coldness"
+index such as the number of degrees colder than an average 
+or typical reference temperature, in place of temperature. Aphid and plankton data 
+were always positively associated with the coldness index when they were 
+significantly associated with it. Although *C. finmarchicus* abundance was 
+positively associated with *Ceratium* time series in some sampling locations
+and negatively associated in others, it always showed the same association
+with all *Ceratium* species within a location. Using $-d_k^n(t)$ in place
+of $d_k^n(t)$ when negative associations with aphid or plankton data occured 
+allowed us to study asymmetry of tail dependence using methods developed with 
+positively associated variables in mind. Note that using a similar procedure to 
+study pairs of negatively associated biological variables (e.g., two aphid or plankton
+time series) would be inappropriate because in that case there is no 
+cannonical choice of which variable to take the opposite of. We again used
+$b=1/3$ for plankton data and covariates, and $b=1/2$ for aphid data and winter
+temperature. For display, we horizontally concatenated the matrices
+$C^n$ and $D^n$ and displayed matrix values using color. 
 
-As mentioned above, $\cor_{0,b}(u,v)-\cor_{1-b,1}(u,v)$ can only be interpreted 
-as a measure of asymmetry of tail dependence for positively associated 
-$u$ and $v$. If $u$ and $v$ are negatively associated then $u$ and $-v$
-are positively associated. 
+We used the matrices $C^n$ for each sampling location $n$ to answer
+Q1 from the Introduction, as follows. First, we counted the number, 
+$N_L^n$, of entries of $C^n$ which were not NA and which were greater than 
+$0$. These were the "left-tail dominant" species pairs, i.e., pairs of species 
+for which left-tail dependence was greater than right-tail dependence.
+We also counted the number, $N_R^n$, or right-tail dominant pairs, for which 
+<!--***DAN: Shya, note the change in notation, which will require a minor change 
+to Figs 2, 3 and the corresponding sup mat figs, please. I think left- and 
+right-tail dependence is slightly better than lower- and -upper-tail dependence,
+as terminology, just because if you have to say "lower-tail dependence was lower/less than
+upper-tail dependence" it sounds weird and a bit confusing. So I changed it throughout.-->
+the corresponding entries of $C^n$ were negative. If $N_L^n$ was substantially
+greater than (respectively, substantially less than) $N_R^n$ for a location $n$,
+it suggested that left-tail dependence (respectively, right-tail dependence) 
+between species in that location was dominant, answering Q1 in the affirmative. 
+We also calculated $A_{C,L}^n$, the 
+sum of all positive, non-NA entries of $C^n$; $A_{C,R}^n$, the sum
+of all negative, non-NA entries of $C^n$; and $A_C^n=A_{C,L}^n+A_{C,R}^n$, a
+general measure of asymmetry of tail dependence in location $n$. And we calculated
+the normalized quantities $F_{C,L}^n=A_{C,L}^n/(A_{C,L}^n+|A_{C,R}^n|)$
+and $F_{C,R}^n=A_{C,R}^n/(A_{C,L}^n+|A_{C,R}^n|)$. 
+<!--***DAN: Shya, note the changes in notation, which will require some minor 
+changes to some of the figs in both the main text and sup mat, please. Note
+also that the old f quantities were always positive (you took an absolute values
+in the numerator of one of them), but these new quantities are signed in the
+same way as the As. I think this is more consistent. If this requires any 
+presentational changes, please make them.-->
+Together, these statistics provide an answer to Q1.
 
-A negative association between $s_i^n(t)$ and $d_k^n(t)$ is the same as a
-a positive association between $s_i^n(t)$ and $-d_k^n(t)$, and ; 
-
-(e.g., for $s_i^n(t)$ 
-representing aphid first flight date and $d_k^n(t)$ representing winter 
-temperature, first flight dates tend to be later when the preceding winter 
-was colder) is the same as a positive association of 
-
-everything was negatively associated with temp, and ceratium were 
-almost always negatively assoc with C fin
+We used the matrices $C^n$ and $D^n$ to answer Q2 from the Introduction for the 
+*Ceratium* data as follows.
+...
 
 
-$D^n(i,k)$, for an aphid or *Ceratium* species $i$ and a driver $k$ for which data 
-were present in the cleaned dataset for sampling location $n$, is defined as follows:
--not defined when $s^n_i(t)$ and $d^n_k(t)$ were not significantly associated
--if they were positively associated, $D^n(i,k) = \cor_{0,b}(s_i^n(t),d_k^n(t))-\cor_{1-b,1}(s_i^n(t),d_k^n(t))$
--if they were negatively associated, $D^n(i,k) = \cor_{0,b}(s_i^n(t),-d_k^n(t))-\cor_{1-b,1}(s_i^n(t),-d_k^n(t))$
-Explain why the minus sign in the above.
-We used b=1/2 for the aphid sampling locations and b=1/3 for the plankton ones, explain why
+We answered Q2 for the aphid data as follows.
+...
 
-Our interpretation of $\cor_{0,b}$ and $\cor_{1-b,1}$ for $b\leq 0.5$ as measures
-of left- and right-tail dependence assumes positively associated 
-variables, $(u,v)$. For all cases we considered for which  
+<!--***Dan got to here-->
 
-For a given sampling location, $n$, we arranged the aphid phenology or
-*Ceratium* population density data, and accompanying data on the drivers 
-temperature and *C. finmarchicus* density, into a 
-matrix, $M$, with rows corresponding to the $T_n$ years for which
-data were avaiable for the site, left columns corresponding to aphid 
-or *Ceratium* species, and right columns corresponding to drivers.
-We then created a square matrix of measurements of asymmetry of tail dependence
-between columns as follows. The 
 
-<!--***-->
 
-To begin with, we considered $T$ years long time series were available for $s$ number of species along with 
-$d$ abiotic and/ or biotic drivers (i. e. temperature or predator abundance) for any $n^{th}$ site.
-For each selected location we constructed a bivariate copula made of time series of either
-two species or with a species and time series of the driver
-in the following way: given a bivariate dataset from $n^{th}$ site, $(x_t^n,y_t^n)$ for $t=1,...,T$, 
-first, we produced ranks $(\tilde{u}_t^n,\tilde{v}_t^n)$ where $\tilde{u}_t^n$ is the rank of $x_t^n$ in the set 
-$\{x_t^n:t=1,...,T\}$ and $\tilde{v}_t^n$ is the rank of $y_t^n$ in the set $\{y_t^n:t=1,...,T\}$. 
-we set $u_t^n=\tilde{u}_t^n/(T+1)$ and $v_t^n=\tilde{v}_t^n/(T+1)$; subsequent analysis used these 
-*normalized ranks* $u_t^n \in [0,1]$ and $v_t^n \in [0,1]$. Rank was $1$ for the smallest element in each set. 
-Second, we did a test of the independence of the $u_t^n$ and $v_t^n$ 
-(implemented in `BiCopIndTest` in the `VineCopula` package). 
-If independence could be rejected ($0.05$ significance level), and $(u_t^n, v_t^n)$
-were postively correlated then we proceed to measure dependence. For a significantly negative 
-association, we started with $(x_t^n, - y_t^n)$ so that $(u_t^n, v_t^n)$ remained positively correlated.
-We computed the partial Spearman correlation statistics $\cor_{l_b,u_b}$ as introduced in [@Ghosh_copula]
-as dependence measures for a positively correlated bivariate copula. 
 
-Given lower and upper boundaries by two parallel lines ($u_t^n+v_t^n = 2l_b$, $u_t^n+v_t^n = 2u_b$ such that $0 \leq l_b < u_b \leq 1$) 
-which scans the region of interest of the copula within a unit square box, we here
-redefine the statistics we computed within the bounds; 
-\begin{equation}\label{eq.Cor}
-   \cor_{l_b,u_b}^n(u,v) = \frac{\sum 
-   (u_t^n-\mean(u)) (v_t^n-\mean(v))}{(T-1)\sqrt{\var(u)\var(v)}}.
-\end{equation}
-Here means and sample variances are computed using all $T$ data points for the $n^{th}$ location, but the
-sum is over only the indices $t$ for which $u_t^n+v_t^n > 2l_b$ and $u_t^n+v_t^n < 2u_b$. 
-The sum of $\cor_{0,1/2}^n(u,v)$ and $\cor_{1/2,1}^n(u,v)$ (or some other choice of 
-$\cor_{l_{b_k},u_{b_k}}^n(u,v)$ for bounds $l_{b_k},u_{b_k}$ that partition the 
-interval $(0,1)$) equals the standard Spearman correlation. This is not true
-if there is any point lying exactly on the bounds, as those points then do not contribute 
-to the partial Sperman correlation (Eq. \ref{eq.Cor}), but are included to estimate standard
-Spearman correlation.
-
-<!--## Methods to answer (Q1)-->
-Consider, a bivariate copula was made with *normalized ranks* $(u, v)$ of any two time series
-(e.g. see Fig. \ref{fig_intro}A) of species pair $(i, j)$ taken from $n^{th}$ site. For simplicity, 
-let us assume that the corresponding variables $(u, v)$ showed significant positive 
-correlation, i. e., points are scattered along the 
-diagonal (dotted line in Fig. \ref{fig_intro}A) of the unit square box. We divided the diagonal
-line by $p$ equispaced partitions so that dependence between $(u, v)$ could be measured by parts. 
-To estimate lower and upper tail dependence specifically, Eq. \ref{eq.Cor} was 
-applied for the points lying in the bottommost and the topmost triangular partitions, respectively. 
-Given $0 \leq b (= 1/p) \leq 0.5$, we used the shorthand notation for lower tail 
-dependence as $C^n_L(i, j) = \cor_{l_b,u_b}^n(u,v)$ with $(l_b,u_b)=(0,b)$
-and for the upper tail dependence as $C^n_U(i, j) = \cor_{l_b,u_b}^n(u,v)$ with $(l_b,u_b)=(1-b,1)$,
-respectively. We considered $b = 1/3$ for plankton data; $C^n_L(i, j)$
-was computed for the points lying on the left side of the red line whereas $C^n_U(i, j)$ was computed 
-for the points lying on the right side of the blue line in Fig. \ref{fig_intro}A. Due to fewer data
-points of aphid first flight data, we examined two equal halves ($b = 1/2$) of the unit 
-square where $C^n_L(i, j)$ and $C^n_U(i, j)$ were measured for the points scattered on the left and right side of 
-the solid black line (Fig. \ref{fig_intro}A), respectively. 
-
-Higher partial Spearman 
-correlation in lower tail, i.e., when $C^n_{L-U}(i, j) = C_L^n(i, j)  - C_U^n(i, j)$ is positive, 
-indicates asymmetry in tail-dependence of a copula and to be specific 
-stronger lower tail dependence than upper. Similarly, negative value of 
-$C^n_{L-U}(i, j)$ would indicate stronger upper tail 
-dependence than lower in an asymmetric copula. 
-For the $n^{th}$ site, we estimated $C^n_{L-U}(i, j)$ for all 
-pairwise combination of $(i \neq j)$ to exclude self-comparison, and from now on 
-it is implicit that whenever we would mention estimates for any species pair $(i,j)$, they
-are coming from two different species, i. e. $i \neq j$. 
-Considering only positive correlation ($0.05$ significance level) between species, 
-we counted number of lower-tail dominant ($N_L$) and upper-tail dominant ($N_U$) 
-species pair for which $C^n_{L-U}(i, j)>0$ and $C^n_{L-U}(i, j)<0$, respectively. 
-We defined estimates of lower and upper tail
-asymmetry on species level for $n^{th}$ site as
-$A_S^{n+} = \sum\limits_{i=1}^s\sum\limits_{j=1}^s C^n_{L-U}(i, j)$ where 
-the sum is over positive values of C only( i.e. for $C^n_{L-U}(i, j) >0$) 
-and $A_S^{n-} = \sum\limits_{i=1}^s\sum\limits_{j=1}^s C^n_{L-U}(i, j)$ where 
-the sum is over negative values of C only( i.e. for $C^n_{L-U}(i, j) <0$), 
-respectively. These sums were considered for positively correlated species pair ($i \neq j$). 
-Total species-asymmetry $A_S^{n} = A_S^{n+} + A_S^{n-}$ was assessed for 
-each selected site which could
-answer (Q1); if $A_S^{n} \neq 0$ then it would indicate asymmetry in 
-overall tail-dependence. But to get more precise answer, whether the asymmetric
-tail dependence was stronger in the lower values or upper, the proportion 
-of lower and upper tail dominance
-in overall asymmetry at each site were measured
-by $f_L = \frac{A_S^{n+}}{A_S^{n+} + |A_S^{n-}|}$ and
-$f_U = \frac{|A_S^{n-}|}{A_S^{n+} + |A_S^{n-}|}$, respectively.
-These values of $f_L$ and $f_U$ from each site were used to answer (Q1) that different 
-species could show synchronous behavior with specific tail-dependent asymmetry. Note 
-that $A_S^{n}$ is just the absolute difference in tail dependence, 
-whereas $f$'s are the imbalance in tail dependence relative to the total amount 
-of tail dependence found in the inter-species copulas. 
 
 <!--## Methods to answer (Q2)-->
 
@@ -850,7 +781,17 @@ even could be used as an "early warning" before the actual bloom occurs.
 
 <!--plankton regime shift (CALFIN-CALHEL) depending on temperature or salinity?-->
 
+# Acknowledgments
 
+We thank the many contributors to the large datasets we used; D. Stevens and P. Verrier for 
+data extraction; and Joel E. Cohen, Lauren Hallet, and Jonathan Walter for helpful 
+suggestions.
+<!--***DAN: Shya and Lawrence to add any other acknowledgments. Shya, please check with
+Lawrenec by emailing or talking to him as he is not likely to read this comment.-->
+We thank James Bell of the Rothamsted Insect Survey (RIS). The RIS, a UK Capability,
+is funded by the Biotechnology and Biological Sciences Research Council under the Core
+Capability Grant BBS/E/C/000J0200. SG, LWS and DCR were partly funded by US National Science
+Foundation grant 1714195 and the James S McDonnell Foundation.  
 
 
 
