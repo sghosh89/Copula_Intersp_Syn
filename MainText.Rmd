@@ -455,7 +455,6 @@ $s_i^n(t)$ and $s_j^n(t)$ because negative association occurred for only
 one pair of species in one location 
 in our data (plankton sampling location 18, species *C. furca* and 
 *C. macroceros*, see Results). 
-<!--***DAN: Dan, make sure this is explicitly mentioned again in the Results-->
 Tail dependence
 for negatively associated variables should be studied, and this
 topic is revisited in the Discussion,
@@ -550,7 +549,7 @@ tests whether locations for which
 *Ceratium* or aphid time series were more right-tail (respectively, left-tail) dependent 
 with environmental covariates also had *Ceratium* or aphid time series that were more
 right-tail (respectively, left-tail) dependent with each other. 
-Recall that an environmental covariates was reversed (its negative was used)
+Recall that an environmental covariate was reversed (its negative was used)
 when it was negatively associated with a *Ceratium* or aphid species, and that
 no covariate was ever significantly positively associated with some 
 *Ceratium* or aphid species and significantly negatively associated with another
@@ -582,7 +581,7 @@ when it was significantly associated (see Results),
 and negative temperature (a coldness index) was used in computing $D^n(i,k)$.
 Testing whether $\alpha^n_C(i)$ and $\alpha^n_D(i)$ were correlated across
 species, $i$, within a location, $n$, was not practical for *Ceratium*,
-because we only had data for at most $4$ *Ceratium* species per sampling
+because we only had data for at most four *Ceratium* species per sampling
 location, an insufficient number to provide much statistical power
 in testing for a correlation. 
 
@@ -607,23 +606,26 @@ in inter-species response, as we will see with aphid (20 species) first flight d
 # Results\label{Results}
 
 <!--Results for Q1-->
-We found major asymmetric tail-dependence when we considered all pairwise combinations of
-species time-series from a given location. Summarized results for all selected locations
-showing asymmetry in either tail for \textit{Ceratium spp.} 
-is depicted in Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}(A), where we plot $f_L$ and
-$f_U$ (see \nameref{Methods}) for each of the selected sites 
-(except site 3 as there were no significant dependence between species abundances). Site
-codes in the map are colored red if sites showed a
-stronger lower tail dependence contribution (i.e. $f_L > f_U$ indicating synchronous rare 
-occurrence of \textit{Ceratium} species). Similarly, locations where \textit{Ceratium spp.} were synchronously 
-abundant (site codes in blue color of Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}A), had 
-more upper tail dependent contribution ($f_U > f_L$). The partial Spearman correlation-based lower minus upper 
-tail dependence matrix ($C_{L-U}^n$) for sites $n=12$ (Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}B) and $n=26$ (Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}C) are shown as two example cases (for 
-other locations see Fig. \ref{SM-fig_CorlmCoru_plankton_all_loc}). 
-Whereas Location 12 showed dominantly lower tail-dependent interspecific synchrony with 
-all 12 pairwise copula having
-lower tail dependence ($N_L = 12, N_U = 0$), Location 26 showed 
-stronger upper tail dependence ($N_L = 2, N_U = 4$). 
+We found asymmetric tail-dependence was very common between *Ceratium* population density
+time series from the same location, answering Q1 in the affirmative for *Ceratium*;
+for some locations, left-tail dependence between *Ceratium*
+species was dominant, and for other locations right-tail dependence was dominant.
+Associations between *Ceratium* species were always positive when they were significant,
+except for one pair of species in one location (plankton sampling location 18, species *C. furca* and 
+*C. macroceros*).
+For some locations, the matrix $C^n$ was comprised largely of positive values, 
+indicating a preponderance of left-tail dependence between *Ceratium* time 
+series for the location (Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}A).
+For other locations, $C^n$ had mostly negative values, indicating a 
+preponderance of right-tail dependence (Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}B).
+The statistics $F_{C,L}$ and $F_{C,R}$, plotted across all sampling locations
+(Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}C), indicated that most *Ceratium*
+sampling locations were dominated by either left- or right-tail dependence, with
+approximately equal numbers of each, with only a few locations having
+more symmetric tail dependence, on average across pairs of *Ceratium* species.
+
+<!--***DAN: got to here, 2019 07 15, 1126am-->
+
 
 We got similar findings for aphid firsflight data (Fig. \ref{fig_CorlmCoru_ff_map_loc2_5}). Proportion of lower 
 ($f_L$) and upper ($f_U$) tail dependence estimates in overall tail-asymmetry was summarized for 10 selected 
@@ -643,29 +645,37 @@ common, with the same resultant correlation coefficient.
 <!--plankton plots : Q1-->
 \begin{figure}[!h]
 \begin{center}
-\textbf{ (A)} \\
-\includegraphics[width=8 cm]{./Results/plankton_results/npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf} \\
-\vspace{1 cm}
-\textbf{ \hspace{1 cm} (B) \hspace{7 cm} (C)} \\
+\textbf{ \hspace{1 cm} (A) \hspace{7 cm} (B)} \\
 \includegraphics[width=8 cm]{./Results/plankton_results/npa_stat_results/loc12/loc12_Corl-Coru.pdf}
 \includegraphics[width=8 cm]{./Results/plankton_results/npa_stat_results/loc26/loc26_Corl-Coru.pdf}
-\caption{$(A)$ Proportion of tail dominant contribution ($F_{C,L}$ for lower tail and $F_{C,R}$ for upper tail 
-showing on a color scale between 0 to 1) in overall asymmetry, plotted for each 
-selected locations among 26 sites (see Fig. \ref{SM-fig_plankton_map}) separately for sp-sp interaction matrix,
-summarizes the overall asymmetry in tail-dependence for all sampling sites. Sites with lower tail dominance
-have site code in red color, whereas upper tail dominant sites have blue site code. Site 3 has independent 
-relationship between species. Lower tail - upper tail dependence 
-matrix ($C^n$ for location n = 12 and n = 26) with Ceratium abundances 
-are showin in $(B)$ and $(C)$, respectively. For other locations see Fig. \ref{SM-fig_CorlmCoru_plankton_all_loc}.
-The last 2 rows and columns are for the estimates from interaction between \textit{Ceratium spp.} and  
-drivers (\textit{Calanus finmarchicus}, growing season temperature).
-$N_L^n$ and $N_R^n$ are the count of cells with positive and 
-negative values for positively correlated species pair. $N_L^n > N_R^n$ in $(B)$ 
-indicates major lower tail dependence in sp-sp interaction matrix. Similarly, $N_R^n > N_L^n$ in $(C)$ indicates more upper
-tail dependence. Yellow cells indicate independent relationship. Cells with a green dot indicates associated 
-variables were negatively correlated initially and hence we reversed the variables in column so that the copula had positive association.\label{fig_CorlmCoru_plankton_map_loc12_26}}
+\textbf{ (C)} \\
+\includegraphics[width=8 cm]{./Results/plankton_results/npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf} \\
+\caption{Either right- or left-tail dependence between population density time series of 
+\emph{Ceratium} species could dominate, depending on the sampling location. (A, B) The matrices
+$C^n$ and $D^n$ (Methods), horizontally concatenated, for example locations $n=12$ (A) and $n=26$ (B).
+See Table \ref{tab_plankton_aphid_info} for species names. 
+All the non-NA values in $C^n$ were positive (red) for location $12$ (A), indicating left-tail
+dependence dominated in that location; but values were largely negative (blue) for location
+$26$ (B), indicating right-tail dependence dominated there. Matrix entries which were NA 
+because time series were independent are displayed in yellow. The counts $N^n_L$ and $N_n^R$
+(see Methods) also reflect the distinct tail dependence characteristics of the two
+locations. \emph{C. fin.} = \emph{C. finmarchicus}; Temp. = temperature.
+Green dots in $D^n$
+represent variables which were originally negatively associated, so the negative
+of the environmental covariate was used for calculating tail dependence.
+See Fig. \ref{SM-fig_CorlmCoru_plankton_all_loc} 
+for analogous figures for the other sampling locations. 
+(C) The summary statistics $F_{C,L}$ and $F_{C,R}$ (see Methods) 
+for each site show that dependence between \emph{Ceratium} species was either 
+substantially dominanted by the left or right tails of \emph{Ceratium} distributions, with the
+exceptions of a few locations for which tail dependence was closer to symmetric. Site codes
+are colored red or blue depending on which of $F_{C,L}$ or $F_{C,R}$ had higher magnitude. Values are
+not plotted for site 3 because the hypothesis could not rejected for that site
+that dynamics of distinct \emph{Ceratium} species were independent. 
+\label{fig_CorlmCoru_plankton_map_loc12_26}}
 \end{center}
 \end{figure}
+<!--***DAN: Shya, please see if you can make "C.fin." appear italicized on the figure.-->
 
 <!--aphid plots : Q1-->
 \begin{figure}[!h]
@@ -855,7 +865,7 @@ plankton_aphid_info <- tibble(c0=c(1:4,1:20),
                           "Hyalopterus pruni","Acyrthosiphon pisum","Myzus persicae", "Macrosiphum euphorbiae",
                           "Metopolophium dirhodum","Myzus ascalonicus","Drepanosiphum platanoidis","Cavariella aegopodii"                                           ))
 knitr::kable(plankton_aphid_info, "latex", booktabs = T, linesep = "",align="c",
-      caption = "Species names of 4 plankton and 20 aphids for which data were used \\label{tab_plankton_aphid_info}",
+      caption = "Species names of 4 plankton and 20 aphids for which data were used. \\label{tab_plankton_aphid_info}",
       col.names = NULL)%>%
       group_rows("Plankton", 1,4) %>%
       group_rows("Aphids", 5,24) %>%
