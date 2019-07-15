@@ -1,7 +1,6 @@
 ---
-title: "Supporting material : A new approach to interspecific synchrony and its causes in population ecology using ``copulas''"
+title: "Supporting material : A new approach to interspecific synchrony in population ecology and its causes using copulas"
 author: "Shyamolina Ghosh, Lawrence W. Sheppard, Philip C. Reid, Daniel Reuman"
-date: "`r format(Sys.time(), '%d %B, %Y')`"
 geometry: "left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm"
 
 output: 
@@ -22,11 +21,10 @@ csl: TheAmericanNaturalist.csl
 bibliography: REF_CIS.bib
 ---
 
-
 \pagenumbering{roman}
-\tableofcontents
+<!--\tableofcontents
 \listoftables
-\listoffigures
+\listoffigures-->
 
 \pagebreak
 \pagenumbering{arabic}

@@ -1,7 +1,6 @@
 --- 
-title: "A new approach to interspecific synchrony and its causes in population ecology using copulas"
+title: "A new approach to interspecific synchrony in population ecology and its causes using copulas"
 author: "Shyamolina Ghosh, Lawrence W. Sheppard, Philip C. Reid, Daniel Reuman"
-date: "`r format(Sys.time(), '%d %B, %Y')`"
 geometry: "left=1 in,right=1 in,top=1 in,bottom=1 in"
 
 output: 
@@ -507,7 +506,7 @@ Q1 from the Introduction, as follows. First, we counted the number,
 $N_L^n$, of entries of $C^n$ which were not NA and which were greater than 
 $0$. These were the "left-tail dominant" species pairs, i.e., pairs of species 
 for which left-tail dependence was greater than right-tail dependence.
-We also counted the number, $N_R^n$, or right-tail dominant pairs, for which 
+We also counted the number, $N_R^n$, of right-tail dominant pairs, for which 
 <!--***DAN: Shya, note the change in notation, which will require a minor change 
 to Figs 2, 3 and the corresponding sup mat figs, please. I think left- and 
 right-tail dependence is slightly better than lower- and -upper-tail dependence,
@@ -528,50 +527,74 @@ changes to some of the figs in both the main text and sup mat, please. Note
 also that the old f quantities were always positive (you took an absolute values
 in the numerator of one of them), but these new quantities are signed in the
 same way as the As. I think this is more consistent. If this requires any 
-presentational changes, please make them.-->
+presentational changes, please make them. I expect any required changes will 
+be minor, but let me know if not.-->
 Together, these statistics provide an answer to Q1.
 
 We used the matrices $C^n$ and $D^n$ to answer Q2 from the Introduction for the 
-*Ceratium* data as follows.
-...
+*Ceratium* and aphid data as follows. First, we calculated 
+$A_D^n$, the sum of all non-NA entries of $D^n$. This was analogous to 
+$A_C^n$, but calculated using the matrix $D^n$ instead of the matrix
+$C^n$. We then examined whether the values $A_C^n$ and $A_D^n$ were 
+correlated across locations, $n$. 
+This tests the causal hypothesis in the Introduction because it 
+tests whether locations for which
+*Ceratium* or aphid time series were more right-tail (respectively, left-tail) dependent 
+with environmental covariates also had *Ceratium* or aphid time series that were more
+right-tail (respectively, left-tail) dependent with each other. 
+Recall that an environmental covariates was reversed (its negative was used)
+when it was negatively associated with a *Ceratium* or aphid species, and that
+no covariate was ever significantly positively associated with some 
+*Ceratium* or aphid species and significantly negatively associated with another
+such species in the same location (see Results).
+<!--***DAN: make sure you explicitly return to this in the Results-->
 
+We also answered Q2 for the aphid data as follows. Within a location, $n$, for each species,
+$i$, we computed the sum $\alpha^n_C(i)$ of all non-NA entries $C^n(i,j)$, for 
+$j$ ranging across all species for which we had data. This quantity measures an
+average tail dependence of species $i$ with other species in the
+same location, with positive values for greater left-tail dependence and 
+negative ones for greater right-tail dependence. We then defined
+$\alpha^n_D(i)$ as the sum of all non-NA entries $D^n(i,k)$, for $k$ 
+ranging across all covariates for which we had data. For 
+aphids we only had one covariate, winter temperature, so $\alpha^n_D(i)=D^n(i,k)$ 
+for $k=1$ corresponding to winter temperature. We provide the more general
+definition of $\alpha^n_D(i)$ that applies when more
+covariates were available so the definition can also be considered 
+(briefly, see below) for *Ceratium* data. We then examined, for each location, $n$, whether 
+$\alpha^n_C(i)$ and $\alpha^n_D(i)$ were correlated across species, $i$.
+This tests the causal hypothesis in the Introduction because it 
+tests whether aphid species which were more right-tail (respectively, left-tail) 
+dependent with environmental covariates (winter temperature) also had 
+time series that were more right-tail (respectively, left-tail) dependent with 
+the time series of other species in the location. Recall that
+winter temperature was always negatively associated with aphid first flight
+when it was significantly associated (see Results), 
+<!--***DAN: make sure to explicitly return to this in the Results-->
+and negative temperature (a coldness index) was used in computing $D^n(i,k)$.
+Testing whether $\alpha^n_C(i)$ and $\alpha^n_D(i)$ were correlated across
+species, $i$, within a location, $n$, was not practical for *Ceratium*,
+because we only had data for at most $4$ *Ceratium* species per sampling
+location, an insufficient number to provide much statistical power
+in testing for a correlation. 
 
-We answered Q2 for the aphid data as follows.
-...
-
-<!--***Dan got to here-->
-
-
-
-
-
-<!--## Methods to answer (Q2)-->
-
-To answer (Q2), our approach was to investigate the causal relationship between 
-inter-species tail dependence and tail-dependence between
-species with biotic and/ or abiotic drivers. We used two slightly different estimators to answer (Q2) 
-for our two datasets. First, we estimated lower minus upper tail dependence
-$C_{L-U}^n(i, k); i = 1,\dots ,s$ and $k = 1,\dots ,d$ 
-for the copulas made with species and drivers' time series from any $n^{th}$ site
-as we did with copulas for any two species pair combination. If time series of $i^{th}$ species 
-at $n^{th}$ site (say, $x_i^n$) were negatively correlated with time 
-series of $k^{th}$ drivers at that site (say, $y_k^n$), then we made a copula with $(x_i^n, -y_k^n)$ 
-and subsequent asymmetry of tail-dependence was measured using that copula. For positively correlated 
-species and drivers through time, we did not reverse the time series $y_k^n$. We measured total asymmetry 
-of driver dependencies as $A_D^n =\sum\limits_{i=1}^s\sum\limits_{k=1}^d C^n_{L-U}(i, k)$ and tested if there was
-any significant correlation between $A_D^n$ and $A_S^n$ considered for all selected sites. This 
+<!--***DAN: Need to say in the Discussion why the correlation across locations
+results may be marginally signif for aphids, which may have to do with the test
+being no great for aphids. Here some text, taken from other places, that may be useful
+when you come to do that:
+-We also tested, 
+for the aphid data, whether $A_C^n$ and $A_D^n$ were 
+correlated across locations, finding only a marginally significant correlation 
+(see Results). But this
+test is less suitable for the aphid data than it is for the *Ceratium* data, 
+for reasons elaborated in the Discussion.
+-This 
 approach was better when we examined behaviour of fewer but similar species, like the four \textit{Ceratium spp.} 
-of dinoflagellate class. Our second approach was more suitable when 
+of dinoflagellate class.
+- Our second approach was more suitable when 
 there were several species coming from different genus, so expected to show more variation
 in inter-species response, as we will see with aphid (20 species) first flight data. 
-For a species-specific approach, we examined correlation between response for 
-$i^{th}$ individual species with all the other species ($\alpha_S^n(i)$) and with its drivers ($\alpha_D^n(i)$). 
-We measured those two quantities as $\alpha_S^n(i) = \sum\limits_{j=1}^{s} C^n_{L-U}(i, j)$ for $(i \neq j)$ and 
-$\alpha_D^n(i) = \sum\limits_{k=1}^{d} C^n_{L-U}(i, k)$, respectively, for a given $i^{th}$ species. Significant correlation 
-between $A_D^n$ and $A_S^n$ (for plankton) or between $\alpha_D^n(i)$ and $\alpha_S^n(i)$ (for aphids)
-would establish our hypothesis that asymmetric tail dependence in inter-specific response was caused by similar
-asymmetric tail-dependence in species-driver copulas.
-
+-->
 
 # Results\label{Results}
 
