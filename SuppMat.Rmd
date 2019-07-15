@@ -905,10 +905,8 @@ This association was not considered for our analyses, which focussed on synchron
 \includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc9/loc9_Corl-Coru.pdf}\\
 \includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc10/loc10_Corl-Coru.pdf} 
 \includegraphics[width=6 cm]{./Results/aphid_results/ff_npa_stat_results/loc11/loc11_Corl-Coru.pdf} 
-\caption[Aphids: $C^n$ matrix plot for selected locations]{Analogous 
-figure as of Figs. \ref{MT-fig_CorlmCoru_ff_map_loc2_5}(B) and (C) showing $C_{L-U}^n$ 
-for rest of 8 selected sites, details were discussed in \nameref{MT-Results}.
-\label{fig_CorlmCoru_ff_all_loc}}
+\caption[Aphids: $C^n$ matrix plot for selected locations]{As Fig. 
+\ref{MT-fig_CorlmCoru_ff_map_loc2_5}A, B, but for other aphid sampling locations.\label{fig_CorlmCoru_ff_all_loc}}
 \end{center}
 \end{figure}
 

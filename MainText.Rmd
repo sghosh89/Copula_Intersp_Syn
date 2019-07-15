@@ -218,7 +218,6 @@ for 20 species of aphid from 10 locations within the UK.
 Our aphid and plankton
 populatuion and phenology variables were 
 almost exclusively positively associated with each other (see \nameref{Results}).
-<!--***DAN: make sure you explicitly revisit this in Results-->
 Furthermore, the terms left- and right-tail 
 dependence, defined above, do not apply to negatively associated 
 variables, because the 
@@ -307,27 +306,6 @@ and panel B showing the reverse. (C, D) Copula plots (see Introduction) for pane
 asymmetry of tail dependence (see Methods).}\label{pedagogfig}
 \end{center}
 \end{figure}
-
-<!--***DAN: This pedagogical figure is looking better and better,
-but can you please make the following modifications:
-1) The label for the diagonal line u_t + v_t = 2u_b in panel E
-is closer to the line itself than is the label u_t + v_t = 2l_b,
-and closer to the labels that occur inside the axes in panel F. Please
-make it the same distance.
-2) The label u_t + v_t = 0 in panel F looks fine to me. But the label
-u_t + v_t = 2 is not aligned in the same way. Please align it in the same
-way, for consistency with the other label.
-
-***Shya: done.
--->
-
-<!--***DAN: Shya, I got rid of the list of figs and list of tables from the
-sup mat because they were not necessary - we don't have many figs or tables there.
-Currently in the supp mat, the title and author names is on one page by itself 
-and then Fig. S1 is on the next page. Can you please make Fig. S1 appear
-on the first page, together with the title? Also, please slightly increase the
-space in between the title and the author names.
-***Shya: done.-->
 
 # Methods\label{M&M}
 
@@ -608,7 +586,7 @@ in inter-species response, as we will see with aphid (20 species) first flight d
 # Results\label{Results}
 
 <!--Results for Q1-->
-We found asymmetric tail-dependence was very common between *Ceratium* population density
+Asymmetric tail-dependence was very common between *Ceratium* population density
 time series from the same location, answering Q1 in the affirmative for *Ceratium*;
 for some locations, left-tail dependence between *Ceratium*
 species was dominant, and for other locations right-tail dependence was dominant.
@@ -626,7 +604,13 @@ sampling locations were dominated by either left- or right-tail dependence, with
 approximately equal numbers of each, with only a few locations having
 more symmetric tail dependence, on average across pairs of *Ceratium* species.
 
-<!--***DAN: got to here, 2019 07 15, 1126am-->
+Asymmetric tail-dependence was also very common between aphid first flight
+time series from the same location, answering Q1 in the affirmative for aphids;
+as for *Ceratium*, left-tail dependence dominated for some sampling locations
+and right-tail dependence dominated for others, but for most sites right-tail
+dependence dominated.
+
+<!--***DAN: got to here, but also revised the caption for the aphid figure, below-->
 
 
 We got similar findings for aphid firsflight data (Fig. \ref{fig_CorlmCoru_ff_map_loc2_5}). Proportion of lower 
@@ -677,32 +661,38 @@ that dynamics of distinct \emph{Ceratium} species were independent.
 \label{fig_CorlmCoru_plankton_map_loc12_26}}
 \end{center}
 \end{figure}
-<!--***DAN: Shya, please see if you can make "C.fin." appear italicized on the figure.-->
 
 <!--aphid plots : Q1-->
 \begin{figure}[!h]
 \begin{center}
-\textbf{ (A)} \\
-\includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf} \\
-\vspace{1 cm}
-\textbf{ (B) \hspace{7 cm} (C)} \\
+\textbf{ (A) \hspace{7 cm} (B)} \\
 \includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/loc2/loc2_Corl-Coru.pdf}
-\includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/loc5/loc5_Corl-Coru.pdf}
-\caption{$(A)$ Proportion of tail dominant contribution ($F_{C,L}$ for lower tail and $F_{C,R}$ for upper tail 
-showing on a color scale between 0 to 1) in overall asymmetry for each of the
-selected 10 locations (see Fig. \ref{SM-fig_aphid_map}) summarizes the overall 
-asymmetry in tail-dependence for all sampling sites. Sites with lower tail dominance
-have site code in red color, whereas upper tail dominant sites have blue site code. 
-Lower tail - upper tail dependence matrix 
-($C^n$) with first flight data of 20 aphid species are shown in (B) for location n = 2 and
-in (C) for location n = 5, for other locations see Fig. \ref{SM-fig_CorlmCoru_ff_all_loc}. 
-The last row and column indicates estimates from the interaction between each 
-aphid species and winter average temperature (which was supposed to be the driver of the species' synchrony),
-details were discussed in \nameref{Results}. $N_L^n$ and $N_R^n$ are the count of positive and 
-negative cells for 20$\times$ 20 matrix; $N_L^n > N_R^n$ in $(B)$ 
-indicating major lower tail dependence in the sp-sp interaction matrix. Similarly, $N_R^n > N_L^n$ in $(C)$ indicates more upper
-tail dependence. Yellow cells indicate independent relationship. Cells with a green dot indicate the associated 
-variables were negatively correlated initially and hence we reversed the variables in column so that the copula had positive association.\label{fig_CorlmCoru_ff_map_loc2_5}}
+\includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/loc5/loc5_Corl-Coru.pdf} \\
+\textbf{ (C)} \\
+\includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf}
+\caption{Either right-tail dependence between first-flight time series of 
+aphid species could dominate, or right- and left-tail dependence could be of similar strength, 
+depending on the sampling location. (A, B) The matrices
+$C^n$ and $D^n$ (Methods), horizontally concatenated, for example locations $n=2$ (A) and $n=5$ (B).
+See Table \ref{tab_plankton_aphid_info} for species names.
+A slight majority of non-NA values in $C^n$ were positive (red) for location $2$ (A; see the
+$N_L^n$ and $N_R^n$ counts displayed), indicating left-tail
+dependence was slightly greater than right-tail dependence in that location. But values were largely 
+negative (blue) for location
+$5$ (B), indicating right-tail dependence dominated there. Matrix entries which were NA 
+because time series were independent are displayed in yellow. Temp. = temperature.
+Green dots in $D^n$
+represent variables which were originally negatively associated, so the negative
+of winter temperature was used for calculating tail dependence (Methods); this happened in all cases
+for which temperature and first flight were significantly associated.
+See Fig. \ref{SM-fig_CorlmCoru_ff_all_loc} 
+for analogous figures for the other sampling locations. 
+(C) The summary statistics $F_{C,L}$ and $F_{C,R}$ (see Methods) 
+for each site show that dependence was either 
+dominanted by the right tails, or, for a few locations, 
+was more symmetric. Site codes
+are colored red or blue depending on which of $F_{C,L}$ or $F_{C,R}$ had higher magnitude.
+\label{fig_CorlmCoru_ff_map_loc2_5}}
 \end{center}
 \end{figure}
 
