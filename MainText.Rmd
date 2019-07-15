@@ -317,6 +317,8 @@ make it the same distance.
 2) The label u_t + v_t = 0 in panel F looks fine to me. But the label
 u_t + v_t = 2 is not aligned in the same way. Please align it in the same
 way, for consistency with the other label.
+
+***Shya: done.
 -->
 
 <!--***DAN: Shya, I got rid of the list of figs and list of tables from the
@@ -325,7 +327,7 @@ Currently in the supp mat, the title and author names is on one page by itself
 and then Fig. S1 is on the next page. Can you please make Fig. S1 appear
 on the first page, together with the title? Also, please slightly increase the
 space in between the title and the author names.
--->
+***Shya: done.-->
 
 # Methods\label{M&M}
 
