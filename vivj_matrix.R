@@ -15,7 +15,7 @@
 # Output :
 # A list of 4 elements:
 #                      mat : a matrix : copula of (vi,vj) with transforming j-th variable to it's -ve value for -ve corr.
-#                      tauval : Kendall's tauvalue 
+#                      corval : Spearman's correlation
 #                      pval   : pvalue of Kendall's cor.test
 #                      IndepTestRes : BiCopIndepTest p-value
 
@@ -67,12 +67,12 @@ vivj_matrix<-function(d_allsp,loc,i,j,level=0.05,ploton,onbounds=F,lb=NA,ub=NA){
   vj<-VineCopula::pobs(d2$Dat)
   
   IndepTestRes<-VineCopula::BiCopIndTest(vi,vj)$p.value
-  ct<-cor.test(vi,vj,alternative = "two.sided",method="kendall",exact=F)
-  tauval<-unname(ct$estimate)
+  ct<-cor.test(vi,vj,alternative = "two.sided",method="spearman",exact=F)
+  corval<-unname(ct$estimate)
   pval<-ct$p.value
   
   if(ploton==T){
-    if(IndepTestRes<level && tauval>0){ # for significant positive correlation
+    if(IndepTestRes<level && corval>0){ # for significant positive correlation
       plot(vi,vj,type='p',col=rgb(0,0,0,0.3),pch=19,xlim=c(0,1),ylim=c(0,1),
              xlab=names(d_allsp[[loc]])[i],ylab=names(d_allsp[[loc]])[j],cex.lab=1.5)
       
@@ -92,7 +92,7 @@ vivj_matrix<-function(d_allsp,loc,i,j,level=0.05,ploton,onbounds=F,lb=NA,ub=NA){
       }
       
      
-    }else if(IndepTestRes<level && tauval<0){ # for significant negative correlation
+    }else if(IndepTestRes<level && corval<0){ # for significant negative correlation
       plot(vi,vj,type='p',col=rgb(0,1,0,0.3),pch=19,xlim=c(0,1),ylim=c(0,1),
            xlab=names(d_allsp[[loc]])[i],ylab=names(d_allsp[[loc]])[j],cex.lab=1.5)
       
@@ -125,7 +125,7 @@ vivj_matrix<-function(d_allsp,loc,i,j,level=0.05,ploton,onbounds=F,lb=NA,ub=NA){
     
   }
   
-  if(IndepTestRes<level && tauval<0){
+  if(IndepTestRes<level && corval<0){
      vj<-VineCopula::pobs(-(d2$Dat))
   }
   
@@ -137,7 +137,7 @@ vivj_matrix<-function(d_allsp,loc,i,j,level=0.05,ploton,onbounds=F,lb=NA,ub=NA){
   #-------------------------
   mat<-as.matrix(cbind(vi,vj))
   return(list(mat=mat,   # return reversed mat so that if you plot this mat you get +ve correlation 
-              tauval=tauval,  # but return the actual -ve corr. value  
+              corval=corval,  # but return the actual -ve corr. value  
               pval=pval,
               IndepTestRes=IndepTestRes))  
 }
