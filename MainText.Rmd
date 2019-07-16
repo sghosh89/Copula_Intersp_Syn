@@ -307,6 +307,11 @@ asymmetry of tail dependence (see Methods).}\label{pedagogfig}
 \end{center}
 \end{figure}
 
+
+```{r read_res,echo=F}
+res_ff<-readRDS("./Results/aphid_results/ff_npa_stat_results/cor_npa_diff_ff_ln_all.RDS")
+res_cer<-readRDS("./Results/plankton_results/npa_stat_results/cor_npa_diff_plankton_ln_all.RDS")
+```
 # Methods\label{M&M}
 
 ## Data \label{Data} 
@@ -709,7 +714,10 @@ are colored red or blue depending on which of $F_{C,L}$ or $F_{C,R}$ had higher 
 <!--***DAN: Shya, the site number on panel C for site 11 is blue, but I think it should be red
 based on the numbers in Fig. S4. Please check. Whatever bug caused 11 to be blue instead of red, 
 please don't just fix it for this one case, think about other implications the bug will have 
-had, if any, and fix it so those implications are also fixed.-->
+had, if any, and fix it so those implications are also fixed.
+***Shya: I don't think it's a bug, Fig.S4 shows number of left and right tail dep. cells 
+whereas site codes are in red or blue color depending on values or fraction of 
+those cells (i.e. F_C,L or F_C,R) not number (N_L^n, N_R^n).-->
 
 <!--Results for Q2-->
 
@@ -717,7 +725,7 @@ had, if any, and fix it so those implications are also fixed.-->
 For the *Ceratium* data, the statistics $A_C^n$ and $A_D^n$ were significantly correlated
 across locations, $n$, validating our
 hypothesis from the Introduction for a cause of tail dependence between co-located
-species, and helping to answer Q2. Across our 15 <!--***DAN: Not a hyperlink, please make it one, Shya--> locations, 
+species, and helping to answer Q2. Across our `r length(res_cer$CorlmCoru_all_ln_list)` locations, 
 $A_C^n$ and $A_D^n$ were significantly positively correlated (Pearson correlation,
 two-tailed test, Fig. \ref{fig_plankton_scatter}A). Thus locations for which
 *Ceratium* density time series showed greater left-tail (respectively, right-tail) 
@@ -729,7 +737,7 @@ common tail dependence of the species on environmental drivers.
 
 <!--Para for aphids, using A_C^n and A_D^n across n.-->
 For the aphid data, the statistics $A_C^n$ and $A_D^n$ were marginally significantly correlated
-across our 10 <!--***DAN: Not a hyperlink, please make it one, Shya--> sampling locations
+across our `r length(res_ff$CorlmCoru_all_ln_list)` sampling locations
 (Fig. \ref{fig_plankton_scatter}B). Thus locations for which aphid first-flight time series
 showed greater left-tail (respectively, right-tail) dependence with winter temperature
 also showed a non-significant tendency toward greater left-tail (respectively, right-tail) dependence between
@@ -749,14 +757,15 @@ species (Introduction).
 <!--***DAN: Shya, I do not see any reason to use Pearson in Fig. 4 and Kendall in Fig. 5. Why was this done?
 If there was a good reason to use Kendall for Fig. 5, then please add text below stating what that 
 reason is. I will incorporate the reason into the narrative. If there was no good reason, please change your 
-code so Pearson is used for Fig. 5 and let me know when that is done.-->
+code so Pearson is used for Fig. 5 and let me know when that is done.
+***Shya: done.-->
 
 <!--***DAN: got to here-->
 
 We observed species synchronous responses towards biotic and/ or abiotic stress
 which transmitted similar asymmetric tail-dependence from drivers level ($A_D^n$ or $\alpha_D^n$)
-to species level ($A_S^n$ or $\alpha_S^n$). 
-We did a two-tailed correlation test between $A_S^n$ and $A_D^n$ for all selected location $n$ 
+to species level ($A_C^n$ or $\alpha_C^n$). 
+We did a two-tailed correlation test between $A_C^n$ and $A_D^n$ for all selected location $n$ 
 excluding $n = 3$ (as site 3 was independent). We got significant 
 positive Pearson correlation ($0.699$)<!--caution : not automated link--> with p-value $<<0.025$, 
 which confirmed our hypothesis for (Q2) that tail-asymmetry translated from driver to species level 
@@ -772,11 +781,11 @@ to have direct interactions as of the \textit{Ceratium} community,
 $A_S^n$ and $A_D^n$ could not illuminate the causal relationship 
 (Fig. \ref{SM-fig_aphid_scatter}, non-significant Pearson correlation with $p = 0.0678$). 
 In an alternative approach, for each of the selected 
-10 locations, we computed the Kendall's correlation coefficient $(K)$ between
-$\alpha_S^n(i)$ and $\alpha_D^n(i)$, where
+10 locations, we computed the Pearson correlation coefficient $(P)$ between
+$\alpha_C^n(i)$ and $\alpha_D^n(i)$, where
 $i = 1, 2, \dots ,20$ represented the species index. We found for the $i^{th}$ aphid species, the 
 tail dependence of species-temperature copula results in similar tail dependence in inter-species copula 
-for 7 out of 10 sites (based on p-value with $0.05$ significance level, Fig. \ref{fig_aphid_multipanel}),
+for 8 out of 10 sites (based on p-value with $0.05$ significance level, Fig. \ref{fig_aphid_multipanel}),
 which answered the probable causal mechanism behind inter-species synchrony (Q2). In other words, 
 if an aphid species was particularly correlated in its lower tail with the driver, it 
 was particularly correlated in its lower tail with the other aphid species.
@@ -784,7 +793,7 @@ was particularly correlated in its lower tail with the other aphid species.
 <!--plankton and aphid scatter plots: Q2-->
 \begin{figure}[!h]
 \begin{center}
-(A), (B) \\
+\textbf{ \hspace{1.2 cm} (A) \hspace{7 cm} (B)} \\
 \includegraphics[width=8 cm]{./Results/plankton_results/npa_stat_results/Corstat_scatter_LmU_values.pdf} 
 \includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_scatter_LmU_values.pdf}
 \caption{Tail dependence with environmental covariates was positively related to tail dependence
@@ -798,13 +807,14 @@ numbers (see Figs \ref{SM-fig_plankton_map} and \ref{SM-fig_aphid_map}).\label{f
 1) Shya, please make the panel labels (A) and (B) appear in the above figure in a similar way
 to how they appear in the other figures
 2) Please change the axis labels to correspond with the new notation
+***Shya: done.
 -->
 
 <!--aphid multipanel plot : Q2-->
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=16 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_avg_sp_temp_multipanel_plot.pdf} 
-\caption{For 7 out of 10 sites, the Kendall correlation between $\alpha_S^n(i)$ and $\alpha_D^n(i) ; i = 1, 2, \dots, 20$, 
+\caption{For 8 out of 10 sites, the Pearson correlation ($P$) between $\alpha_C^n(i)$ and $\alpha_D^n(i) ; i = 1, 2, \dots, 20$, 
 is significant (p $< 0.05$, one tailed test). This indicates asymmetric tail-dependence between species-winter
 average temperature is the reason for similar tail-dependence between the $i^{th}$ species
 and the other species.\label{fig_aphid_multipanel}}

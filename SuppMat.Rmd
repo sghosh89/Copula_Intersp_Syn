@@ -423,7 +423,7 @@ id_indep<-which(rowSums(xxyy)==0) # locations which were independent
 xxyy<-xxyy[-id_indep,]
 pdf("./Results/plankton_results/npa_stat_results/Corstat_scatter_LmU_values.pdf",height=8,width=8)
 op<-par(mar=c(7,8, 4.1, 2), mgp=c(4, 1, 0))
-plot(xxyy$xx,xxyy$yy,xlab=expression(A[D]^n),ylab=expression(A[S]^n),col=rgb(0,0,0,0.2),pch=19,cex=2,cex.lab=3,cex.axis=2)
+plot(xxyy$xx,xxyy$yy,xlab=expression(A[D]^n),ylab=expression(A[C]^n),col=rgb(0,0,0,0.2),pch=19,cex=2,cex.lab=3,cex.axis=2)
 text(xxyy$xx,xxyy$yy,good_loc_plankton[-id_indep],pos=1,col="black",cex=1.2)
 lines(c(-100,100),c(0,0),type='l',lty='dashed',col="grey")
 lines(c(0,0),c(-100,100),type='l',lty='dashed',col="grey")
@@ -793,7 +793,7 @@ for(loc in c(1:length(x))){
 
 pdf("./Results/aphid_results/ff_npa_stat_results/Corstat_scatter_LmU_values.pdf",height=8,width=8)
 op<-par(mar=c(7,8, 4.1, 2), mgp=c(4, 1, 0))
-plot(xx,yy,xlab=expression(A[D]^n),ylab=expression(A[S]^n),col=rgb(0,0,0,0.2),pch=19,cex=2,cex.lab=3,cex.axis=2,ylim=c(min(yy),max(yy)+1))
+plot(xx,yy,xlab=expression(A[D]^n),ylab=expression(A[C]^n),col=rgb(0,0,0,0.2),pch=19,cex=2,cex.lab=3,cex.axis=2,ylim=c(min(yy),max(yy)+1))
 text(xx,yy,ff_selected_loc,pos=3,col="black",cex=1.2)
 lines(c(-100,100),c(0,0),type='l',lty='dashed',col="grey")
 lines(c(0,0),c(-100,100),type='l',lty='dashed',col="grey")
@@ -818,7 +818,7 @@ for(loc in 1:length(LTmUTdep_matlist_ff)){
   ylim[2]<-ylim[2]+0.1
   t<-cbind(avg_s,s_temp)
   t<-na.omit(t)
-  ct<-cor.test(t[,1],t[,2],alternative = "greater",method = "kendall",conf.level = 0.95)
+  ct<-cor.test(t[,1],t[,2],alternative = "greater",method = "pearson",conf.level = 0.95)
   pval<-ct$p.value
   tau<-unname(ct$estimate)
   nt<-nrow(t)
@@ -829,7 +829,7 @@ for(loc in 1:length(LTmUTdep_matlist_ff)){
   axis(side = 1, at = seq(from=1,to=20,by=1), cex.axis=8, line=NA,padj=0.8)
   mtext((expression(i^th * species)), side=1, line=18, col="black", cex=7)
   #mtext(paste("loc=",loc,", s.sign=",t," out of",nt,", tau=",round(tau,2),", p=",round(pval,3)),cex=3.5)
-  mtext(paste("K =",round(tau,2),", p=",formatC(pval,3,format="f")),cex=6,side=3, line=1.5) #pval rounded upto 3digits to show
+  mtext(paste("P =",round(tau,2),", p=",formatC(pval,3,format="f")),cex=6,side=3, line=1.5) #pval rounded upto 3digits to show
   mtext(paste("n = ",ff_selected_loc[loc],sep=""),cex=6,side=3,line=-7,adj=0.06)
   points(c(1:20),s_temp,type="b",col="blue",cex=4,pch=16)
   lines(c(1,20),c(0,0),type='l',lty='dashed')
@@ -838,7 +838,7 @@ for(loc in 1:length(LTmUTdep_matlist_ff)){
 }
 #op2<-par(fig = c(0, 1, 0, 1), oma = c(0, 0, 0, 0), mar = c(0, 1, 0, 0), new = TRUE)
 plot(0, 0, type = "n", bty = "n", xaxt = "n", yaxt = "n")
-legend("center", c("X = S", "X = D"), col = c("red","blue"),bty="n",
+legend("center", c("X = C", "X = D"), col = c("red","blue"),bty="n",
        cex = 9, pch = c(16, 16), lty=c(1,1), xpd = TRUE, horiz = F, inset = c(0.06,0.05)) 
 par(op)
 dev.off()
