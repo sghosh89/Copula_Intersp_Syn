@@ -253,9 +253,9 @@ across the *Ceratium* species for which we have data, it should
 produce positive associations with left-tail dependence between 
 the abundance time series of different species. Likewise, 
 in locations for which the winter coldness-*Ceratium* abundance association
-is shows less left-tail dependence, one should see less
+shows less left-tail dependence, one should see less
 left-tail dependence between different *Ceratium* species.
-So tail dependence between species may be inherited from joint tail
+So tail dependence between two species may be inherited from joint tail
 dependence of both species on a common environmental driver.
 Phytoplankton are also strongly influenced by the abundant generalist copepod 
 consumer *Calanus finmarchicus*, so our actual investigation of the mechanism 
@@ -586,6 +586,8 @@ in inter-species response, as we will see with aphid (20 species) first flight d
 # Results\label{Results}
 
 <!--Results for Q1-->
+
+<!--For Ceratium-->
 Asymmetric tail-dependence was very common between *Ceratium* population density
 time series from the same location, answering Q1 in the affirmative for *Ceratium*;
 for some locations, left-tail dependence between *Ceratium*
@@ -596,37 +598,46 @@ except for one pair of species in one location (plankton sampling location 18, s
 For some locations, the matrix $C^n$ was comprised largely of positive values, 
 indicating a preponderance of left-tail dependence between *Ceratium* time 
 series for the location (Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}A).
+For such locations, *Ceratium* population densities are more likely to be correlated
+across species at low population densities than at high densities.
 For other locations, $C^n$ had mostly negative values, indicating a 
 preponderance of right-tail dependence (Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}B).
+For such locations, *Ceratium* population densities are more likely to be correlated
+across species at high population densities than at low densities.
+<!--***DAN: the consequences of this are worth revisiting in the discussion-->
 The statistics $F_{C,L}$ and $F_{C,R}$, plotted across all sampling locations
 (Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}C), indicated that most *Ceratium*
 sampling locations were dominated by either left- or right-tail dependence, with
 approximately equal numbers of each, with only a few locations having
 more symmetric tail dependence, on average across pairs of *Ceratium* species.
 
+<!--For aphids-->
 Asymmetric tail-dependence was also very common between aphid first flight
 time series from the same location, answering Q1 in the affirmative for aphids;
-as for *Ceratium*, left-tail dependence dominated for some sampling locations
+left-tail dependence was more common for some sampling locations
 and right-tail dependence dominated for others, but for most sites right-tail
-dependence dominated.
+dependence dominated. Associations between aphid time series were always positive 
+when they were significant. For some locations, the matrix $C^n$ was 
+comprised of a slight majority of positive values, 
+indicating more left- than right-tail dependence between aphid time 
+series for the location (Fig. \ref{fig_CorlmCoru_ff_map_loc2_5}A).
+For other locations, $C^n$ had mostly negative values, indicating a 
+preponderance of right-tail dependence (Fig. \ref{fig_CorlmCoru_ff_map_loc2_5}B).
+The statistics $F_{C,L}$ and $F_{C,R}$, plotted across all sampling locations
+(Fig. \ref{fig_CorlmCoru_ff_map_loc2_5}C), indicated that most aphid sampling 
+locations had a preponderance of right-tail dependence, with only a few locations
+having more left-tail dependence, and those only slightly more. Thus, for most locations,
+aphid first flights are more correlated across species when first flights are 
+later than average.
 
-<!--***DAN: got to here, but also revised the caption for the aphid figure, below-->
-
-
-We got similar findings for aphid firsflight data (Fig. \ref{fig_CorlmCoru_ff_map_loc2_5}). Proportion of lower 
-($f_L$) and upper ($f_U$) tail dependence estimates in overall tail-asymmetry was summarized for 10 selected 
-sampling sites in Fig. \ref{fig_CorlmCoru_ff_map_loc2_5}(A). $8$ out of $10$ sites were dominantly upper 
-tail dependent in $C_{L-U}^n$ (site codes in blue color of Fig. \ref{fig_CorlmCoru_ff_map_loc2_5}A),
-indicating overall synchronous late arrival of 20 aphids at those $8$ locations.
-Two representative cases for major lower 
-(where $N_L > N_U$ for site $n = 2$) and upper (where $N_U > N_L$ for site $n = 5$) tail 
-dependence matrix $C_{L-U}^n$ are pictured in 
-Fig. \ref{fig_CorlmCoru_ff_map_loc2_5}(B) and (C), respectively. Major asymmetric tail-dependence 
+<!--***DAN: Some text that I cut from the Results but might be good for the Discussion:
+Major asymmetric tail-dependence 
 observed with one set of population data (plankton)
 and one set of phenological data (aphids first flight) answered (Q1), indicating that inter-specific 
 synchrony is not well described by standard correlation metrics, as these 
 obscure the fact that species may be simultaneously rare, or simultaneously 
 common, with the same resultant correlation coefficient.
+-->
 
 <!--plankton plots : Q1-->
 \begin{figure}[!h]
@@ -671,13 +682,13 @@ that dynamics of distinct \emph{Ceratium} species were independent.
 \textbf{ (C)} \\
 \includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf}
 \caption{Either right-tail dependence between first-flight time series of 
-aphid species could dominate, or right- and left-tail dependence could be of similar strength, 
+aphid species could dominate, or left-tail dependence could be more common, 
 depending on the sampling location. (A, B) The matrices
 $C^n$ and $D^n$ (Methods), horizontally concatenated, for example locations $n=2$ (A) and $n=5$ (B).
 See Table \ref{tab_plankton_aphid_info} for species names.
 A slight majority of non-NA values in $C^n$ were positive (red) for location $2$ (A; see the
 $N_L^n$ and $N_R^n$ counts displayed), indicating left-tail
-dependence was slightly greater than right-tail dependence in that location. But values were largely 
+dependence was slightly more common than right-tail dependence in that location. But values were largely 
 negative (blue) for location
 $5$ (B), indicating right-tail dependence dominated there. Matrix entries which were NA 
 because time series were independent are displayed in yellow. Temp. = temperature.
@@ -690,17 +701,58 @@ for analogous figures for the other sampling locations.
 (C) The summary statistics $F_{C,L}$ and $F_{C,R}$ (see Methods) 
 for each site show that dependence was either 
 dominanted by the right tails, or, for a few locations, 
-was more symmetric. Site codes
+showed slightly more left-tail dependence. Site codes
 are colored red or blue depending on which of $F_{C,L}$ or $F_{C,R}$ had higher magnitude.
 \label{fig_CorlmCoru_ff_map_loc2_5}}
 \end{center}
 \end{figure}
-
+<!--***DAN: Shya, the site number on panel C for site 11 is blue, but I think it should be red
+based on the numbers in Fig. S4. Please check. Whatever bug caused 11 to be blue instead of red, 
+please don't just fix it for this one case, think about other implications the bug will have 
+had, if any, and fix it so those implications are also fixed.-->
 
 <!--Results for Q2-->
-To explain asymmetric tail-dependence between 
-\textit{Ceratium spp.} ($s = 4$), we considered abundance of predator C. fin 
-and growing season temperature as two key drivers ($d = 2$) for inter-specific synchrony. 
+
+<!--Para for Ceratium, using A_C^n and A_D^n across n.-->
+For the *Ceratium* data, the statistics $A_C^n$ and $A_D^n$ were significantly correlated
+across locations, $n$, validating our
+hypothesis from the Introduction for a cause of tail dependence between co-located
+species, and helping to answer Q2. Across our 15 <!--***DAN: Not a hyperlink, please make it one, Shya--> locations, 
+$A_C^n$ and $A_D^n$ were significantly positively correlated (Pearson correlation,
+two-tailed test, Fig. \ref{fig_plankton_scatter}A). Thus locations for which
+*Ceratium* density time series showed greater left-tail (respectively, right-tail) 
+dependence with environmental covariates (measured with $A_D^n$)
+also exhibited greater left-tail (respectively, right-tail) dependence between
+density time series for distinct species (measured with $A_C^n$).
+Tail dependence between co-located species time series was apparently inherited from
+common tail dependence of the species on environmental drivers. 
+
+<!--Para for aphids, using A_C^n and A_D^n across n.-->
+For the aphid data, the statistics $A_C^n$ and $A_D^n$ were marginally significantly correlated
+across our 10 <!--***DAN: Not a hyperlink, please make it one, Shya--> sampling locations
+(Fig. \ref{fig_plankton_scatter}B). Thus locations for which aphid first-flight time series
+showed greater left-tail (respectively, right-tail) dependence with winter temperature
+also showed a non-significant tendency toward greater left-tail (respectively, right-tail) dependence between
+the time series of distinct species. The correlation may have been non-significant for the aphid data
+simply because there were slightly fewer aphid sampling locations than there were 
+plankton locations, or for additional possible reasons elaborated in the Discussion.
+<!--***DAN: don't forget to do this-->
+Nevertheless, when combined with the plankton result, this aphid result tends to support 
+the hypothesis that tail dependence between co-located species time series can be inherited from
+common tail dependence on environmental drivers. 
+
+<!--Para for aphids using the second method.-->
+Our second analysis using aphids, based on the statistics $\alpha_C^n(i)$ and $\alpha_D^n(i)$ (Methods),
+provided further evidence supporting our hypothesis for a cause of tail dependence between co-located
+species (Introduction). 
+
+<!--***DAN: Shya, I do not see any reason to use Pearson in Fig. 4 and Kendall in Fig. 5. Why was this done?
+If there was a good reason to use Kendall for Fig. 5, then please add text below stating what that 
+reason is. If there was no good reason, please change you code so Pearson is used for Fig. 5 and let me know
+when that is done.-->
+
+<!--***DAN: got to here-->
+
 We observed species synchronous responses towards biotic and/ or abiotic stress
 which transmitted similar asymmetric tail-dependence from drivers level ($A_D^n$ or $\alpha_D^n$)
 to species level ($A_S^n$ or $\alpha_S^n$). 
@@ -729,18 +781,24 @@ which answered the probable causal mechanism behind inter-species synchrony (Q2)
 if an aphid species was particularly correlated in its lower tail with the driver, it 
 was particularly correlated in its lower tail with the other aphid species.
 
-
-<!--plankton scatter plot : Q2-->
+<!--plankton and aphid scatter plots: Q2-->
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=10 cm]{./Results/plankton_results/npa_stat_results/Corstat_scatter_LmU_values.pdf} 
-\caption{Siginificant positive Pearson correlation (p value based on two-tailed test) between total 
-asymmetry on species level $A_C^n$ and on driver level $A_D^n$ represents causal relationship between 
-tail-dependence of inter-species synchrony with its drivers (C. fin. and growing season temperature) for 
-\textit{Ceratium spp.}, numbers in the plot represent the side code $n$.\label{fig_plankton_scatter}}
+(A), (B) \\
+\includegraphics[width=8 cm]{./Results/plankton_results/npa_stat_results/Corstat_scatter_LmU_values.pdf} 
+\includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_scatter_LmU_values.pdf}
+\caption{Tail dependence with environmental covariates was positively related to tail dependence
+between species for aphid and plankton time series. Panels show $A_C^n$ versus $A_D^n$ (Methods) across
+locations, $n$, for \emph{Ceratium} density (A) and aphid first-flight (B) data. Pearson correlations
+and associated $p$-values for each panel are in the headers. Points are labeled with location
+numbers (see Figs \ref{SM-fig_plankton_map} and \ref{SM-fig_aphid_map}).\label{fig_plankton_scatter}}
 \end{center}
 \end{figure}
-
+<!--***DAN: 
+1) Shya, please make the panel labels (A) and (B) appear in the above figure in a similar way
+to how they appear in the other figures
+2) Please change the axis labels to correspond with the new notation
+-->
 
 <!--aphid multipanel plot : Q2-->
 \begin{figure}[!h]

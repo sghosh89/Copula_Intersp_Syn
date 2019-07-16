@@ -910,17 +910,6 @@ This association was not considered for our analyses, which focussed on synchron
 \end{center}
 \end{figure}
 
-
-<!--aphid scatter plot : Q2 : failed result-->
-\begin{figure}[!h]
-\begin{center}
-\includegraphics[width=10 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_scatter_LmU_values.pdf} 
-\caption{Aphid first flight data showed no significant relationship between total asymmetry on species level $A_C^n$ and 
-on driver level $A_D^n$. Numbers in the plot represent the side code $n$.\label{fig_aphid_scatter}}
-\end{center}
-\end{figure}
-
-
 <!--
 # References
 \setlength{\parindent}{-0.2in}
