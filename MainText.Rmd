@@ -182,6 +182,10 @@ potentially producing years of extremely low community biomass.
 Thus the tail dependence of synchrony, not just the presence and strength
 of synchrony, may independently influence temporal variability of 
 aggregate community properties. 
+<!--***DAN: probably revisit in Dicussion. Both to emphasize the importance
+of what we have done. And to compare to consequecnes studied in BIVAN in
+which time series were added spatially. And to discuss future work involving 
+compensatory dynamics.-->
 
 Second, studies of the phenology of species interacting in one area
 have also played a central role in community ecology, with 
@@ -199,7 +203,7 @@ highly correlated, if this correlation is principally in the
 right tails of the distributions of possible emergence times, 
 so that early emergences of the species are actually uncorrelated, then 
 mismatched years are likely to occur, impacting the species. Such 
-mismatches will occur, in this example, 
+mismatches will occur, in this conceptual example, 
 when emergence is early. One potential mechanism by which 
 early emergences
 may be uncorrelated between species while later emergences remain correlated
@@ -207,6 +211,7 @@ is if both species follow the same environmental cue for their
 emergence, but physiological limitations of only one of the species prevent 
 emergence before a certain date. Advancing emergence dates of myriad species
 make this scenario more plausible.
+<!--***DAN: also need to revisit this in the Discussion-->
 
 We here begin exploring whether copula structure may be important for 
 studies of synchrony and compensatory dynamics, and for studies
@@ -230,15 +235,18 @@ chiefly for the case of positively associated variables,
 returning to the topics of negatively 
 associated variables and compensatory population dynamics 
 in the Discussion.
+<!--***DAN: make sure to do so-->
 
 In addition to examining whether tail dependence in our data is
 asymmetric, we also test for possible causes of such patterns.
 One possible mechanism, similar to some of the mechanisms 
-explored by @Ghosh_copula, is explained for the *Ceratium* example as
+explored by @Ghosh_copula, 
+<!--***DAN: explain connections in Discussion-->
+is explained for the *Ceratium* example as
 follows. Earlier work showed that average sea surface temperature 
 is an important
 correlate of phytoplankton abundance in our data 
-[e.g., @defriez2016climate; @sheppard2017; @sheppard2019]:
+(e.g., @defriez2016climate; @sheppard2017; @sheppard2019):
 cold water is associated with more phytoplankton, likely because upwelling and 
 mixing of the surface and deeper ocean layers bring both 
 nutrients and cold water to the photic zone. 
@@ -265,7 +273,7 @@ the same potential mechanism, but the relevant driver in that case is
 winter temperature.
 
 Thus this paper focuses on whether and why population density 
-of phenological time series of co-located species may show asymmetric tail 
+or phenological time series of co-located species may show asymmetric tail 
 dependence in their associations, with a focus on positively associated variables
 because positive associations are what occured in the 
 available data. We ask these specific questions:
@@ -275,9 +283,11 @@ association? (Q2) If so, what are the causes of these patterns? We regard our in
 as a first step toward a better understanding of the potential importance of copula
 structure and tail dependence for such central ecological topics as synchrony and 
 compensatory dynamics in communities and their influence on community stability;
-and the match-mismatch hypothesis in phenology. The Discussion has several 
-additional thoughts on next steps toward this goal. The conceptual considerations
-introduced above are ample evidence, in our view, of the potential for tail
+and the match-mismatch hypothesis in phenology. The Discussion has 
+additional thoughts on next steps toward this goal. 
+<!--***DAN: make sure to do this-->
+Our results and the conceptual considerations
+introduced above are good evidence, in our view, of the potential for tail
 dependence to make a crucial difference in how ecologists understand these 
 important topics in ecology.
 
@@ -425,8 +435,17 @@ species $i,j$, as follows. $C^n(i,j)$ was not defined, or was defined to
 equal the missing-data space holder "NA", if $i=j$; or if the hypothesis
 that $s_i^n(t)$ and $s_j^n(t)$ were independent could not be rejected 
 ($5\%$ level, using the `BiCopIndepTest` in the `VineCopula` package in R);
+<!--***DAN: Shya, do you mean BiCopIndTest here? Please check, and change everywhere using a search and replace if needed,
+in both the main text and supp mat. Please also search for BiCopIndepTest in the BIVAN paper as well and change there, too, if needed.I could not find a function BiCopIndepTest in VinCopula, but I did find a BiCopIndTest.-->
 or if independence was rejected but the Kendall correlation
 <!--***Shya : in my code I used Kendall, not Spearman-->
+<!--***DAN: Shya, it seems likely it would be very easy for you to change this to Spearman and rerun.
+If it would be easy, please do it, but note the changes you make in case we have to revert back.
+If it would be hard, don't do it, come and speak to me first, letting me know why it would be hard.
+It looks weird to be using Kendall here when we have been using Spearman elsewhere. I think it will 
+make very little difference to our results if you change this, but will be awkward to explain if we leave it as is. 
+If you do it, let me know the outcome. The reason I suspect it will make no difference is I generated 1000 simulated
+datasets and computed kendall and spearman for all of them and looked how often the signs disagreed. It was only 19 times.-->
 of $s_i^n(t)$ and $s_j^n(t)$ was negative. Otherwise we defined 
 $C^n(i,j)=\cor_{0,b}(s_i^n(t),s_j^n(t))-\cor_{1-b,1}(s_i^n(t),s_j^n(t))$,
 where the partial Spearman correlations in this expression were computed
@@ -464,6 +483,7 @@ the hypothesis that $s_i^n(t)$ and $d_k^n(t)$ were independent could not
 be rejected ($5\%$ level, `BiCopIndepTest`). Otherwise, if  $s_i^n(t)$ and 
 $d_k^n(t)$ were positively associated (positive Kendall correlation)
 <!--***Shya : in my code I used Kendall, not Spearman-->, 
+<!--***DAN: see my above note about changing deom Kendall to Spearman, which applies here, too-->
 we set $D^n(i,k) = \cor_{0,b}(s_i^n(t),d_k^n(t))-\cor_{1-b,1}(s_i^n(t),d_k^n(t))$;
 and if  $s_i^n(t)$ and $d_k^n(t)$ were negatively associated, we set
 $D^n(i,k) = \cor_{0,b}(s_i^n(t),-d_k^n(t))-\cor_{1-b,1}(s_i^n(t),-d_k^n(t))$.
@@ -711,13 +731,6 @@ are colored red or blue depending on which of $F_{C,L}$ or $F_{C,R}$ had higher 
 \label{fig_CorlmCoru_ff_map_loc2_5}}
 \end{center}
 \end{figure}
-<!--***DAN: Shya, the site number on panel C for site 11 is blue, but I think it should be red
-based on the numbers in Fig. S4. Please check. Whatever bug caused 11 to be blue instead of red, 
-please don't just fix it for this one case, think about other implications the bug will have 
-had, if any, and fix it so those implications are also fixed.
-***Shya: I don't think it's a bug, Fig.S4 shows number of left and right tail dep. cells 
-whereas site codes are in red or blue color depending on values or fraction of 
-those cells (i.e. F_C,L or F_C,R) not number (N_L^n, N_R^n).-->
 
 <!--Results for Q2-->
 
@@ -752,43 +765,20 @@ common tail dependence on environmental drivers.
 <!--Para for aphids using the second method.-->
 Our second analysis using aphids, based on the statistics $\alpha_C^n(i)$ and $\alpha_D^n(i)$ (Methods),
 provided further evidence supporting our hypothesis for a cause of tail dependence between co-located
-species (Introduction). 
+species (Introduction). For 8 of 10 sampling locations, $\alpha_C^n(i)$ and $\alpha_D^n(i)$
+were significantly correlated across species, $i$ (Pearson, Fig. \ref{fig_aphid_multipanel}).
+In other words, for 8 of 10 locations, aphid species with greater left-tail (respectively,
+right-tail) dependence with winter temperature also had greater left-tail (respectively,
+right-tail) dependence with other aphid species.
 
-<!--***DAN: Shya, I do not see any reason to use Pearson in Fig. 4 and Kendall in Fig. 5. Why was this done?
-If there was a good reason to use Kendall for Fig. 5, then please add text below stating what that 
-reason is. I will incorporate the reason into the narrative. If there was no good reason, please change your 
-code so Pearson is used for Fig. 5 and let me know when that is done.
-***Shya: done.-->
-
-<!--***DAN: got to here-->
-
-We observed species synchronous responses towards biotic and/ or abiotic stress
-which transmitted similar asymmetric tail-dependence from drivers level ($A_D^n$ or $\alpha_D^n$)
-to species level ($A_C^n$ or $\alpha_C^n$). 
-We did a two-tailed correlation test between $A_C^n$ and $A_D^n$ for all selected location $n$ 
-excluding $n = 3$ (as site 3 was independent). We got significant 
-positive Pearson correlation ($0.699$)<!--caution : not automated link--> with p-value $<<0.025$, 
-which confirmed our hypothesis for (Q2) that tail-asymmetry translated from driver to species level 
-(Fig. \ref{fig_plankton_scatter}). In other words, if all \textit{Ceratium} species were 
-particularly correlated in their lower tails with their drivers, they were
-particularly correlated in their lower tails with each other, and vice versa. 
-For aphids, we considered winter average temperature as 
-the main driver $(d = 1)$ for their synchronous first flight date at a given location, $n$. 
-We tried a similar approach as of \textit{Ceratium spp.} to explain the causal mechanism for 
-asymmetric tail-dependence at species level. Since aphids were 20 different sp. which 
+<!--***DAN: text that may be useful in the Discussion when I revisit the fact that 
+results for the A_C^n A_D^n correlation were significant for plankton but not aphids:
+Since aphids were 20 different sp. which 
 varied widely in their inter-specific response and were also not expected 
 to have direct interactions as of the \textit{Ceratium} community,
 $A_S^n$ and $A_D^n$ could not illuminate the causal relationship 
-(Fig. \ref{SM-fig_aphid_scatter}, non-significant Pearson correlation with $p = 0.0678$). 
-In an alternative approach, for each of the selected 
-10 locations, we computed the Pearson correlation coefficient $(P)$ between
-$\alpha_C^n(i)$ and $\alpha_D^n(i)$, where
-$i = 1, 2, \dots ,20$ represented the species index. We found for the $i^{th}$ aphid species, the 
-tail dependence of species-temperature copula results in similar tail dependence in inter-species copula 
-for 8 out of 10 sites (based on p-value with $0.05$ significance level, Fig. \ref{fig_aphid_multipanel}),
-which answered the probable causal mechanism behind inter-species synchrony (Q2). In other words, 
-if an aphid species was particularly correlated in its lower tail with the driver, it 
-was particularly correlated in its lower tail with the other aphid species.
+(Fig. \ref{SM-fig_aphid_scatter}, non-significant Pearson correlation with $p = 0.0678$).
+-->
 
 <!--plankton and aphid scatter plots: Q2-->
 \begin{figure}[!h]
@@ -803,24 +793,23 @@ and associated $p$-values for each panel are in the headers. Points are labeled 
 numbers (see Figs \ref{SM-fig_plankton_map} and \ref{SM-fig_aphid_map}).\label{fig_plankton_scatter}}
 \end{center}
 \end{figure}
-<!--***DAN: 
-1) Shya, please make the panel labels (A) and (B) appear in the above figure in a similar way
-to how they appear in the other figures
-2) Please change the axis labels to correspond with the new notation
-***Shya: done.
--->
 
 <!--aphid multipanel plot : Q2-->
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=16 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_avg_sp_temp_multipanel_plot.pdf} 
-\caption{For 8 out of 10 sites, the Pearson correlation ($P$) between $\alpha_C^n(i)$ and $\alpha_D^n(i) ; i = 1, 2, \dots, 20$, 
-is significant (p $< 0.05$, one tailed test). This indicates asymmetric tail-dependence between species-winter
-average temperature is the reason for similar tail-dependence between the $i^{th}$ species
-and the other species.\label{fig_aphid_multipanel}}
+\caption{For 8 out of 10 sites, the Pearson correlation ($P$) between $\alpha_C^n(i)$ and $\alpha_D^n(i)$ for
+$i = 1, 2, \dots, 20$ was significantly positive (p $< 0.05$, one tailed test). This supports the
+hypothesis that tail dependence between species may be inherited from joint tail
+dependence of both species on a common environmental driver. See Table \ref{tab_plankton_aphid_info} 
+for species IDs.\label{fig_aphid_multipanel}}
 \end{center}
 \end{figure}
+<!--***DAN: Shya, it will probably cost us money to publish this as a color figure, and I would rather
+spend that money on better things; I don't think we need color here. Can you please use two different
+plotting symbols and solid and dashed lines to differentiate C and D here, instead of using red and blue?-->
 
+<!--***DAN: got to here-->
 
 # Discussion\label{Discussion}
 
