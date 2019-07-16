@@ -435,19 +435,7 @@ species $i,j$, as follows. $C^n(i,j)$ was not defined, or was defined to
 equal the missing-data space holder "NA", if $i=j$; or if the hypothesis
 that $s_i^n(t)$ and $s_j^n(t)$ were independent could not be rejected 
 ($5\%$ level, using the `BiCopIndTest` in the `VineCopula` package in R);
-<!--***DAN: Shya, do you mean BiCopIndTest here? Please check, and change everywhere using a search and replace if needed,
-in both the main text and supp mat. Please also search for BiCopIndepTest in the BIVAN paper as well and change there, too, if needed.I could not find a function BiCopIndepTest in VinCopula, but I did find a BiCopIndTest.
-***Shya: Yes, it should be BiCopIndTest, I corrected my mistake. BIVAN is fine already.-->
 or if independence was rejected but the Spearman correlation
-<!--***Shya : in my code I used Kendall, not Spearman-->
-<!--***DAN: Shya, it seems likely it would be very easy for you to change this to Spearman and rerun.
-If it would be easy, please do it, but note the changes you make in case we have to revert back.
-If it would be hard, don't do it, come and speak to me first, letting me know why it would be hard.
-It looks weird to be using Kendall here when we have been using Spearman elsewhere. I think it will 
-make very little difference to our results if you change this, but will be awkward to explain if we leave it as is. 
-If you do it, let me know the outcome. The reason I suspect it will make no difference is I generated 1000 simulated
-datasets and computed kendall and spearman for all of them and looked how often the signs disagreed. It was only 19 times.
-***Shya:done, now using Spearman.-->
 of $s_i^n(t)$ and $s_j^n(t)$ was negative. Otherwise we defined 
 $C^n(i,j)=\cor_{0,b}(s_i^n(t),s_j^n(t))-\cor_{1-b,1}(s_i^n(t),s_j^n(t))$,
 where the partial Spearman correlations in this expression were computed
@@ -484,9 +472,6 @@ as follows. $D^n(i,k)$ was not defined, or was set to NA, if
 the hypothesis that $s_i^n(t)$ and $d_k^n(t)$ were independent could not 
 be rejected ($5\%$ level, `BiCopIndTest`). Otherwise, if  $s_i^n(t)$ and 
 $d_k^n(t)$ were positively associated (positive Spearman correlation)
-<!--***Shya : in my code I used Kendall, not Spearman-->, 
-<!--***DAN: see my above note about changing deom Kendall to Spearman, which applies here, too
-***Shya : ok, now using Spearman-->
 we set $D^n(i,k) = \cor_{0,b}(s_i^n(t),d_k^n(t))-\cor_{1-b,1}(s_i^n(t),d_k^n(t))$;
 and if  $s_i^n(t)$ and $d_k^n(t)$ were negatively associated, we set
 $D^n(i,k) = \cor_{0,b}(s_i^n(t),-d_k^n(t))-\cor_{1-b,1}(s_i^n(t),-d_k^n(t))$.
@@ -780,21 +765,43 @@ Our results show that synchronous population density or phenological time series
 of co-located species can very commonly show asymmetric tail dependence. For some sampling locations
 and species, tail dependence was predominantly in the left tails, and for others it was predominantly 
 in the right tails of time series distributions. The partial Spearman correlation presented
-by @Ghosh_copula is a simple and effective measure of tail dependence for ecological applications.
-Our results also demonstrate a mechanism of asymmetric tail dependence between species: it can
+by @Ghosh_copula is a simple and effective way to measure tail dependence for ecological applications.
+Our results also demonstrate a mechanism by which asymmetric tail dependence between species
+can arise: it can
 be inherited by joint tail dependence of the two species on the same environmental variables.
 This mechanisms seems likely to apply commonly when co-located species are influenced by the
 same external factors. Our results convincingly show that standard correlation approaches 
-omit phenomena that seem likely to be important at least for two major topics of interest in ecology:
+omit phenomena that seem likely to be important for at least two major topics of interest in ecology:
 synchronous/compensatory dynamics of species within a community and their influence on 
-community stability; and shifting phenologies and the match-mismatch hypothesis. We revisit 
-these connections below.
+community stability; and shifting phenologies and the match-mismatch hypothesis. 
 
-<!--P: 2) Interpretation of whole chain of causal events for aphids-->
+<!--P: Interpretations and consequences of patterns for Ceratium-->
+The distinct tail dependence characteristics of *Ceratium* in different areas 
+may have consequences for the stability through time of total *Ceratium* abundance,
+which may relate to red tides because *Ceratium* species have a role in red tides.
+For locations in which left-tail dependence between *Ceratium* density time series
+is dominant, *Ceratium* species are scarce simultaneously,
+potentially producing years of extremely low total *Ceratium* biomass.
+For locations in which right-tail dependence is dominant, *Ceratium*
+species are highly abundant simulataneously, which may produce 
+years of extremely high *Ceratium* biomass, which may sometimes correspond to red tides.
+Our results show the distinction between the types of locations relates to the
+tail dependence of *Ceratium* species with their environmental covariates,
+sea surface temperature and *C. finmarchicus* density. It may be useful to study
+in future work by some locations principally have left-tail dependence with these
+drivers and some principally have right-tail dependence. 
 
-
-<!--P: 3) Same for Ceratium, if possible - see line 612 of main text-->
-
+<!--P: same for aphids-->
+First-flight time series for populations of co-located aphid species were principally 
+right-tail dependent, i.e., more strongly correlated when first flights were later in the
+season. Our results show this was probably because: cold winters delay aphid first flights,
+but warm winters do not lead to earlier first flights, on average, than do moderate winters,
+producing right-tail dependence between first flights and winter coldness across multiple species;
+this common dependence led to right-tail dependence between aphids. Thus winter temperature
+fluctuations lead to dispersed early but coordinated late arrival times of aphid
+species, a fact that may have pest-control significance. Winter temperature is known to 
+influence the first-flight dates of virtually all the aphid species for which we had data
+[@sheppard2016].
 
 <!--P: 4) consequences of tail dependence in spatial synchrony as studied in BIVAN (skewness stuff), links to similar idea for community dynamics, and that is a reason what we have done is important-->
 
