@@ -748,8 +748,8 @@ species (Introduction).
 
 <!--***DAN: Shya, I do not see any reason to use Pearson in Fig. 4 and Kendall in Fig. 5. Why was this done?
 If there was a good reason to use Kendall for Fig. 5, then please add text below stating what that 
-reason is. If there was no good reason, please change you code so Pearson is used for Fig. 5 and let me know
-when that is done.-->
+reason is. I will incorporate the reason into the narrative. If there was no good reason, please change your 
+code so Pearson is used for Fig. 5 and let me know when that is done.-->
 
 <!--***DAN: got to here-->
 
