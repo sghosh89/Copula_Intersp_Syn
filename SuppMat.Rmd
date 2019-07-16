@@ -824,22 +824,22 @@ for(loc in 1:length(LTmUTdep_matlist_ff)){
   nt<-nrow(t)
   t<-t[,1]/t[,2]
   t<-sum(t>0,na.rm=T)
-  plot(c(1:20),avg_s,type="b",col="red",cex=4,pch=16,ylim = ylim, 
+  plot(c(1:20),avg_s,type="b",col="black",cex=4,pch=16,ylim = ylim, lty="longdash",
        ylab=expression(alpha[X]^n*(i)),cex.lab=12,cex.axis=8,xlab="",xaxt="n")
   axis(side = 1, at = seq(from=1,to=20,by=1), cex.axis=8, line=NA,padj=0.8)
   mtext((expression(i^th * species)), side=1, line=18, col="black", cex=7)
   #mtext(paste("loc=",loc,", s.sign=",t," out of",nt,", tau=",round(tau,2),", p=",round(pval,3)),cex=3.5)
   mtext(paste("P =",round(tau,2),", p=",formatC(pval,3,format="f")),cex=6,side=3, line=1.5) #pval rounded upto 3digits to show
   mtext(paste("n = ",ff_selected_loc[loc],sep=""),cex=6,side=3,line=-7,adj=0.06)
-  points(c(1:20),s_temp,type="b",col="blue",cex=4,pch=16)
-  lines(c(1,20),c(0,0),type='l',lty='dashed')
+  points(c(1:20),s_temp,type="b",col="grey",cex=4,pch=17)
+  lines(c(1,20),c(0,0),type='l',lty='dotted',lwd=0.5)
   #legend("topleft", legend=c("avg_sp", "sp-temp"),
   #       col=c("red", "blue"), pch=c(16,16),cex=3.5,horiz=T,bty="n")
 }
 #op2<-par(fig = c(0, 1, 0, 1), oma = c(0, 0, 0, 0), mar = c(0, 1, 0, 0), new = TRUE)
 plot(0, 0, type = "n", bty = "n", xaxt = "n", yaxt = "n")
-legend("center", c("X = C", "X = D"), col = c("red","blue"),bty="n",
-       cex = 9, pch = c(16, 16), lty=c(1,1), xpd = TRUE, horiz = F, inset = c(0.06,0.05)) 
+legend("center", c("X = C", "X = D"), col = c("black","grey"),bty="n",
+       cex = 9, pch = c(16, 17), lty=c(5,1), xpd = TRUE, horiz = F, inset = c(0.06,0.05)) 
 par(op)
 dev.off()
 ```

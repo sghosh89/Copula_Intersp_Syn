@@ -434,10 +434,11 @@ by defining $C^n(i,j)$ for two aphid or *Ceratium*
 species $i,j$, as follows. $C^n(i,j)$ was not defined, or was defined to
 equal the missing-data space holder "NA", if $i=j$; or if the hypothesis
 that $s_i^n(t)$ and $s_j^n(t)$ were independent could not be rejected 
-($5\%$ level, using the `BiCopIndepTest` in the `VineCopula` package in R);
+($5\%$ level, using the `BiCopIndTest` in the `VineCopula` package in R);
 <!--***DAN: Shya, do you mean BiCopIndTest here? Please check, and change everywhere using a search and replace if needed,
-in both the main text and supp mat. Please also search for BiCopIndepTest in the BIVAN paper as well and change there, too, if needed.I could not find a function BiCopIndepTest in VinCopula, but I did find a BiCopIndTest.-->
-or if independence was rejected but the Kendall correlation
+in both the main text and supp mat. Please also search for BiCopIndepTest in the BIVAN paper as well and change there, too, if needed.I could not find a function BiCopIndepTest in VinCopula, but I did find a BiCopIndTest.
+***Shya: Yes, it should be BiCopIndTest, I corrected my mistake. BIVAN is fine already.-->
+or if independence was rejected but the Spearman correlation
 <!--***Shya : in my code I used Kendall, not Spearman-->
 <!--***DAN: Shya, it seems likely it would be very easy for you to change this to Spearman and rerun.
 If it would be easy, please do it, but note the changes you make in case we have to revert back.
@@ -445,7 +446,8 @@ If it would be hard, don't do it, come and speak to me first, letting me know wh
 It looks weird to be using Kendall here when we have been using Spearman elsewhere. I think it will 
 make very little difference to our results if you change this, but will be awkward to explain if we leave it as is. 
 If you do it, let me know the outcome. The reason I suspect it will make no difference is I generated 1000 simulated
-datasets and computed kendall and spearman for all of them and looked how often the signs disagreed. It was only 19 times.-->
+datasets and computed kendall and spearman for all of them and looked how often the signs disagreed. It was only 19 times.
+***Shya:done, now using Spearman.-->
 of $s_i^n(t)$ and $s_j^n(t)$ was negative. Otherwise we defined 
 $C^n(i,j)=\cor_{0,b}(s_i^n(t),s_j^n(t))-\cor_{1-b,1}(s_i^n(t),s_j^n(t))$,
 where the partial Spearman correlations in this expression were computed
@@ -480,10 +482,11 @@ for a *Ceratium* location). We then defined $D^n$ by defining
 $D^n(i,k)$ for an aphid or *Ceratium* species $i$ and a covariate $k$,
 as follows. $D^n(i,k)$ was not defined, or was set to NA, if 
 the hypothesis that $s_i^n(t)$ and $d_k^n(t)$ were independent could not 
-be rejected ($5\%$ level, `BiCopIndepTest`). Otherwise, if  $s_i^n(t)$ and 
-$d_k^n(t)$ were positively associated (positive Kendall correlation)
+be rejected ($5\%$ level, `BiCopIndTest`). Otherwise, if  $s_i^n(t)$ and 
+$d_k^n(t)$ were positively associated (positive Spearman correlation)
 <!--***Shya : in my code I used Kendall, not Spearman-->, 
-<!--***DAN: see my above note about changing deom Kendall to Spearman, which applies here, too-->
+<!--***DAN: see my above note about changing deom Kendall to Spearman, which applies here, too
+***Shya : ok, now using Spearman-->
 we set $D^n(i,k) = \cor_{0,b}(s_i^n(t),d_k^n(t))-\cor_{1-b,1}(s_i^n(t),d_k^n(t))$;
 and if  $s_i^n(t)$ and $d_k^n(t)$ were negatively associated, we set
 $D^n(i,k) = \cor_{0,b}(s_i^n(t),-d_k^n(t))-\cor_{1-b,1}(s_i^n(t),-d_k^n(t))$.
@@ -767,7 +770,8 @@ for species IDs.\label{fig_aphid_multipanel}}
 \end{figure}
 <!--***DAN: Shya, it will probably cost us money to publish this as a color figure, and I would rather
 spend that money on better things; I don't think we need color here. Can you please use two different
-plotting symbols and solid and dashed lines to differentiate C and D here, instead of using red and blue?-->
+plotting symbols and solid and dashed lines to differentiate C and D here, instead of using red and blue?
+***Shya: see modified fig.-->
 
 # Discussion\label{Discussion}
 

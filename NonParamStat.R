@@ -150,7 +150,7 @@ multcall<-function(d_allsp,loc,pfname,good_sp,nbin,npa_stats){
   colnames(D2u) <- colnames(spear)
   rownames(D2u) <-rownames(spear)
   
-  tau_kend<-spear
+  corval<-spear
   pval_BiCopIndep<-spear
   
   #------------------- PLOT :  copula_for_all_sp pair ----------------
@@ -168,7 +168,7 @@ multcall<-function(d_allsp,loc,pfname,good_sp,nbin,npa_stats){
       ms<-vivj_matrix(d_allsp=d_allsp,loc=loc,i=i,j=j,level=0.05,ploton=F,onbounds=F,lb=NA,ub=NA)
       m<-ms$mat
       
-      tau_kend[ii,jj]<-ms$tauval
+      corval[ii,jj]<-ms$corval
       pval_BiCopIndep[ii,jj]<-ms$IndepTestRes
       
       thisres<-copsync(m,nbin=nbin,npa_stats=npa_stats)
@@ -232,7 +232,7 @@ multcall<-function(d_allsp,loc,pfname,good_sp,nbin,npa_stats){
   
   level<-0.05
   posnI<-which(pval_BiCopIndep>=level, arr.ind = T) #indices of indep. pair
-  posnN<-which(pval_BiCopIndep<level & tau_kend <0, arr.ind = T) #indices of significantly neg. correlated pair
+  posnN<-which(pval_BiCopIndep<level & corval <0, arr.ind = T) #indices of significantly neg. correlated pair
   
   if(npa_stats=="cor"){
     res<-list(spear=spear,kend=kend,
