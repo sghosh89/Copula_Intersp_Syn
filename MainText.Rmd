@@ -492,8 +492,6 @@ $d_k^n(t)$ was winter temperature in location $n$, associations between
 $s_i^n(t)$ and $d_k^n(t)$ were always negative when they were significant
 (see Results). The same was true for *Ceratium* density time series and
 sea surface temperature. 
-<!--***DAN: make sure to explicitly re-mention these facts in the Results,
-when you actually get those results-->
 Thus our practice of using $-d_k^n(t)$ was
 equivalent, in the case of temperature variables, to using a "coldness"
 index such as the number of degrees colder than an average 
@@ -559,7 +557,6 @@ when it was negatively associated with a *Ceratium* or aphid species, and that
 no covariate was ever significantly positively associated with some 
 *Ceratium* or aphid species and significantly negatively associated with another
 such species in the same location (see Results).
-<!--***DAN: make sure you explicitly return to this in the Results-->
 
 We also answered Q2 for the aphid data as follows. Within a location, $n$, for each species,
 $i$, we computed the sum $\alpha^n_C(i)$ of all non-NA entries $C^n(i,j)$, for 
@@ -582,31 +579,12 @@ time series that were more right-tail (respectively, left-tail) dependent with
 the time series of other species in the location. Recall that
 winter temperature was always negatively associated with aphid first flight
 when it was significantly associated (see Results), 
-<!--***DAN: make sure to explicitly return to this in the Results-->
 and negative temperature (a coldness index) was used in computing $D^n(i,k)$.
 Testing whether $\alpha^n_C(i)$ and $\alpha^n_D(i)$ were correlated across
 species, $i$, within a location, $n$, was not practical for *Ceratium*,
 because we only had data for at most four *Ceratium* species per sampling
 location, an insufficient number to provide much statistical power
 in testing for a correlation. 
-
-<!--***DAN: Need to say in the Discussion why the correlation across locations
-results may be marginally signif for aphids, which may have to do with the test
-being no great for aphids. Here some text, taken from other places, that may be useful
-when you come to do that:
--We also tested, 
-for the aphid data, whether $A_C^n$ and $A_D^n$ were 
-correlated across locations, finding only a marginally significant correlation 
-(see Results). But this
-test is less suitable for the aphid data than it is for the *Ceratium* data, 
-for reasons elaborated in the Discussion.
--This 
-approach was better when we examined behaviour of fewer but similar species, like the four \textit{Ceratium spp.} 
-of dinoflagellate class.
-- Our second approach was more suitable when 
-there were several species coming from different genus, so expected to show more variation
-in inter-species response, as we will see with aphid (20 species) first flight data. 
--->
 
 # Results\label{Results}
 
@@ -654,15 +632,6 @@ locations had a preponderance of right-tail dependence, with only a few location
 having more left-tail dependence, and those only slightly more. Thus, for most locations,
 aphid first flights are more correlated across species when first flights are 
 later than average.
-
-<!--***DAN: Some text that I cut from the Results but might be good for the Discussion:
-Major asymmetric tail-dependence 
-observed with one set of population data (plankton)
-and one set of phenological data (aphids first flight) answered (Q1), indicating that inter-specific 
-synchrony is not well described by standard correlation metrics, as these 
-obscure the fact that species may be simultaneously rare, or simultaneously 
-common, with the same resultant correlation coefficient.
--->
 
 <!--plankton plots : Q1-->
 \begin{figure}[!h]
@@ -771,15 +740,6 @@ In other words, for 8 of 10 locations, aphid species with greater left-tail (res
 right-tail) dependence with winter temperature also had greater left-tail (respectively,
 right-tail) dependence with other aphid species.
 
-<!--***DAN: text that may be useful in the Discussion when I revisit the fact that 
-results for the A_C^n A_D^n correlation were significant for plankton but not aphids:
-Since aphids were 20 different sp. which 
-varied widely in their inter-specific response and were also not expected 
-to have direct interactions as of the \textit{Ceratium} community,
-$A_S^n$ and $A_D^n$ could not illuminate the causal relationship 
-(Fig. \ref{SM-fig_aphid_scatter}, non-significant Pearson correlation with $p = 0.0678$).
--->
-
 <!--plankton and aphid scatter plots: Q2-->
 \begin{figure}[!h]
 \begin{center}
@@ -809,21 +769,48 @@ for species IDs.\label{fig_aphid_multipanel}}
 spend that money on better things; I don't think we need color here. Can you please use two different
 plotting symbols and solid and dashed lines to differentiate C and D here, instead of using red and blue?-->
 
-<!--***DAN: got to here-->
-
 # Discussion\label{Discussion}
 
-<!--summary results-->
-We found  substantial inter-specific synchrony with asymmetric tail-dependence between different 
-species sharing the same location through time.  With two long-term spatio-temporal 
-datasets from two different taxa, we showed partial-Spearman correlation 
-estimates at extreme tails of copulas could be used as a simple tool to study dependence 
-interactions between species. We also analyzed the probable causal mechanism of observed asymmetric 
-tail-dependence. We hypothesized asymmetric interactions (biotic/ abiotic) of species with its 
-environmental drivers which transmitted similar tail-dependence through the inter-species level. We 
-verified our hypothesis with two alternative approaches for plankton and aphids, respectively. We think 
-our approaches could be useful in investigating inter-species dependence structures for more
-complex systems like foodwebs with multiple trophic interactions.
+<!--P: summary of answers to Qs-->
+Our results show that synchronous population density or phenological time series
+of co-located species can very commonly show asymmetric tail dependence. For some sampling locations
+and species, tail dependence was predominantly in the left tails, and for others it was predominantly 
+in the right tails of time series distributions. The partial Spearman correlation presented
+by @Ghosh_copula is a simple and effective measure of tail dependence for ecological applications.
+Our results also demonstrate a mechanism of asymmetric tail dependence between species: it can
+be inherited by joint tail dependence of the two species on the same environmental variables.
+This mechanisms seems likely to apply commonly when co-located species are influenced by the
+same external factors. Our results convincingly show that standard correlation approaches 
+omit phenomena that seem likely to be important at least for two major topics of interest in ecology:
+synchronous/compensatory dynamics of species within a community and their influence on 
+community stability; and shifting phenologies and the match-mismatch hypothesis. We revisit 
+these connections below.
+
+<!--P: 2) Interpretation of whole chain of causal events for aphids-->
+
+
+<!--P: 3) Same for Ceratium, if possible - see line 612 of main text-->
+
+
+<!--P: 4) consequences of tail dependence in spatial synchrony as studied in BIVAN (skewness stuff), links to similar idea for community dynamics, and that is a reason what we have done is important-->
+
+
+<!--P: 5) our results were sufficient to show tail dependence can be an important factor in commuity dynamics, but we need to consider compensatory dynamics as well, and need to use datasets that actually represent a whole community, e.g., grassland data - future work linking to community dynamics and stability-->
+
+
+<!--P: 6) although our aphid results were sufficient to demo that tail dependence can be an important factor in the phenology of co-located species, and therefore *may* be an important factor for understanding shifting phenologies and their consequences, fuller application to match-mismatch will require future work using species which interact.
+  a) our aphid species have largely different hosts, so don't really interact
+  b) think about further commentary
+  c) When you present items 5 and 6 here, you will have to cause the reader to think back to your statement in the Intro that our results are just a first step toward the goals which were outlined there (i.e., copulas in community dynamics and phenology studies)-->
+  
+  
+  
+<!--P: 7) para on how to deal with negatively associated variables in future work
+  a) <!--***DAN: in the Discussion, make sure to talk about how studying asymmetry of 
+tail dependence for negative associations is complicated by the fact that
+it can depend on the arbitrary ordering of the two variables.-->
+
+
 
 <!--why aphids showing more upper tail dep. like in fig1e, rather than 1c?-->
 We found aphids were more common with synchronous late arrival (upper tail dependence;
