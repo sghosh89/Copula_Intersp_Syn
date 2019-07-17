@@ -878,16 +878,17 @@ and the left tail of $v$.
 <!--what extra info do you get by monitoring tail dep. for plankton?-->
 Measures of tail dependence may also reveal useful information about 
 freshwater plankton ecosystems and harmful algal blooms. 
-As phytoplankton species exhibit diverse responses to changes in temperature or to
-changes in lake nutrient levels, and because blooms are extreme phenomena involving multiple species, 
-monitoring the mutual dependence of phytoplankton species with each other in the
+Because blooms are extreme phenomena involving multiple species, 
+monitoring the associations of phytoplankton species with each other and 
+their dependencies on 
+temperature and nutrient data in the
 extremes (this is tail dependence)
 could help us to better understand harmful blooms. Considering tail dependence
 may even produce improvements in statistics that have been 
 developed to serve as early warning signals of impending major changes in plankton
 communities and the lakes they inhabit [@guttal2008changing; @carpenter2011early; @butitta2017spatial], 
 since some established early warning statistics
-make use of skewness of population distributions, and tail dependence between
+make use of skewness of population distributions. Tail dependence between
 phytoplankton species is related to skewness of the total phytoplankton biomass
 time series, as described above.
 
