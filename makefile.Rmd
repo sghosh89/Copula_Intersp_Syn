@@ -1,6 +1,6 @@
 ---
 title: "Aphid/plankton makefile, compiliation notes"
-author: "Daniel Reuman, Shyamolina Ghosh"
+author: "Reuman, Sheppard, Reid, Ghosh"
 date: ""
 output: pdf_document
 params: 
