@@ -890,7 +890,25 @@ synchronous and some show compensatory dynamics.
   a) <!--***DAN: in the Discussion, make sure to talk about how studying asymmetry of 
 tail dependence for negative associations is complicated by the fact that
 it can depend on the arbitrary ordering of the two variables.-->
-
+Studying asymmetry of tail dependence for negative associations between species density time 
+series will require modified methods. The only negative association between species time series
+that occurred in our system was not analyzed. Negative associations between species time series and 
+the environmental covariates we considered were handled
+statistically by considering the positive association between the species time
+series and a "reversed" covariate (its negative); this corresponds to a positive 
+association with a reconceptualized covariate, e.g., a "coldness" index.
+But that approach makes no conceptual sense for negatively 
+associated time series of two species:
+there is no cannonical choice of which variable to reverse. Asymmetry of tail
+dependence can still be considered for negatively associated variables, $u,v$, 
+in an unsigned approach, via the absolute value
+of our index $\cor_{0,b}(u,-v)-\cor_{1-b,1}(u,-v)$. Because
+$|\cor_{0,b}(u,-v)-\cor_{1-b,1}(u,-v)|=|\cor_{0,b}(-u,v)-\cor_{1-b,1}(-u,v)|$,
+no choice need be made on which variable to "reverse."
+A large value of this index indicates that tail dependence between $u$ and $v$ is asymmetric,
+though it does not provide information on whether dependence is stronger between
+the left tail of $u$ and the right tail of $v$ or between the right tail of $u$
+and the left tail of $v$. 
 
 <!--P: 6) although our aphid results were sufficient to demo that tail dependence can be an important factor in the phenology of co-located species, and therefore *may* be an important factor for understanding shifting phenologies and their consequences, fuller application to match-mismatch will require future work using species which interact.
   a) our aphid species have largely different hosts, so don't really interact
@@ -922,7 +940,7 @@ Lawrenec by emailing or talking to him as he is not likely to read this comment.
 We thank James Bell of the Rothamsted Insect Survey (RIS). The RIS, a UK Capability,
 is funded by the Biotechnology and Biological Sciences Research Council under the Core
 Capability Grant BBS/E/C/000J0200. SG, LWS and DCR were partly funded by US National Science
-Foundation grant 1714195 and the James S McDonnell Foundation.  
+Foundation grants 1714195 and 1442595 and the James S McDonnell Foundation.  
 
 
 
