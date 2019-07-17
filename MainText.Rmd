@@ -42,7 +42,7 @@ seed<-101
 
 \newpage
 
-\noindent \textbf{ABSTRACT} 
+# Abstract 
 <!--200 words limit : J Am Nat, 350 words for J. animal eco.-->
 Standard methods for studying the association between two ecologically important variables
 provide only a small slice of the information content of the association, but
@@ -66,9 +66,9 @@ of association such as correlation do not take this asymmetry into account. Like
 positively associated fluctuations in the phenology of co-located species 
 also commonly show asymmetric tail dependence. We provide evidence that tail dependence
 between two or more species population density or phenology time series can be inherited
-from mutual tail dependence of these quantities with an environmental driver. 
+from mutual tail dependence of these quantities on an environmental driver. 
 We argue that our understanding of commuity dynamics and stability, and of
-interacting phenologies, can be substantially improved in future work by taking into
+phenologies of interacting species, can be substantially improved in future work by taking into
 account tail dependence. 
 
 \noindent \textbf{\textit{Keywords:}} tail dependence, copula, inter-species synchrony, aphids, plankton
@@ -790,40 +790,6 @@ sea surface temperature and *C. finmarchicus* density. It may be useful to study
 in future work why some locations principally have left-tail dependence with these
 drivers and some principally have right-tail dependence.
 
-<!--what extra info do you get by monitoring tail dep. for plankton?-->
-<!--***DAN: Shya, I commented the below paragraph you wrote because it needs references if
-it is to be included. There are some good reflections in the para, but there are a lot of 
-statements made that need to be substantiated,
-and one way to do that is adding references. I encourage you to work on this paragraph
-to substantiate the statements made, by adding references and perhaps in other ways, and
-once it is improved in that way we can add it back in by uncommenting it. I have also
-put in some comments for your consideration.-->
-<!--***Shya: I edited the following para, please check if it works or not-->
-Monitoring tail dependence (a measure of "synchrony") could reveal interesting information about 
-freshwater plankton ecosystem. We expect our resuts to generalize to other plankton systems
-subject to limiting factors. In many freshwater lakes algal-productivity is limited by the availability 
-of inorganic phosphorus [@schindler2006recent], which may reflect left tail dependence (stronger association
-between smaller values) in a copula made of plankton abundance and phosphorous level. 
-But excessive fertilizers (through sewage or agricultural runoff) beyond a threshold 
-can catalyze plankton-growth. It is interesting to study, whether this  excess P level 
-could alter the tail dependence from left to right tail significantly. However, if the lake water is 
-first well fertilized with phosphate, its productivity could then respond 
-to nitrate addition, indicating that this source of inorganic nitrogen 
-could be the secondary limiting factor [@elser1990phosphorus].
-Phytoplankton bloom, an ecosystem-level perturbation, occurs when compensatory dynamics 
-between perturbation-sensitive phytoplankton and perturbation-tolerant taxa
-become weak and so dramatic changes occur in the total
-biomass on aggregate level. As 
-phytoplankton communities are diverse in response to change
-in the nutrient level in a lake, monitoring their individual dynamics through copula approaches 
-could help to better understand the phytoplankton-resilience on the community level and 
-even could be used as an "early warning signal" before the actual bloom occurs. Skewness based measure
-was already used as an early warning signal in different ecosystem including 
-lakes [@guttal2008changing; @carpenter2011early; @butitta2017spatial] and as tail-dependence 
-is related to skewness (discussed later), we think it is worth to study in future how monitoring tail dependence 
-can predict for any regime shift or spatial bloom as an early warning signal.
-
-
 <!--P: same for aphids-->
 First-flight time series for populations of co-located aphid species were principally 
 right-tail dependent, i.e., more strongly correlated when first flights were later in the
@@ -908,6 +874,22 @@ A large value of this index indicates that tail dependence between $u$ and $v$ i
 though it does not provide information on whether dependence is stronger between
 the left tail of $u$ and the right tail of $v$ or between the right tail of $u$
 and the left tail of $v$. 
+
+<!--what extra info do you get by monitoring tail dep. for plankton?-->
+Measures of tail dependence may also reveal useful information about 
+freshwater plankton ecosystems and harmful algal blooms. 
+As phytoplankton species exhibit diverse responses to changes in temperature or to
+changes in lake nutrient levels, and because blooms are extreme phenomena involving multiple species, 
+monitoring the mutual dependence of phytoplankton species with each other in the
+extremes (this is tail dependence)
+could help us to better understand harmful blooms. Considering tail dependence
+may even produce improvements in statistics that have been 
+developed to serve as early warning signals of impending major changes in plankton
+communities and the lakes they inhabit [@guttal2008changing; @carpenter2011early; @butitta2017spatial], 
+since some established early warning statistics
+make use of skewness of population distributions, and tail dependence between
+phytoplankton species is related to skewness of the total phytoplankton biomass
+time series, as described above.
 
 <!--P: 6) although our aphid results were sufficient to demo that tail dependence can be an important factor in the phenology of co-located species, and therefore *may* be an important factor for understanding shifting phenologies and their consequences, fuller application to match-mismatch will require future work using species which interact.
   a) our aphid species have largely different hosts, so don't really interact
