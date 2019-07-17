@@ -912,7 +912,7 @@ from multiple trophic levels of @Thackery2010.
 <!--P: Link back to copulas, and conclude-->
 Our results extend the results of @Ghosh_copula. Those authors argued that considering 
 copulas and tail dependence can provide insights across the field of ecology.
-But @Ghosh_copulas did not consider co-located species, a context important for
+But @Ghosh_copula did not consider co-located species, a context important for
 community ecology. Our results provide evidence that a copula approach, focusing on tail dependence,
 is likely to provide additional insight into two major topics of inquiry in ecology.
 
