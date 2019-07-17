@@ -44,35 +44,34 @@ seed<-101
 
 \noindent \textbf{ABSTRACT} 
 <!--200 words limit : J Am Nat, 350 words for J. animal eco.-->
-<!--***DAN: Dan has not edited the abstract yet-->
-A recent study [@Ghosh_copula] showed the potential uses of copula methods in examining
-"spatial synchrony" between metapopulations. 
-We used this copula concept to estimate synchronous and/ or compensatory
-responses between different species which shared 
-the same environment. We applied a partial-Spearman correlation based approach
-to measure left and right tail-dependence
-between two variables at their extreme left and higher values, respectively. 
-Stronger dependence in either tail of the joint distribution of 
-two associated species' time-series from the same 
-location leads to corresponding asymmetry in inter-specific relationships. 
-With two long-term spatio-temporal datasets (\textit{Ceratium spp.} abundance data and 
-aphids first flight data), we showed overall asymmetric tail-dependence is a common feature of 
-inter-specific synchrony within a community, when we considered all combinations of species-pairs.
-We investigated whether this asymmetry at species level was due to similar 
-asymmetric tail-dependence of the species in response to their biotic and/ or abiotic drivers.
-We considered the abundance of the generalist predator 
-\textit{Calanus finmarchicus} and growing season temperature as two key drivers 
-which shaped the phytoplankton community, whereas aphids 
-first flight dates were influenced by average winter temperature. With a non-species-specific approach for \textit{Ceratium spp.} and and a species-specific apprroach to aphids, we found 
-significant correlation between asymmetric tail-dependence of species-driver copulas
-and species-species copulas, which explained the probable causal mechanism 
-behind such commonly found asymmetric inter-specific response. 
+Standard methods for studying the association between two ecologically important variables
+provide only a small slice of the information content of the association, but
+methods are available, based on *copulas*, that provide comprehensive information.
+In particular, copula approaches can reveal
+*tail dependence*, i.e., accentuated or reduced associations between the more extreme values of variables.
+We here study the nature and causes of tail dependence
+between phenological or population-density variables of co-located species. 
+We employ a simple method of measuring tail dependence called the *partial Spearman correlation*.
+Using multidecadal, multi-species spatiotemporal datasets on aphid first flights and marine 
+phytoplankton population densities, we assess the potential for tail dependence
+to illuminate two major topics of study in community ecology: the stability or instability of
+aggregate community measures such as total community biomass and its relationship
+with the synchronous or compensatory dynamics of the community's constituent species;
+and the potential for fluctuations and trends in species phenology to
+result in trophic mismatches. We find that positively associated fluctuations
+in the population densities of co-located species commonly show asymmetric tail 
+dependence in their association, i.e., it is common for two species' densities
+to be more correlated when large than when small, or vice versa. Ordinary measures
+of association such as correlation do not take this asymmetry into account. Likewise, 
+positively associated fluctuations in the phenology of co-located species 
+also commonly show asymmetric tail dependence. We provide evidence that tail dependence
+between two or more species population density or phenology time series can be inherited
+from mutual tail dependence of these quantities with an environmental driver. 
+We argue that our understanding of commuity dynamics and stability, and of
+interacting phenologies, can be substantially improved in future work by taking into
+account tail dependence. 
 
 \noindent \textbf{\textit{Keywords:}} tail dependence, copula, inter-species synchrony, aphids, plankton
-
-
-<!--\noindent\makebox[\linewidth]{\rule{\columnwidth}{1pt}}
-\normalsize-->
 
 \newpage 
 
@@ -278,8 +277,8 @@ dependence in their associations, with a focus on positively associated variable
 because positive associations are what occured in the 
 available data. We ask these specific questions:
 (Q1) do synchronous/positively associated population density or phenological time series
-of different co-located species commonly show asymmetric tail dependence in the
-association? (Q2) If so, what are the causes of these patterns? We regard our investigation
+of different co-located species commonly show asymmetric tail dependence in their
+associations? (Q2) If so, what are the causes of these patterns? We regard our investigation
 as a first step toward a better understanding of the potential importance of copula
 structure and tail dependence for such central ecological topics as synchrony and 
 compensatory dynamics in communities and their influence on community stability;
@@ -924,8 +923,12 @@ blue tits (*P. caeruleus*) collected in Wytham Woods, Oxford, and other location
 (e.g., @Nilsson2006, @Savill2011, @Cole2017), or the extensive data collection 
 from multiple trophic levels of @Thackery2010.
 
-<!--P: Concluding para, somehow? Or just end it?-->
-
+<!--P: Link back to copulas, and conclude-->
+Our results extend the results of @Ghosh_copula. Those authors argued that considering 
+copulas and tail dependence can provide insights across the field of ecology.
+But @Ghosh_copulas did not consider co-located species, a context important for
+community ecology. Our results provide evidence that a copula approach, focusing on tail dependence,
+is likely to provide additional insight into two major topics of inquiry in ecology.
 
 # Acknowledgments
 
@@ -938,10 +941,6 @@ We thank James Bell of the Rothamsted Insect Survey (RIS). The RIS, a UK Capabil
 is funded by the Biotechnology and Biological Sciences Research Council under the Core
 Capability Grant BBS/E/C/000J0200. SG, LWS and DCR were partly funded by US National Science
 Foundation grants 1714195 and 1442595 and the James S McDonnell Foundation.  
-
-
-
-
 
 <!--Table with species info -->
 ```{r tab_plankton_aphid_info, echo=F, results='asis',message=F}
@@ -976,18 +975,6 @@ knitr::kable(plankton_aphid_info, "latex", booktabs = T, linesep = "",align="c",
       group_rows("Aphids", 5,24) %>%
       column_spec(column = 2,italic=T)%>%add_header_above(header=c("Species id" = 1, "Latin binomial" = 1))
 ```
-
-
-
-
-
-
-
-
-
-
-
-
 
 \clearpage
 
