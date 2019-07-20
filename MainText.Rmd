@@ -819,9 +819,9 @@ spatial-total time series $\sum_l x_{s,l}(t)$ is sensitive to the nature of tail
 the $x_{s,l}(t)$ ($l=1,\ldots,L$), if these time series are positively associated with each other. Right-tail 
 (respectively, left-tail) dependence tended to produce right (respectively, left) skew in the total.
 Right skew corresponds to a spatial-total time series with exceptionally large values, 
-i.e., to "spiky," unstable dynamics of the total population. Left skew 
+i.e., to "spiky", unstable dynamics of the total population. Left skew 
 corresponds to a spatial-total time series with low values, i.e., to dynamics of the total
-population with a tendency to "crash." The total population can
+population with a tendency to "crash". The total population can
 be regarded as a landscape-level measure of the stability or variability of species 
 $s$, and is important, for instance, if species $s$ is a pest or an exploited species.
 For the same reasons,
@@ -831,7 +831,7 @@ which we have here studied. Right-tail
 (respectively, left-tail) dependence again tends to produce right (respectively, left) skew in the total
 time series.
 In this community context, the total is an aggregate property of the community, and the variability of
-this total has been used in an extensive literature (e.g., @hallett2014) to characterize community stability 
+this total has been used in an extensive literature [e.g., @hallett2014] to characterize community stability 
 through time. This literature has explored the effects of synchronous versus compensatory
 dynamics in the $x_{s,l}(t)$ ($s=1,\ldots,S$) on the stability of the total community time series,
 $\sum_s x_{l,s}(t)$. But our results show that, even if all the species time series 
@@ -906,7 +906,7 @@ other species in our dataset. Future research should apply tail dependence to
 time series of phenologies of interacting species, such as the data on tree budburst dates, 
 caterpillar abundance, and breeding phenology of great tits (*Parsus major*) and 
 blue tits (*P. caeruleus*) collected in Wytham Woods, Oxford, and other locations in Europe
-(e.g., @Nilsson2006, @Savill2011, @Cole2017), or the extensive data collection 
+[e.g., @Nilsson2006; @Savill2011; @Cole2017], or the extensive data collection 
 from multiple trophic levels of @Thackery2010.
 
 <!--P: Link back to copulas, and conclude-->
