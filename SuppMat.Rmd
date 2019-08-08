@@ -175,7 +175,7 @@ for(loc in 1:26){
 }
 #------------------------------
 
-loc_ts_n<-which(locwise_n$n>=36)  # screen location based on 1st threshold : check on n
+loc_ts_n<-which(locwise_n$n>35)  # screen location based on 1st threshold : check on n
 
 #min_n<-min(locwise_n$n[loc_ts_n]) # minimum number of data points among all locations after 1st threshold
 
@@ -794,7 +794,7 @@ for(loc in c(1:length(x))){
 pdf("./Results/aphid_results/ff_npa_stat_results/Corstat_scatter_LmU_values.pdf",height=8,width=8)
 op<-par(mar=c(7,8, 4.1, 2), mgp=c(4, 1, 0))
 plot(xx,yy,xlab=expression(A[D]^n),ylab=expression(A[C]^n),col=rgb(0,0,0,0.2),pch=19,cex=2,cex.lab=3,cex.axis=2,ylim=c(min(yy),max(yy)+1))
-text(xx,yy,ff_selected_loc,pos=3,col="black",cex=1.2)
+text(xx,yy,ff_selected_loc,pos=1,col="black",cex=1.2)
 lines(c(-100,100),c(0,0),type='l',lty='dashed',col="grey")
 lines(c(0,0),c(-100,100),type='l',lty='dashed',col="grey")
 dat<-data.frame(x=xx,y=yy)

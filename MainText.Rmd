@@ -348,8 +348,8 @@ by environmental variables. The 15 locations we used were
 selected from the 26 locations of the larger dataset 
 (Fig. \ref{SM-fig_plankton_map}) as follows. 
 First, to reduce the effects of sampling variation on statistical results,
-we chose the subset of locations for which at least 36 years
-<!--***DAN: why 36? Seems odd as stated-->
+we chose the subset of locations for which more than 35 years
+<!--***DAN: why 36? Seems odd as stated, ***Shya: ok, now fixed.-->
 of data were available for all species.
 Second, for a given location, we excluded *Ceratium* species 
 that were undetected for more than 10$\%$ of sampled years at that location. 
@@ -867,8 +867,10 @@ associated time series of two species:
 there is no cannonical choice of which variable to reverse. Asymmetry of tail
 dependence can still be considered for negatively associated variables, $u,v$, 
 in an unsigned approach, via the absolute value
-of our index $\cor_{0,b}(u,-v)-\cor_{1-b,1}(u,-v)$. Because
-$|\cor_{0,b}(u,-v)-\cor_{1-b,1}(u,-v)|=|\cor_{0,b}(-u,v)-\cor_{1-b,1}(-u,v)|$,
+of our index $\cor_{0,b}(u,1-v)-\cor_{1-b,1}(u,1-v)$. Note 
+that $\cor_{0,b}(u,1-v)$ conceptually should give us the same result as of 
+$\cor_{0,b}(u,v^{*})$, where $(u, v^{*})$ are the normalized ranks of timeseries
+of two variables $(x, -y)$ and here variable $y$ is taken reversed. Because $|\cor_{0,b}(u,1-v)-\cor_{1-b,1}(u,1-v)|=|\cor_{0,b}(1-u,v)-\cor_{1-b,1}(1-u,v)|$,
 no choice need be made on which variable to "reverse."
 A large value of this index indicates that tail dependence between $u$ and $v$ is asymmetric,
 though it does not provide information on whether dependence is stronger between
