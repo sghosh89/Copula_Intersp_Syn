@@ -696,39 +696,39 @@ are colored red or blue depending on which of $F_{C,L}$ or $F_{C,R}$ had higher 
 <!--Para for Ceratium, using A_C^n and A_D^n across n.-->
 For the *Ceratium* data, the statistics $A_C^n$ and $A_D^n$ were significantly correlated
 across locations, $n$, validating our
-hypothesis from the \nameref{Introduction} for a cause of tail dependence between co-located
+hypothesis from the \nameref{Introduction} for a cause of tail association between co-located
 species, and helping to answer Q2. Across our `r length(res_cer$CorlmCoru_all_ln_list)` locations, 
 $A_C^n$ and $A_D^n$ were significantly positively correlated (Pearson correlation,
 two-tailed test, Fig. \ref{fig_plankton_scatter}A). Thus locations for which
 *Ceratium* density time series showed greater left-tail (respectively, right-tail) 
-dependence with environmental covariates (measured with $A_D^n$)
-also exhibited greater left-tail (respectively, right-tail) dependence between
+association with environmental covariates (measured with $A_D^n$)
+also exhibited greater left-tail (respectively, right-tail) association between
 density time series for distinct species (measured with $A_C^n$).
-Tail dependence between co-located species time series was apparently inherited from
-common tail dependence of the species on environmental drivers. 
+Tail association between co-located species time series was apparently inherited from
+common tail association of the species on environmental drivers. 
 
 <!--Para for aphids, using A_C^n and A_D^n across n.-->
 For the aphid data, the statistics $A_C^n$ and $A_D^n$ were marginally significantly correlated
 across our `r length(res_ff$CorlmCoru_all_ln_list)` sampling locations
 (Fig. \ref{fig_plankton_scatter}B). Thus locations for which aphid first-flight time series
-showed greater left-tail (respectively, right-tail) dependence with winter temperature
-also showed a non-significant tendency toward greater left-tail (respectively, right-tail) dependence between
+showed greater left-tail (respectively, right-tail) association with winter temperature
+also showed a non-significant tendency toward greater left-tail (respectively, right-tail) association between
 the time series of distinct species. The correlation may have been non-significant for the aphid data
 simply because there were slightly fewer aphid sampling locations than there were 
 plankton locations, or for additional possible reasons elaborated in the \nameref{Discussion}.
 <!--***DAN: don't forget to do this-->
 Nevertheless, when combined with the plankton result, this aphid result tends to support 
-the hypothesis that tail dependence between co-located species time series can be inherited from
-common tail dependence on environmental drivers. 
+the hypothesis that tail association between co-located species time series can be inherited from
+common tail association on environmental drivers. 
 
 <!--Para for aphids using the second method.-->
 Our second analysis using aphids, based on the statistics $\alpha_C^n(i)$ and $\alpha_D^n(i)$ (\nameref{Methods}),
-provided further evidence supporting our hypothesis for a cause of tail dependence between co-located
+provided further evidence supporting our hypothesis for a cause of tail association between co-located
 species (\nameref{Introduction}). For 8 of 10 sampling locations, $\alpha_C^n(i)$ and $\alpha_D^n(i)$
 were significantly correlated across species, $i$ (Pearson, Fig. \ref{fig_aphid_multipanel}).
 In other words, for 8 of 10 locations, aphid species with greater left-tail (respectively,
-right-tail) dependence with winter temperature also had greater left-tail (respectively,
-right-tail) dependence with other aphid species.
+right-tail) association with winter temperature also had greater left-tail (respectively,
+right-tail) association with other aphid species.
 
 <!--plankton and aphid scatter plots: Q2-->
 \begin{figure}[!h]
@@ -736,7 +736,7 @@ right-tail) dependence with other aphid species.
 \textbf{ \hspace{1.2 cm} (A) \hspace{7 cm} (B)} \\
 \includegraphics[width=8 cm]{./Results/plankton_results/npa_stat_results/Corstat_scatter_LmU_values.pdf} 
 \includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_scatter_LmU_values.pdf}
-\caption{Tail dependence with environmental covariates was positively related to tail dependence
+\caption{Tail association with environmental covariates was positively related to tail association
 between species for aphid and plankton time series. Panels show $A_C^n$ versus $A_D^n$ (\nameref{Methods}) across
 locations, $n$, for \emph{Ceratium} density (A) and aphid first-flight (B) data. Pearson correlations
 and associated $p$-values for each panel are in the headers. Points are labeled with location
@@ -750,27 +750,23 @@ numbers (see Figs \ref{SM-fig_plankton_map} and \ref{SM-fig_aphid_map}).\label{f
 \includegraphics[width=16 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_avg_sp_temp_multipanel_plot.pdf} 
 \caption{For 8 out of 10 sites, the Pearson correlation ($P$) between $\alpha_C^n(i)$ and $\alpha_D^n(i)$ for
 $i = 1, 2, \dots, 20$ was significantly positive (p $< 0.05$, one tailed test). This supports the
-hypothesis that tail dependence between species may be inherited from joint tail
-dependence of both species on a common environmental driver. See Table \ref{tab_plankton_aphid_info} 
+hypothesis that tail association between species may be inherited from joint tail
+association of both species on a common environmental driver. See Table \ref{tab_plankton_aphid_info} 
 for species IDs.\label{fig_aphid_multipanel}}
 \end{center}
 \end{figure}
-<!--***DAN: Shya, it will probably cost us money to publish this as a color figure, and I would rather
-spend that money on better things; I don't think we need color here. Can you please use two different
-plotting symbols and solid and dashed lines to differentiate C and D here, instead of using red and blue?
-***Shya: see modified fig.-->
 
 # Discussion\label{Discussion}
 
 <!--P: summary of answers to Qs-->
 Our results show that synchronous population density or phenological time series
-of co-located species can very commonly show asymmetric tail dependence. For some sampling locations
-and species, tail dependence was predominantly in the left tails, and for others it was predominantly 
+of co-located species can very commonly show asymmetric tail association. For some sampling locations
+and species, tail association was predominantly in the left tails, and for others it was predominantly 
 in the right tails of time series distributions. The partial Spearman correlation presented
-by @Ghosh_copula is a simple and effective way to measure tail dependence for ecological applications.
-Our results also demonstrate a mechanism by which asymmetric tail dependence between species
+by @Ghosh_copula is a simple and effective way to measure tail association for ecological applications.
+Our results also demonstrate a mechanism by which asymmetric tail association between species
 can arise: it can
-be inherited by joint tail dependence of the two species on the same environmental variables.
+be inherited by joint tail association of the two species on the same environmental variables.
 This mechanism seems likely to apply commonly when co-located species are influenced by the
 same external factors. Our results convincingly show that standard correlation approaches 
 omit phenomena that seem likely to be important for at least two major topics of interest in ecology:
@@ -778,28 +774,28 @@ synchronous/compensatory dynamics of species within a community and their influe
 community stability; and shifting phenologies and the match-mismatch hypothesis. 
 
 <!--P: Interpretations and consequences of patterns for Ceratium-->
-The distinct tail dependence characteristics of *Ceratium* in different sampling areas 
+The distinct tail association characteristics of *Ceratium* in different sampling areas 
 around the UK may have consequences for the stability through time of total *Ceratium* abundance,
 which may relate to red tides because *Ceratium* species have a role in red tides.
-For locations in which left-tail dependence between *Ceratium* density time series
+For locations in which left-tail association between *Ceratium* density time series
 is dominant, *Ceratium* species are scarce simultaneously,
 potentially producing years of very low total *Ceratium* biomass.
-In contrast, for locations in which right-tail dependence is dominant, *Ceratium*
+In contrast, for locations in which right-tail association is dominant, *Ceratium*
 species are highly abundant simulataneously, which may produce 
 years of very high *Ceratium* biomass, which may sometimes correspond to red tides.
 Our results show that the distinction between these two types of location relates to the
-tail dependence of *Ceratium* species with their environmental covariates,
+tail association of *Ceratium* species with their environmental covariates,
 sea surface temperature and *C. finmarchicus* density. It may be useful to study
-in future work why some locations principally have left-tail dependence with these
-drivers and some principally have right-tail dependence.
+in future work why some locations principally have left-tail association with these
+drivers and some principally have right-tail association.
 
 <!--P: same for aphids-->
 First-flight time series for populations of co-located aphid species were principally 
 right-tail dependent, i.e., more strongly correlated when first flights were later in the
 season. Our results show this was probably because: cold winters delay aphid first flights,
 but warm winters do not lead to first flights that are any earlier, on average, than those following moderate winters,
-producing right-tail dependence between first flights and winter coldness across multiple species;
-this common dependence leads to right-tail dependence between aphids. Thus winter temperature
+producing right-tail association between first flights and winter coldness across multiple species;
+this common dependence leads to right-tail association between aphids. Thus winter temperature
 fluctuations lead to temporally dispersed early but temporally coordinated late arrival times of aphid
 species on summer hosts (many of which are crops, for the species we studied), a fact that may have pest-control 
 significance. Winter temperature is known to 
@@ -811,12 +807,12 @@ for flight to summer host plants.
 
 <!--P: 4) consequences of tail dependence in spatial synchrony as studied in BIVAN (skewness stuff), links to similar idea for community dynamics, and that is a reason what we have done is important-->
 If $x_{s,l}(t)$ denotes the population density of species $s$ ($s=1,\ldots,S$) in location $l$ ($l=1,\ldots,L$)
-at time $t$, we have here studied the nature and causes of tail dependence among the time 
+at time $t$, we have here studied the nature and causes of tail association among the time 
 series $x_{s,l}(t)$ for a fixed $l$ and for $s=1,\ldots,S$; whereas @Ghosh_copula studied
-the nature, causes and consequences of tail dependence among the time series
+the nature, causes and consequences of tail association among the time series
 $x_{s,l}(t)$ for fixed $s$ and $l=1,\ldots,L$, a conceptually distinct ecological context. One 
 of the consequences studied by @Ghosh_copula
-relates to and illuminates a potential consequence, mentioned above, of tail dependence for the ecological
+relates to and illuminates a potential consequence, mentioned above, of tail association for the ecological
 context of this study. @Ghosh_copula showed that the skewness, though time, of the 
 spatial-total time series $\sum_l x_{s,l}(t)$ is sensitive to the nature of tail dependence between
 the $x_{s,l}(t)$ ($l=1,\ldots,L$), if these time series are positively associated with each other. Right-tail 
@@ -829,25 +825,25 @@ be regarded as a landscape-level measure of the stability or variability of spec
 $s$, and is important, for instance, if species $s$ is a pest or an exploited species.
 For the same reasons,
 and as outlined conceptually above, the skewness, through time, of the community-total time series
-$\sum_s x_{l,s}(t)$ is sensitive to the tail dependence between the $x_{s,l}(t)$ ($s=1,\ldots,S$),
+$\sum_s x_{l,s}(t)$ is sensitive to the tail association between the $x_{s,l}(t)$ ($s=1,\ldots,S$),
 which we have here studied. Right-tail 
-(respectively, left-tail) dependence again tends to produce right (respectively, left) skew in the total
+(respectively, left-tail) association again tends to produce right (respectively, left) skew in the total
 time series.
 In this community context, the total is an aggregate property of the community, and the variability of
 this total has been used in an extensive literature [e.g., @hallett2014] to characterize community stability 
 through time. This literature has explored the effects of synchronous versus compensatory
 dynamics in the $x_{s,l}(t)$ ($s=1,\ldots,S$) on the stability of the total community time series,
 $\sum_s x_{l,s}(t)$. But our results show that, even if all the species time series 
-$x_{s,l}(t)$ ($s=1,\ldots,S$) are synchronous with each other, the tail dependence properties
+$x_{s,l}(t)$ ($s=1,\ldots,S$) are synchronous with each other, the tail association properties
 of these time series can influence the stability of the community-total time series. 
 
-Although our results are sufficient to show that copula structure and tail dependence are
+Although our results are sufficient to show that copula structure and tail association are
 likely to be important for studies of community dynamics and stability, many 
 communities show not only synchronous dynamics between some species pairs 
 $x_{s_i,l}(t)$ and $x_{s_j,l}(t)$, but also compensatory dynamics between other pairs; 
 our *Ceratium* time series were almost entirely synchronous, so we could not study 
-the importance of tail dependence for compensatory dynamics.
-Next research steps should include the study of tail dependence between compensatory species
+the importance of tail association for compensatory dynamics.
+Next research steps should include the study of tail association between compensatory species
 within a local community. Furthermore, *Ceratium* are only part of the 
 phytoplankton community in UK seas. It may be advantageous for future work to use 
 data characterizing an entire competitive community. For instance, the data of @hallett2014 
@@ -858,7 +854,7 @@ synchronous and some show compensatory dynamics.
   a) <!--***DAN: in the Discussion, make sure to talk about how studying asymmetry of 
 tail dependence for negative associations is complicated by the fact that
 it can depend on the arbitrary ordering of the two variables.-->
-Studying asymmetry of tail dependence for negative associations between species density time 
+Studying asymmetry of tail association for negatively correlated species density time 
 series will require modified methods. The only negative association between species time series
 that occurred in our system was not analyzed. Negative associations between species time series and 
 the environmental covariates we considered were handled
@@ -868,24 +864,24 @@ association with a reconceptualized covariate, e.g., a "coldness" index.
 But that approach makes no conceptual sense for negatively 
 associated time series of two species:
 there is no cannonical choice of which variable to reverse. Asymmetry of tail
-dependence can still be considered for negatively associated variables, $u,v$, 
+association can still be considered for negatively correlated variables, $u,v$, 
 in an unsigned approach, via the absolute value
 of our index $\cor_{0,b}(u,1-v)-\cor_{1-b,1}(u,1-v)$. Note 
 that $\cor_{0,b}(u,1-v)$ conceptually should give us the same result as of 
 $\cor_{0,b}(u,v^{*})$, where $(u, v^{*})$ are the normalized ranks of timeseries
 of two variables $(x, -y)$ and here variable $y$ is taken reversed. Because $|\cor_{0,b}(u,1-v)-\cor_{1-b,1}(u,1-v)|=|\cor_{0,b}(1-u,v)-\cor_{1-b,1}(1-u,v)|$,
 no choice need be made on which variable to "reverse."
-A large value of this index indicates that tail dependence between $u$ and $v$ is asymmetric,
-though it does not provide information on whether dependence is stronger between
+A large value of this index indicates that tail association between $u$ and $v$ is asymmetric,
+though it does not provide information on whether association is stronger between
 the left tail of $u$ and the right tail of $v$ or between the right tail of $u$
 and the left tail of $v$. 
 
 <!--what extra info do you get by monitoring tail dep. for plankton?-->
-Measures of tail dependence may also reveal useful information about 
+Measures of tail association may also reveal useful information about 
 freshwater plankton ecosystems and harmful algal blooms. 
 Because blooms are extreme phenomena involving multiple species, 
 monitoring the associations of phytoplankton species with each other and 
-their dependencies on 
+their associations on 
 temperature and nutrient data in the
 extremes (this is tail dependence)
 could help us to better understand harmful blooms. Considering tail dependence
@@ -901,13 +897,13 @@ time series, as described above.
   a) our aphid species have largely different hosts, so don't really interact
   b) think about further commentary
   c) When you present items 5 and 6 here, you will have to cause the reader to think back to your statement in the Intro that our results are just a first step toward the goals which were outlined there (i.e., copulas in community dynamics and phenology studies)-->
-Although our aphid results were sufficient to demonstrate that tail dependence can be an important 
+Although our aphid results were sufficient to demonstrate that tail association can be an important 
 factor in the phenology of co-located species, it will be necessary in future work to apply
-copula and tail dependence ideas to different datasets to assess whether these ideas
+copula and tail association ideas to different datasets to assess whether these ideas
 can improve our understanding of the consequences of changing phenology for trophic phenological matching. 
 The aphid species we studied have different host plants, so they do not directly interact. Shifts and
 fluctuations in the phenology of one species probably do not directly influence 
-other species in our dataset. Future research should apply tail dependence to 
+other species in our dataset. Future research should apply tail association to 
 time series of phenologies of interacting species, such as the data on tree budburst dates, 
 caterpillar abundance, and breeding phenology of great tits (*Parsus major*) and 
 blue tits (*P. caeruleus*) collected in Wytham Woods, Oxford, and other locations in Europe
@@ -918,7 +914,8 @@ from multiple trophic levels of @Thackery2010.
 Our results extend the results of @Ghosh_copula. Those authors argued that considering 
 copulas and tail dependence can provide insights across the field of ecology.
 But @Ghosh_copula did not consider co-located species, a context important for
-community ecology. Our results provide evidence that a copula approach, focusing on tail dependence,
+community ecology. Our results provide evidence that a copula approach, focusing on 
+associations between variables in their extremes,
 is likely to provide additional insight into two major topics of inquiry in ecology.
 
 # Acknowledgments
@@ -964,7 +961,7 @@ knitr::kable(plankton_aphid_info, "latex", booktabs = T, linesep = "",align="c",
       col.names = NULL)%>%
       group_rows("Plankton", 1,4) %>%
       group_rows("Aphids", 5,24) %>%
-      column_spec(column = 2,italic=T)%>%add_header_above(header=c("Species id" = 1, "Latin binomial" = 1))
+      column_spec(column = 2,italic=T)%>%add_header_above(header=c("Species ID" = 1, "Latin binomial" = 1))
 ```
 
 \clearpage
