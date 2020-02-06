@@ -1,5 +1,5 @@
 ---
-title: "Supporting material : A new approach to interspecific synchrony in population ecology and its causes using copulas"
+title: "Supporting material : A new approach to interspecific synchrony in population ecology using copulas"
 author: "Shyamolina Ghosh, Lawrence W. Sheppard, Philip C. Reid, Daniel Reuman"
 geometry: "left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm"
 

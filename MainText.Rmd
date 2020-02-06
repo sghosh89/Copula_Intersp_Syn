@@ -1,5 +1,5 @@
 --- 
-title: "A new approach to interspecific synchrony in population ecology and its causes using copulas"
+title: "A new approach to interspecific synchrony in population ecology using copulas"
 author: "Shyamolina Ghosh, Lawrence W. Sheppard, Philip C. Reid, Daniel Reuman"
 geometry: "left=1 in,right=1 in,top=1 in,bottom=1 in"
 
@@ -37,6 +37,8 @@ seed<-101
 
 \noindent Reuman: Department of Ecology and Evolutionary Biology and Kansas Biological Survey, University of Kansas, Lawrence, KS, 66047, USA
 
+\noindent \emph{Correspondence:} Daniel Reuman, 2101 Constant Ave, Lawrence, KS, 66047, reuman@ku.edu, 626 560 7084. 
+
 <!--\noindent\makebox[\linewidth]{\rule{\columnwidth}{1pt}}
 \scriptsize-->
 
@@ -44,48 +46,62 @@ seed<-101
 
 # Abstract 
 <!--200 words limit : J Am Nat, 350 words for J. animal eco.-->
-Standard methods for studying the association between two ecologically important variables
+<!--***DAN: We decided to go for JAE, so need to put this abstract in JAE format:
+5 bullets with 1) background, 2) goal, 3) what was done, 4) what was found, 5) what this means
+in a broad context. DONE.-->
+
+\noindent 1) Standard methods for studying the association between two ecologically important variables
 provide only a small slice of the information content of the association, but
 methods are available, based on *copulas*, that provide comprehensive information.
 In particular, copula approaches can reveal
-*tail dependence*, i.e., accentuated or reduced associations between the more extreme values of variables.
-We here study the nature and causes of tail dependence
-between phenological or population-density variables of co-located species. 
-We employ a simple method of measuring tail dependence called the *partial Spearman correlation*.
+*tail associations*, i.e., accentuated or reduced associations between the more extreme values of variables.
+
+\noindent 2) We here study the nature and causes of tail associations
+<!--***DAN: need to replace tail dependence with tail associations throughout. I will do this
+as I edit, but you also need to do a search and replace afterwards.-->
+between phenological or population-density variables of co-located species,
+and their ecological importance. 
+
+\noindent 3) We employ a simple method of measuring tail associations called the *partial Spearman correlation*.
 Using multidecadal, multi-species spatiotemporal datasets on aphid first flights and marine 
-phytoplankton population densities, we assess the potential for tail dependence
+phytoplankton population densities, we assess the potential for tail association
 to illuminate two major topics of study in community ecology: the stability or instability of
 aggregate community measures such as total community biomass and its relationship
 with the synchronous or compensatory dynamics of the community's constituent species;
 and the potential for fluctuations and trends in species phenology to
-result in trophic mismatches. We find that positively associated fluctuations
+result in trophic mismatches. 
+
+\noindent 4) We find that positively associated fluctuations
 in the population densities of co-located species commonly show asymmetric tail 
-dependence in their association, i.e., it is common for two species' densities
+associations, i.e., it is common for two species' densities
 to be more correlated when large than when small, or vice versa. Ordinary measures
 of association such as correlation do not take this asymmetry into account. Likewise, 
 positively associated fluctuations in the phenology of co-located species 
-also commonly show asymmetric tail dependence. We provide evidence that tail dependence
-between two or more species population density or phenology time series can be inherited
-from mutual tail dependence of these quantities on an environmental driver. 
-We argue that our understanding of commuity dynamics and stability, and of
-phenologies of interacting species, can be substantially improved in future work by taking into
-account tail dependence. 
+also commonly show asymmetric tail associations. We provide evidence that tail associations
+between two or more species' population density or phenology time series can be inherited
+from mutual tail associations of these quantities with an environmental driver. 
 
-\noindent \textbf{\textit{Keywords:}} tail dependence, copula, inter-species synchrony, aphids, plankton
+\noindent 5) We argue that our understanding of commuity dynamics and stability, and of
+phenologies of interacting species, can be meaningfully improved in future work by taking into
+account tail associations. 
+
+\noindent \textbf{\textit{Keywords:}} tail association, copula, inter-species synchrony, 
+match-mismatch hypothesis, aphids, plankton
 
 \newpage 
 
 # Introduction\label{Introduction}
 
 All ecologists study relationships between biological and environmental 
-variables. But standard methods for studying the association between two variables
+variables and among biological variables. But standard methods for studying the association between two variables
 provide only a small slice of the information content of the association.
 For instance, the two pairs of variables in Fig. \ref{pedagogfig}A, B have identical
-Pearson and Spearman correlation coefficients, but nonetheless display
-very different patterns of association. The variables of Fig. \ref{pedagogfig}A
+Pearson correlation coefficients, and also have identical Spearman correlation coefficients, 
+but nonetheless display
+very different patterns of association [@Ghosh_copula]. The variables of Fig. \ref{pedagogfig}A
 (respectively, Fig. \ref{pedagogfig}B) are more strongly related in the left
 (respectively, right) portions of their distributions,
-a potentially important pattern of dependence
+a potentially important pattern of association
 that is not captured by the correlation coefficients. Correlations
 are not the only way to study associations,
 but they are very commonly used, and other standard methods in ecology
@@ -307,15 +323,21 @@ asymmetric tail dependence in inter-species copulas (C, E).\label{fig_intro}}
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=10cm]{./Results/pedagog_fig.pdf}
-\caption{Pedagogical figure for introducing copulas, tail dependence, and partial Spearman correlation.
-(A, B) Two pairs of variables that have identical Pearson (P) and Spearman (S) correlation coefficients
-but differ markedly in the nature of the association, panel A showing stronger left- than right-tail dependence
-and panel B showing the reverse. (C, D) Copula plots (see \nameref{Introduction}) for panels A and B, respectively. 
+\caption{Pedagogical figure for introducing copulas, tail association, and partial Spearman correlation.
+(A, B) Two pairs of variables that have identical Pearson (P) correlation, and also identical Spearman (S) 
+correlation,
+but that differ markedly in the nature of the association. Panel A shows stronger left- than right-tail association
+and panel B shows the reverse. (C, D) Copula plots 
+<!--***DAN: I suspect we are going to have to change this terminology, "Copula plot"-->
+(see \nameref{Introduction}) for panels A and B, respectively. 
 (E, F) Graphics supporting the definitions of partial Spearman correlation and our statistic measuring 
-asymmetry of tail dependence (see Methods).}\label{pedagogfig}
+asymmetry of tail association (see Methods). This figure is similar in some respects to Figs 1 and 7 of Ghosh \emph{et al} (2020).}\label{pedagogfig}
 \end{center}
 \end{figure}
-
+<!--***DAN: Shyamolina, the citation here is not an autolink, I think we cannot
+make it be an autolink because this is a latex figure, but if you know how please 
+make it happen. If you don't know how, we will have to live with it as is, but that
+means if the citation ever changes, we will have to change it manually here.-->
 
 ```{r read_res,echo=F}
 res_ff<-readRDS("./Results/aphid_results/ff_npa_stat_results/cor_npa_diff_ff_ln_all.RDS")
@@ -349,7 +371,6 @@ selected from the 26 locations of the larger dataset
 (Fig. \ref{SM-fig_plankton_map}) as follows. 
 First, to reduce the effects of sampling variation on statistical results,
 we chose the subset of locations for which more than 35 years
-<!--***DAN: why 36? Seems odd as stated, ***Shya: ok, now fixed.-->
 of data were available for all species.
 Second, for a given location, we excluded *Ceratium* species 
 that were undetected for more than 10$\%$ of sampled years at that location. 
@@ -862,16 +883,17 @@ the environmental covariates we considered were handled
 statistically by considering the positive association between the species time
 series and a "reversed" covariate (its negative); this corresponds to a positive 
 association with a reconceptualized covariate, e.g., a "coldness" index.
-But that approach makes no conceptual sense for negatively 
+But that approach makes no sense for negatively 
 associated time series of two species:
 there is no cannonical choice of which variable to reverse. Asymmetry of tail
-dependence can still be considered for negatively associated variables, $u,v$, 
+dependence can still be considered, however, for negatively associated variables, $u,v$, 
 in an unsigned approach, via the absolute value
 of our index $\cor_{0,b}(u,1-v)-\cor_{1-b,1}(u,1-v)$. Note 
-that $\cor_{0,b}(u,1-v)$ conceptually should give us the same result as of 
+that $\cor_{0,b}(u,1-v)$ conceptually should give us the same result as 
 $\cor_{0,b}(u,v^{*})$, where $(u, v^{*})$ are the normalized ranks of timeseries
 of two variables $(x, -y)$ and here variable $y$ is taken reversed. Because $|\cor_{0,b}(u,1-v)-\cor_{1-b,1}(u,1-v)|=|\cor_{0,b}(1-u,v)-\cor_{1-b,1}(1-u,v)|$,
 no choice need be made on which variable to "reverse."
+<!--***DAN: Shyamolina changed the above in her last roung of edits, think carefully when you read the whole thing-->
 A large value of this index indicates that tail dependence between $u$ and $v$ is asymmetric,
 though it does not provide information on whether dependence is stronger between
 the left tail of $u$ and the right tail of $v$ or between the right tail of $u$
