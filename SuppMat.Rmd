@@ -837,7 +837,7 @@ for(loc in 1:length(LTmUTdep_matlist_ff)){
   #       col=c("red", "blue"), pch=c(16,16),cex=3.5,horiz=T,bty="n")
 }
 #op2<-par(fig = c(0, 1, 0, 1), oma = c(0, 0, 0, 0), mar = c(0, 1, 0, 0), new = TRUE)
-plot(0, 0, type = "n", bty = "n", xaxt = "n", yaxt = "n")
+plot(0, 0, type = "n", bty = "n", xaxt = "n", yaxt = "n", ann=F)
 legend("center", c("X = C", "X = D"), col = c("black","grey"),bty="n",
        cex = 9, pch = c(16, 17), lty=c(5,1), xpd = TRUE, horiz = F, inset = c(0.06,0.05)) 
 par(op)
