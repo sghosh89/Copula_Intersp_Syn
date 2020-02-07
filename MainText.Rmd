@@ -108,40 +108,43 @@ but they are very commonly used, and other standard methods in ecology
 provide a similarly limited amount of information.
 
 Statistical approaches exist, however, that provide a complete description
-of the relationship between variables; these approaches are applied
-widely in fields such as finance and neuroscience, but not in ecology. 
-The approaches are based on the idea of the *copula* 
-[@nelsen2006_copula; @joe2014_dependence], which we here
-introduce in a manner that follows @Ghosh_copula. The potential
-of copulas to improve our understanding of ecology was 
-also elaborated by @Ghosh_copula. Copulas separate the 
+of the relationship between variables;  these approaches are based on the idea of the *copula*. Copulas separate the 
 information content of a bivariate dataset, $(x_t,y_t)$ for $t=1,\ldots,T$, 
 into two non-overlapping parts: the information in the marginal
 distributions (which is not about the association between the variables)
 and the rest of the information (which is solely about the association).
-The association information is revealed by the plot of $u_t$
+Following @Ghosh_copula, we introduce some rank-based ideas
+that give a conceptual flavor of copulas before subsequently focusing on a particular 
+aspect of copula structure, \emph{tail association}. 
+A conceptual flavor of copulas helps to understand tail associations, but our focus 
+on tail associations makes it unnecessary to introduce copulas systematically;
+and brief [@Genest2007; @Anderson2018; @Ghosh_copula] 
+and comprehensive [@nelsen2006_copula; @joe2014_dependence; @MaiScherer2017] introductions 
+are available elsewhere.
+The isolated information on the association between $x_t$ and $y_t$ is revealed by the plot of $u_t$
 against $v_t$, where $u_t$ is the rank of $x_t$ in the set
 $\{ x_1,x_2,\ldots,x_T \}$, divided by $T+1$; and $v_t$ is the rank 
 of $y_t$ in the set
 $\{ y_1,y_2,\ldots,y_T \}$, also divided by $T+1$. Here the rank of the smallest
-element of one of these sets is understood to be $1$ and the rank of the 
-largest element is $T$. We refer to the $u_t$ and $v_t$ as *normalized ranks*
+element of a set is understood to be $1$. We refer to the $u_t$ and $v_t$ as *normalized ranks*
 of the $x_t$ and $y_t$. We refer to the plot of $v_t$ against $u_t$ as 
-the *normalized rank plot* for $y_t$ and $x_t$. For instance, the normalized rank plots for
+the *normalized rank plot* for $y_t$ and $x_t$; this plot reflects the copula structure of 
+$(x_t, y_t)$ [@Ghosh_copula]. For instance, the normalized rank plots for
 Fig. \ref{pedagogfig}A,B are in Fig. \ref{pedagogfig}C,D, and show the asymmetric 
 associations in the tails.
 Ranking makes the marginal distributions uniform, isolating only the information
-on association between the variables. @nelsen2006_copula and @joe2014_dependence
-provide introductory background on copulas. @sklar1959_theorem
-proved a theorem stating that copulas give a unique and complete description
+on association between the variables. It is likewide the purpose of copula approaches
+to separate association information from information on marginals. @sklar1959_theorem
+proved a seminal theorem stating that copulas give a unique and complete description
 of the association between variables. 
-Copula approaches have been used to great effect in neuroscience [@onken2009], 
-bioinformatics [@Kim2008], medical research [@Emura2016], direct study of environmental 
-variables [@Serinaldi2008; @She2018; @Goswami2018; @li2013], and finance [@Li2000]. 
-To our knowledge, copulas have not been used in ecology, except for a few
-studies which used a normal copulas [@Valpine2014; @Anderson2018; @Popovic2019], 
-which do not really harness the power 
-of the technique, and except for @Ghosh_copula.
+Copula approaches are applied
+widely and to great effect in fields such as finance and neuroscience [@Li2000; @Kim2008;
+@Serinaldi2008; @onken2009; @li2013; @Emura2016; @She2018; @Goswami2018], 
+but only rarely, so far, in ecology
+[@Valpine2014; @Anderson2018; @Popovic2019; @Ghosh_copula].
+The potential of copulas for  
+improving ecological understanding was 
+argued by @Ghosh_copula
 
 A major benefit of the copula approach is that it can effectively reveal
 *tail association*, i.e., associations between the more extreme 
