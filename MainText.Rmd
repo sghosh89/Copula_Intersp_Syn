@@ -46,9 +46,7 @@ seed<-101
 
 # Abstract 
 <!--200 words limit : J Am Nat, 350 words for J. animal eco.-->
-<!--***DAN: We decided to go for JAE, so need to put this abstract in JAE format:
-5 bullets with 1) background, 2) goal, 3) what was done, 4) what was found, 5) what this means
-in a broad context. DONE.-->
+<!--***DAN: We decided to go for JAE-->
 
 \noindent 1) Standard methods for studying the association between two ecologically important variables
 provide only a small slice of the information content of the association, but
@@ -57,12 +55,12 @@ In particular, copula approaches can reveal
 *tail associations*, i.e., accentuated or reduced associations between the more extreme values of variables.
 
 \noindent 2) We here study the nature and causes of tail associations
-<!--***DAN: need to replace tail dependence with tail associations throughout. I will do this
-as I edit, but you also need to do a search and replace afterwards.-->
+<!--***DAN: need to replace tail dependence with tail associations throughout. This has largely been done
+now by Shyamolina, but still we should-->
 between phenological or population-density variables of co-located species,
 and their ecological importance. 
 
-\noindent 3) We employ a simple method of measuring tail associations called the *partial Spearman correlation*.
+\noindent 3) We employ a simple method of measuring tail associations which we call the *partial Spearman correlation*.
 Using multidecadal, multi-species spatiotemporal datasets on aphid first flights and marine 
 phytoplankton population densities, we assess the potential for tail association
 to illuminate two major topics of study in community ecology: the stability or instability of
@@ -84,6 +82,8 @@ from mutual tail associations of these quantities with an environmental driver.
 \noindent 5) We argue that our understanding of commuity dynamics and stability, and of
 phenologies of interacting species, can be meaningfully improved in future work by taking into
 account tail associations. 
+
+\vspace{.5cm}
 
 \noindent \textbf{\textit{Keywords:}} tail association, copula, inter-species synchrony, 
 match-mismatch hypothesis, aphids, plankton
@@ -127,7 +127,7 @@ $\{ y_1,y_2,\ldots,y_T \}$, also divided by $T+1$. Here the rank of the smallest
 element of one of these sets is understood to be $1$ and the rank of the 
 largest element is $T$. We refer to the $u_t$ and $v_t$ as *normalized ranks*
 of the $x_t$ and $y_t$. We refer to the plot of $v_t$ against $u_t$ as 
-the *copula plot* for $y_t$ and $x_t$. For instance, the copula plots for
+the *normalized rank plot* for $y_t$ and $x_t$. For instance, the normalized rank plots for
 Fig. \ref{pedagogfig}A,B are in Fig. \ref{pedagogfig}C,D, and show the asymmetric 
 associations in the tails.
 Ranking makes the marginal distributions uniform, isolating only the information
@@ -144,10 +144,10 @@ which do not really harness the power
 of the technique, and except for @Ghosh_copula.
 
 A major benefit of the copula approach is that it can effectively reveal
-*tail dependence* - the associations between the more extreme 
+*tail association*, i.e., associations between the more extreme 
 values of distributions (Fig. \ref{pedagogfig}). For two 
 positively associated variables, *left-tail* (respectively, *right-tail*) 
-*dependence* is stronger association
+*association* is stronger association
 between values in the left or lower portions (respectively, the right or upper
 portions) of the two distributions. 
 
@@ -235,16 +235,16 @@ of phenology and the match-mismatch hypothesis. We use a
 from the *Certaium* genus, from 15 locations in the seas around the 
 UK; and a 35-year dataset of annual first-flight dates 
 for 20 species of aphid from 10 locations within the UK.
-Our aphid and plankton
-populatuion and phenology variables were 
-almost exclusively positively associated with each other (see \nameref{Results}).
-Furthermore, the terms left- and right-tail 
-dependence, defined above, do not apply to negatively associated 
+The terms left- and right-tail 
+association, defined above, do not apply to negatively associated 
 variables, because the 
 negative association means values in the left tail
 of one variable are associated with those in the right tail of the other; 
-distinct methods are required to study tail dependence and its
+slightly modified methods are required to study tail association and its
 asymmetry in negatively associated variables. 
+But our aphid and plankton
+populatuion and phenology variables were 
+almost exclusively positively associated with each other (see \nameref{Results}).
 Therefore, we introduce methods and present results in this study
 chiefly for the case of positively associated variables, 
 returning to the topics of negatively 
@@ -268,18 +268,18 @@ nutrients and cold water to the photic zone.
 However, if it is the case for a given location 
 that very cold water is associated with no more
 *Ceratium*, on average, than is moderately cold water, then 
-that corresponds to a left-tail-dependent 
-positive association between the "coldness" of the surface water (measured, for instance,
+that corresponds to a positive relationship and a left-tail association 
+association between the "coldness" of the surface water (measured, for instance,
 by how many degrees colder the water is than average)
 and *Ceratium* abundance. If such tail association is strong and consistent
 across the *Ceratium* species for which we have data, it should
-produce positive associations with left-tail dependence between 
+produce positive relationships with left-tail association between 
 the abundance time series of different species. Likewise, 
 in locations for which the winter coldness-*Ceratium* abundance association
 shows less left-tail association, one should see less
 left-tail association between different *Ceratium* species.
 So tail association between two species may be inherited from joint tail
-dependence of both species on a common environmental driver.
+association of both species on a common environmental driver.
 Phytoplankton are also strongly influenced by the abundant generalist copepod 
 consumer *Calanus finmarchicus*, so our actual investigation of the mechanism 
 proposed here will take into account this influence as well as the 
@@ -289,7 +289,7 @@ winter temperature.
 
 Thus this paper focuses on whether and why population density 
 or phenological time series of co-located species may show asymmetric 
-dependence in their tail-associations, with a focus on positively associated variables
+patterns in their tail-associations, with a focus on positively associated variables
 because positive associations are what occured in the 
 available data. We ask these specific questions:
 (Q1) do synchronous/positively correlated population density or phenological time series
@@ -327,11 +327,10 @@ asymmetric tail dependence in inter-species copulas (C, E).\label{fig_intro}}
 (A, B) Two pairs of variables that have identical Pearson (P) correlation, and also identical Spearman (S) 
 correlation,
 but that differ markedly in the nature of the association. Panel A shows stronger left- than right-tail association
-and panel B shows the reverse. (C, D) Copula plots 
-<!--***DAN: I suspect we are going to have to change this terminology, "Copula plot"-->
+and panel B shows the reverse. (C, D) Normalized rank plots 
 (see \nameref{Introduction}) for panels A and B, respectively. 
 (E, F) Graphics supporting the definitions of partial Spearman correlation and our statistic measuring 
-asymmetry of tail association (see Methods). This figure is similar in some respects to Figs 1 and 7 of Ghosh \emph{et al} (2020).}\label{pedagogfig}
+asymmetry of tail association (see \nameref{M&M}). This figure is similar in some respects to Figs 1 and 7 of Ghosh \emph{et al} (2020).}\label{pedagogfig}
 \end{center}
 \end{figure}
 <!--***DAN: Shyamolina, the citation here is not an autolink, I think we cannot
@@ -463,7 +462,7 @@ over the times, $t$, for which data were available for location $n$.
 The entry $C^n(i,j)$ was set to NA if independence of 
 $s_i^n(t)$ and $s_j^n(t)$ 
 could not be rejected because attempting to quantify
-tail association (or anything else about dependence) for independent
+tail association (or anything else about associations between variables) for independent
 variables is pointless. $C^n(i,j)$ was set to NA for negatively associated
 $s_i^n(t)$ and $s_j^n(t)$ because negative association occurred for only 
 one pair of species in one location 
@@ -811,11 +810,11 @@ drivers and some principally have right-tail association.
 
 <!--P: same for aphids-->
 First-flight time series for populations of co-located aphid species were principally 
-right-tail dependent, i.e., more strongly correlated when first flights were later in the
+right-tail associated, i.e., more strongly correlated when first flights were later in the
 season. Our results show this was probably because: cold winters delay aphid first flights,
 but warm winters do not lead to first flights that are any earlier, on average, than those following moderate winters,
 producing right-tail association between first flights and winter coldness across multiple species;
-this common dependence leads to right-tail association between aphids. Thus winter temperature
+this common association leads to right-tail association between aphids. Thus winter temperature
 fluctuations lead to temporally dispersed early but temporally coordinated late arrival times of aphid
 species on summer hosts (many of which are crops, for the species we studied), a fact that may have pest-control 
 significance. Winter temperature is known to 
@@ -830,13 +829,13 @@ If $x_{s,l}(t)$ denotes the population density of species $s$ ($s=1,\ldots,S$) i
 at time $t$, we have here studied the nature and causes of tail association among the time 
 series $x_{s,l}(t)$ for a fixed $l$ and for $s=1,\ldots,S$; whereas @Ghosh_copula studied
 the nature, causes and consequences of tail association among the time series
-$x_{s,l}(t)$ for fixed $s$ and $l=1,\ldots,L$, a conceptually distinct ecological context. One 
+$x_{s,l}(t)$ for fixed $s$ and $l=1,\ldots,L$, a distinct ecological context. One 
 of the consequences studied by @Ghosh_copula
 relates to and illuminates a potential consequence, mentioned above, of tail association for the ecological
 context of this study. @Ghosh_copula showed that the skewness, though time, of the 
-spatial-total time series $\sum_l x_{s,l}(t)$ is sensitive to the nature of tail dependence between
+spatial-total time series $\sum_l x_{s,l}(t)$ is sensitive to the nature of tail association between
 the $x_{s,l}(t)$ ($l=1,\ldots,L$), if these time series are positively associated with each other. Right-tail 
-(respectively, left-tail) dependence tended to produce right (respectively, left) skew in the total.
+(respectively, left-tail) association tended to produce right (respectively, left) skew in the total.
 Right skew corresponds to a spatial-total time series with exceptionally large values, 
 i.e., to "spiky", unstable dynamics of the total population. Left skew 
 corresponds to a spatial-total time series with low values, i.e., to dynamics of the total
@@ -893,7 +892,7 @@ of two variables $(x, -y)$ and here variable $y$ is taken reversed. Because $|\c
 no choice need be made on which variable to "reverse."
 <!--***DAN: Shyamolina changed the above in her last roung of edits, think carefully when you read the whole thing-->
 A large value of this index indicates that tail association between $u$ and $v$ is asymmetric,
-though it does not provide information on whether dependence is stronger between
+though it does not provide information on whether association is stronger between
 the left tail of $u$ and the right tail of $v$ or between the right tail of $u$
 and the left tail of $v$. 
 
@@ -902,15 +901,15 @@ Measures of tail association may also reveal useful information about
 freshwater plankton ecosystems and harmful algal blooms. 
 Because blooms are extreme phenomena involving multiple species, 
 monitoring the associations of phytoplankton species with each other and 
-their associations on 
+their associations with 
 temperature and nutrient data in the
-extremes (this is tail dependence)
-could help us to better understand harmful blooms. Considering tail dependence
+extremes (this is tail association)
+could help us to better understand harmful blooms. Considering tail association
 may even produce improvements in statistics that have been 
 developed to serve as early warning signals of impending major changes in plankton
 communities and the lakes they inhabit [@guttal2008changing; @carpenter2011early; @butitta2017spatial], 
 since some established early warning statistics
-make use of skewness of population distributions. Tail dependence between
+make use of skewness of population distributions. Tail association between
 phytoplankton species is related to skewness of the total phytoplankton biomass
 time series, as described above.
 
@@ -933,7 +932,7 @@ from multiple trophic levels of @Thackery2010.
 
 <!--P: Link back to copulas, and conclude-->
 Our results extend the results of @Ghosh_copula. Those authors argued that considering 
-copulas and tail dependence can provide insights across the field of ecology.
+copulas and tail associations can provide insights across the field of ecology.
 But @Ghosh_copula did not consider co-located species, a context important for
 community ecology. Our results provide evidence that a copula approach, focusing on 
 associations between variables in their extremes,
