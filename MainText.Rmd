@@ -56,7 +56,7 @@ In particular, copula approaches can reveal
 
 \noindent 2) We here study the nature and causes of tail associations
 <!--***DAN: need to replace tail dependence with tail associations throughout. This has largely been done
-now by Shyamolina, but still we should-->
+now by Shyamolina, but still we should do some searches later to make sure none were missed-->
 between phenological or population-density variables of co-located species,
 and their ecological importance. 
 
@@ -113,15 +113,16 @@ information content of a bivariate dataset, $(x_t,y_t)$ for $t=1,\ldots,T$,
 into two non-overlapping parts: the information in the marginal
 distributions (which is not about the association between the variables)
 and the rest of the information (which is solely about the association).
-Following @Ghosh_copula, we introduce some rank-based ideas
+We introduce some rank-based ideas
 that give a conceptual flavor of copulas before subsequently focusing on a particular 
 aspect of copula structure, \emph{tail association}. 
 A conceptual flavor of copulas helps to understand tail associations, but our focus 
-on tail associations makes it unnecessary to introduce copulas systematically;
+on tail associations makes it unnecessary to introduce copulas systematically,
 and brief [@Genest2007; @Anderson2018; @Ghosh_copula] 
 and comprehensive [@nelsen2006_copula; @joe2014_dependence; @MaiScherer2017] introductions 
 are available elsewhere.
-The isolated information on the association between $x_t$ and $y_t$ is revealed by the plot of $u_t$
+Following @Ghosh_copula, the isolated information on the 
+association between $x_t$ and $y_t$ is revealed by the plot of $u_t$
 against $v_t$, where $u_t$ is the rank of $x_t$ in the set
 $\{ x_1,x_2,\ldots,x_T \}$, divided by $T+1$; and $v_t$ is the rank 
 of $y_t$ in the set
