@@ -98,30 +98,36 @@ provide only a small slice of the information content of the association.
 For instance, the two pairs of variables in Fig. \ref{pedagogfig}A, B have identical
 Pearson correlation coefficients, and also have identical Spearman correlation coefficients, 
 but nonetheless display
-very different patterns of association [@Ghosh_copula]. The variables of Fig. \ref{pedagogfig}A
-(respectively, Fig. \ref{pedagogfig}B) are more strongly related in the left
-(respectively, right) portions of their distributions,
-a potentially important pattern of association
-that is not captured by the correlation coefficients. Correlations
+very different patterns of association [@Ghosh_copula]. Correlations
 are not the only way to study associations,
 but they are very commonly used, and other standard methods in ecology
-provide a similarly limited amount of information.
+provide a similarly limited amount of information that neglects patterns of association
+that seem likely to be ecologically important [@Ghosh_copula].
+
+The variables of Fig. \ref{pedagogfig}A
+(respectively, Fig. \ref{pedagogfig}B) are more strongly related in the left
+(respectively, right) portions of their distributions,
+thereby displaying asymmetric *tail association*. For two 
+positively associated variables, *left-tail* (respectively, *right-tail*) 
+*association* is stronger association
+between values in the left or lower portions (respectively, the right or upper
+portions) of the two distributions, as in Fig. \ref{pedagogfig}A 
+(respectively, Fig. \ref{pedagogfig}B). Tail association is 
+a potentially important pattern of association
+that is not captured by standard correlation coefficients. 
 
 Statistical approaches exist, however, that provide a complete description
-of the relationship between variables;  these approaches are based on the idea of the *copula*. Copulas separate the 
+of the relationship between variables;  these approaches are based on the idea of the *copula*. 
+Tail associations are an important aspect of a copula approach to dependence,
+and tail association will be a focus of this paper.
+So we here give a conceptual flavor of copulas before subsequently focusing on 
+\emph{tail association}. 
+Copulas can be used to separate the 
 information content of a bivariate dataset, $(x_t,y_t)$ for $t=1,\ldots,T$, 
 into two non-overlapping parts: the information in the marginal
 distributions (which is not about the association between the variables)
 and the rest of the information (which is solely about the association).
-We introduce some rank-based ideas
-that give a conceptual flavor of copulas before subsequently focusing on a particular 
-aspect of copula structure, \emph{tail association}. 
-A conceptual flavor of copulas helps to understand tail associations, but our focus 
-on tail associations makes it unnecessary to introduce copulas systematically,
-and brief [@Genest2007; @Anderson2018; @Ghosh_copula] 
-and comprehensive [@nelsen2006_copula; @joe2014_dependence; @MaiScherer2017] introductions 
-are available elsewhere.
-Following @Ghosh_copula, the isolated information on the 
+Following @Ghosh_copula and @Genest2007, the isolated information about the 
 association between $x_t$ and $y_t$ is revealed by the plot of $u_t$
 against $v_t$, where $u_t$ is the rank of $x_t$ in the set
 $\{ x_1,x_2,\ldots,x_T \}$, divided by $T+1$; and $v_t$ is the rank 
@@ -129,31 +135,31 @@ of $y_t$ in the set
 $\{ y_1,y_2,\ldots,y_T \}$, also divided by $T+1$. Here the rank of the smallest
 element of a set is understood to be $1$. We refer to the $u_t$ and $v_t$ as *normalized ranks*
 of the $x_t$ and $y_t$. We refer to the plot of $v_t$ against $u_t$ as 
-the *normalized rank plot* for $y_t$ and $x_t$; this plot reflects the copula structure of 
-$(x_t, y_t)$ [@Ghosh_copula]. For instance, the normalized rank plots for
+the *normalized rank plot* for $y_t$ and $x_t$. 
+For instance, the normalized rank plots for
 Fig. \ref{pedagogfig}A,B are in Fig. \ref{pedagogfig}C,D, and show the asymmetric 
 associations in the tails.
+The normalized rank plot reflects the copula structure of 
+$(x_t, y_t)$ [@Ghosh_copula; @Genest2007]. 
 Ranking makes the marginal distributions uniform, isolating only the information
-on association between the variables. It is likewide the purpose of copula approaches
-to separate association information from information on marginals. @sklar1959_theorem
-proved a seminal theorem stating that copulas give a unique and complete description
-of the association between variables. 
+on association between the variables. It is likewise the purpose of copula approaches
+to separate association information from information on marginals.  
+We emphasize that we have not here provided a formal definition of copulas, instead only 
+introducing the fundamental copula idea of separating dependence information from
+information on marginals.
+Brief [@Genest2007; @Anderson2018; @Ghosh_copula] 
+and comprehensive [@nelsen2006_copula; @joe2014_dependence; @MaiScherer2017] introductions 
+to copulas are available elsewhere. Copulas can also be used to study multivariate data. 
 Copula approaches are applied
 widely and to great effect in fields such as finance and neuroscience [@Li2000; @Kim2008;
 @Serinaldi2008; @onken2009; @li2013; @Emura2016; @She2018; @Goswami2018], 
 but only rarely, so far, in ecology
 [@Valpine2014; @Anderson2018; @Popovic2019; @Ghosh_copula].
-The potential of copulas for  
+The potential of copulas for
 improving ecological understanding was 
-argued by @Ghosh_copula
-
-A major benefit of the copula approach is that it can effectively reveal
-*tail association*, i.e., associations between the more extreme 
-values of distributions (Fig. \ref{pedagogfig}). For two 
-positively associated variables, *left-tail* (respectively, *right-tail*) 
-*association* is stronger association
-between values in the left or lower portions (respectively, the right or upper
-portions) of the two distributions. 
+argued by @Ghosh_copula, and those authors also introduced tail association as an important aspect
+of copula structure, and elaborated the relationship
+between tail association and copulas. 
 
 The study of @Ghosh_copula was a wide-ranging study of the importance, 
 causes and consequences of copula structures in associations between
@@ -193,7 +199,7 @@ are highly variable, if the parts show compensatory dynamics [@hallett2014].
 Likewise,
 synchrony amplifies community biomass variability because
 the concordant variations of species biomass time series reinforce each
-other [@Ma2017]. If synchronous fluctuations show right-tail association,
+other in the total [@Ma2017]. If synchronous fluctuations show right-tail association,
 then species are highly abundant simultaneously, which may produce 
 years of extremely high community biomass. Alternatively, if synchronous
 fluctuations show left-tail association, species are very scarce simultaneously,
@@ -212,7 +218,7 @@ important ramifications for whether and to what extent interactions
 will be modified by climate change [@Durant2007; @Yang2010];
 there are reasons to believe copula structure of 
 associations between variables in this context may play an
-important role here, as well.
+important role, as well.
 As climate changes and phenologies shift, there is the potential for 
 phenologies of interacting species to shift differently, disrupting
 the interaction [@Thackery2010]. This idea is referred to as the match-mismatch
@@ -232,7 +238,10 @@ emergence before a certain date. Advancing emergence dates of myriad species
 make this scenario more plausible.
 <!--***DAN: also need to revisit this in the Discussion-->
 
-We here begin exploring whether copula structure may be important for 
+<!--***DAN: do a search for copula. Probably we should get away from copula
+through the paper, talking only about tail associations, and then come back
+to it in the Discussion-->
+We here begin exploring whether copula structure, specifically tail associations, may be important for 
 studies of synchrony and compensatory dynamics, and for studies
 of phenology and the match-mismatch hypothesis. We use a 
 56-year dataset of population densities of 4 species of dinoflagellates
@@ -273,12 +282,12 @@ However, if it is the case for a given location
 that very cold water is associated with no more
 *Ceratium*, on average, than is moderately cold water, then 
 that corresponds to a positive relationship and a left-tail association 
-association between the "coldness" of the surface water (measured, for instance,
+between the "coldness" of the surface water (measured, for instance,
 by how many degrees colder the water is than average)
 and *Ceratium* abundance. If such tail association is strong and consistent
-across the *Ceratium* species for which we have data, it should
+across *Ceratium* species, it should
 produce positive relationships with left-tail association between 
-the abundance time series of different species. Likewise, 
+the abundance time series of the species. Likewise, 
 in locations for which the winter coldness-*Ceratium* abundance association
 shows less left-tail association, one should see less
 left-tail association between different *Ceratium* species.
@@ -295,12 +304,12 @@ Thus this paper focuses on whether and why population density
 or phenological time series of co-located species may show asymmetric 
 patterns in their tail-associations, with a focus on positively associated variables
 because positive associations are what occured in the 
-available data. We ask these specific questions:
-(Q1) do synchronous/positively correlated population density or phenological time series
-of different co-located species commonly show asymmetric tail associations? (Q2) If so, 
+available data. We ask the following specific questions.
+(Q1) Do synchronous/positively correlated population density or phenological time series
+of co-located species commonly show asymmetric tail associations? (Q2) If so, 
 what are the causes of these patterns? We regard our investigation
 as a first step toward a better understanding of the potential importance of copula
-structure and asymmetric tail association for such central ecological topics as synchrony and 
+structure and asymmetric tail associations for such central ecological topics as synchrony and 
 compensatory dynamics in communities and their influence on community stability;
 and the match-mismatch hypothesis in phenology. The \nameref{Discussion} has 
 additional thoughts on next steps toward this goal. 
@@ -308,7 +317,7 @@ additional thoughts on next steps toward this goal.
 Our results and the conceptual considerations
 introduced above are good evidence, in our view, of the potential for tail
 association to make a crucial difference in how ecologists understand these 
-important topics in ecology.
+important topics.
 
 <!--old introductory fig., keeping it around for a bit in case we need it
 \begin{figure}[!h]
@@ -340,7 +349,8 @@ asymmetry of tail association (see \nameref{M&M}). This figure is similar in som
 <!--***DAN: Shyamolina, the citation here is not an autolink, I think we cannot
 make it be an autolink because this is a latex figure, but if you know how please 
 make it happen. If you don't know how, we will have to live with it as is, but that
-means if the citation ever changes, we will have to change it manually here.-->
+means if the citation ever changes, we will have to change it manually here. So 
+please leave this comment so we can remember to do that when the time comes.-->
 
 ```{r read_res,echo=F}
 res_ff<-readRDS("./Results/aphid_results/ff_npa_stat_results/cor_npa_diff_ff_ln_all.RDS")
