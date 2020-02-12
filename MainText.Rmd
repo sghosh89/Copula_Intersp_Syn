@@ -553,17 +553,6 @@ of all negative, non-NA entries of $C^n$; and $A_C^n=A_{C,L}^n+A_{C,R}^n$, a
 general measure of asymmetry of tail association in location $n$. And we calculated
 the normalized quantities $F_{C,L}^n=A_{C,L}^n/(A_{C,L}^n+|A_{C,R}^n|)$
 and $F_{C,R}^n=A_{C,R}^n/(A_{C,L}^n+|A_{C,R}^n|)$. 
-<!--***DAN: Shya, note the changes in notation, which will require some minor 
-changes to some of the figs in both the main text and sup mat, please. Note
-also that the old f quantities were always positive (you took an absolute values
-in the numerator of one of them), but these new quantities are signed in the
-same way as the As. I think this is more consistent. If this requires any 
-presentational changes, please make them. I expect any required changes will 
-be minor, but let me know if not.-->
-<!--***DAN: Shyamolina, in the upper left corner of Fig. 2C, F_{C,R} needs to
-be replaced with |F_{C,R}|. Please also make the analogous change for other figures in the 
-main text and sup mat..
-***Shya: I made the changes in Fig. 2C and Fig. 3C, but I did not make any change in their caption, could you please check whether they need to be edited? -->
 Because $0\leq F_{C,L}^n \leq 1$, 
 $0 \leq |F_{C,R}^n| \leq 1$, and $F_{C,L}^n+|F_{C,R}^n|=1$, the relative sizes of
 $F_{C,L}^n$ and $|F_{C,R}^n|$ indicate the relative dominance of left- and right-tail
@@ -951,7 +940,6 @@ associations between variables in their extremes
 is likely to provide additional insight into two major topics of inquiry in ecology.
 
 # Acknowledgments
-
 We thank the many contributors to the large datasets we used; D. Stevens and P. Verrier for 
 data extraction; and Joel E. Cohen, Lauren Hallet, and Jonathan Walter for helpful 
 suggestions. We thank James Bell of the Rothamsted Insect Survey (RIS). The RIS, a UK Capability,
