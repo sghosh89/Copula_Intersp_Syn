@@ -61,7 +61,7 @@ originally used, in spite of package updates and other changes. This can take so
 run (you are warned) but it is faster on subsequent runs because the packages are already 
 installed. This also means that R package dependencies should only be the checkpoint package, 
 since that package should scan for other packages and install them locally. Quite a few MB disk 
-space are used.
+space are used (about 300Mb).
 
 ### Dependencies on pandoc
 The open source program pandoc converts documents from one format to another. 
