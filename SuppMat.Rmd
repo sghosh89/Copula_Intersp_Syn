@@ -384,7 +384,7 @@ legend("bottomright", legend=c(expression(F[paste(C,",",L)]),0.2,0.4,0.6,0.8,1),
        pt.bg=c(rgb(0,0,0,0),rgb(1,0,0,0.2),rgb(1,0,0,0.4),rgb(1,0,0,0.6),rgb(1,0,0,0.8),rgb(1,0,0,1)),
        pt.cex=1.5,horiz=F,bty="o",bg="white",cex=2,y.intersp = 0.75,x.intersp = 0.6)
 
-legend("topleft", legend=c(expression(F[paste(C,",",R)]),0.2,0.4,0.6,0.8,1),
+legend("topleft", legend=c(expression("|"*F[paste(C,",",R)]*"|"),0.2,0.4,0.6,0.8,1),
        col=c(rgb(0,0,0,0),rgb(0,0,1,0.2),rgb(0,0,1,0.4),rgb(0,0,1,0.6),rgb(0,0,1,0.8),rgb(0,0,1,1)),
        pch=24,
        pt.bg=c(rgb(0,0,0,0),rgb(0,0,1,0.2),rgb(0,0,1,0.4),rgb(0,0,1,0.6),rgb(0,0,1,0.8),rgb(0,0,1,1)),
@@ -769,7 +769,7 @@ legend("topleft", legend=c(expression(F[paste(C,",",L)]),0.2,0.4,0.6,0.8,1),cex=
        col=c(rgb(0,0,0,0),rgb(1,0,0,0.2),rgb(1,0,0,0.4),rgb(1,0,0,0.6),rgb(1,0,0,0.8),rgb(1,0,0,1)),
        pch=25,pt.bg=c(rgb(0,0,0,0),rgb(1,0,0,0.2),rgb(1,0,0,0.4),rgb(1,0,0,0.6),rgb(1,0,0,0.8),rgb(1,0,0,1)),
        pt.cex=2,horiz=F,bty="o") 
-legend("topright", legend=c(expression(F[paste(C,",",R)]),0.2,0.4,0.6,0.8,1), cex=2,
+legend("topright", legend=c(expression("|"*F[paste(C,",",R)]*"|"),0.2,0.4,0.6,0.8,1), cex=2,
        col=c(rgb(0,0,0,0),rgb(0,0,1,0.2),rgb(0,0,1,0.4),rgb(0,0,1,0.6),rgb(0,0,1,0.8),rgb(0,0,1,1)),
        pch=24,pt.bg=c(rgb(0,0,0,0),rgb(0,0,1,0.2),rgb(0,0,1,0.4),rgb(0,0,1,0.6),rgb(0,0,1,0.8),rgb(0,0,1,1)),
        pt.cex=2,horiz=F,bty="o")
