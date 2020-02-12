@@ -562,7 +562,8 @@ presentational changes, please make them. I expect any required changes will
 be minor, but let me know if not.-->
 <!--***DAN: Shyamolina, in the upper left corner of Fig. 2C, F_{C,R} needs to
 be replaced with |F_{C,R}|. Please also make the analogous change for other figures in the 
-main text and sup mat..-->
+main text and sup mat..
+***Shya: I made the changes in Fig. 2C and Fig. 3C, but I did not make any change in their caption, could you please check whether they need to be edited? -->
 Because $0\leq F_{C,L}^n \leq 1$, 
 $0 \leq |F_{C,R}^n| \leq 1$, and $F_{C,L}^n+|F_{C,R}^n|=1$, the relative sizes of
 $F_{C,L}^n$ and $|F_{C,R}^n|$ indicate the relative dominance of left- and right-tail
