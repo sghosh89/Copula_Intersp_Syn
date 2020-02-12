@@ -1,5 +1,5 @@
 --- 
-title: "A new approach to interspecific synchrony in population ecology using copulas"
+title: "A new approach to interspecific synchrony in population ecology using tail association"
 author: "Shyamolina Ghosh, Lawrence W. Sheppard, Philip C. Reid, Daniel Reuman"
 geometry: "left=1 in,right=1 in,top=1 in,bottom=1 in"
 
@@ -56,7 +56,8 @@ In particular, copula approaches can reveal
 
 \noindent 2) We here study the nature and causes of tail associations
 <!--***DAN: need to replace tail dependence with tail associations throughout. This has largely been done
-now by Shyamolina, but still we should do some searches later to make sure none were missed-->
+now by Shyamolina, but still we should do some searches later to make sure none were missed
+DONE-->
 between phenological or population-density variables of co-located species,
 and their ecological importance. 
 
@@ -187,8 +188,7 @@ topics of concern in community ecology, with important ramifications
 for the stability or instability of aggregate community or ecosystem
 properties [@raimondo2004interspecific; @kent2007synchrony;
 @loreau2008species; @gonzalez2009causes; @jochimsen2013compensatory];
-there are reasons to believe copula structure of 
-associations in this context will play an important
+there are reasons to believe tail associations in this context will play an important
 but unstudied role in understanding these topics.
 A major past insight into community dynamics [@gonzalez2009causes]
 was that an aggregate 
@@ -206,17 +206,13 @@ fluctuations show left-tail association, species are very scarce simultaneously,
 potentially producing years of extremely low community biomass. 
 Thus the tail association of synchrony, not just the presence and strength
 of synchrony, may independently influence temporal variability of 
-aggregate community properties. 
-<!--***DAN: probably revisit in Dicussion. Both to emphasize the importance
-of what we have done. And to compare to consequecnes studied in BIVAN in
-which time series were added spatially. And to discuss future work involving 
-compensatory dynamics.-->
+aggregate community properties. This is revisited in the \nameref{Discussion}.
 
 Second, studies of the phenology of species interacting in one area
 have also played a central role in community ecology, with 
 important ramifications for whether and to what extent interactions 
 will be modified by climate change [@Durant2007; @Yang2010];
-there are reasons to believe copula structure of 
+there are reasons to believe tail 
 associations between variables in this context may play an
 important role, as well.
 As climate changes and phenologies shift, there is the potential for 
@@ -236,12 +232,12 @@ is if both species follow the same environmental cue for their
 emergence, but physiological limitations of only one of the species prevent 
 emergence before a certain date. Advancing emergence dates of myriad species
 make this scenario more plausible.
-<!--***DAN: also need to revisit this in the Discussion-->
 
 <!--***DAN: do a search for copula. Probably we should get away from copula
 through the paper, talking only about tail associations, and then come back
-to it in the Discussion-->
-We here begin exploring whether copula structure, specifically tail associations, may be important for 
+to it in the Discussion
+DONE-->
+We here begin exploring whether tail associations may be important for 
 studies of synchrony and compensatory dynamics, and for studies
 of phenology and the match-mismatch hypothesis. We use a 
 56-year dataset of population densities of 4 species of dinoflagellates
@@ -263,13 +259,11 @@ chiefly for the case of positively associated variables,
 returning to the topics of negatively 
 associated variables and compensatory population dynamics 
 in the \nameref{Discussion}.
-<!--***DAN: make sure to do so-->
 
 In addition to examining whether tail association in our data is
 asymmetric, we also test for possible causes of such patterns.
 One possible mechanism, similar to some of the mechanisms 
 explored by @Ghosh_copula, 
-<!--***DAN: explain connections in Discussion-->
 is explained for the *Ceratium* example as
 follows. Earlier work showed that average sea surface temperature 
 is an important
@@ -307,13 +301,13 @@ because positive associations are what occured in the
 available data. We ask the following specific questions.
 (Q1) Do synchronous/positively correlated population density or phenological time series
 of co-located species commonly show asymmetric tail associations? (Q2) If so, 
-what are the causes of these patterns? We regard our investigation
-as a first step toward a better understanding of the potential importance of copula
-structure and asymmetric tail associations for such central ecological topics as synchrony and 
+what are the causes of these patterns? We examine potential ecological consequences of 
+asymmetric tail associations in the \nameref{Discussion}. We regard our investigation
+as a first step toward a better understanding of the potential importance of 
+asymmetric tail associations for such central ecological topics as synchrony and 
 compensatory dynamics in communities and their influence on community stability;
-and the match-mismatch hypothesis in phenology. The \nameref{Discussion} has 
+and the match-mismatch hypothesis in phenology. The \nameref{Discussion} also has 
 additional thoughts on next steps toward this goal. 
-<!--***DAN: make sure to do this-->
 Our results and the conceptual considerations
 introduced above are good evidence, in our view, of the potential for tail
 association to make a crucial difference in how ecologists understand these 
@@ -336,7 +330,7 @@ asymmetric tail dependence in inter-species copulas (C, E).\label{fig_intro}}
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=10cm]{./Results/pedagog_fig.pdf}
-\caption{Pedagogical figure for introducing copulas, tail association, and partial Spearman correlation.
+\caption{Pedagogical figure for introducing tail association and partial Spearman correlation.
 (A, B) Two pairs of variables that have identical Pearson (P) correlation, and also identical Spearman (S) 
 correlation,
 but that differ markedly in the nature of the association. Panel A shows stronger left- than right-tail association
@@ -367,7 +361,7 @@ genus of dinoflagelates, and for the generalist consumer copepod species
 *C. finmarchicus*, for the 56 years 1958 to 2013.
 These data were a subset of a larger dataset covering 22 taxa 
 and 26 locations, analyzed by @sheppard2017, @sheppard2019, and @Ghosh_copula.
-The locations are $2^\circ$ by $2^\circ$ degree grid cells.
+The locations are $2^\circ$ by $2^\circ$ grid cells.
 The data were originally obtained from the 
 Continuous Plankton Recorder (CPR) dataset, 
 now operated and maintained by 
@@ -377,7 +371,7 @@ Data preprocessing steps were the same as used by @Ghosh_copula.
 have an important role in red tides, and also because four 
 species were available from the genus (Table \ref{tab_plankton_aphid_info}), 
 and we wanted closely related 
-species because they may compete with one another and may 
+species because they may 
 be influenced in similar ways
 by environmental variables. The 15 locations we used were 
 selected from the 26 locations of the larger dataset 
@@ -388,7 +382,7 @@ of data were available for all species.
 Second, for a given location, we excluded *Ceratium* species 
 that were undetected for more than 10$\%$ of sampled years at that location. 
 Finally, we considered only those locations for which at least two 
-*Ceratium* species remained. We also had average growing season 
+*Ceratium* species remained. We also had data on average growing season 
 sea surface temperature for each grid cell and year
 [@sheppard2017; @sheppard2019]. Earlier analyses [e.g., @sheppard2019]
 demonstrated that sea surface temperature and *C. finmarchicus* 
@@ -433,7 +427,8 @@ of the variables.
 Given two bounds $1\leq l_b < u_b \leq 1$, we define the boundary lines 
 $u+v=2l_b$ and $u+v=2u_b$ (Fig. \ref{pedagogfig}E), 
 which intersect the unit square on which 
-a copula is plotted (\nameref{Introduction}, Fig. \ref{pedagogfig}A-D). The partial Spearman correlation for the
+normalized ranks are plotted. 
+The partial Spearman correlation for the
 band between these boundaries and within the unit square is
 \begin{equation}\label{eq.Cor}
    \cor_{l_b,u_b}(u,v) = \frac{\sum 
@@ -444,14 +439,16 @@ but the sum, $\Sigma$, is over only the indices $t$ for which $u_t+v_t > 2l_b$ a
 $u_t+v_t < 2u_b$. The partial Spearman correlation is not defined if there
 are no points in the band. For positively associated 
 $(u_t,v_t)$, the partial Spearman correlations 
-$\cor_{0,b}$ and $\cor_{1-b,1}$ for $b\leq 0.5$ 
+$\cor_{0,b}$ and $\cor_{1-b,1}$ for $b\leq 0.5$ (Fig. \ref{pedagogfig}F)
 measure association in the left and right tails, respectively, and can be compared
 via a difference, $\cor_{0,b}-\cor_{1-b,1}$, to measure asymmetry of tail 
 association. Positive values (respectively, negative) of this difference mean stronger left-tail
 (respectively, right-tail) association.
-<!--***DAN: make sure you *either* use left or lower-tail throughout, similar for right and upper-->
-The sum of $\cor_{0,1/2}$ and 
-$\cor_{1/2,1}$ (or the sum of
+<!--***DAN: make sure you *either* use left or lower-tail throughout, similar for right and upper.
+I used left- and right-. At present the others have not been used according to a search on 2/12.
+DONE-->
+The sum of $\cor_{0,0.5}$ and 
+$\cor_{0.5,1}$ (or the sum of
 $\cor_{l_{b_k},u_{b_k}}$ for any other choice of bands 
 $(l_{b_k},u_{b_k})$ that partition $(0,1)$) equals the standard 
 Spearman correlation, as long as no points happen to lie exactly 
@@ -467,7 +464,8 @@ by defining $C^n(i,j)$ for two aphid or *Ceratium*
 species $i,j$, as follows. $C^n(i,j)$ was not defined, or was defined to
 equal the missing-data space holder "NA", if $i=j$; or if the hypothesis
 that $s_i^n(t)$ and $s_j^n(t)$ were independent could not be rejected 
-($5\%$ level, using the `BiCopIndTest` in the `VineCopula` package in R);
+($5\%$ level, using a test described by @Genest2007, implemented in the 
+function `BiCopIndTest` in the `VineCopula` package in R);
 or if independence was rejected but the Spearman correlation
 of $s_i^n(t)$ and $s_j^n(t)$ was negative. Otherwise we defined 
 $C^n(i,j)=\cor_{0,b}(s_i^n(t),s_j^n(t))-\cor_{1-b,1}(s_i^n(t),s_j^n(t))$,
@@ -476,7 +474,7 @@ over the times, $t$, for which data were available for location $n$.
 The entry $C^n(i,j)$ was set to NA if independence of 
 $s_i^n(t)$ and $s_j^n(t)$ 
 could not be rejected because attempting to quantify
-tail association (or anything else about associations between variables) for independent
+tail association (or anything else about association) for independent
 variables is pointless. $C^n(i,j)$ was set to NA for negatively associated
 $s_i^n(t)$ and $s_j^n(t)$ because negative association occurred for only 
 one pair of species in one location 
@@ -487,7 +485,8 @@ for negatively associated variables should be studied, and this
 topic is revisited in the \nameref{Discussion},
 <!--***DAN: in the Discussion, make sure to talk about how studying asymmetry of 
 tail dependence for negative associations is complicated by the fact that
-it can depend on the arbitrary ordering of the two variables.-->
+it can depend on the arbitrary ordering of the two variables.
+DONE-->
 but negative associations were too rare in our data to study them. 
 The matrix $C^n$ is symmetric. The
 value $b=1/3$ was used for plankton locations, whereas $b=1/2$
@@ -527,7 +526,7 @@ allowed us to study asymmetry of tail association using methods developed with
 positively associated variables in mind. Note that using a similar procedure to 
 study pairs of negatively associated biological variables (e.g., two aphid or plankton
 time series) would be inappropriate because in that case there is no 
-cannonical choice of which variable to take the opposite of. We again used
+cannonical choice of which variable to take the negative of. We again used
 $b=1/3$ for plankton data and covariates, and $b=1/2$ for aphid data and winter
 temperature. For display, we horizontally concatenated the matrices
 $C^n$ and $D^n$ and displayed matrix values using color. 
@@ -536,13 +535,14 @@ We used the matrices $C^n$ for each sampling location $n$ to answer
 Q1 from the \nameref{Introduction}, as follows. First, we counted the number, 
 $N_L^n$, of entries of $C^n$ which were not NA and which were greater than 
 $0$. These were the "left-tail dominant" species pairs, i.e., pairs of species 
-for which association was stronger in left- rather than in right-tail.
+for which association was stronger in the left rather than in the right tails of the species distributions.
 We also counted the number, $N_R^n$, of right-tail dominant pairs, for which 
 <!--***DAN: Shya, note the change in notation, which will require a minor change 
 to Figs 2, 3 and the corresponding sup mat figs, please. I think left- and 
 right-tail dependence is slightly better than lower- and -upper-tail dependence,
 as terminology, just because if you have to say "lower-tail dependence was lower/less than
 upper-tail dependence" it sounds weird and a bit confusing. So I changed it throughout.-->
+<!--***DAN: this appears to have been done-->
 the corresponding entries of $C^n$ were negative. If $N_L^n$ was substantially
 greater than (respectively, substantially less than) $N_R^n$ for a location $n$,
 it suggested that left-tail association (respectively, right-tail association) 
@@ -560,10 +560,16 @@ in the numerator of one of them), but these new quantities are signed in the
 same way as the As. I think this is more consistent. If this requires any 
 presentational changes, please make them. I expect any required changes will 
 be minor, but let me know if not.-->
-Together, these statistics provide an answer to Q1.
+<!--***DAN: Shyamolina, in the upper left corner of Fig. 2C, F_{C,R} needs to
+be replaced with |F_{C,R}|. Please also make the analogous change for other figures in the 
+main text and sup mat..-->
+Because $0\leq F_{C,L}^n \leq 1$, 
+$0 \leq |F_{C,R}^n| \leq 1$, and $F_{C,L}^n+|F_{C,R}^n|=1$, the relative sizes of
+$F_{C,L}^n$ and $|F_{C,R}^n|$ indicate the relative dominance of left- and right-tail
+association between species at location $n$. Together, all these statistics provide an answer to Q1.
 
-We used the matrices $C^n$ and $D^n$ to answer Q2 from the \nameref{Introduction} for the 
-*Ceratium* and aphid data as follows. First, we calculated 
+We used the matrices $C^n$ and $D^n$ to answer Q2 from the \nameref{Introduction}
+for the *ceeratium* and aphid data, as follows. First, we calculated 
 $A_D^n$, the sum of all non-NA entries of $D^n$. This was analogous to 
 $A_C^n$, but calculated using the matrix $D^n$ instead of the matrix
 $C^n$. We then examined whether the values $A_C^n$ and $A_D^n$ were 
@@ -573,7 +579,7 @@ tests whether *Ceratium* or aphid time series having
 stronger right-tail (respectively, left-tail) association 
 with environmental covariates in a given location also had 
 stronger right-tail (respectively, left-tail) association 
-with each other at that same location. 
+with each other at that location. 
 Recall that an environmental covariate was reversed (its negative was used)
 when it was negatively associated with a *Ceratium* or aphid species, and that
 no covariate was ever significantly positively associated with some 
@@ -581,8 +587,7 @@ no covariate was ever significantly positively associated with some
 such species in the same location (see \nameref{Results}).
 
 We also answered Q2 for the aphid data as follows. Within a location, $n$, for each species,
-$i$, we computed the sum $\alpha^n_C(i)$ of all non-NA entries $C^n(i,j)$, 
-<!--***Shya: Suppmat line 815, I actually used mean, not sum-->
+$i$, we computed the mean $\alpha^n_C(i)$ of all non-NA entries $C^n(i,j)$, 
 for $j$ ranging across all species for which we had data. This quantity measures an
 average tail association of species $i$ with other species in the
 same location, with positive values for greater left-tail association and 
@@ -630,7 +635,8 @@ For other locations, $C^n$ had mostly negative values, indicating a
 preponderance of right-tail association (Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}B).
 For such locations, *Ceratium* population densities are more likely to be correlated
 across species at high population densities than at low densities.
-<!--***DAN: the consequences of this are worth revisiting in the discussion-->
+<!--***DAN: the consequences of this are worth revisiting in the discussion.
+DONE-->
 The statistics $F_{C,L}$ and $F_{C,R}$, plotted across all sampling locations
 (Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}C), indicated that most *Ceratium*
 sampling locations were dominated by either left- or right-tail association, with
@@ -730,35 +736,35 @@ are colored red or blue depending on which of $F_{C,L}$ or $F_{C,R}$ had higher 
 For the *Ceratium* data, the statistics $A_C^n$ and $A_D^n$ were significantly correlated
 across locations, $n$, validating our
 hypothesis from the \nameref{Introduction} for a cause of tail association between co-located
-species, and helping to answer Q2. Across our `r length(res_cer$CorlmCoru_all_ln_list)` locations, 
+species, and helping to answer Q2. In other words, tail association between co-located 
+species time series was apparently inherited from common tail association of the species 
+on environmental drivers. 
+Across our `r length(res_cer$CorlmCoru_all_ln_list)` locations, 
 $A_C^n$ and $A_D^n$ were significantly positively correlated (Pearson correlation,
 two-tailed test, Fig. \ref{fig_plankton_scatter}A). Thus locations for which
 *Ceratium* density time series showed greater left-tail (respectively, right-tail) 
 association with environmental covariates (measured with $A_D^n$)
 also exhibited greater left-tail (respectively, right-tail) association between
 density time series for distinct species (measured with $A_C^n$).
-Tail association between co-located species time series was apparently inherited from
-common tail association of the species on environmental drivers. 
 
 <!--Para for aphids, using A_C^n and A_D^n across n.-->
-For the aphid data, the statistics $A_C^n$ and $A_D^n$ were marginally significantly correlated
+For the aphid data, the statistics $A_C^n$ and $A_D^n$ were positively but non-significantly correlated
 across our `r length(res_ff$CorlmCoru_all_ln_list)` sampling locations
 (Fig. \ref{fig_plankton_scatter}B). Thus locations for which aphid first-flight time series
 showed greater left-tail (respectively, right-tail) association with winter temperature
 also showed a non-significant tendency toward greater left-tail (respectively, right-tail) association between
 the time series of distinct species. The correlation may have been non-significant for the aphid data
 simply because there were slightly fewer aphid sampling locations than there were 
-plankton locations, or for additional possible reasons elaborated in the \nameref{Discussion}.
-<!--***DAN: don't forget to do this-->
+plankton locations.
 Nevertheless, when combined with the plankton result, this aphid result tends to support 
 the hypothesis that tail association between co-located species time series can be inherited from
-common tail association on environmental drivers. 
+common tail association on environmental drivers. See also the subsequent results for aphids.
 
 <!--Para for aphids using the second method.-->
 Our second analysis using aphids, based on the statistics $\alpha_C^n(i)$ and $\alpha_D^n(i)$ (\nameref{Methods}),
 provided further evidence supporting our hypothesis for a cause of tail association between co-located
 species (\nameref{Introduction}). For 8 of 10 sampling locations, $\alpha_C^n(i)$ and $\alpha_D^n(i)$
-were significantly correlated across species, $i$ (Pearson, Fig. \ref{fig_aphid_multipanel}).
+were significantly correlated across species, $i$ (Fig. \ref{fig_aphid_multipanel}).
 In other words, for 8 of 10 locations, aphid species with greater left-tail (respectively,
 right-tail) association with winter temperature also had greater left-tail (respectively,
 right-tail) association with other aphid species.
@@ -856,8 +862,7 @@ corresponds to a spatial-total time series with low values, i.e., to dynamics of
 population with a tendency to "crash". The total population can
 be regarded as a landscape-level measure of the stability or variability of species 
 $s$, and is important, for instance, if species $s$ is a pest or an exploited species.
-For the same reasons,
-and as outlined conceptually above, the skewness, through time, of the community-total time series
+For the same reasons, the skewness, through time, of the community-total time series
 $\sum_s x_{l,s}(t)$ is sensitive to the tail association between the $x_{s,l}(t)$ ($s=1,\ldots,S$),
 which we have here studied. Right-tail 
 (respectively, left-tail) association again tends to produce right (respectively, left) skew in the total
@@ -870,7 +875,7 @@ $\sum_s x_{l,s}(t)$. But our results show that, even if all the species time ser
 $x_{s,l}(t)$ ($s=1,\ldots,S$) are synchronous with each other, the tail association properties
 of these time series can influence the stability of the community-total time series. 
 
-Although our results are sufficient to show that copula structure and tail association are
+Although our results are sufficient to show that tail associations are
 likely to be important for studies of community dynamics and stability, many 
 communities show not only synchronous dynamics between some species pairs 
 $x_{s_i,l}(t)$ and $x_{s_j,l}(t)$, but also compensatory dynamics between other pairs; 
@@ -883,28 +888,20 @@ data characterizing an entire competitive community. For instance, the data of @
 consitute annual abundances of all species of plant in an area; some species pairs show 
 synchronous and some show compensatory dynamics.
 
-<!--P: 7) para on how to deal with negatively associated variables in future work
-  a) <!--***DAN: in the Discussion, make sure to talk about how studying asymmetry of 
-tail dependence for negative associations is complicated by the fact that
-it can depend on the arbitrary ordering of the two variables.-->
+<!--P: 7) para on how to deal with negatively associated variables in future work-->
 Studying asymmetry of tail association for negatively correlated species density time 
-series will require modified methods. The only negative association between species time series
+series will require slightly modified methods. The only negative association between species time series
 that occurred in our system was not analyzed. Negative associations between species time series and 
 the environmental covariates we considered were handled
 statistically by considering the positive association between the species time
-series and a "reversed" covariate (its negative); this corresponds to a positive 
+series and a "reversed" covariate; this corresponds to a positive 
 association with a reconceptualized covariate, e.g., a "coldness" index.
 But that approach makes no sense for negatively 
 associated time series of two species:
 there is no cannonical choice of which variable to reverse. Asymmetry of tail
 association can still be considered, however, for negatively associated variables, $u,v$, 
-in an unsigned approach, via the absolute value
-of our index $\cor_{0,b}(u,1-v)-\cor_{1-b,1}(u,1-v)$. Note 
-that $\cor_{0,b}(u,1-v)$ conceptually should give us the same result as 
-$\cor_{0,b}(u,v^{*})$, where $(u, v^{*})$ are the normalized ranks of timeseries
-of two variables $(x, -y)$ and here variable $y$ is taken reversed. Because $|\cor_{0,b}(u,1-v)-\cor_{1-b,1}(u,1-v)|=|\cor_{0,b}(1-u,v)-\cor_{1-b,1}(1-u,v)|$,
+in an unsigned approach, via the index $|\cor_{0,b}(u,1-v)-\cor_{1-b,1}(u,1-v)|$. Because $|\cor_{0,b}(u,1-v)-\cor_{1-b,1}(u,1-v)|=|\cor_{0,b}(1-u,v)-\cor_{1-b,1}(1-u,v)|$,
 no choice need be made on which variable to "reverse."
-<!--***DAN: Shyamolina changed the above in her last roung of edits, think carefully when you read the whole thing-->
 A large value of this index indicates that tail association between $u$ and $v$ is asymmetric,
 though it does not provide information on whether association is stronger between
 the left tail of $u$ and the right tail of $v$ or between the right tail of $u$
@@ -933,7 +930,7 @@ time series, as described above.
   c) When you present items 5 and 6 here, you will have to cause the reader to think back to your statement in the Intro that our results are just a first step toward the goals which were outlined there (i.e., copulas in community dynamics and phenology studies)-->
 Although our aphid results were sufficient to demonstrate that tail association can be an important 
 factor in the phenology of co-located species, it will be necessary in future work to apply
-copula and tail association ideas to different datasets to assess whether these ideas
+tail association ideas to different datasets to assess whether these ideas
 can improve our understanding of the consequences of changing phenology for trophic phenological matching. 
 The aphid species we studied have different host plants, so they do not directly interact. Shifts and
 fluctuations in the phenology of one species probably do not directly influence 
@@ -948,18 +945,15 @@ from multiple trophic levels of @Thackery2010.
 Our results extend the results of @Ghosh_copula. Those authors argued that considering 
 copulas and tail associations can provide insights across the field of ecology.
 But @Ghosh_copula did not consider co-located species, a context important for
-community ecology. Our results provide evidence that a copula approach, focusing on 
-associations between variables in their extremes,
+community ecology. Our results provide evidence that an approach focusing on 
+associations between variables in their extremes
 is likely to provide additional insight into two major topics of inquiry in ecology.
 
 # Acknowledgments
 
 We thank the many contributors to the large datasets we used; D. Stevens and P. Verrier for 
 data extraction; and Joel E. Cohen, Lauren Hallet, and Jonathan Walter for helpful 
-suggestions.
-<!--***DAN: Shya and Lawrence to add any other acknowledgments. Shya, please check with
-Lawrenec by emailing or talking to him as he is not likely to read this comment.-->
-We thank James Bell of the Rothamsted Insect Survey (RIS). The RIS, a UK Capability,
+suggestions. We thank James Bell of the Rothamsted Insect Survey (RIS). The RIS, a UK Capability,
 is funded by the Biotechnology and Biological Sciences Research Council under the Core
 Capability Grant BBS/E/C/000J0200. SG, LWS and DCR were partly funded by US National Science
 Foundation grants 1714195 and 1442595 and the James S McDonnell Foundation.  
@@ -991,7 +985,7 @@ plankton_aphid_info <- tibble(c0=c(1:4,1:20),
                           "Hyalopterus pruni","Acyrthosiphon pisum","Myzus persicae", "Macrosiphum euphorbiae",
                           "Metopolophium dirhodum","Myzus ascalonicus","Drepanosiphum platanoidis","Cavariella aegopodii"                                           ))
 knitr::kable(plankton_aphid_info, "latex", booktabs = T, linesep = "",align="c",
-      caption = "Species names of 4 plankton and 20 aphids for which data were used. \\label{tab_plankton_aphid_info}",
+      caption = "Names of 4 plankton and 20 aphid species for which data were used. \\label{tab_plankton_aphid_info}",
       col.names = NULL)%>%
       group_rows("Plankton", 1,4) %>%
       group_rows("Aphids", 5,24) %>%
