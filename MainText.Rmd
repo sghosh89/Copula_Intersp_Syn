@@ -958,20 +958,12 @@ is funded by the Biotechnology and Biological Sciences Research Council under th
 Capability Grant BBS/E/C/000J0200. SG, LWS and DCR were partly funded by US National Science
 Foundation grants 1714195 and 1442595 and the James S McDonnell Foundation.  
 
+# Author contributions
+SG, LWS and DCR designed the study and analyzed the data, SG and DCR wrote the manuscript, 
+PCR provided the data and assisted with interpretation of results, and all authors edited the manuscript
+and gave final approval for publication.
 
 <!-- MUST to ADD for Journal of Animal Ecology --
-
-*** Authors' contributions ***
-All submissions with more than one author must include an Author contributions statement. All persons listed as authors on a paper are expected to meet ALL of the following criteria for authorship:
-
-substantial contributions to conception and design, or acquisition of data, or analysis and interpretation of data, or drafting the article or revising it critically for important intellectual content;
-final approval of the version to be published;
-agreement to be accountable for the aspects of the work that they conducted and ensuring that questions related to the accuracy or integrity of any part of their work are appropriately investigated and resolved.
-Acquisition of funding, provision of facilities, or supervising the research group of authors without additional contribution are not usually sufficient justifications for authorship. The statement should include an explanation of the contribution of each author.
-
-We suggest the following format for the Author contributions statement:
-
-AB and CD conceived the ideas and designed methodology; CD and EF collected the data; EF and GH analysed the data; AB and CD led the writing of the manuscript. All authors contributed critically to the drafts and gave final approval for publication.
 
 *** Data Availability Statement ***
 To enable readers to locate archived data from papers, we require that authors list the database and the respective accession numbers or DOIs for all data from the manuscript that has been made publicly available. For example, “Data available from the Dryad Digital Repository http://dx.doi.org/10.5061/dryad.41qh7 (Kiere & Drummond 2016).” When a DOI is available for the data, the full data citation should also be given in the reference list. See below. Please see our  editorial policies page for further information
