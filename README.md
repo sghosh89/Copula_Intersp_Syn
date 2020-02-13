@@ -19,10 +19,10 @@ this should re-compute all analyses from data to paper, resulting in three pdfs:
 supporting information file for the paper), and **makefile.pdf** (notes on the 
 compilation process - can be useful for error mitigation in the event of failure).
 
-The knit may take quite some time. Subsequent knits, if any, 
-can be faster because packages will be installed (see below) and because intermediate 
+The knit should take about an hour or less on a standard modern laptop. Subsequent knits, if any, 
+can be even faster because packages will be installed (see below) and because intermediate 
 results are cached. If you try to knit MainText.Rmd or SuppMat.Rmd directly, you may have some 
-success, but cross-document references and other features will fail so this is not recommended.
+limited success, but cross-document references and other features will fail so this is not recommended.
 To compile the documents from the command line, use the following: Rscript -e "library(knitr); knit('makefile.Rmd')".
 
 ## Dependencies
@@ -36,7 +36,7 @@ To compile the documents from the command line, use the following: Rscript -e "l
 
 ### Data dependencies
 Datasets are not included in the Data folder, and need to be obtained and put there for the code
-to run. A dataset which includes the plankton data we used as a subset can be obtained from the 
+to run. A dataset which includes the plankton data we used, as a subset, can be obtained from the 
 Dryad Digital Repository https://doi.org/10.5061/dryad.rq3jc84. We do not have the rights
 to release the aphid data, so those data are not in the repository. 
 The aphid data came from the 
@@ -55,10 +55,10 @@ R chunk *checkpoint_chunk*, which contains the following line of code specifying
 checkpoint("2019-01-01",checkpointLocation = "./")
 
 The checkpoint package then automatically scans through other files looking for other required R 
-packages. It then downloads and installs the newest versions of those packages available on the 
+packages. It then downloads and installs the versions of those packages that were available on the 
 given date. This helps ensure that re-compiling the document uses exactly the same code that was 
 originally used, in spite of package updates and other changes. This can take some time on first 
-run (you are warned) but it is faster on subsequent runs because the packages are already 
+run but it is faster on subsequent runs because the packages are already 
 installed. This also means that R package dependencies should only be the checkpoint package, 
 since that package should scan for other packages and install them locally. Quite a few MB disk 
 space are used (about 300Mb).
@@ -79,7 +79,7 @@ The makefile makes a system call to pdflatex, so software supporting that needs 
 If you find additional dependencies were needed on your system, please let us know: 
 reuman@ku.edu. The compilation process was tested by Ghosh on Ubuntu 16.04 and by 
 Reuman on a similar computing setup. It has not been 
-tested on Mac. We have endeavored to list all dependencies we can think of above, but we have 
+tested on other platforms. We have endeavored to list all dependencies we can think of above, but we have 
 only compiled on our own machines, so we cannot guarantee that additional dependencies will not 
 also be needed on other machines, even after data are included (see above). This repository is 
 intended to record a workflow, and is not designed or tested for distribution and wide use on 
