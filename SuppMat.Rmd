@@ -39,7 +39,6 @@ source("mtime.R") #A function needed for caching
 <!--introductory fig, also used in methods-->
 ```{r fig_intro,echo=F,results="hide"}
 set.seed(seed)
-source("./fig_intro.R")
 source("./pedagog_fig.R")
 ```
 
@@ -433,44 +432,6 @@ abline(mylm)
 c<-cor.test(dat$x,dat$y,method = "pearson",alternative = "t")
 mtext(paste0("Pearson correlation = ",round(unname(c$estimate),3),", p = ",round(c$p.value,4),sep=""),cex=2,line=1)
 dev.off()
-```
-
-<!--skewness : ceratiums-->
-```{r skew_ceratium,echo=F,results="hide",cache=T,cache.extra=list(seed,data_plankton,splist_updated,good_loc_plankton,mtime("ncsurrog.R"),mtime("skewness_testing.R"))}
-set.seed(seed)
-source("skewness_testing.R")
-#------Skewness results calculation with 4 ceratium sp. for all selected loc ---------------------------------------------------
-
-good_loc<-good_loc_plankton
-pdf("./Results/plankton_results/ceratium_skewness.pdf",height=16,width=16)
-op<-par(mfrow=c(4,4),mar=c(4.2,5,1,1),mgp=c(3,1,0))
-
-tab_ceratium_skew_screened_sp<-matrix(NA,nrow = length(good_loc),ncol = 2)
-tab_ceratium_skew_screened_sp[,1]<-good_loc
-colnames(tab_ceratium_skew_screened_sp)<-c("loc","p_left") 
-
-
-for(i in 1:length(good_loc)){
-  
-  loc<-good_loc[i]
-  cat("----i = ",i,"----loc = ",loc,"-------","\n")
-  ceratium_data<-data_plankton[[loc]][c(1:4)]
-  df<-cbind(ceratium_data$Ceratium_fusus$Dat,
-            ceratium_data$Ceratium_furca$Dat,
-            ceratium_data$Ceratium_tripos$Dat,
-            ceratium_data$Ceratium_macroceros$Dat)
-  colnames(df)<-names(ceratium_data)
-  
-  df<-na.omit(df)
-  
-  temp<-skewness_testing(ts_matrix=df,splist=c(1:ncol(df)),numsurrog=10000,ploton=T,plotcheckon=F,corpres="spearman",resloc=NA)
-  #mtext(paste0("loc= ",good_loc[i],", p_left= ",temp[1],sep=""),side = 3, line=-2, adj=0)
-  tab_ceratium_skew_screened_sp[i,2]<-temp$p_left
-  
-}
-par(op)
-dev.off()
-saveRDS(tab_ceratium_skew_screened_sp,"./Results/plankton_results/tab_ceratium_skew.RDS")
 ```
 
 
