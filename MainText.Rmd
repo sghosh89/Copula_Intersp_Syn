@@ -953,7 +953,7 @@ PCR provided the data and assisted with interpretation of results, and all autho
 and gave final approval for publication.
 
 # Data availability statement
-Plankton data are available from the Dryad Digital Repository https://doi.org/10.5061/dryad.rq3jc84 [@Sheppard_etal_2019_data]. Full code for the analyses are at \url{https://github.com/sghosh89/Copula_Intersp_Syn}.
+Plankton data are available from the Dryad Digital Repository https://doi.org/10.5061/dryad.rq3jc84 [@Sheppard2019data]. Full code for the analyses are at \url{https://github.com/sghosh89/Copula_Intersp_Syn}.
 
 <!--Table with species info -->
 ```{r tab_plankton_aphid_info, echo=F, results='asis',message=F}
