@@ -802,14 +802,14 @@ numbers (see Figs \ref{SM-fig_plankton_map} and \ref{SM-fig_aphid_map}).\label{f
 
 <!--aphid multipanel plot : Q2-->
 \begin{figure}[!h]
-\begin{center}
+\hspace{1 cm}
+\includegraphics[width=16 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_avg_sp_temp_multipanel_plot_legend.pdf} 
 \includegraphics[width=16 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_avg_sp_temp_multipanel_plot.pdf} 
 \caption{For 8 out of 10 sites, the Pearson correlation ($P$) between $\alpha_C^n(i)$ and $\alpha_D^n(i)$ for
 $i = 1, 2, \dots, 20$ was significantly positive (p $< 0.05$, one tailed test). This supports the
 hypothesis that tail association between species may be inherited from joint tail
 association of both species on a common environmental driver. See Table \ref{tab_plankton_aphid_info} 
 for species IDs.\label{fig_aphid_multipanel}}
-\end{center}
 \end{figure}
 
 # Discussion\label{Discussion}
