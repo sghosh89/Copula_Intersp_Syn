@@ -774,7 +774,7 @@ dev.off()
 #----- Now generate another version of above approach to get multipanel plots for each location --------------------
 LTmUTdep_matlist_ff<-cor_npa_diff_ff_ln_all$CorlmCoru_all_ln_list
 pdf("./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_avg_sp_temp_multipanel_plot.pdf",height = 33,width = 48)
-op<-par(mfrow=c(4,3),mar=c(20,17,15,1.5), mgp=c(8,1,0),oma=c(3,3,0,0))
+op<-par(mfrow=c(4,3),mar=c(20,25,15,1.5), mgp=c(8,1,0),oma=c(3,3,0,0))
 
 for(loc in 1:length(LTmUTdep_matlist_ff)){
   st<-LTmUTdep_matlist_ff[[loc]]
@@ -805,7 +805,7 @@ for(loc in 1:length(LTmUTdep_matlist_ff)){
   #legend("topleft", legend=c("avg_sp", "sp-temp"),
   #       col=c("red", "blue"), pch=c(16,16),cex=3.5,horiz=T,bty="n")
 }
-mtext(expression(paste("Tail association, ", alpha[X]^n*(i))),cex=6,side=2,line=9,adj=-1.5)
+mtext(expression(paste("Tail association, ", alpha[X]^n*(i))),cex=6,side=2,line=14,adj=-1.5)
 #op2<-par(fig = c(0, 1, 0, 1), oma = c(0, 0, 0, 0), mar = c(0, 1, 0, 0), new = TRUE)
 
 par(op)
