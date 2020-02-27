@@ -144,7 +144,7 @@ The normalized rank plot reflects the copula structure of
 $(x_t, y_t)$ [@Ghosh_copula; @Genest2007]. 
 Ranking makes the marginal distributions uniform, isolating only the information
 on association between the variables. It is likewise the purpose of copula approaches
-to separate association information from information on marginals.  
+to separate association information from information on marginals.
 We emphasize that we have not here provided a formal definition of copulas, instead only 
 introducing the fundamental copula idea of separating dependence information from
 information on marginals.
@@ -223,7 +223,14 @@ of two interacting species are
 highly correlated, if this correlation is principally in the 
 right tails of the distributions of possible emergence times, 
 so that early emergences of the species are actually uncorrelated, then 
-mismatched years are likely to occur, impacting the species. Such 
+mismatched years are likely to occur, impacting the species. 
+<!--***DAN: Lawrence was confused here by my (arbitrary) use of right tails, and 
+thought I was contrastoing with the opposite left-tail situation, when in fact
+I was just contrasting with a situation without tail association. Basically the 
+idea is even if you have pretty high correlation, if there is tail association,
+then you can still have substantial non-correlation in the less-associated tails, 
+which may then lead to mismatches. So you need to reword.-->
+Such 
 mismatches will occur, in this conceptual example, 
 when emergence is early. One potential mechanism by which 
 early emergences
@@ -252,7 +259,7 @@ of one variable are associated with those in the right tail of the other;
 slightly modified methods are required to study tail association and its
 asymmetry in negatively associated variables. 
 But our aphid and plankton
-populatuion and phenology variables were 
+population and phenology variables were 
 almost exclusively positively associated with each other (see \nameref{Results}).
 Therefore, we introduce methods and present results in this study
 chiefly for the case of positively associated variables, 
@@ -370,7 +377,7 @@ Data preprocessing steps were the same as used by @Ghosh_copula.
 *Ceratium* species were extracted in part because they
 have an important role in red tides, and also because four 
 species were available from the genus (Table \ref{tab_plankton_aphid_info}), 
-and we wanted closely related 
+and we chose closely related 
 species because they may 
 be influenced in similar ways
 by environmental variables. The 15 locations we used were 
@@ -455,7 +462,8 @@ Spearman correlation, as long as no points happen to lie exactly
 on the bounds. 
 
 For each sampling location, $n$, we computed a matrix, $C^n$, which quantifies
-asymmetry of tail association between aphid or *Ceratium* time series at $n$. Denote by
+asymmetry of tail association between pairs of aphid time series or pairs of *Ceratium* 
+time series at $n$. Denote by
 $s_i^n(t)$ the aphid first flight date or the *Ceratium* population density 
 for sampling location $n$, for the $i^{\text{th}}$ species that was present in the 
 cleaned data for location $n$, and for year $t$.
@@ -520,13 +528,19 @@ were always positively associated with the coldness index when they were
 significantly associated with it. Although *C. finmarchicus* abundance was 
 positively associated with *Ceratium* time series in some sampling locations
 and negatively associated in others, it always showed the same association
-with all *Ceratium* species within a location. Using $-d_k^n(t)$ in place
+with all *Ceratium* species within a location. 
+<!--***DAN: Lawrence had trouble understanding from here ...-->
+Using $-d_k^n(t)$ in place
 of $d_k^n(t)$ when negative associations with aphid or plankton data occured 
 allowed us to study asymmetry of tail association using methods developed with 
 positively associated variables in mind. Note that using a similar procedure to 
 study pairs of negatively associated biological variables (e.g., two aphid or plankton
 time series) would be inappropriate because in that case there is no 
-cannonical choice of which variable to take the negative of. We again used
+canonical choice of which variable to take the negative of. 
+<!--...to here and asked if we could clarity. He said this same point comes up again
+later and is clearer there, so maybe look how it was done there, first, then revise
+here for clarity.-->
+We again used
 $b=1/3$ for plankton data and covariates, and $b=1/2$ for aphid data and winter
 temperature. For display, we horizontally concatenated the matrices
 $C^n$ and $D^n$ and displayed matrix values using color. 
@@ -609,14 +623,15 @@ in testing for a correlation.
 <!--Results for Q1-->
 
 <!--For Ceratium-->
+Associations between *Ceratium* species were always positive when they were significant,
+except for one pair of species in one location (plankton sampling location 18, species *C. furca* and 
+*C. macroceros*).
+
 Asymmetric tail association was very common between *Ceratium* population density
 time series from the same location, answering Q1 in the affirmative for *Ceratium*;
 for some locations, left-tail association between *Ceratium*
 species was dominant, and for other locations right-tail association was dominant.
-Associations between *Ceratium* species were always positive when they were significant,
-except for one pair of species in one location (plankton sampling location 18, species *C. furca* and 
-*C. macroceros*).
-For some locations, the matrix $C^n$ was comprised largely of positive values, 
+To show this, we show that for some locations, the matrix $C^n$ was comprised largely of positive values, 
 indicating a preponderance of left-tail association between *Ceratium* time 
 series for the location (Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}A).
 For such locations, *Ceratium* population densities are more likely to be correlated
@@ -627,30 +642,42 @@ For such locations, *Ceratium* population densities are more likely to be correl
 across species at high population densities than at low densities.
 <!--***DAN: the consequences of this are worth revisiting in the discussion.
 DONE-->
-The statistics $F_{C,L}$ and $F_{C,R}$, plotted across all sampling locations
+To demonstrate the same result in another way, we show that the 
+statistics $F_{C,L}$ and $F_{C,R}$, plotted across all sampling locations
 (Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}C), indicated that most *Ceratium*
 sampling locations were dominated by either left- or right-tail association, with
 approximately equal numbers of each, with only a few locations having
 more symmetric tail association, on average across pairs of *Ceratium* species.
+<!--***DAN: Co-edited the above para on the fly with Lawrence and shya in order to make
+it clear that we were intentionally saying the same things three times, as it were.
+But read it though carefully and make sure you did not intro any other wording 
+problems-->
 
 <!--For aphids-->
+Associations between aphid time series were always positive 
+when they were significant.
 Asymmetric tail association was also very common between aphid first flight
 time series from the same location, answering Q1 in the affirmative for aphids;
 left-tail association was more common for some sampling locations
 and right-tail association dominated for others, but for most sites right-tail
-association dominated. Associations between aphid time series were always positive 
-when they were significant. For some locations, the matrix $C^n$ was 
+association dominated. 
+To show this, we show that for some locations, the matrix $C^n$ was 
 comprised of a slight majority of positive values, 
 indicating more left- than right-tail association between aphid time 
-series for the location (Fig. \ref{fig_CorlmCoru_ff_map_loc2_5}A).
-For other locations, $C^n$ had mostly negative values, indicating a 
+series for the location (Fig. \ref{fig_CorlmCoru_ff_map_loc2_5}A);
+whereas for other locations, $C^n$ had mostly negative values, indicating a 
 preponderance of right-tail association (Fig. \ref{fig_CorlmCoru_ff_map_loc2_5}B).
-The statistics $F_{C,L}$ and $F_{C,R}$, plotted across all sampling locations
+To demonstrate the same result in another way, we show that the statistics 
+$F_{C,L}$ and $F_{C,R}$, plotted across all sampling locations
 (Fig. \ref{fig_CorlmCoru_ff_map_loc2_5}C), indicated that most aphid sampling 
 locations had a preponderance of right-tail association, with only a few locations
 having more left-tail association, and those only slightly more. Thus, for most locations,
 aphid first flights are more correlated across species when first flights are 
 later than average.
+<!--***DAN: Co-edited the above para on the fly with Lawrence and shya in order to make
+it clear that we were intentionally saying the same things three times, as it were.
+But read it though carefully and make sure you did not intro any other wording 
+problems-->
 
 <!--plankton plots : Q1-->
 \begin{figure}[!h]
@@ -888,7 +915,7 @@ series and a "reversed" covariate; this corresponds to a positive
 association with a reconceptualized covariate, e.g., a "coldness" index.
 But that approach makes no sense for negatively 
 associated time series of two species:
-there is no cannonical choice of which variable to reverse. Asymmetry of tail
+there is no canonical choice of which variable to reverse. Asymmetry of tail
 association can still be considered, however, for negatively associated variables, $u,v$, 
 in an unsigned approach, via the index $|\cor_{0,b}(u,1-v)-\cor_{1-b,1}(u,1-v)|$. Because $|\cor_{0,b}(u,1-v)-\cor_{1-b,1}(u,1-v)|=|\cor_{0,b}(1-u,v)-\cor_{1-b,1}(1-u,v)|$,
 no choice need be made on which variable to "reverse."
