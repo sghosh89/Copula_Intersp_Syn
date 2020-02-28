@@ -461,9 +461,10 @@ $(l_{b_k},u_{b_k})$ that partition $(0,1)$) equals the standard
 Spearman correlation, as long as no points happen to lie exactly 
 on the bounds. 
 
-For each sampling location, $n$, we computed a matrix, $C^n$, which quantifies
-asymmetry of tail association between pairs of aphid time series or pairs of *Ceratium* 
-time series at $n$. Denote by
+For each sampling location, $n$, we computed a matrix, $C^n$, which we call the 
+*community tail association matrix*, which quantifies
+asymmetry of tail association between pairs of aphid species or pairs of *Ceratium* 
+species at $n$. Denote by
 $s_i^n(t)$ the aphid first flight date or the *Ceratium* population density 
 for sampling location $n$, for the $i^{\text{th}}$ species that was present in the 
 cleaned data for location $n$, and for year $t$.
@@ -496,12 +497,13 @@ tail dependence for negative associations is complicated by the fact that
 it can depend on the arbitrary ordering of the two variables.
 DONE-->
 but negative associations were too rare in our data to study them. 
-The matrix $C^n$ is symmetric. The
+The community tail association matrix $C^n$ is symmetric. The
 value $b=1/3$ was used for plankton locations, whereas $b=1/2$
 was used for aphid locations because aphid time series were shorter, and
 larger $b$ reduces sampling variation for our statistics [@Ghosh_copula].
 
-We also computed a matrix $D^n$ which quantifies tail association between 
+We also computed a matrix $D^n$, which we call the *community-driver tail association matrix*,
+which quantifies tail association between 
 aphid or plankton time series and their covariates. 
 Denote by $d_k^n(t)$ the value of the $k^{\text{th}}$ covariate 
 that operated at sampling location $n$ in year $t$ (winter temperature for an
@@ -545,7 +547,7 @@ $b=1/3$ for plankton data and covariates, and $b=1/2$ for aphid data and winter
 temperature. For display, we horizontally concatenated the matrices
 $C^n$ and $D^n$ and displayed matrix values using color. 
 
-We used the matrices $C^n$ for each sampling location $n$ to answer
+We used the community tail association matrix $C^n$ for each sampling location $n$ to answer
 Q1 from the \nameref{Introduction}, as follows. First, we counted the number, 
 $N_L^n$, of entries of $C^n$ which were not NA and which were greater than 
 $0$. These were the "left-tail dominant" species pairs, i.e., pairs of species 
@@ -564,7 +566,9 @@ between species in that location was dominant, answering Q1 in the affirmative.
 We also calculated $A_{C,L}^n$, the 
 sum of all positive, non-NA entries of $C^n$; $A_{C,R}^n$, the sum
 of all negative, non-NA entries of $C^n$; and $A_C^n=A_{C,L}^n+A_{C,R}^n$, a
-general measure of asymmetry of tail association in location $n$. And we calculated
+general measure of asymmetry of tail association in location $n$. 
+We refer to $A_C^n$ as the *total community tail association*.
+We additionally calculated
 the normalized quantities $F_{C,L}^n=A_{C,L}^n/(A_{C,L}^n+|A_{C,R}^n|)$
 and $F_{C,R}^n=A_{C,R}^n/(A_{C,L}^n+|A_{C,R}^n|)$. 
 Because $0\leq F_{C,L}^n \leq 1$, 
@@ -572,11 +576,13 @@ $0 \leq |F_{C,R}^n| \leq 1$, and $F_{C,L}^n+|F_{C,R}^n|=1$, the relative sizes o
 $F_{C,L}^n$ and $|F_{C,R}^n|$ indicate the relative dominance of left- and right-tail
 association between species at location $n$. Together, all these statistics provide an answer to Q1.
 
-We used the matrices $C^n$ and $D^n$ to answer Q2 from the \nameref{Introduction}
-for the *ceeratium* and aphid data, as follows. First, we calculated 
+We used the the community tail association matrix, $C^n$, and the community-driver 
+tail association matrix, $D^n$, to answer Q2 from the \nameref{Introduction}
+for the *Ceratium* and aphid data, as follows. First, we calculated 
 $A_D^n$, the sum of all non-NA entries of $D^n$. This was analogous to 
 $A_C^n$, but calculated using the matrix $D^n$ instead of the matrix
-$C^n$. We then examined whether the values $A_C^n$ and $A_D^n$ were 
+$C^n$. We refer to $A_D^n$ as the *total community-driver tail association*.
+We then examined whether the values $A_C^n$ and $A_D^n$ were 
 correlated across locations, $n$. 
 This tests the causal hypothesis in the \nameref{Introduction} because it 
 tests whether *Ceratium* or aphid time series having 
@@ -595,9 +601,12 @@ $i$, we computed the mean $\alpha^n_C(i)$ of all non-NA entries $C^n(i,j)$,
 for $j$ ranging across all species for which we had data. This quantity measures an
 average tail association of species $i$ with other species in the
 same location, with positive values for greater left-tail association and 
-negative ones for greater right-tail association. We then defined
+negative ones for greater right-tail association. We refer to 
+$\alpha^n_C(i)$ as the *species-community tail association* for species $i$.
+We then defined
 $\alpha^n_D(i)$ as the sum of all non-NA entries $D^n(i,k)$, for $k$ 
-ranging across all covariates for which we had data. For 
+ranging across all covariates for which we had data. We refer to this
+as the *species-driver tail association* for species $i$. For 
 aphids we only had one covariate, winter temperature, so $\alpha^n_D(i)=D^n(i,k)$ 
 for $k=1$ corresponding to winter temperature. We provide the more general
 definition of $\alpha^n_D(i)$ that applies when more
@@ -626,12 +635,12 @@ in testing for a correlation.
 Associations between *Ceratium* species were always positive when they were significant,
 except for one pair of species in one location (plankton sampling location 18, species *C. furca* and 
 *C. macroceros*).
-
 Asymmetric tail association was very common between *Ceratium* population density
 time series from the same location, answering Q1 in the affirmative for *Ceratium*;
 for some locations, left-tail association between *Ceratium*
 species was dominant, and for other locations right-tail association was dominant.
-To show this, we show that for some locations, the matrix $C^n$ was comprised largely of positive values, 
+To show this, we show that for some locations, the community tail association 
+matrix, $C^n$, was comprised largely of positive values, 
 indicating a preponderance of left-tail association between *Ceratium* time 
 series for the location (Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}A).
 For such locations, *Ceratium* population densities are more likely to be correlated
@@ -648,10 +657,6 @@ statistics $F_{C,L}$ and $F_{C,R}$, plotted across all sampling locations
 sampling locations were dominated by either left- or right-tail association, with
 approximately equal numbers of each, with only a few locations having
 more symmetric tail association, on average across pairs of *Ceratium* species.
-<!--***DAN: Co-edited the above para on the fly with Lawrence and shya in order to make
-it clear that we were intentionally saying the same things three times, as it were.
-But read it though carefully and make sure you did not intro any other wording 
-problems-->
 
 <!--For aphids-->
 Associations between aphid time series were always positive 
@@ -661,7 +666,8 @@ time series from the same location, answering Q1 in the affirmative for aphids;
 left-tail association was more common for some sampling locations
 and right-tail association dominated for others, but for most sites right-tail
 association dominated. 
-To show this, we show that for some locations, the matrix $C^n$ was 
+To show this, we show that for some locations, the community
+tail association matrix, $C^n$, was 
 comprised of a slight majority of positive values, 
 indicating more left- than right-tail association between aphid time 
 series for the location (Fig. \ref{fig_CorlmCoru_ff_map_loc2_5}A);
@@ -674,10 +680,6 @@ locations had a preponderance of right-tail association, with only a few locatio
 having more left-tail association, and those only slightly more. Thus, for most locations,
 aphid first flights are more correlated across species when first flights are 
 later than average.
-<!--***DAN: Co-edited the above para on the fly with Lawrence and shya in order to make
-it clear that we were intentionally saying the same things three times, as it were.
-But read it though carefully and make sure you did not intro any other wording 
-problems-->
 
 <!--plankton plots : Q1-->
 \begin{figure}[!h]
@@ -688,8 +690,9 @@ problems-->
 \textbf{ (C)} \\
 \includegraphics[width=8 cm]{./Results/plankton_results/npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf} \\
 \caption{Either right- or left-tail association between population density time series of 
-\emph{Ceratium} species could dominate, depending on the sampling location. (A, B) The matrices
-$C^n$ and $D^n$ (\nameref{Methods}), horizontally concatenated, for example locations $n=12$ (A) and $n=26$ (B).
+\emph{Ceratium} species could dominate, depending on the sampling location. (A, B) The community 
+tail association matrix, $C^n$, and the community-driver tail association matrix, $D^n$ (\nameref{Methods}), 
+horizontally concatenated, for example locations $n=12$ (A) and $n=26$ (B).
 See Table \ref{tab_plankton_aphid_info} for species names. 
 All the non-NA values in $C^n$ were positive (red) for location $12$ (A), indicating left-tail
 association dominated in that location; but values were largely negative (blue) for location
@@ -723,8 +726,9 @@ that dynamics of distinct \emph{Ceratium} species were independent.
 \includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf}
 \caption{Either right-tail association between first-flight time series of 
 aphid species could dominate, or left-tail association could be more common, 
-depending on the sampling location. (A, B) The matrices
-$C^n$ and $D^n$ (\nameref{Methods}), horizontally concatenated, for example locations $n=2$ (A) and $n=5$ (B).
+depending on the sampling location. (A, B) The community tail association matrix, $C^n$, 
+and the community-driver tail association matrix, $D^n$ (\nameref{Methods}), horizontally 
+concatenated, for example locations $n=2$ (A) and $n=5$ (B).
 See Table \ref{tab_plankton_aphid_info} for species names.
 A slight majority of non-NA values in $C^n$ were positive (red) for location $2$ (A; see the
 $N_L^n$ and $N_R^n$ counts displayed), indicating left-tail
@@ -750,7 +754,8 @@ are colored red or blue depending on which of $F_{C,L}$ or $F_{C,R}$ had higher 
 <!--Results for Q2-->
 
 <!--Para for Ceratium, using A_C^n and A_D^n across n.-->
-For the *Ceratium* data, the statistics $A_C^n$ and $A_D^n$ were significantly correlated
+For the *Ceratium* data, the total community tail association, $A_C^n$, and the
+total community-driver tail association, $A_D^n$, were significantly correlated
 across locations, $n$, validating our
 hypothesis from the \nameref{Introduction} for a cause of tail association between co-located
 species, and helping to answer Q2. In other words, tail association between co-located 
@@ -765,7 +770,8 @@ also exhibited greater left-tail (respectively, right-tail) association between
 density time series for distinct species (measured with $A_C^n$).
 
 <!--Para for aphids, using A_C^n and A_D^n across n.-->
-For the aphid data, the statistics $A_C^n$ and $A_D^n$ were positively but non-significantly correlated
+For the aphid data, the total community tail association, $A_C^n$, and the total community-driver
+tail association, $A_D^n$, were positively but non-significantly correlated
 across our `r length(res_ff$CorlmCoru_all_ln_list)` sampling locations
 (Fig. \ref{fig_plankton_scatter}B). Thus locations for which aphid first-flight time series
 showed greater left-tail (respectively, right-tail) association with winter temperature
@@ -778,7 +784,8 @@ the hypothesis that tail association between co-located species time series can 
 common tail association on environmental drivers. See also the subsequent results for aphids.
 
 <!--Para for aphids using the second method.-->
-Our second analysis using aphids, based on the statistics $\alpha_C^n(i)$ and $\alpha_D^n(i)$ (\nameref{Methods}),
+Our second analysis using aphids, based on the species-community tail associations, $\alpha_C^n(i)$, 
+and the species-driver tail associations, $\alpha_D^n(i)$ (\nameref{Methods}),
 provided further evidence supporting our hypothesis for a cause of tail association between co-located
 species (\nameref{Introduction}). For 8 of 10 sampling locations, $\alpha_C^n(i)$ and $\alpha_D^n(i)$
 were significantly correlated across species, $i$ (Fig. \ref{fig_aphid_multipanel}).
@@ -793,7 +800,8 @@ right-tail) association with other aphid species.
 \includegraphics[width=8 cm]{./Results/plankton_results/npa_stat_results/Corstat_scatter_LmU_values.pdf} 
 \includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_scatter_LmU_values.pdf}
 \caption{Tail association with environmental covariates was positively related to tail association
-between species for aphid and plankton time series. Panels show $A_C^n$ versus $A_D^n$ (\nameref{Methods}) across
+between species for aphid and plankton time series. Panels show total community tail association, $A_C^n$, 
+plotted against total community-driver tail association, $A_D^n$ (\nameref{Methods}), across
 locations, $n$, for \emph{Ceratium} density (A) and aphid first-flight (B) data. Pearson correlations
 and associated $p$-values for each panel are in the headers. Points are labeled with location
 numbers (see Figs \ref{SM-fig_plankton_map} and \ref{SM-fig_aphid_map}).\label{fig_plankton_scatter}}
@@ -805,8 +813,9 @@ numbers (see Figs \ref{SM-fig_plankton_map} and \ref{SM-fig_aphid_map}).\label{f
 \hspace{1 cm}
 \includegraphics[width=16 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_avg_sp_temp_multipanel_plot_legend.pdf} 
 \includegraphics[width=16 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_avg_sp_temp_multipanel_plot.pdf} 
-\caption{For 8 out of 10 sites, the Pearson correlation ($P$) between $\alpha_C^n(i)$ and $\alpha_D^n(i)$ for
-$i = 1, 2, \dots, 20$ was significantly positive (p $< 0.05$, one tailed test). This supports the
+\caption{For 8 out of 10 sites, the Pearson correlation ($P$) between the species-community tail association, 
+$\alpha_C^n(i)$, and the species-driver tail association, $\alpha_D^n(i)$, across
+$i = 1, 2, \dots, 20$, was significantly positive (p $< 0.05$, one tailed test). This supports the
 hypothesis that tail association between species may be inherited from joint tail
 association of both species on a common environmental driver. See Table \ref{tab_plankton_aphid_info} 
 for species IDs.\label{fig_aphid_multipanel}}
