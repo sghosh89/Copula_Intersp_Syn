@@ -103,7 +103,8 @@ very different patterns of association [@Ghosh_copula]. Correlations
 are not the only way to study associations,
 but they are very commonly used, and other standard methods in ecology
 provide a similarly limited amount of information that neglects patterns of association
-that seem likely to be ecologically important [@Ghosh_copula].
+[@nelsen2006_copula; @Genest2007; @joe2014_dependence; @MaiScherer2017; @Anderson2018] that seem likely 
+to be ecologically important [@Ghosh_copula].
 
 The variables of Fig. \ref{pedagogfig}A
 (respectively, Fig. \ref{pedagogfig}B) are more strongly related in the left
