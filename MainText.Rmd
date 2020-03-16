@@ -376,7 +376,7 @@ now operated and maintained by
 the Marine Biological Association of the United Kingdom. 
 Data preprocessing steps were the same as used by @Ghosh_copula. 
 *Ceratium* species were extracted in part because they
-have an important role in red tides, and also because four 
+have an important role in harmful algal blooms (red tides), and also because four 
 species were available from the genus (Table \ref{tab_plankton_aphid_info}), 
 and we chose closely related 
 species because they may 
@@ -711,7 +711,7 @@ for each site show that association between \emph{Ceratium} species was either
 substantially dominanted by the left or right tails of \emph{Ceratium} distributions, with the
 exceptions of a few locations for which tail association was closer to symmetric. Site codes
 are colored red or blue depending on which of $F_{C,L}$ or $F_{C,R}$ had higher magnitude. Values are
-not plotted for site 3 because the hypothesis could not rejected for that site
+not plotted for site 3 because the hypothesis could not be rejected for that site
 that dynamics of distinct \emph{Ceratium} species were independent. 
 \label{fig_CorlmCoru_plankton_map_loc12_26}}
 \end{center}
@@ -842,13 +842,13 @@ community stability; and shifting phenologies and the match-mismatch hypothesis.
 <!--P: Interpretations and consequences of patterns for Ceratium-->
 The distinct tail association characteristics of *Ceratium* in different sampling areas 
 around the UK may have consequences for the stability through time of total *Ceratium* abundance,
-which may relate to red tides because *Ceratium* species have a role in red tides.
+which may relate to harmful algal blooms because *Ceratium* species can have a role in such blooms.
 For locations in which left-tail association between *Ceratium* density time series
 is dominant, *Ceratium* species are scarce simultaneously,
 potentially producing years of very low total *Ceratium* biomass.
 In contrast, for locations in which right-tail association is dominant, *Ceratium*
 species are highly abundant simulataneously, which may produce 
-years of very high *Ceratium* biomass, which may sometimes correspond to red tides.
+years of very high *Ceratium* biomass, which may sometimes correspond to harmful algal blooms.
 Our results show that the distinction between these two types of location relates to the
 tail association of *Ceratium* species with their environmental covariates,
 sea surface temperature and *C. finmarchicus* density. It may be useful to study
@@ -936,7 +936,8 @@ and the left tail of $v$.
 
 <!--what extra info do you get by monitoring tail dep. for plankton?-->
 Measures of tail association may also reveal useful information about 
-freshwater plankton ecosystems and harmful algal blooms. 
+freshwater plankton ecosystems and harmful algal blooms, in addition to information about 
+marine harmful algal blooms (discussed above). 
 Because blooms are extreme phenomena involving multiple species, 
 monitoring the associations of phytoplankton species with each other and 
 their associations with 
@@ -972,9 +973,7 @@ from multiple trophic levels of @Thackery2010.
 Our results extend the results of @Ghosh_copula. Those authors argued that considering 
 copulas and tail associations can provide insights across the field of ecology.
 But @Ghosh_copula did not consider co-located species, a context important for
-community ecology. Our results provide evidence that an approach focusing on 
-associations between variables in their extremes
-is likely to provide additional insight into two major topics of inquiry in ecology.
+community ecology which we considered here. 
 
 # Acknowledgments
 We thank the many contributors to the large datasets we used; D. Stevens and P. Verrier for 
