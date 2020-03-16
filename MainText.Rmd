@@ -55,9 +55,6 @@ In particular, copula approaches can reveal
 *tail associations*, i.e., accentuated or reduced associations between the more extreme values of variables.
 
 \noindent 2) We here study the nature and causes of tail associations
-<!--***DAN: need to replace tail dependence with tail associations throughout. This has largely been done
-now by Shyamolina, but still we should do some searches later to make sure none were missed
-DONE-->
 between phenological or population-density variables of co-located species,
 and their ecological importance. 
 
@@ -222,29 +219,21 @@ the interaction [@Thackery2010]. This idea is referred to as the match-mismatch
 hypothesis. Even if, for instance, year-to-year fluctuations in the emergence times
 of two interacting species are 
 highly correlated, if this correlation is principally in the 
-right tails of the distributions of possible emergence times, 
-so that early emergences of the species are actually uncorrelated, then 
+right (respectively, left) tails of the distributions of possible emergence times, 
+so that early (respectively, late) emergences of the species are actually uncorrelated, then 
 mismatched years are likely to occur, impacting the species. 
-<!--***DAN: Lawrence was confused here by my (arbitrary) use of right tails, and 
-thought I was contrastoing with the opposite left-tail situation, when in fact
-I was just contrasting with a situation without tail association. Basically the 
-idea is even if you have pretty high correlation, if there is tail association,
-then you can still have substantial non-correlation in the less-associated tails, 
-which may then lead to mismatches. So you need to reword.-->
-Such 
-mismatches will occur, in this conceptual example, 
-when emergence is early. One potential mechanism by which 
-early emergences
+Such mismatches will occur, in this conceptual example, 
+when emergence is early (respectively, late). 
+Essentially, even with substantial correlation between emergence dates of species, if this correlation
+is principally in one of the tails, then uncorrlated emergences, and therefore mismatches, 
+can occur under some conditions. 
+One potential mechanism by which early emergences, for example,
 may be uncorrelated between species while later emergences remain correlated
 is if both species follow the same environmental cue for their 
 emergence, but physiological limitations of only one of the species prevent 
 emergence before a certain date. Advancing emergence dates of myriad species
 make this scenario more plausible.
 
-<!--***DAN: do a search for copula. Probably we should get away from copula
-through the paper, talking only about tail associations, and then come back
-to it in the Discussion
-DONE-->
 We here begin exploring whether tail associations may be important for 
 studies of synchrony and compensatory dynamics, and for studies
 of phenology and the match-mismatch hypothesis. We use a 
@@ -452,9 +441,6 @@ measure association in the left and right tails, respectively, and can be compar
 via a difference, $\cor_{0,b}-\cor_{1-b,1}$, to measure asymmetry of tail 
 association. Positive values (respectively, negative) of this difference mean stronger left-tail
 (respectively, right-tail) association.
-<!--***DAN: make sure you *either* use left or lower-tail throughout, similar for right and upper.
-I used left- and right-. At present the others have not been used according to a search on 2/12.
-DONE-->
 The sum of $\cor_{0,0.5}$ and 
 $\cor_{0.5,1}$ (or the sum of
 $\cor_{l_{b_k},u_{b_k}}$ for any other choice of bands 
@@ -493,10 +479,6 @@ in our data (plankton sampling location 18, species *C. furca* and
 Tail association
 for negatively associated variables should be studied, and this
 topic is revisited in the \nameref{Discussion},
-<!--***DAN: in the Discussion, make sure to talk about how studying asymmetry of 
-tail dependence for negative associations is complicated by the fact that
-it can depend on the arbitrary ordering of the two variables.
-DONE-->
 but negative associations were too rare in our data to study them. 
 The community tail association matrix $C^n$ is symmetric. The
 value $b=1/3$ was used for plankton locations, whereas $b=1/2$
@@ -526,23 +508,22 @@ sea surface temperature.
 Thus our practice of using $-d_k^n(t)$ was
 equivalent, in the case of temperature variables, to using a "coldness"
 index such as the number of degrees colder than an average 
-or typical reference temperature, in place of temperature. Aphid and plankton data 
+or typical reference temperature, in place of temperature. Aphid and *Ceratium* data 
 were always positively associated with the coldness index when they were 
 significantly associated with it. Although *C. finmarchicus* abundance was 
 positively associated with *Ceratium* time series in some sampling locations
-and negatively associated in others, it always showed the same association
+and negatively associated in others, it always showed the same sign of association
 with all *Ceratium* species within a location. 
-<!--***DAN: Lawrence had trouble understanding from here ...-->
 Using $-d_k^n(t)$ in place
-of $d_k^n(t)$ when negative associations with aphid or plankton data occured 
+of $d_k^n(t)$ when negative associations with aphid or *Ceratium* data occured 
 allowed us to study asymmetry of tail association using methods developed with 
-positively associated variables in mind. Note that using a similar procedure to 
+positively associated variables in mind. 
+<!--***DAN: Lawrence got confused by the below text. I figured it was not essential here so removed it, storing
+here for the time being, just in case:
+Note that using a similar procedure to 
 study pairs of negatively associated biological variables (e.g., two aphid or plankton
 time series) would be inappropriate because in that case there is no 
-canonical choice of which variable to take the negative of. 
-<!--...to here and asked if we could clarity. He said this same point comes up again
-later and is clearer there, so maybe look how it was done there, first, then revise
-here for clarity.-->
+canonical choice of which variable to take the negative of.--> 
 We again used
 $b=1/3$ for plankton data and covariates, and $b=1/2$ for aphid data and winter
 temperature. For display, we horizontally concatenated the matrices
@@ -554,12 +535,6 @@ $N_L^n$, of entries of $C^n$ which were not NA and which were greater than
 $0$. These were the "left-tail dominant" species pairs, i.e., pairs of species 
 for which association was stronger in the left rather than in the right tails of the species distributions.
 We also counted the number, $N_R^n$, of right-tail dominant pairs, for which 
-<!--***DAN: Shya, note the change in notation, which will require a minor change 
-to Figs 2, 3 and the corresponding sup mat figs, please. I think left- and 
-right-tail dependence is slightly better than lower- and -upper-tail dependence,
-as terminology, just because if you have to say "lower-tail dependence was lower/less than
-upper-tail dependence" it sounds weird and a bit confusing. So I changed it throughout.-->
-<!--***DAN: this appears to have been done-->
 the corresponding entries of $C^n$ were negative. If $N_L^n$ was substantially
 greater than (respectively, substantially less than) $N_R^n$ for a location $n$,
 it suggested that left-tail association (respectively, right-tail association) 
@@ -650,8 +625,6 @@ For other locations, $C^n$ had mostly negative values, indicating a
 preponderance of right-tail association (Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}B).
 For such locations, *Ceratium* population densities are more likely to be correlated
 across species at high population densities than at low densities.
-<!--***DAN: the consequences of this are worth revisiting in the discussion.
-DONE-->
 To demonstrate the same result in another way, we show that the 
 statistics $F_{C,L}$ and $F_{C,R}$, plotted across all sampling locations
 (Fig. \ref{fig_CorlmCoru_plankton_map_loc12_26}C), indicated that most *Ceratium*
@@ -917,16 +890,16 @@ synchronous and some show compensatory dynamics.
 
 <!--P: 7) para on how to deal with negatively associated variables in future work-->
 Studying asymmetry of tail association for negatively correlated species density time 
-series will require slightly modified methods. The only negative association between species time series
+series will require slightly modified methods. The only negative association between aphid of *Ceratium* time series
 that occurred in our system was not analyzed. Negative associations between species time series and 
 the environmental covariates we considered were handled
 statistically by considering the positive association between the species time
 series and a "reversed" covariate; this corresponds to a positive 
 association with a reconceptualized covariate, e.g., a "coldness" index.
-But that approach makes no sense for negatively 
-associated time series of two species:
+But that approach would make no sense for negatively 
+associated time series of two aphid or *Ceratium* time series:
 there is no canonical choice of which variable to reverse. Asymmetry of tail
-association can still be considered, however, for negatively associated variables, $u,v$, 
+association could still be considered, however, for negatively associated variables, $u,v$, 
 in an unsigned approach, via the index $|\cor_{0,b}(u,1-v)-\cor_{1-b,1}(u,1-v)|$. Because $|\cor_{0,b}(u,1-v)-\cor_{1-b,1}(u,1-v)|=|\cor_{0,b}(1-u,v)-\cor_{1-b,1}(1-u,v)|$,
 no choice need be made on which variable to "reverse."
 A large value of this index indicates that tail association between $u$ and $v$ is asymmetric,
