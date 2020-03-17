@@ -83,8 +83,7 @@ account tail associations.
 
 \vspace{.5cm}
 
-\noindent \textbf{\textit{Keywords:}} tail association, copula, inter-species synchrony, 
-match-mismatch hypothesis, aphids, plankton
+\noindent \textbf{\textit{Keywords:}} aphids, copula, inter-species synchrony, match-mismatch hypothesis, plankton, tail association
 
 \newpage 
 
