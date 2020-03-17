@@ -365,7 +365,7 @@ now operated and maintained by
 the Marine Biological Association of the United Kingdom. 
 Data preprocessing steps were the same as used by @Ghosh_copula. 
 *Ceratium* species were extracted in part because they
-have an important role in harmful algal blooms (red tides), and also because four 
+have a role in harmful algal blooms (red tides) [@Baek2009]; and also because four 
 species were available from the genus (Table \ref{tab_plankton_aphid_info}), 
 and we chose closely related 
 species because they may 
@@ -815,7 +815,7 @@ community stability; and shifting phenologies and the match-mismatch hypothesis.
 <!--P: Interpretations and consequences of patterns for Ceratium-->
 The distinct tail association characteristics of *Ceratium* in different sampling areas 
 around the UK may have consequences for the stability through time of total *Ceratium* abundance,
-which may relate to harmful algal blooms because *Ceratium* species can have a role in such blooms.
+which may relate to harmful algal blooms because *Ceratium* species can have a role in such blooms [@Baek2009].
 For locations in which left-tail association between *Ceratium* density time series
 is dominant, *Ceratium* species are scarce simultaneously,
 potentially producing years of very low total *Ceratium* biomass.
