@@ -77,7 +77,7 @@ also commonly show asymmetric tail associations. We provide evidence that tail a
 between two or more species' population density or phenology time series can be inherited
 from mutual tail associations of these quantities with an environmental driver. 
 
-\noindent 5) We argue that our understanding of commuity dynamics and stability, and of
+\noindent 5) We argue that our understanding of community dynamics and stability, and of
 phenologies of interacting species, can be meaningfully improved in future work by taking into
 account tail associations. 
 
