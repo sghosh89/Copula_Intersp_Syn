@@ -17,7 +17,7 @@ tables: True
 link-citations: True
 urlcolor : blue
 indent : True
-csl: TheAmericanNaturalist.csl
+csl: ecology.csl
 bibliography: REF_CIS.bib
 ---
 
@@ -706,7 +706,7 @@ df_loc_info<-data.frame(loc_no=c(1:length(lats)),longs=longs,lats=lats)
 df_loc_info<-df_loc_info[-1,] # removing 1st location based on 30 years of data
 
 xlim=c(-10,2)
-ylim=c(49, 60)
+ylim=c(50, 60)
 
 map("world", fill=T, col="grey84", bg="white",border=0, xlim=xlim, ylim=ylim)
 map.axes(cex.axis=2.5)

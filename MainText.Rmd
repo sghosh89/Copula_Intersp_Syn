@@ -1,6 +1,7 @@
 --- 
 title: "A new approach to interspecific synchrony in population ecology using tail association"
 author: "Shyamolina Ghosh, Lawrence W. Sheppard, Philip C. Reid, Daniel Reuman"
+fontsize: 12pt
 geometry: "left=1 in,right=1 in,top=1 in,bottom=1 in"
 
 output: 
@@ -10,13 +11,14 @@ output:
     fig_caption: yes
     includes:
       in_header: head_MainText.sty
-      
+
+mainfont: Times New Roman         
 tables: True
 link-citations: True
 urlcolor : blue
 indent : True
 
-csl: TheAmericanNaturalist.csl
+csl: ecology.csl
 bibliography: REF_CIS.bib
 ---
 
@@ -48,26 +50,22 @@ seed<-101
 <!--200 words limit : J Am Nat, 350 words for J. animal eco.-->
 <!--***DAN: We decided to go for JAE-->
 
-\noindent 1) Standard methods for studying the association between two ecologically important variables
+\noindent Standard methods for studying the association between two ecologically important variables
 provide only a small slice of the information content of the association, but
 methods are available, based on *copulas*, that provide comprehensive information.
 In particular, copula approaches can reveal
-*tail associations*, i.e., accentuated or reduced associations between the more extreme values of variables.
-
-\noindent 2) We here study the nature and causes of tail associations
-between phenological or population-density variables of co-located species,
-and their ecological importance. 
-
-\noindent 3) We employ a simple method of measuring tail associations which we call the *partial Spearman correlation*.
+*tail associations*, i.e., accentuated or reduced associations 
+between the more extreme values of variables. We here study the nature 
+and causes of tail associations between phenological or population-density 
+variables of co-located species, and their ecological importance. We employ a 
+simple method of measuring tail associations which we call the *partial Spearman correlation*.
 Using multidecadal, multi-species spatiotemporal datasets on aphid first flights and marine 
 phytoplankton population densities, we assess the potential for tail association
 to illuminate two major topics of study in community ecology: the stability or instability of
 aggregate community measures such as total community biomass and its relationship
 with the synchronous or compensatory dynamics of the community's constituent species;
 and the potential for fluctuations and trends in species phenology to
-result in trophic mismatches. 
-
-\noindent 4) We find that positively associated fluctuations
+result in trophic mismatches. We find that positively associated fluctuations
 in the population densities of co-located species commonly show asymmetric tail 
 associations, i.e., it is common for two species' densities
 to be more correlated when large than when small, or vice versa. Ordinary measures
@@ -75,15 +73,15 @@ of association such as correlation do not take this asymmetry into account. Like
 positively associated fluctuations in the phenology of co-located species 
 also commonly show asymmetric tail associations. We provide evidence that tail associations
 between two or more species' population density or phenology time series can be inherited
-from mutual tail associations of these quantities with an environmental driver. 
-
-\noindent 5) We argue that our understanding of community dynamics and stability, and of
+from mutual tail associations of these quantities with an environmental driver. We argue 
+that our understanding of community dynamics and stability, and of
 phenologies of interacting species, can be meaningfully improved in future work by taking into
 account tail associations. 
 
 \vspace{.5cm}
 
-\noindent \textbf{\textit{Keywords:}} aphids, copula, inter-species synchrony, match-mismatch hypothesis, plankton, tail association
+\noindent \textbf{\textit{Keywords:}} aphids, copula, inter-species synchrony, 
+match-mismatch hypothesis, plankton, tail association
 
 \newpage 
 
@@ -655,13 +653,13 @@ aphid first flights are more correlated across species when first flights are
 later than average.
 
 <!--plankton plots : Q1-->
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \begin{center}
 \textbf{ \hspace{1 cm} (A) \hspace{7 cm} (B)} \\
-\includegraphics[width=8 cm]{./Results/plankton_results/npa_stat_results/loc12/loc12_Corl-Coru.pdf}
-\includegraphics[width=8 cm]{./Results/plankton_results/npa_stat_results/loc26/loc26_Corl-Coru.pdf}
+\includegraphics[width=7.5 cm]{./Results/plankton_results/npa_stat_results/loc12/loc12_Corl-Coru.pdf}
+\includegraphics[width=7.5 cm]{./Results/plankton_results/npa_stat_results/loc26/loc26_Corl-Coru.pdf}\\
 \textbf{ (C)} \\
-\includegraphics[width=8 cm]{./Results/plankton_results/npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf} \\
+\includegraphics[width=7 cm]{./Results/plankton_results/npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf} 
 \caption{Either right- or left-tail association between population density time series of 
 \emph{Ceratium} species could dominate, depending on the sampling location. (A, B) The community 
 tail association matrix, $C^n$, and the community-driver tail association matrix, $D^n$ (\nameref{Methods}), 
@@ -689,14 +687,49 @@ that dynamics of distinct \emph{Ceratium} species were independent.
 \end{center}
 \end{figure}
 
+<!--plankton plots : Q1
+\begin{figure}[!ht]
+\begin{center}
+\textbf{ \hspace{0.5 cm} (A) \hspace{6.5 cm} (B)} \\
+\includegraphics[width=15 cm]{./cropped_fig/1.pdf}\\
+\textbf{ (C)} \\
+\includegraphics[width=8 cm]{./cropped_fig/2.pdf}\\
+\caption{Either right- or left-tail association between population density time series of 
+\emph{Ceratium} species could dominate, depending on the sampling location. (A, B) The community 
+tail association matrix, $C^n$, and the community-driver tail association matrix, $D^n$ (\nameref{Methods}), 
+horizontally concatenated, for example locations $n=12$ (A) and $n=26$ (B).
+See Table \ref{tab_plankton_aphid_info} for species names. 
+All the non-NA values in $C^n$ were positive (red) for location $12$ (A), indicating left-tail
+association dominated in that location; but values were largely negative (blue) for location
+$26$ (B), indicating right-tail association dominated there. Matrix entries which were NA 
+because time series were independent are displayed in yellow. The counts $N^n_L$ and $N_n^R$
+(see \nameref{Methods}) also reflect the distinct tail association characteristics of the two
+locations. \emph{C. fin.} = \emph{C. finmarchicus}; Temp. = temperature.
+Green dots in $D^n$
+represent variables which were originally negatively associated, so the negative
+of the environmental covariate was used for calculating tail association.
+See Fig. \ref{SM-fig_CorlmCoru_plankton_all_loc} 
+for analogous figures for the other sampling locations. 
+(C) The summary statistics $F_{C,L}$ and $F_{C,R}$ (see \nameref{Methods}) 
+for each site show that association between \emph{Ceratium} species was either 
+substantially dominanted by the left or right tails of \emph{Ceratium} distributions, with the
+exceptions of a few locations for which tail association was closer to symmetric. Site codes
+are colored red or blue depending on which of $F_{C,L}$ or $F_{C,R}$ had higher magnitude. Values are
+not plotted for site 3 because the hypothesis could not be rejected for that site
+that dynamics of distinct \emph{Ceratium} species were independent. 
+\label{fig_CorlmCoru_plankton_map_loc12_26}}
+\end{center}
+\end{figure}-->
+
+
 <!--aphid plots : Q1-->
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \begin{center}
 \textbf{ (A) \hspace{7 cm} (B)} \\
-\includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/loc2/loc2_Corl-Coru.pdf}
-\includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/loc5/loc5_Corl-Coru.pdf} \\
+\includegraphics[width=7.5 cm]{./Results/aphid_results/ff_npa_stat_results/loc2/loc2_Corl-Coru.pdf}
+\includegraphics[width=7.5 cm]{./Results/aphid_results/ff_npa_stat_results/loc5/loc5_Corl-Coru.pdf} \\
 \textbf{ (C)} \\
-\includegraphics[width=8 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf}
+\includegraphics[width=7.5 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_values_on_map_sp_only.pdf}
 \caption{Either right-tail association between first-flight time series of 
 aphid species could dominate, or left-tail association could be more common, 
 depending on the sampling location. (A, B) The community tail association matrix, $C^n$, 
@@ -723,6 +756,41 @@ are colored red or blue depending on which of $F_{C,L}$ or $F_{C,R}$ had higher 
 \label{fig_CorlmCoru_ff_map_loc2_5}}
 \end{center}
 \end{figure}
+
+<!--aphid plots : Q1
+\begin{figure}[!ht]
+\begin{center}
+\textbf{ (A) \hspace{7 cm} (B)} \\
+\includegraphics[width=15 cm]{./cropped_fig/3.pdf}\\
+\textbf{ (C)} \\
+\includegraphics[width=8 cm]{./cropped_fig/4.pdf}
+\caption{Either right-tail association between first-flight time series of 
+aphid species could dominate, or left-tail association could be more common, 
+depending on the sampling location. (A, B) The community tail association matrix, $C^n$, 
+and the community-driver tail association matrix, $D^n$ (\nameref{Methods}), horizontally 
+concatenated, for example locations $n=2$ (A) and $n=5$ (B).
+See Table \ref{tab_plankton_aphid_info} for species names.
+A slight majority of non-NA values in $C^n$ were positive (red) for location $2$ (A; see the
+$N_L^n$ and $N_R^n$ counts displayed), indicating left-tail
+association was slightly more common than right-tail association in that location. But values were largely 
+negative (blue) for location
+$5$ (B), indicating right-tail association dominated there. Matrix entries which were NA 
+because time series were independent are displayed in yellow. Temp. = temperature.
+Green dots in $D^n$
+represent variables which were originally negatively associated, so the negative
+of winter temperature was used for calculating tail association (\nameref{Methods}); this happened in all cases
+for which temperature and first flight were significantly associated.
+See Fig. \ref{SM-fig_CorlmCoru_ff_all_loc} 
+for analogous figures for the other sampling locations. 
+(C) The summary statistics $F_{C,L}$ and $F_{C,R}$ (see \nameref{Methods}) 
+for each site show that association was either 
+dominanted by the right tails, or, for a few locations, 
+showed slightly more left-tail association. Site codes
+are colored red or blue depending on which of $F_{C,L}$ or $F_{C,R}$ had higher magnitude.
+\label{fig_CorlmCoru_ff_map_loc2_5}}
+\end{center}
+\end{figure}-->
+
 
 <!--Results for Q2-->
 
@@ -767,7 +835,7 @@ right-tail) association with winter temperature also had greater left-tail (resp
 right-tail) association with other aphid species.
 
 <!--plankton and aphid scatter plots: Q2-->
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \begin{center}
 \textbf{ \hspace{1.2 cm} (A) \hspace{7 cm} (B)} \\
 \includegraphics[width=8 cm]{./Results/plankton_results/npa_stat_results/Corstat_scatter_LmU_values.pdf} 
@@ -782,7 +850,7 @@ numbers (see Figs \ref{SM-fig_plankton_map} and \ref{SM-fig_aphid_map}).\label{f
 \end{figure}
 
 <!--aphid multipanel plot : Q2-->
-\begin{figure}[!h]
+\begin{figure}[!ht]
 \hspace{1 cm}
 \includegraphics[width=16 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_avg_sp_temp_multipanel_plot_legend.pdf} 
 \includegraphics[width=16 cm]{./Results/aphid_results/ff_npa_stat_results/Corstat_LmU_avg_sp_temp_multipanel_plot.pdf} 
@@ -997,7 +1065,6 @@ knitr::kable(plankton_aphid_info, "latex", booktabs = T, linesep = "",align="c",
       column_spec(column = 2,italic=T)%>%add_header_above(header=c("Species ID" = 1, "Latin binomial" = 1))
 ```
 
-\clearpage
 
 # Literature cited
 
