@@ -37,7 +37,7 @@ seed<-101
 
 \noindent Reid: Continuous Plankton Recorder Survey, The Marine Biological Association, The Laboratory, Citadel Hill, Plymouth PL1 2PB, UK; School of Biological & Marine Sciences, University of Plymouth, Drake Circus, Plymouth PL4 8AA, UK
 
-\noindent Reuman: Department of Ecology and Evolutionary Biology and Kansas Biological Survey, University of Kansas, Lawrence, KS, 66047, USA
+\noindent Reuman: Department of Ecology and Evolutionary Biology and Kansas Biological Survey, University of Kansas, Lawrence, KS, 66045, USA
 
 \noindent \emph{Correspondence:} Daniel Reuman, 2101 Constant Ave, Lawrence, KS, 66047, reuman@ku.edu, 626 560 7084. 
 
@@ -222,7 +222,7 @@ mismatched years are likely to occur, impacting the species.
 Such mismatches will occur, in this conceptual example, 
 when emergence is early (respectively, late). 
 Essentially, even with substantial correlation between emergence dates of species, if this correlation
-is principally in one of the tails, then uncorrlated emergences, and therefore mismatches, 
+is principally in one of the tails, then uncorrelated emergences, and therefore mismatches, 
 can occur under some conditions. 
 One potential mechanism by which early emergences, for example,
 may be uncorrelated between species while later emergences remain correlated
@@ -291,7 +291,7 @@ winter temperature.
 Thus this paper focuses on whether and why population density 
 or phenological time series of co-located species may show asymmetric 
 patterns in their tail-associations, with a focus on positively associated variables
-because positive associations are what occured in the 
+because positive associations are what occurred in the 
 available data. We ask the following specific questions.
 (Q1) Do synchronous/positively correlated population density or phenological time series
 of co-located species commonly show asymmetric tail associations? (Q2) If so, 
@@ -366,11 +366,11 @@ and @Ghosh_copula. The data were originally obtained from the
 Rothamsted Insect Survey suction-trap dataset 
 [@harrington2014; @bell2015]. Data preprocessing 
 was the same as that of @sheppard2016. 
-Locations were screened, leading to the the removal of one of the original
+Locations were screened, leading to the removal of one of the original
 11 sampling locations, by requiring at least 30 years of data be 
 available for all species, again to reduce sampling variation of
 statistics. We also had time series of winter average 
-temperature for each location and year. The winter temerature for 
+temperature for each location and year. The winter temperature for 
 year $t$ was the average of December of year $t-1$ to March of year $t$.
 Earlier analyses have demonstrated the importance of winter temperature
 for aphid first flight date [e.g., @sheppard2016].
@@ -567,7 +567,7 @@ $0 \leq |F_{C,R}^n| \leq 1$, and $F_{C,L}^n+|F_{C,R}^n|=1$, the relative sizes o
 $F_{C,L}^n$ and $|F_{C,R}^n|$ indicate the relative dominance of left- and right-tail
 association between species at location $n$. Together, all these statistics provide an answer to Q1.
 
-We used the the community tail association matrix, $C^n$, and the community-driver 
+We used the community tail association matrix, $C^n$, and the community-driver 
 tail association matrix, $D^n$, to answer Q2 from the \nameref{Introduction}
 for the *Ceratium* and aphid data, as follows. First, we calculated 
 $A_D^n$, the sum of all non-NA entries of $D^n$. This was analogous to 
@@ -812,7 +812,7 @@ For locations in which left-tail association between *Ceratium* density time ser
 is dominant, *Ceratium* species are scarce simultaneously,
 potentially producing years of very low total *Ceratium* biomass.
 In contrast, for locations in which right-tail association is dominant, *Ceratium*
-species are highly abundant simulataneously, which may produce 
+species are highly abundant simultaneously, which may produce 
 years of very high *Ceratium* biomass, which may sometimes correspond to harmful algal blooms.
 Our results show that the distinction between these two types of location relates to the
 tail association of *Ceratium* species with their environmental covariates,
@@ -1023,7 +1023,7 @@ See Table \ref{tab_plankton_aphid_info} for species names.
 All the non-NA values in $C^n$ were positive (red) for location $12$ (A), indicating left-tail
 association dominated in that location; but values were largely negative (blue) for location
 $26$ (B), indicating right-tail association dominated there. Matrix entries which were NA 
-because time series were independent are displayed in yellow. The counts $N^n_L$ and $N_n^R$
+because time series were independent are displayed in yellow. The counts $N^n_L$ and $N^n_R$
 (see \nameref{Methods}) also reflect the distinct tail association characteristics of the two
 locations. \emph{C. fin.} = \emph{C. finmarchicus}; Temp. = temperature.
 Green dots in $D^n$
@@ -1033,7 +1033,7 @@ See Fig. \ref{SM-fig_CorlmCoru_plankton_all_loc}
 for analogous figures for the other sampling locations. 
 (C) The summary statistics $F_{C,L}$ and $F_{C,R}$ (see \nameref{Methods}) 
 for each site show that association between \emph{Ceratium} species was either 
-substantially dominanted by the left or right tails of \emph{Ceratium} distributions, with the
+substantially dominated by the left or right tails of \emph{Ceratium} distributions, with the
 exceptions of a few locations for which tail association was closer to symmetric. Site codes
 are colored red or blue depending on which of $F_{C,L}$ or $F_{C,R}$ had higher magnitude. Values are
 not plotted for site 3 because the hypothesis could not be rejected for that site
