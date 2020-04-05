@@ -1,6 +1,7 @@
 ---
 title: "Supporting material : A new approach to interspecific synchrony in population ecology using tail association"
 author: "Shyamolina Ghosh, Lawrence W. Sheppard, Philip C. Reid, Daniel Reuman"
+fontsize: 12pt
 geometry: "left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm"
 
 output: 
@@ -13,6 +14,7 @@ header-includes:
       - \usepackage{xr} \externaldocument[MT-]{MainText}
       - \input{head_SuppMat.sty}
 
+mainfont: Times New Roman         
 tables: True
 link-citations: True
 urlcolor : blue
@@ -828,7 +830,7 @@ dev.off()
 <!--plankton results : sampling sites in map-->
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=16 cm]{./Results/plankton_results/map_plot_plankton_selected_loc.pdf} 
+\includegraphics[width=13 cm]{./Results/plankton_results/map_plot_plankton_selected_loc.pdf} 
 \caption[Sampling sites on map for Plankton abundance data]{Plankton abundance data were obtained from 26 locations (2$^\circ$ $\times$ 2$^\circ$ grid cells) for the years 1958-2013. We analyzed data from 15 locations (blue boxes) based on criteria listed in the Data section of the main text.\label{fig_plankton_map}}
 \end{center}
 \end{figure}
@@ -836,7 +838,7 @@ dev.off()
 <!--aphid results : sampling sites in map-->
 \begin{figure}[!h]
 \begin{center}
-\includegraphics[width=16 cm]{./Results/aphid_results/map_plot_css_ff_selected_loc.pdf} 
+\includegraphics[width=13 cm]{./Results/aphid_results/map_plot_css_ff_selected_loc.pdf} 
 \caption[Position of 11 suction traps on map that sample flying aphids]{Aphid first flight
 data were obtained from 11 suction traps located across the UK for the years 1976-2010. 
 We analyzed data from 10 of the traps (blue boxes) based on criteria listed in the Data
