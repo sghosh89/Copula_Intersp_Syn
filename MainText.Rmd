@@ -1,6 +1,6 @@
 --- 
 title: "A new approach to interspecific synchrony in population ecology using tail association"
-author: "Shyamolina Ghosh, Lawrence W. Sheppard, Philip C. Reid, Daniel Reuman"
+#author: "Shyamolina Ghosh, Lawrence W. Sheppard, Philip C. Reid, Daniel Reuman"
 fontsize: 12pt
 geometry: "left=1 in,right=1 in,top=1 in,bottom=1 in"
 
@@ -18,7 +18,7 @@ link-citations: True
 urlcolor : blue
 indent : True
 
-csl: ecology.csl
+csl: oikos.csl
 bibliography: REF_CIS.bib
 ---
 
@@ -29,7 +29,7 @@ options(scipen = 1, digits = 5) #This option round all numbers appeared in the i
 seed<-101
 ```
 
-\noindent \emph{Affiliations:}
+<!--\noindent \emph{Affiliations:}
 
 \noindent Ghosh: Department of Ecology and Evolutionary Biology and Kansas Biological Survey, University of Kansas, Lawrence, KS, 66045, USA
 
@@ -41,14 +41,11 @@ seed<-101
 
 \noindent \emph{Correspondence:} Daniel Reuman, 2101 Constant Ave, Lawrence, KS, 66047, reuman@ku.edu, 626 560 7084. 
 
-<!--\noindent\makebox[\linewidth]{\rule{\columnwidth}{1pt}}
-\scriptsize-->
 
-\newpage
+
+\newpage-->
 
 # Abstract 
-<!--200 words limit : J Am Nat, 350 words for J. animal eco.-->
-<!--***DAN: We decided to go for JAE-->
 
 \noindent Standard methods for studying the association between two ecologically important variables
 provide only a small slice of the information content of the association, but
@@ -83,7 +80,7 @@ account tail associations.
 \noindent \textbf{\textit{Keywords:}} aphids, copula, inter-species synchrony, 
 match-mismatch hypothesis, plankton, tail association
 
-\newpage 
+<!--\newpage-->
 
 # Introduction\label{Introduction}
 
@@ -971,20 +968,29 @@ But @Ghosh_copula did not consider co-located species, a context important for
 community ecology which we considered here. 
 
 # Acknowledgments
+
 We thank the many contributors to the large datasets we used; D. Stevens and P. Verrier for 
 data extraction; and Joel E. Cohen, Lauren Hallet, and Jonathan Walter for helpful 
 suggestions. We thank James Bell of the Rothamsted Insect Survey (RIS). The RIS, a UK Capability,
 is funded by the Biotechnology and Biological Sciences Research Council under the Core
-Capability Grant BBS/E/C/000J0200. SG, LWS and DCR were partly funded by US National Science
-Foundation grants 1714195 and 1442595 and the James S McDonnell Foundation.  
+Capability Grant BBS/E/C/000J0200. <!--SG, LWS and DCR were partly funded by US 
+National Science Foundation grants 1714195 and 1442595 and 
+the James S McDonnell Foundation.-->This study was pasrtly funded by 
+US National Science Foundation grants 1714195 and 1442595 and 
+the James S McDonnell Foundation.  
 
 # Author contributions
-SG, LWS and DCR designed the study and analyzed the data, SG and DCR wrote the manuscript, 
-PCR provided the data and assisted with interpretation of results, and all authors edited the manuscript
+
+The first, second and the corresponding author designed the study and analyzed the data, the first and 
+the corresponding author wrote the manuscript, the third author provided the data and 
+assisted with interpretation of results, and all authors edited the manuscript
 and gave final approval for publication.
+<!--SG, LWS and DCR designed the study and analyzed the data, SG and DCR wrote the manuscript, 
+PCR provided the data and assisted with interpretation of results, and all authors edited the manuscript
+and gave final approval for publication.-->
 
 # Data availability statement
-Plankton data are available from the Dryad Digital Repository https://doi.org/10.5061/dryad.rq3jc84 [@Sheppard2019data]. Full code for the analyses are at \url{https://github.com/sghosh89/Copula_Intersp_Syn}.
+Plankton data are available from the Dryad Digital Repository https://doi.org/10.5061/dryad.rq3jc84 [@Sheppard2019data]. Full code for the analyses are at "link is available from the journal office". <!--\url{https://github.com/sghosh89/Copula_Intersp_Syn}.-->
 
 
 <!-- Figure with float use, keeps fig at the end of ms-->
