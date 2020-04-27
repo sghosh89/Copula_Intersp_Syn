@@ -1,6 +1,6 @@
 ---
 title: "Supporting material : A new approach to interspecific synchrony in population ecology using tail association"
-#author: "Shyamolina Ghosh, Lawrence W. Sheppard, Philip C. Reid, Daniel Reuman"
+author: "Shyamolina Ghosh, Lawrence W. Sheppard, Philip C. Reid, Daniel Reuman"
 fontsize: 12pt
 geometry: "left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm"
 
@@ -19,7 +19,7 @@ tables: True
 link-citations: True
 urlcolor : blue
 indent : True
-csl: oikos.csl
+csl: TheAmericanNaturalist.csl
 bibliography: REF_CIS.bib
 ---
 
