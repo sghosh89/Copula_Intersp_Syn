@@ -23,9 +23,9 @@ csl: TheAmericanNaturalist.csl
 bibliography: REF_CIS.bib
 ---
 
-<!--\tableofcontents
+\tableofcontents
 \listoftables
-\listoffigures-->
+\listoffigures
 
 <!--Basic setup-->
 ```{r setup, echo=F, message=FALSE}
@@ -891,6 +891,51 @@ This association was not considered for our analyses, which focussed on synchron
 \ref{MT-fig_CorlmCoru_ff_map_loc2_5}A, B, but for other aphid sampling locations.\label{fig_CorlmCoru_ff_all_loc}}
 \end{center}
 \end{figure}
+
+```{r tab_notation, echo=F, results='asis',message=F}
+library(tinytex)
+library(tibble)
+library(kableExtra)
+library(dplyr)
+
+dt1<-tibble("Symbols" = c("$s_{i}^n(t)$",
+                          "$\\text{cor}_{l_b,u_b}$",
+                          "$C^n$",
+                          "$D^n$",
+                          "$N_{L}^n$",
+                          "$N_{R}^n$",
+                          "$A_{C,L}^n$",
+                          "$A_{C,R}^n$",
+                          "$A_{C}^n$",
+                          "$F_{C,L}^n$",
+                          "$F_{C,R}^n$",
+                          "$A_{D}^n$",
+                          "$\\alpha_{C}^n(i)$",
+                          "$\\alpha_{D}^n(i)$"
+))
+
+dt2<-tibble("Definition"=c("Data (population or phenological) for species $i$ in site $n$ at time $t$.",
+                           "Partial Spearman correlation measuring association of two time series within two bounds, $l_b,u_b$.",
+                           "Community tail association matrix for site $n$.",
+                           "Community-driver tail association matrix for site $n$.",
+                           "Number of species pairs at site $\\textit{n}$ that showed stronger left- than right-tail associations. Equals the number of positive entries of $C^n$.",
+                           "Number of species pairs at site $\\textit{n}$ that showed stronger right- than left-tail associations. Equals the number of negative entries of $C^n$.",
+                           "Sum of all positive entries of $C^n$.",
+                           "Sum of all negative entries of $C^n$.",
+                           "Total community tail association. Equals $A_{C,L}^n + A_{C,R}^n$, i.e., the sum of all non-NA entries of $C^n$.",
+                           "A normalized analogue of $A_{C,L}^n$. Equal to $A_{C,L}^n /(A_{C,L}^n + |A_{C,R}^n|)$.",
+                           "A normalized analogue of $A_{C,R}^n$. Equal to $A_{C,R}^n /(A_{C,L}^n + |A_{C,R}^n|)$.",
+                           "Total community-driver tail association. Equals the sum of all non-NA entries of $D^n$.",
+                           "Species-community tail association for species $i$. Equals the sum of non-NA entries of $C^n(i,j)$ over all $j$ for which data were available.",
+                           "Species-driver tail association. Equals the sum of non-NA entries of $D^n(i,k)$ over all $k$ for which data were available."
+                           ))
+  
+dt<-cbind(dt1,dt2)
+
+knitr::kable(dt, "latex", booktabs = T, linesep = "\\addlinespace",align="l", escape=F,
+      caption = "Notations used in the maintext. \\label{tab_notation}")%>%column_spec(2, width = "9 cm")
+#%>%add_header_above(header=c("Symbols" = 1, "Definition" = 1))
+```
 
 <!--
 # References
