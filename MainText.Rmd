@@ -732,12 +732,18 @@ across our `r length(res_ff$CorlmCoru_all_ln_list)` sampling locations
 (Fig. \ref{fig_plankton_scatter}B). Thus locations for which aphid first-flight time series
 showed greater left-tail (respectively, right-tail) association with winter temperature
 also showed a non-significant tendency toward greater left-tail (respectively, right-tail) association between
-the time series of distinct species. The correlation may have been non-significant for the aphid data
-simply because there were slightly fewer aphid sampling locations than there were 
-plankton locations.
-Nevertheless, when combined with the plankton result, this aphid result tends to support 
-the hypothesis that tail association between co-located species time series can be inherited from
-common tail association on environmental drivers. See also the subsequent results for aphids.
+the time series of distinct species. 
+<!--***DAN CHANGED: The correlation may have been non-significant for the aphid data
+-simply because there were slightly fewer aphid sampling locations than there were 
+-plankton locations.
+-Nevertheless, when combined with the plankton result, this aphid result tends to support 
+-the hypothesis that tail association between co-located species time series can be inherited from
+-common tail association on environmental drivers. See also the subsequent results for aphids.-->
+The correlation was close to significant for the aphid data, and 
+may have been non-significant simply because there were slightly fewer aphid sampling locations than there were 
+plankton locations. See also the subsequent results for aphids, which were significant and which support
+the same overall conclusons.
+<!--END OF NEW TEXT-->
 
 <!--\pagebreak
 \begin{centering}
