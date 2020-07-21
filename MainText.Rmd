@@ -49,8 +49,8 @@ seed<-101
 
 \noindent Standard methods for studying the association between two ecologically important variables
 provide only a small slice of the information content of the association, but
-methods are available, based on *copulas*, that provide comprehensive information.
-In particular, copula approaches can reveal
+<!--DAN CHANGED: methods--> statistical approaches<!--END CHANGES--> are available<!--DAN CHANGED:, based on *copulas*,--><!--END CHANGES--> that provide comprehensive information.
+In particular,<!--DAN CHANGED:copula--> available <!--END CHANGES-->approaches can reveal
 *tail associations*, i.e., accentuated or reduced associations 
 between the more extreme values of variables. We here study the nature 
 and causes of tail associations between phenological or population-density 
@@ -97,6 +97,7 @@ provide a similarly limited amount of information that neglects patterns of asso
 [@nelsen2006_copula; @Genest2007; @joe2014_dependence; @MaiScherer2017; @Anderson2018] that seem likely 
 to be ecologically important [@Ghosh_copula].
 
+<!--DAN CHANGED:
 The variables of Fig. \ref{pedagogfig}A
 (respectively, Fig. \ref{pedagogfig}B) are more strongly related in the left
 (respectively, right) portions of their distributions,
@@ -107,15 +108,34 @@ between values in the left or lower portions (respectively, the right or upper
 portions) of the two distributions, as in Fig. \ref{pedagogfig}A 
 (respectively, Fig. \ref{pedagogfig}B). Tail association is 
 a potentially important pattern of association
+that is not captured by standard correlation coefficients. -->
+The variables of Fig. \ref{pedagogfig}A
+(respectively, Fig. \ref{pedagogfig}B) are more strongly related in the left
+(respectively, right) portions of their distributions,
+thereby displaying asymmetric associations of the distribution tails, henceforth called
+asymmetric *tail association*. For two 
+positively associated variables, stronger association
+between values in the left or lower portions of the distributions of the variables is henceforth
+referred to as *left-tail association* (Fig. \ref{pedagogfig}A), whereas stronger association
+between values in the right or upper portions of the distributions of the variables is henceforth
+referred to as *right-tail association* (Fig. \ref{pedagogfig}B). The word "distribution"
+is sometimes omitted from the terminology, but implied. Tail association is 
+a potentially important pattern of association
 that is not captured by standard correlation coefficients. 
+<!--END MODIFIED TEXT-->
 
 Statistical approaches exist, however, that provide a complete description
 of the relationship between variables;  these approaches are based on the idea of the *copula*. 
 Tail associations are an important aspect of a copula approach to dependence,
 and tail association will be a focus of this paper.
-So we here give a conceptual flavor of copulas before subsequently focusing on 
-\emph{tail association}. 
-Copulas can be used to separate the 
+We here give a conceptual flavor of copulas before subsequently focusing on 
+tail association. <!--DAN CHANGED:-->We introduce copulas instead of proceding directly to 
+tail associations, for three reasons: to properly credit the copula ideas at the root of 
+our tail association tools, and the researchers who developed them;
+to indicate the origin of our tail association tools, so that future researchers
+seeking to generalize our approach will have a place to start; and to introduce ideas
+(normalized rank plots - see below) that are necessary to define our measures of
+tail association.<!--END MODIFIED TEXT--> Copulas can be used to separate the 
 information content of a bivariate dataset, $(x_t,y_t)$ for $t=1,\ldots,T$, 
 into two non-overlapping parts: the information in the marginal
 distributions (which is not about the association between the variables)
@@ -135,8 +155,11 @@ associations in the tails.
 The normalized rank plot reflects the copula structure of 
 $(x_t, y_t)$ [@Ghosh_copula; @Genest2007]. 
 Ranking makes the marginal distributions uniform, isolating only the information
-on association between the variables. It is likewise the purpose of copula approaches
+on association between the variables.<!--DAN CHANGED:--> @Genest2007 states that 
+inferences about dependence structures should always be based on ranks.<!--END MODIFICATION--> 
+It is likewise the purpose of copula approaches
 to separate association information from information on marginals.
+
 We emphasize that we have not here provided a formal definition of copulas, instead only 
 introducing the fundamental copula idea of separating dependence information from
 information on marginals.
@@ -156,7 +179,7 @@ between tail association and copulas.
 
 The study of @Ghosh_copula was a wide-ranging study of the importance, 
 causes and consequences of copula structures in associations between
-ecologically important variables. One of the main foci of that paper was 
+ecological variables. One of the main foci of that paper was 
 associations between fluctuations through time of 
 population density or phenological measurements of the same
 species in different locations. This study instead focuses on population
@@ -436,7 +459,9 @@ of the variables.
 Given two bounds $1\leq l_b < u_b \leq 1$, we define the boundary lines 
 $u+v=2l_b$ and $u+v=2u_b$ (Fig. \ref{pedagogfig}E), 
 which intersect the unit square on which 
-normalized ranks are plotted. 
+normalized ranks are plotted.<!--DAN MODIFIED:--> The partial Spearman correlation associated 
+with the bounds $l_b$ and $u_b$ will be the portion of the Spearman correlation attributable
+to the points that fall between these boundary lines.<!--END CHANGES-->
 The partial Spearman correlation for the
 band between these boundaries and within the unit square is
 \begin{equation}\label{eq.Cor}
@@ -459,6 +484,9 @@ $\cor_{l_{b_k},u_{b_k}}$ for any other choice of bands
 $(l_{b_k},u_{b_k})$ that partition $(0,1)$) equals the standard 
 Spearman correlation, as long as no points happen to lie exactly 
 on the bounds. 
+<!--DAN CHANGED:-->
+Notation is summarized in table \ref{SM-tab_notation}.
+<!--END OF NEW TEXT-->
 
 For each sampling location, $n$, we computed a matrix, $C^n$, which we call the 
 *community tail association matrix*, which quantifies
@@ -469,13 +497,13 @@ for sampling location $n$, for the $i^{\text{th}}$ species that was present in t
 cleaned data for location $n$, and for year $t$.
 We then defined the matrix $C^n$ 
 by defining $C^n(i,j)$ for two aphid or *Ceratium* 
-species $i,j$, as follows. $C^n(i,j)$ was not defined, or was defined to
-equal the missing-data space holder "NA", if $i=j$; or if the hypothesis
+species $i,j$, as follows. <!--DAN MODIFIED THE FOLLOWING TEXT-->First, $C^n(i,j)$ was not defined, or was defined to
+equal the missing-data space holder "NA", if one of three conditions held true: A) $i=j$; or if B) the hypothesis
 that $s_i^n(t)$ and $s_j^n(t)$ were independent could not be rejected 
 ($5\%$ level, using a test described by @Genest2007, implemented in the 
 function `BiCopIndTest` in the `VineCopula` package in R);
-or if independence was rejected but the Spearman correlation
-of $s_i^n(t)$ and $s_j^n(t)$ was negative. Otherwise we defined 
+or if C) independence was rejected but the Spearman correlation
+of $s_i^n(t)$ and $s_j^n(t)$ was negative.<!--END CHANGES--> Otherwise we defined 
 $C^n(i,j)=\cor_{0,b}(s_i^n(t),s_j^n(t))-\cor_{1-b,1}(s_i^n(t),s_j^n(t))$,
 where the partial Spearman correlations in this expression were computed
 over the times, $t$, for which data were available for location $n$.
@@ -496,6 +524,7 @@ The community tail association matrix $C^n$ is symmetric. The
 value $b=1/3$ was used for plankton locations, whereas $b=1/2$
 was used for aphid locations because aphid time series were shorter, and
 larger $b$ reduces sampling variation for our statistics [@Ghosh_copula].
+See Appendix \ref{SM-boundb} for more information on the choice of $b$.
 
 We also computed a matrix $D^n$, which we call the *community-driver tail association matrix*,
 which quantifies tail association between 
@@ -505,13 +534,15 @@ that operated at sampling location $n$ in year $t$ (winter temperature for an
 aphid sampling location, sea surface temperature or *C. finmarchicus* density
 for a *Ceratium* location). We then defined $D^n$ by defining 
 $D^n(i,k)$ for an aphid or *Ceratium* species $i$ and a covariate $k$,
-as follows. $D^n(i,k)$ was not defined, or was set to NA, if 
+as follows. <!--DAN MODIFIED THE FOLLOWING-->First, $D^n(i,k)$ was not defined, 
+or was set to NA, if 
 the hypothesis that $s_i^n(t)$ and $d_k^n(t)$ were independent could not 
-be rejected ($5\%$ level, `BiCopIndTest`). Otherwise, if  $s_i^n(t)$ and 
-$d_k^n(t)$ were positively associated (positive Spearman correlation)
-we set $D^n(i,k) = \cor_{0,b}(s_i^n(t),d_k^n(t))-\cor_{1-b,1}(s_i^n(t),d_k^n(t))$;
-and if  $s_i^n(t)$ and $d_k^n(t)$ were negatively associated, we set
-$D^n(i,k) = \cor_{0,b}(s_i^n(t),-d_k^n(t))-\cor_{1-b,1}(s_i^n(t),-d_k^n(t))$.
+be rejected ($5\%$ level, `BiCopIndTest`). Otherwise, we either: A) 
+set $D^n(i,k) = \cor_{0,b}(s_i^n(t),d_k^n(t))-\cor_{1-b,1}(s_i^n(t),d_k^n(t))$
+if  $s_i^n(t)$ and $d_k^n(t)$ were positively associated (positive Spearman correlation);
+or B) set $D^n(i,k) = \cor_{0,b}(s_i^n(t),-d_k^n(t))-\cor_{1-b,1}(s_i^n(t),-d_k^n(t))$
+if  $s_i^n(t)$ and $d_k^n(t)$ were negatively associated (negative Spearman 
+correlation).<!--END CHANGES-->
 For aphid first-flight time series, for which $k$ was always $1$ and 
 $d_k^n(t)$ was winter temperature in location $n$, associations between
 $s_i^n(t)$ and $d_k^n(t)$ were always negative when they were significant
@@ -796,7 +827,8 @@ right-tail) association with other aphid species.
 Our results show that synchronous population density or phenological time series
 of co-located species can very commonly show asymmetric tail association. For some sampling locations
 and species, tail association was predominantly in the left tails, and for others it was predominantly 
-in the right tails of time series distributions. The partial Spearman correlation presented
+in the right tails of time series distributions, showing a new kind of ecologically
+meaningful variation among ecosystems. The partial Spearman correlation presented
 by @Ghosh_copula is a simple and effective way to measure tail association for ecological applications.
 Our results also demonstrate a mechanism by which asymmetric tail association between species
 can arise: it can
@@ -874,16 +906,15 @@ of these time series can influence the stability of the community-total time ser
 Although our results are sufficient to show that tail associations are
 likely to be important for studies of community dynamics and stability, many 
 communities show not only synchronous dynamics between some species pairs 
-$x_{s_i,l}(t)$ and $x_{s_j,l}(t)$, but also compensatory dynamics between other pairs; 
-our *Ceratium* time series were almost entirely synchronous, so we could not study 
+$x_{s_i,l}(t)$ and $x_{s_j,l}(t)$, but also compensatory dynamics between other pairs. 
+Our *Ceratium* time series were almost entirely synchronous, so we could not study 
 the importance of tail association for compensatory dynamics.
 Next research steps should include the study of tail association between compensatory species
 within a local community. Furthermore, *Ceratium* are only part of the 
 phytoplankton community in UK seas. It may be advantageous for future work to use 
 data characterizing an entire competitive community. For instance, the data of @hallett2014 
-consitute annual abundances of all species of plant in an area; some species pairs show 
-synchronous and some show compensatory dynamics.
-
+consitute annual abundances of all species of plant in an area. In that dataset,
+some species pairs show synchronous and some show compensatory dynamics.
 
 <!--P: 7) para on how to deal with negatively associated variables in future work-->
 Studying asymmetry of tail association for negatively correlated species density time 
@@ -930,12 +961,14 @@ temperature and nutrient data in the
 extremes (this is tail association)
 could help us to better understand harmful blooms. Considering tail association
 may even produce improvements in statistics that have been 
-developed to serve as early warning signals of impending major changes in plankton
-communities and the lakes they inhabit [@guttal2008changing; @carpenter2011early; @butitta2017spatial], 
+developed to serve as early warning signals of impending major changes<!--DAN CHANGED:--> 
+(so-called "tipping points")<!--END CHANGES--> in plankton
+communities and the lakes they inhabit [@carpenter2011early; @butitta2017spatial], 
 since some established early warning statistics
-make use of skewness of population distributions. Tail association between
+make use of skewness of population distributions [@guttal2008changing]. Tail association between
 phytoplankton species is related to skewness of the total phytoplankton biomass
-time series, as described above.
+time series,<!--DAN CHANGED: as described above--> as described in an earlier Discussion
+paragraph.<!--END CHANGES-->
 
 <!--\begin{centering}
 \hspace{1 cm}
@@ -966,6 +999,19 @@ caterpillar abundance, and breeding phenology of great tits (*Parsus major*) and
 blue tits (*P. caeruleus*) collected in Wytham Woods, Oxford, and other locations in Europe
 [e.g., @Nilsson2006; @Savill2011; @Cole2017], or the extensive data collection 
 from multiple trophic levels of @Thackery2010.
+
+<!--DAN CHANGED-->
+One final idea for potentially valuable future research has to do with 
+combining our approach, based
+on tail associations, with other recent approaches which emphasize other statistical 
+aspects of the synchrony. For instance, research has now showed that synchrony and compensatory
+dynamics in communities have "timescale structure," i.e., the dynamics of two
+or more species can be synchronous on some timescales of analysis and compensatory on 
+others [@Keitt2006; @Vasseur2014; @Zhao2020]. How timescale specificity and tail associations
+interact is unknown, but potentially interesting. Multivariate copula 
+approaches [@joe2014_dependence; @Czado2019] may be useful
+in this and other future extensions of the work we have begun here.
+<!--END MODIFICATIONS-->
 
 <!--P: Link back to copulas, and conclude-->
 Our results extend the results of @Ghosh_copula. Those authors argued that considering 

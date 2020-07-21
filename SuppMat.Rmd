@@ -1,5 +1,5 @@
 ---
-title: "Supporting material : A new approach to interspecific synchrony in population ecology using tail association"
+title: "Supporting material: A new approach to interspecific synchrony in population ecology using tail association"
 author: "Shyamolina Ghosh, Lawrence W. Sheppard, Philip C. Reid, Daniel Reuman"
 fontsize: 12pt
 geometry: "left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm"
@@ -827,6 +827,17 @@ dev.off()
 ```
 
 
+# The bound $b$ \label{boundb}
+In order to mitigate multiple-testing problems, we selected, prior to any analyses, one 
+value of b for each dataset and used it. This is equivalent to selecting one statistic 
+(the one which corresponds to the value if b we selected) for each dataset and using it.
+We do not present and did not compute results for other values of $b$, in order to
+reduce the chance that some values of $b$ may produce "significant" results by chance 
+alone. The values of $b$ we selected for each dataset ($b=1/2$ for the aphid data and 
+$b=1/3$ for the plankton data) were based on the lengths of the datasets, and past
+experience on the performance of the tail association statistics for datasets of a given
+length.  
+
 <!--plankton results : sampling sites in map-->
 \begin{figure}[!h]
 \begin{center}
@@ -915,13 +926,13 @@ dt1<-tibble("Symbols" = c("$s_{i}^n(t)$",
 ))
 
 dt2<-tibble("Definition"=c("Data (population or phenological) for species $i$ in site $n$ at time $t$.",
-                           "Partial Spearman correlation measuring association of two time series within two bounds, $l_b,u_b$.",
-                           "Community tail association matrix for site $n$.",
-                           "Community-driver tail association matrix for site $n$.",
+                           "Partial Spearman correlation measuring association of two variables between the bounds $l_b$ and $u_b$",
+                           "Community tail association matrix for site $n$",
+                           "Community-driver tail association matrix for site $n$",
                            "Number of species pairs at site $\\textit{n}$ that showed stronger left- than right-tail associations. Equals the number of positive entries of $C^n$.",
                            "Number of species pairs at site $\\textit{n}$ that showed stronger right- than left-tail associations. Equals the number of negative entries of $C^n$.",
-                           "Sum of all positive entries of $C^n$.",
-                           "Sum of all negative entries of $C^n$.",
+                           "Sum of all positive entries of $C^n$",
+                           "Sum of all negative entries of $C^n$",
                            "Total community tail association. Equals $A_{C,L}^n + A_{C,R}^n$, i.e., the sum of all non-NA entries of $C^n$.",
                            "A normalized analogue of $A_{C,L}^n$. Equal to $A_{C,L}^n /(A_{C,L}^n + |A_{C,R}^n|)$.",
                            "A normalized analogue of $A_{C,R}^n$. Equal to $A_{C,R}^n /(A_{C,L}^n + |A_{C,R}^n|)$.",
@@ -933,7 +944,7 @@ dt2<-tibble("Definition"=c("Data (population or phenological) for species $i$ in
 dt<-cbind(dt1,dt2)
 
 knitr::kable(dt, "latex", booktabs = T, linesep = "\\addlinespace",align="l", escape=F,
-      caption = "Notations used in the maintext. \\label{tab_notation}")%>%column_spec(2, width = "9 cm")
+      caption = "Notation used in the main text. \\label{tab_notation}")%>%column_spec(2, width = "9 cm")
 #%>%add_header_above(header=c("Symbols" = 1, "Definition" = 1))
 ```
 
