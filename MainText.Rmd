@@ -90,7 +90,7 @@ provide only a small slice of the information content of the association.
 For instance, the two pairs of variables in Fig. \ref{pedagogfig}A, B have identical
 Pearson correlation coefficients, and also have identical Spearman correlation coefficients, 
 but nonetheless display
-very different patterns of association [@Ghosh_copula; @ghosh2020tail]. Correlations
+very different patterns of association [@Ghosh_copula; @ghosh2020tail].<!--***Shya CHANGED: added new citation of our Ecosphere paper.--> Correlations
 are not the only way to study associations,
 but they are very commonly used, and other standard methods in ecology
 provide a similarly limited amount of information that neglects patterns of association
