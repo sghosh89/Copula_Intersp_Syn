@@ -90,12 +90,12 @@ provide only a small slice of the information content of the association.
 For instance, the two pairs of variables in Fig. \ref{pedagogfig}A, B have identical
 Pearson correlation coefficients, and also have identical Spearman correlation coefficients, 
 but nonetheless display
-very different patterns of association [@Ghosh_copula]. Correlations
+very different patterns of association [@Ghosh_copula; @ghosh2020tail]. Correlations
 are not the only way to study associations,
 but they are very commonly used, and other standard methods in ecology
 provide a similarly limited amount of information that neglects patterns of association
 [@nelsen2006_copula; @Genest2007; @joe2014_dependence; @MaiScherer2017; @Anderson2018] that seem likely 
-to be ecologically important [@Ghosh_copula].
+to be ecologically important [@Ghosh_copula; @ghosh2020tail].<!--***Shya CHANGED: added new citation of our Ecosphere paper.-->
 
 <!--DAN CHANGED:
 The variables of Fig. \ref{pedagogfig}A
@@ -170,7 +170,7 @@ Copula approaches are applied
 widely and to great effect in fields such as finance and neuroscience [@Li2000; @Kim2008;
 @Serinaldi2008; @onken2009; @li2013; @Emura2016; @She2018; @Goswami2018], 
 but only rarely, so far, in ecology
-[@Valpine2014; @Anderson2018; @Popovic2019; @Ghosh_copula].
+[@Valpine2014; @Anderson2018; @Popovic2019; @Ghosh_copula; @ghosh2020tail].<!--***Shya CHANGED: new citation of our ecosphere paper added.-->
 The potential of copulas for
 improving ecological understanding was 
 argued by @Ghosh_copula, and those authors also introduced tail association as an important aspect
