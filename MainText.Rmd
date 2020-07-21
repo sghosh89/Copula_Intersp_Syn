@@ -773,7 +773,7 @@ the time series of distinct species.
 The correlation was close to significant for the aphid data, and 
 may have been non-significant simply because there were slightly fewer aphid sampling locations than there were 
 plankton locations. See also the subsequent results for aphids, which were significant and which support
-the same overall conclusons.
+the same overall conclusions.
 <!--END OF NEW TEXT-->
 
 <!--\pagebreak

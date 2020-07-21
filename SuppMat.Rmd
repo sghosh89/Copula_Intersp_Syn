@@ -826,7 +826,7 @@ par(op)
 dev.off()
 ```
 
-
+\newpage
 # The bound $b$ \label{boundb}
 In order to mitigate multiple-testing problems, we selected, prior to any analyses, one 
 value of b for each dataset and used it. This is equivalent to selecting one statistic 
