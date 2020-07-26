@@ -129,7 +129,7 @@ of the relationship between variables;  these approaches are based on the idea o
 Tail associations are an important aspect of a copula approach to dependence,
 and tail association will be a focus of this paper.
 We here give a conceptual flavor of copulas before subsequently focusing on 
-tail association. <!--DAN CHANGED:-->We introduce copulas instead of proceding directly to 
+tail association. <!--DAN CHANGED:-->We introduce copulas instead of proceeding directly to 
 tail associations, for three reasons: to properly credit the copula ideas at the root of 
 our tail association tools, and the researchers who developed them;
 to indicate the origin of our tail association tools, so that future researchers
@@ -340,7 +340,7 @@ res_cer<-readRDS("./Results/plankton_results/npa_stat_results/cor_npa_diff_plank
 Our population dataset comprised average annual 
 abundance estimates for 15 locations (Fig. \ref{SM-fig_plankton_map})
 in the North Sea and British seas for 4 species from the *Ceratium*
-genus of dinoflagelates, and for the generalist consumer copepod species
+genus of dinoflagellates, and for the generalist consumer copepod species
 *C. finmarchicus*, for the 56 years 1958 to 2013.
 These data were a subset of a larger dataset covering 22 taxa 
 and 26 locations, analyzed by @sheppard2017, @sheppard2019, and @Ghosh_copula.
@@ -558,7 +558,7 @@ positively associated with *Ceratium* time series in some sampling locations
 and negatively associated in others, it always showed the same sign of association
 with all *Ceratium* species within a location. 
 Using $-d_k^n(t)$ in place
-of $d_k^n(t)$ when negative associations with aphid or *Ceratium* data occured 
+of $d_k^n(t)$ when negative associations with aphid or *Ceratium* data occurred 
 allowed us to study asymmetry of tail association using methods developed with 
 positively associated variables in mind. 
 <!--***DAN: Lawrence got confused by the below text. I figured it was not essential here so removed it, storing
@@ -724,7 +724,7 @@ See Fig. \ref{SM-fig_CorlmCoru_plankton_all_loc}
 for analogous figures for the other sampling locations. 
 (C) The summary statistics $F_{C,L}$ and $F_{C,R}$ (see \nameref{Methods}) 
 for each site show that association between \emph{Ceratium} species was either 
-substantially dominanted by the left or right tails of \emph{Ceratium} distributions, with the
+substantially dominated by the left or right tails of \emph{Ceratium} distributions, with the
 exceptions of a few locations for which tail association was closer to symmetric. Site codes
 are colored red or blue depending on which of $F_{C,L}$ or $F_{C,R}$ had higher magnitude. Values are
 not plotted for site 3 because the hypothesis could not be rejected for that site
@@ -804,7 +804,7 @@ See Fig. \ref{SM-fig_CorlmCoru_ff_all_loc}
 for analogous figures for the other sampling locations. 
 (C) The summary statistics $F_{C,L}$ and $F_{C,R}$ (see \nameref{Methods}) 
 for each site show that association was either 
-dominanted by the right tails, or, for a few locations, 
+dominated by the right tails, or, for a few locations, 
 showed slightly more left-tail association. Site codes
 are colored red or blue depending on which of $F_{C,L}$ or $F_{C,R}$ had higher magnitude.}
 \label{fig_CorlmCoru_ff_map_loc2_5}
@@ -913,7 +913,7 @@ Next research steps should include the study of tail association between compens
 within a local community. Furthermore, *Ceratium* are only part of the 
 phytoplankton community in UK seas. It may be advantageous for future work to use 
 data characterizing an entire competitive community. For instance, the data of @hallett2014 
-consitute annual abundances of all species of plant in an area. In that dataset,
+constitute annual abundances of all species of plant in an area. In that dataset,
 some species pairs show synchronous and some show compensatory dynamics.
 
 <!--P: 7) para on how to deal with negatively associated variables in future work-->
@@ -1005,7 +1005,7 @@ One final idea for potentially valuable future research has to do with
 combining our approach, based
 on tail associations, with other recent approaches which emphasize other statistical 
 aspects of the synchrony. For instance, research has now showed that synchrony and compensatory
-dynamics in communities have "timescale structure," i.e., the dynamics of two
+dynamics in communities have "timescale structure", i.e., the dynamics of two
 or more species can be synchronous on some timescales of analysis and compensatory on 
 others [@Keitt2006; @Vasseur2014; @Zhao2020]. How timescale specificity and tail associations
 interact is unknown, but potentially interesting. Multivariate copula 
@@ -1022,7 +1022,7 @@ community ecology which we considered here.
 # Acknowledgments
 
 We thank the many contributors to the large datasets we used; D. Stevens and P. Verrier for 
-data extraction; and Joel E. Cohen, Lauren Hallet, and Jonathan Walter for helpful 
+data extraction; and Joel E. Cohen, Lauren Hallett, and Jonathan Walter for helpful 
 suggestions. We thank James Bell of the Rothamsted Insect Survey (RIS). The RIS, a UK Capability,
 is funded by the Biotechnology and Biological Sciences Research Council under the Core
 Capability Grant BBS/E/C/000J0200. SG, LWS and DCR were partly funded by US 
@@ -1124,7 +1124,7 @@ See Fig. \ref{SM-fig_CorlmCoru_ff_all_loc}
 for analogous figures for the other sampling locations. 
 (C) The summary statistics $F_{C,L}$ and $F_{C,R}$ (see \nameref{Methods}) 
 for each site show that association was either 
-dominanted by the right tails, or, for a few locations, 
+dominated by the right tails, or, for a few locations, 
 showed slightly more left-tail association. Site codes
 are colored red or blue depending on which of $F_{C,L}$ or $F_{C,R}$ had higher magnitude.
 \label{fig_CorlmCoru_ff_map_loc2_5}}
