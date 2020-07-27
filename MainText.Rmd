@@ -485,7 +485,7 @@ $(l_{b_k},u_{b_k})$ that partition $(0,1)$) equals the standard
 Spearman correlation, as long as no points happen to lie exactly 
 on the bounds. 
 <!--DAN CHANGED:-->
-Notation is summarized in table \ref{SM-tab_notation}.
+Notation is summarized in Table \ref{SM-tab_notation}.
 <!--END OF NEW TEXT-->
 
 For each sampling location, $n$, we computed a matrix, $C^n$, which we call the 
@@ -918,7 +918,7 @@ some species pairs show synchronous and some show compensatory dynamics.
 
 <!--P: 7) para on how to deal with negatively associated variables in future work-->
 Studying asymmetry of tail association for negatively correlated species density time 
-series will require slightly modified methods. The only negative association between aphid of *Ceratium* time series
+series will require slightly modified methods. The only negative association between aphid or *Ceratium* time series
 that occurred in our system was not analyzed. Negative associations between species time series and 
 the environmental covariates we considered were handled
 statistically by considering the positive association between the species time
@@ -1051,7 +1051,7 @@ but that differ markedly in the nature of the association. Panel A shows stronge
 and panel B shows the reverse. (C, D) Normalized rank plots 
 (see \nameref{Introduction}) for panels A and B, respectively. 
 (E, F) Graphics supporting the definitions of partial Spearman correlation and our statistic measuring 
-asymmetry of tail association (see \nameref{M&M}). This figure is similar in some respects to Figs 1 and 7 of Ghosh \emph{et al} (2020).}\label{pedagogfig}
+asymmetry of tail association (see \nameref{M&M}). This figure is similar in some respects to Figs 1 and 7 of Ghosh \emph{et al} (2020\textit{b}).}\label{pedagogfig}
 \end{center}
 \end{figure}
 <!--***DAN: Shyamolina, the citation here is not an autolink, I think we cannot
