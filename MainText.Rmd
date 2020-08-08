@@ -42,6 +42,9 @@ seed<-101
 \noindent \emph{Correspondence:} Daniel Reuman, 2101 Constant Ave, Lawrence, KS, 66047, reuman@ku.edu, 626 560 7084. 
 
 
+\noindent \emph{Short title/ Running head:} Interspecific synchrony and tail association
+
+
 
 \newpage
 
@@ -1036,8 +1039,11 @@ PCR provided the data and assisted with interpretation of results, and all autho
 and gave final approval for publication.
 
 # Data availability statement
-Plankton data are available from the Dryad Digital Repository https://doi.org/10.5061/dryad.rq3jc84 [@Sheppard2019data]. 
-Full code for the analyses are at \url{https://github.com/sghosh89/Copula_Intersp_Syn}.
+Plankton data are available from the Dryad Digital Repository https://doi.org/10.5061/dryad.rq3jc84 [@Sheppard2019data]. Full code for the analyses can be downloaded from Dryad Digital Repository https://datadryad.org/stash/share/eC20ojo_e9UTmXAoX1oq3kIfT3aY0iptcUqAk8MHrAA.  
+
+# Conflict of interest statement
+The authors declare no conflict of interest.
+
 
 
 <!-- Figure with float use, keeps fig at the end of ms-->
