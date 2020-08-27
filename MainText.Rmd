@@ -894,7 +894,7 @@ population with a tendency to "crash". The total population can
 be regarded as a landscape-level measure of the stability or variability of species 
 $s$, and is important, for instance, if species $s$ is a pest or an exploited species.
 For the same reasons, the skewness, through time, of the community-total time series
-$\sum_s x_{l,s}(t)$ is sensitive to the tail association between the $x_{s,l}(t)$ ($s=1,\ldots,S$),
+$\sum_s x_{s,l}(t)$ is sensitive to the tail association between the $x_{s,l}(t)$ ($s=1,\ldots,S$),
 which we have here studied. Right-tail 
 (respectively, left-tail) association again tends to produce right (respectively, left) skew in the total
 time series.
@@ -902,7 +902,7 @@ In this community context, the total is an aggregate property of the community, 
 this total has been used in an extensive literature [e.g., @hallett2014] to characterize community stability 
 through time. This literature has explored the effects of synchronous versus compensatory
 dynamics in the $x_{s,l}(t)$ ($s=1,\ldots,S$) on the stability of the total community time series,
-$\sum_s x_{l,s}(t)$. But our results show that, even if all the species time series 
+$\sum_s x_{s,l}(t)$. But our results show that, even if all the species time series 
 $x_{s,l}(t)$ ($s=1,\ldots,S$) are synchronous with each other, the tail association properties
 of these time series can influence the stability of the community-total time series. 
 
